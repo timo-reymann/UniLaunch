@@ -1,7 +1,11 @@
+using UniLaunch.Core.Storage;
+
 namespace UniLaunch.Core.Rules;
 
 public interface IRule
 {
+    public string Name { get; set; }
+
     /// <summary>
     /// Match checks if the rule matches given the execution context.
     /// </summary>

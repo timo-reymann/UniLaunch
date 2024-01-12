@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniLaunch.Core", "UniLaunch.Core\UniLaunch.Core.csproj", "{D8D080C6-A698-428E-B902-61ADF9545282}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniLaunch.Demo", "UniLaunch.Demo\UniLaunch.Demo.csproj", "{3FCAA58D-75B7-49EE-8110-810E92547555}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{D8D080C6-A698-428E-B902-61ADF9545282}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8D080C6-A698-428E-B902-61ADF9545282}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8D080C6-A698-428E-B902-61ADF9545282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FCAA58D-75B7-49EE-8110-810E92547555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FCAA58D-75B7-49EE-8110-810E92547555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FCAA58D-75B7-49EE-8110-810E92547555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FCAA58D-75B7-49EE-8110-810E92547555}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
