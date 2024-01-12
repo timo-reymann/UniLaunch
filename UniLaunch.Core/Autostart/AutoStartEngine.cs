@@ -1,28 +1,35 @@
+using UniLaunch.Core.Targets;
 using ExecutionContext = UniLaunch.Core.Rules.ExecutionContext;
 
 namespace UniLaunch.Core.Autostart;
 
 public class AutoStartEngine
 {
-    public AutostartConfiguration Configuration { get; private set; }
+    internal AutostartConfiguration Configuration { get; private set; }
+    internal ExecutionContext ExecutionContext { get; private set; }
 
     public AutoStartEngine(AutostartConfiguration configuration)
     {
         Configuration = configuration;
+        ExecutionContext = new ExecutionContext(DateTime.Now);
     }
 
-    public void Evaluate()
+    public IEnumerable<ITarget> GetTargets()
     {
         foreach (var entry in Configuration.Entries)
         {
-            var executionContext = new ExecutionContext(DateTime.Now);
-            var target = Configuration.Targets.First(t => t.Name == entry.TargetName);
-            var ruleSet = Configuration.RuleSets.First(rs => rs.Name == entry.RuleSetName);
-            var execute = ruleSet.Rules.All(rule => rule.Match(executionContext));
-            if (execute)
+            var ruleSet = Configuration.GetRuleSetByName(entry.RuleSetName)!;
+            if (ruleSet.MatchAll(ExecutionContext))
             {
-                target.Invoke();
+                yield return Configuration.GetTargetByName(entry.TargetName)!;
             }
         }
+    }
+
+    public List<Task> GetTargetInvokes()
+    {
+        return GetTargets()
+            .Select(target => target.Invoke())
+            .ToList();
     }
 }

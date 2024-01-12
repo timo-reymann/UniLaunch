@@ -5,4 +5,6 @@ public class RuleSet
 {
     public string Name { get; init; }
     public List<IRule> Rules { get; init; }
+
+    public bool MatchAll(ExecutionContext context) => Rules.All(r => r.Match(context));
 }

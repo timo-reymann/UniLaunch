@@ -11,10 +11,11 @@ public class ApplicationTarget : ITarget
 
     public string Name { get; set; }
 
-    public void Invoke()
+    public Task Invoke()
     {
         try
         {
+            Console.WriteLine($"Starting {Executable}");
             Process.Start(new ProcessStartInfo
             {
                 Arguments = Strings.Join(Arguments ?? Array.Empty<string>(), " "),
@@ -26,5 +27,7 @@ public class ApplicationTarget : ITarget
         {
             throw new TargetInvocationFailedException("Could not start application", e);
         }
+
+        return Task.CompletedTask;
     }
 }
