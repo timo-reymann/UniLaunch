@@ -14,7 +14,7 @@ public class AutoStartEngine
         ExecutionContext = new ExecutionContext(DateTime.Now);
     }
 
-    public IEnumerable<ITarget> GetTargets()
+    private IEnumerable<ITarget> GetTargets()
     {
         foreach (var entry in Configuration.Entries)
         {
@@ -26,10 +26,15 @@ public class AutoStartEngine
         }
     }
 
-    public List<Task> GetTargetInvokes()
+    private List<Task> GetTargetInvokes()
     {
         return GetTargets()
             .Select(target => target.Invoke())
             .ToList();
+    }
+
+    public void WaitForAllTargetsToLaunch()
+    {
+        Task.WaitAll(GetTargetInvokes().ToArray());
     }
 }

@@ -40,11 +40,8 @@ var config = new AutostartConfiguration()
 };
 
 var engine = new AutoStartEngine(config);
-Task.WaitAll(engine.GetTargetInvokes().ToArray());
-
-Console.WriteLine("Startup completed");
+engine.WaitForAllTargetsToLaunch();
 
 BinaryStorageProvider<AutostartConfiguration> storageProvider = new();
 storageProvider.Persist("autoStartConfig", config);
-config = storageProvider.Load("autoStartConfig");
-Console.WriteLine(config);
+storageProvider.Load("autoStartConfig");
