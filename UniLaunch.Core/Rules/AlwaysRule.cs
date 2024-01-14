@@ -1,12 +1,7 @@
 namespace UniLaunch.Core.Rules;
 
 [Serializable]
-public class AlwaysRule : IRule
+public class AlwaysRule : Rule
 {
-    public string Name { get; set; } = "AlwaysRule";
-
-    public bool Match(ExecutionContext context)
-    {
-        return true;
-    }
+    public override bool Match(ExecutionContext context) => true;
 }

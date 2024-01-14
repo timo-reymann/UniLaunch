@@ -7,15 +7,15 @@ var config = new AutostartConfiguration()
 {
     Targets =
     {
-        new ApplicationTarget
+        new ExecutableTarget
         {
             Name = "iTerm",
-            Executable = "/Applications/iTerm.app",
+            Executable = "/Applications/iTerm.app/Contents/MacOS/iTerm2"
         },
-        new ApplicationTarget
+        new ExecutableTarget
         {
             Name = "Slack",
-            Executable = "/Applications/Slack.app",
+            Executable = "/usr/bin/op1en"
         }
     },
     RuleSets =
@@ -23,11 +23,17 @@ var config = new AutostartConfiguration()
         new RuleSet
         {
             Name = "Always",
-            Rules = new List<IRule>
+            Rules = new List<Rule>
             {
-                new AlwaysRule
+                /* new WeekDayRule()
                 {
-                    Name = "Always"
+                    DaysToRun = new [] { DayOfWeek.Saturday }
+                }, */
+                new AlwaysRule(),
+                new TimeRule()
+                {
+                    StartRange = new(19, 20),
+                    EndRange = new(23, 30)
                 }
             }
         }
@@ -40,7 +46,16 @@ var config = new AutostartConfiguration()
 };
 
 var engine = new AutoStartEngine(config);
-engine.WaitForAllTargetsToLaunch();
+var results = await engine.WaitForAllTargetsToLaunch();
+foreach (var result in results)
+{
+    Console.WriteLine(result.Target.Name + " => " + result.Status);
+    if (result.Errors != null)
+        foreach (var resultError in result.Errors)
+        {
+            Console.WriteLine(resultError.Details);
+        }
+}
 
 BinaryStorageProvider<AutostartConfiguration> storageProvider = new();
 storageProvider.Persist("autoStartConfig", config);

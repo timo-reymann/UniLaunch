@@ -7,9 +7,9 @@ namespace UniLaunch.Core.Autostart;
 public class AutostartConfiguration
 {
     public List<RuleSet> RuleSets { get; set; } = new();
-    public List<ITarget> Targets { get; set; } = new();
+    public List<Target> Targets { get; set; } = new();
     public List<AutoStartEntry> Entries { get; set; } = new();
 
-    public ITarget? GetTargetByName(string name) => Targets.FirstOrDefault(t => t?.Name == name);
+    public Target? GetTargetByName(string name) => Targets.FirstOrDefault(t => t?.Name == name);
     public RuleSet? GetRuleSetByName(string name) => RuleSets.FirstOrDefault(rs => rs.Name == name);
 }
