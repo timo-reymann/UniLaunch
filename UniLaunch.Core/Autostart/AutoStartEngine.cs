@@ -8,8 +8,8 @@ public class AutoStartEngine
 {
     private AutostartConfiguration? Configuration { get; set; }
 
-    private List<Type> _enabledTargetTypes = new();
-    private List<Type> _enabledRuleTypes = new();
+    private HashSet<Type> _enabledTargetTypes = new();
+    private HashSet<Type> _enabledRuleTypes = new();
 
     private ExecutionContext CreateContext() => new ExecutionContext(DateTime.Now);
 

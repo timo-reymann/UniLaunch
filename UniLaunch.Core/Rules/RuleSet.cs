@@ -9,7 +9,7 @@ public class RuleSet
 
     public bool MatchAll(ExecutionContext context) => Rules.All(r => r.Match(context));
 
-    public bool MatchAll(ExecutionContext context, List<Type> enabledRuleTypes) =>
+    public bool MatchAll(ExecutionContext context, ISet<Type> enabledRuleTypes) =>
         Rules.Where(r => enabledRuleTypes.Contains(r.GetType()))
             .All(r => r.Match(context));
 }
