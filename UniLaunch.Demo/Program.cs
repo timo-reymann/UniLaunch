@@ -7,10 +7,10 @@ var config = new AutostartConfiguration()
 {
     Targets =
     {
-        new ExecutableTarget
+        new AppFileTarget()
         {
             Name = "iTerm",
-            Executable = "/Applications/iTerm.app/Contents/MacOS/iTerm2"
+            Path = "/Applications/iTer^m.app"
         },
         new ExecutableTarget
         {
@@ -49,12 +49,19 @@ var engine = new AutoStartEngine(config);
 var results = await engine.WaitForAllTargetsToLaunch();
 foreach (var result in results)
 {
-    Console.WriteLine(result.Target.Name + " => " + result.Status);
+    Console.Write(result.Target.Name + " => " + result.Status);
     if (result.Errors != null)
+    {
+        Console.Write("( ");
         foreach (var resultError in result.Errors)
         {
-            Console.WriteLine(resultError.Details);
+            Console.Write(resultError.Details?.Trim() ?? "N/A");
         }
+
+        Console.Write(" )");
+    }
+
+    Console.WriteLine();
 }
 
 JsonStorageProvider<AutostartConfiguration> storageProvider = new();

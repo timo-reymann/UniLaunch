@@ -9,7 +9,8 @@ public class JsonStorageProvider<T> : IStorageProvider<T>
 {
     private readonly JsonSerializerSettings _jsonSerializerSettings = new()
     {
-        ContractResolver = new CamelCasePropertyNamesContractResolver()
+        ContractResolver = new CamelCasePropertyNamesContractResolver(),
+        NullValueHandling = NullValueHandling.Ignore
     };
 
     public void Persist(string identifier, T data)

@@ -9,6 +9,7 @@ public class TargetConverter : PropertyBasedConverter
 
     protected override Dictionary<string, Type> TypeMapping { get; } = new()
     {
-        { "executable", typeof(ExecutableTarget) }
+        { "executable", typeof(ExecutableTarget) },
+        { "appFile", typeof(AppFileTarget) }
     };
 }

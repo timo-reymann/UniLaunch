@@ -3,13 +3,11 @@ using Microsoft.VisualBasic;
 
 namespace UniLaunch.Core.Targets;
 
-[Serializable]
-public class ExecutableTarget : Target
+public class AppFileTarget : Target
 {
-    public string? Executable { get; set; }
-    public string[]? Arguments { get; set; }
-
-    public override string ConfigName => "executable";
+    public override string ConfigName => "appFile";
+    
+    public string Path { get; set; }
 
     public override Task<TargetInvokeResult> Invoke()
     {
@@ -17,17 +15,21 @@ public class ExecutableTarget : Target
         {
             var process = Process.Start(new ProcessStartInfo
             {
-                Arguments = Strings.Join(Arguments ?? Array.Empty<string>(), " "),
                 UseShellExecute = false,
-                FileName = Executable ?? throw new TargetInvocationFailedException("Executable not set")
+                RedirectStandardError = true,
+                FileName = "/usr/bin/open",
+                Arguments = $"{Path}"
             });
-            if (process == null)
+            process.Start();
+
+            process.WaitForExit(3_000);
+            if (process.ExitCode != 0)
             {
                 return Task.FromResult(Error(new Error[]
                 {
-                    new("ProcessSpawnFailed")
+                    new("OpenFailed", process.StandardError.ReadToEnd())
                 }));
-            }
+            } 
         }
         catch (Exception e)
         {
