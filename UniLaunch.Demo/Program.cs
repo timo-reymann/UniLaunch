@@ -25,16 +25,16 @@ var config = new AutostartConfiguration()
             Name = "Always",
             Rules = new List<Rule>
             {
-                /* new WeekDayRule()
+                 new WeekDayRule()
                 {
                     DaysToRun = new [] { DayOfWeek.Saturday }
-                }, */
+                }, 
                 new AlwaysRule(),
-                /*new TimeRule()
+                new TimeRule()
                 {
                     StartRange = new(19, 20),
                     EndRange = new(23, 30)
-                }*/
+                }
             }
         }
     },

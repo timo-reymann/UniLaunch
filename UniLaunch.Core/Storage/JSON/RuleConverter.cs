@@ -10,6 +10,7 @@ public class RuleConverter : PropertyBasedConverter
     protected override Dictionary<string, Type> TypeMapping { get; } = new()
     {
         { "always", typeof(AlwaysRule) },
-        { "time", typeof(TimeRule) }
+        { "time", typeof(TimeRule) },
+        { "week-day", typeof(WeekDayRule) }
     };
 }

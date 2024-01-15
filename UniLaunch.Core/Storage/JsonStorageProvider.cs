@@ -13,7 +13,7 @@ public class JsonStorageProvider<T> : IStorageProvider<T>
         NullValueHandling = NullValueHandling.Ignore
     };
 
-    private string GetFileName(string identifier)
+    private static string GetFileName(string identifier)
     {
         return $"{identifier}.json";
     }
