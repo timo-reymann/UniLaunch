@@ -14,4 +14,6 @@ public class TimeRule : Rule
         context.InvocationTime.Hour <= EndRange.Hour &&
         context.InvocationTime.Minute >= StartRange.Minute &&
         context.InvocationTime.Minute <= EndRange.Minute;
+
+    public override string RuleName => "time";
 }

@@ -30,11 +30,11 @@ var config = new AutostartConfiguration()
                     DaysToRun = new [] { DayOfWeek.Saturday }
                 }, */
                 new AlwaysRule(),
-                new TimeRule()
+                /*new TimeRule()
                 {
                     StartRange = new(19, 20),
                     EndRange = new(23, 30)
-                }
+                }*/
             }
         }
     },
@@ -57,6 +57,7 @@ foreach (var result in results)
         }
 }
 
-BinaryStorageProvider<AutostartConfiguration> storageProvider = new();
+JsonStorageProvider<AutostartConfiguration> storageProvider = new();
 storageProvider.Persist("autoStartConfig", config);
-storageProvider.Load("autoStartConfig");
+config = storageProvider.Load("autoStartConfig");
+Console.WriteLine(config);

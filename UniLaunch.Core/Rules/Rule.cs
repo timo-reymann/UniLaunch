@@ -1,8 +1,10 @@
-using UniLaunch.Core.Storage;
+using Newtonsoft.Json;
+using UniLaunch.Core.Storage.JSON;
 
 namespace UniLaunch.Core.Rules;
 
 [Serializable]
+[JsonConverter(typeof(RuleConverter))]
 public abstract class Rule
 {
     /// <summary>
@@ -11,4 +13,6 @@ public abstract class Rule
     /// <param name="context">Context given to rule</param>
     /// <returns>True in case if the rule matches or False if not</returns>
     public abstract bool Match(ExecutionContext context);
+    
+    public abstract string RuleName { get; }
 }

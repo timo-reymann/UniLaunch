@@ -4,4 +4,5 @@ namespace UniLaunch.Core.Rules;
 public class AlwaysRule : Rule
 {
     public override bool Match(ExecutionContext context) => true;
+    public override string RuleName => "always";
 }

@@ -9,6 +9,8 @@ public class ExecutableTarget : Target
     public string? Executable { get; set; }
     public string[]? Arguments { get; set; }
 
+    public override string ConfigName => "executable";
+
     public override Task<TargetInvokeResult> Invoke()
     {
         try

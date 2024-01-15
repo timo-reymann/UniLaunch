@@ -7,6 +7,6 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <PackageReference Include="Tomlyn" />
+        <PackageReference Include="Newtonsoft.Json" />
     </ItemGroup>
 </Project>

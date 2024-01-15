@@ -1,9 +1,16 @@
+using Newtonsoft.Json;
+using UniLaunch.Core.Storage;
+using UniLaunch.Core.Storage.JSON;
+
 namespace UniLaunch.Core.Targets;
 
+[JsonConverter(typeof(TargetConverter))]
 [Serializable]
 public abstract class Target
 {
     public string Name { get; set; }
+    
+    public abstract string ConfigName { get; }
 
     /// <summary>
     /// Start up the given target. The implementation must start the target detached.
