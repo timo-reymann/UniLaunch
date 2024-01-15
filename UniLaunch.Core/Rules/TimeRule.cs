@@ -1,19 +1,17 @@
 namespace UniLaunch.Core.Rules;
 
 [Serializable]
-public record HourMinute(byte Hour, byte Minute);
-
-[Serializable]
 public class TimeRule : Rule
 {
-    public HourMinute StartRange { get; set; }
-    public HourMinute EndRange { get; set; }
+    public TimeOnly StartRange { get; set; }
+    public TimeOnly EndRange { get; set; }
     
     public override bool Match(ExecutionContext context) =>
-        context.InvocationTime.Hour >= StartRange.Hour &&
-        context.InvocationTime.Hour <= EndRange.Hour &&
-        context.InvocationTime.Minute >= StartRange.Minute &&
-        context.InvocationTime.Minute <= EndRange.Minute;
+        IsWithinRange(context.InvocationTime);
+
+    private bool IsWithinRange(DateTime executionTime) =>
+        executionTime.TimeOfDay >= TimeSpan.FromHours(StartRange.Hour) + TimeSpan.FromMinutes(StartRange.Minute)
+        && executionTime.TimeOfDay <= TimeSpan.FromHours(EndRange.Hour) + TimeSpan.FromMinutes(EndRange.Minute);
 
     public override string RuleName => "time";
 }
