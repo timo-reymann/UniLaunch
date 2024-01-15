@@ -3,9 +3,8 @@ using Newtonsoft.Json.Linq;
 
 namespace UniLaunch.Core.Storage.JSON;
 
-public abstract class PropertyBasedConverter : JsonConverter
+public abstract class PropertyBasedConverter<T> : JsonConverter
 {
-    protected abstract Type TypeToSerialize { get; }
     protected abstract Dictionary<string, Type> TypeMapping { get; }
     protected abstract string PropertyName { get; }
 
@@ -14,7 +13,7 @@ public abstract class PropertyBasedConverter : JsonConverter
 
     public override bool CanConvert(Type objectType)
     {
-        return objectType == TypeToSerialize;
+        return objectType == typeof(T);
     }
 
     public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)

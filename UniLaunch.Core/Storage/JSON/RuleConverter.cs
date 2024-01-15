@@ -2,10 +2,9 @@ using UniLaunch.Core.Rules;
 
 namespace UniLaunch.Core.Storage.JSON;
 
-public class RuleConverter : PropertyBasedConverter
+public class RuleConverter : PropertyBasedConverter<Rule>
 {
     protected override string PropertyName => "ruleName";
-    protected override Type TypeToSerialize { get; } = typeof(Rule);
 
     protected override Dictionary<string, Type> TypeMapping { get; } = new()
     {
