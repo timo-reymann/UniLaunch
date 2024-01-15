@@ -1,3 +1,5 @@
+using System.Net.Mail;
+using UniLaunch.Core.Rules;
 using UniLaunch.Core.Targets;
 using ExecutionContext = UniLaunch.Core.Rules.ExecutionContext;
 
@@ -5,25 +7,54 @@ namespace UniLaunch.Core.Autostart;
 
 public class AutoStartEngine
 {
-    internal AutostartConfiguration Configuration { get; private set; }
-    internal ExecutionContext ExecutionContext { get; private set; }
+    private AutostartConfiguration? Configuration { get; set; }
 
-    public AutoStartEngine(AutostartConfiguration configuration)
-    {
-        Configuration = configuration;
-        ExecutionContext = new ExecutionContext(DateTime.Now);
-    }
+    private List<Type> _enabledTargetTypes = new();
+    private List<Type> _enabledRuleTypes = new();
+
+    private ExecutionContext CreateContext() => new ExecutionContext(DateTime.Now);
 
     private IEnumerable<Target> GetTargets()
     {
+        if (Configuration == null)
+        {
+            yield break;
+        }
+
+        var executionContext = CreateContext();
+
         foreach (var entry in Configuration.Entries)
         {
             var ruleSet = Configuration.GetRuleSetByName(entry.RuleSetName)!;
-            if (ruleSet.MatchAll(ExecutionContext))
+            if (!ruleSet.MatchAll(executionContext, _enabledRuleTypes))
             {
-                yield return Configuration.GetTargetByName(entry.TargetName)!;
+                continue;
+            }
+
+            var target = Configuration.GetTargetByName(entry.TargetName)!;
+            if (_enabledTargetTypes.Contains(target.GetType()))
+            {
+                yield return target;
             }
         }
+    }
+
+    public AutoStartEngine RegisterTarget<T>() where T : Target
+    {
+        _enabledTargetTypes.Add(typeof(T));
+        return this;
+    }
+
+    public AutoStartEngine RegisterRule<T>() where T : Rule
+    {
+        _enabledRuleTypes.Add(typeof(T));
+        return this;
+    }
+
+    public AutoStartEngine ApplyConfiguration(AutostartConfiguration config)
+    {
+        Configuration = config;
+        return this;
     }
 
     private List<Task<TargetInvokeResult>> GetTargetInvokes()
@@ -33,5 +64,5 @@ public class AutoStartEngine
             .ToList();
     }
 
-    public  Task<TargetInvokeResult[]> WaitForAllTargetsToLaunch() => Task.WhenAll(GetTargetInvokes());
+    public Task<TargetInvokeResult[]> WaitForAllTargetsToLaunch() => Task.WhenAll(GetTargetInvokes());
 }

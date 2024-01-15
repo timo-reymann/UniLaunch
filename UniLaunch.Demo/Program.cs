@@ -7,10 +7,10 @@ var config = new AutostartConfiguration()
 {
     Targets =
     {
-        new AppFileTarget()
+        new AppFileTarget
         {
             Name = "iTerm",
-            Path = "/Applications/iTer^m.app"
+            Path = "/Applications/iTerm.app"
         },
         new ExecutableTarget
         {
@@ -25,14 +25,14 @@ var config = new AutostartConfiguration()
             Name = "Always",
             Rules = new List<Rule>
             {
-                 new WeekDayRule()
+                new WeekDayRule()
                 {
                     DaysToRun = new [] { DayOfWeek.Saturday }
-                }, 
+                },
                 new AlwaysRule(),
                 new TimeRule()
                 {
-                    StartRange = new(19, 20),
+                    StartRange = new(08, 20),
                     EndRange = new(23, 30)
                 }
             }
@@ -45,9 +45,18 @@ var config = new AutostartConfiguration()
     },
 };
 
-var engine = new AutoStartEngine(config);
-var results = await engine.WaitForAllTargetsToLaunch();
-foreach (var result in results)
+var engine = new AutoStartEngine()
+    // Register all activated targerts
+    .RegisterTarget<AppFileTarget>()
+    .RegisterTarget<ExecutableTarget>()
+    // Register builtin rules
+    .RegisterRule<AlwaysRule>()
+    .RegisterRule<TimeRule>()
+    .RegisterRule<WeekDayRule>()
+    // Load configuration
+    .ApplyConfiguration(config);
+
+foreach (var result in await engine.WaitForAllTargetsToLaunch())
 {
     Console.Write(result.Target.Name + " => " + result.Status);
     if (result.Errors != null)
