@@ -1,4 +1,3 @@
-using System.Net.Mail;
 using UniLaunch.Core.Rules;
 using UniLaunch.Core.Targets;
 using ExecutionContext = UniLaunch.Core.Rules.ExecutionContext;

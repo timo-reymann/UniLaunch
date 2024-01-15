@@ -27,7 +27,7 @@ var config = new AutostartConfiguration()
             {
                 new WeekDayRule()
                 {
-                    DaysToRun = new [] { DayOfWeek.Saturday }
+                    DaysOfWeekToRun = new [] { DayOfWeek.Saturday }
                 },
                 new AlwaysRule(),
                 new TimeRule()

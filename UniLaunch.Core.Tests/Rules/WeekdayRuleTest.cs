@@ -19,7 +19,7 @@ public class WeekDayRuleTests
         // Arrange
         var rule = new WeekDayRule
         {
-            DaysToRun = new[] { DayOfWeek.Monday, DayOfWeek.Wednesday, DayOfWeek.Friday }
+            DaysOfWeekToRun = new[] { DayOfWeek.Monday, DayOfWeek.Wednesday, DayOfWeek.Friday }
         };
 
         var context = ContextFixtures.At(invocationDay);
