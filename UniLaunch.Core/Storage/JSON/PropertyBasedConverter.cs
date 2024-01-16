@@ -1,20 +1,27 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using YamlDotNet.Core;
-using YamlDotNet.Serialization;
 
 namespace UniLaunch.Core.Storage.JSON;
 
-public abstract class PropertyBasedConverter<T> : JsonConverter, IYamlTypeConverter
+public class PropertyBasedConverter : JsonConverter
 {
-    protected abstract Dictionary<string, Type> TypeMapping { get; }
-    protected abstract string PropertyName { get; }
+    public PropertyBasedConverter(string propertyName, Dictionary<string, Type> typeMapping, Type baseType)
+    {
+        TypeMapping = typeMapping;
+        BaseType = baseType;
+        PropertyName = propertyName;
+    }
+
+    protected Type BaseType { get; set; }
+
+    protected Dictionary<string, Type> TypeMapping { get; }
+    protected string PropertyName { get; }
 
     public override bool CanWrite => false;
     public override bool CanRead => true;
 
-    public override bool CanConvert(Type objectType) => objectType == typeof(T);
-    public bool Accepts(Type type) => type == typeof(T);
+    public override bool CanConvert(Type objectType) => objectType == BaseType;
+    public bool Accepts(Type type) => type == BaseType;
 
     public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
     {
@@ -29,16 +36,5 @@ public abstract class PropertyBasedConverter<T> : JsonConverter, IYamlTypeConver
 
         serializer.Populate(jsonObject.CreateReader(), rule);
         return rule;
-    }
-
-
-    public object? ReadYaml(IParser parser, Type type)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void WriteYaml(IEmitter emitter, object? value, Type type)
-    {
-        throw new NotImplementedException();
     }
 }

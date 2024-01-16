@@ -1,4 +1,3 @@
-using System.Collections.ObjectModel;
 using Newtonsoft.Json.Serialization;
 using UniLaunch.Core.Storage.JSON;
 
@@ -13,11 +12,18 @@ public class JsonStorageProvider<T> : IStorageProvider<T>
     {
         ContractResolver = new CamelCasePropertyNamesContractResolver(),
         NullValueHandling = NullValueHandling.Ignore,
-        Converters = new Collection<JsonConverter>()
-        {
-            new RuleConverter(),
-            new TargetConverter()
-        }
+        Converters = CustomTypeRegistry.TypeMapping
+            .Select(mapping => new PropertyBasedConverter(
+                mapping.Value.Property,
+                mapping.Value.ValueMapping,
+                mapping.Key)
+            )
+            .ToArray()
+            .Concat(new JsonConverter[]
+            {
+                new TimeOnlyConverter(),
+                new WeekDayConverter()
+            }).ToList()
     };
 
     private static string GetFileName(string identifier)
