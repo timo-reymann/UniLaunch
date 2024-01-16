@@ -1,10 +1,5 @@
-using Newtonsoft.Json;
-using UniLaunch.Core.Storage;
-using UniLaunch.Core.Storage.JSON;
-
 namespace UniLaunch.Core.Targets;
 
-[JsonConverter(typeof(TargetConverter))]
 [Serializable]
 public abstract class Target
 {

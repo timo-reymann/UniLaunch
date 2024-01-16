@@ -4,7 +4,6 @@ using UniLaunch.Core.Storage.JSON;
 namespace UniLaunch.Core.Rules;
 
 [Serializable]
-[JsonConverter(typeof(RuleConverter))]
 public abstract class Rule
 {
     /// <summary>

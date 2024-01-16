@@ -1,4 +1,6 @@
+using System.Collections.ObjectModel;
 using Newtonsoft.Json.Serialization;
+using UniLaunch.Core.Storage.JSON;
 
 namespace UniLaunch.Core.Storage;
 
@@ -10,7 +12,12 @@ public class JsonStorageProvider<T> : IStorageProvider<T>
     private readonly JsonSerializerSettings _jsonSerializerSettings = new()
     {
         ContractResolver = new CamelCasePropertyNamesContractResolver(),
-        NullValueHandling = NullValueHandling.Ignore
+        NullValueHandling = NullValueHandling.Ignore,
+        Converters = new Collection<JsonConverter>()
+        {
+            new RuleConverter(),
+            new TargetConverter()
+        }
     };
 
     private static string GetFileName(string identifier)
@@ -27,12 +34,12 @@ public class JsonStorageProvider<T> : IStorageProvider<T>
     public T Load(string identifier)
     {
         var fileName = GetFileName(identifier);
-        
+
         if (!File.Exists(fileName))
         {
             throw new StorageException($"Could not find file {fileName}");
         }
-        
+
         var json = File.ReadAllText(fileName);
         return JsonConvert.DeserializeObject<T>(json, _jsonSerializerSettings)!;
     }

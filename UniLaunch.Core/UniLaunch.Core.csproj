@@ -8,5 +8,6 @@
     
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" />
+        <PackageReference Include="YamlDotNet" />
     </ItemGroup>
 </Project>
