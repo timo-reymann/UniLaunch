@@ -5,7 +5,7 @@ public abstract class Target
 {
     public string Name { get; set; }
     
-    public abstract string ConfigName { get; }
+    public abstract string TargetType { get; }
 
     /// <summary>
     /// Start up the given target. The implementation must start the target detached.

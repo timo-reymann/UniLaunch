@@ -7,9 +7,9 @@ namespace UniLaunch.Core.Targets;
 public class ExecutableTarget : Target
 {
     public string? Executable { get; set; }
-    public string[]? Arguments { get; set; }
+    public string[]? Arguments { get; set; } = null;
 
-    public override string ConfigName => "executable";
+    public override string TargetType => "executable";
 
     public override Task<TargetInvokeResult> Invoke()
     {

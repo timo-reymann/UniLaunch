@@ -22,7 +22,7 @@ var config = new AutostartConfiguration()
     {
         new RuleSet
         {
-            Name = "Always",
+            Name = "Default",
             Rules = new List<Rule>
             {
                 new WeekDayRule()
@@ -40,8 +40,8 @@ var config = new AutostartConfiguration()
     },
     Entries =
     {
-        new AutoStartEntry("Always", "iTerm"),
-        new AutoStartEntry("Always", "Slack")
+        new AutoStartEntry("Default", "iTerm"),
+        new AutoStartEntry("Default", "Slack")
     },
 };
 
@@ -73,7 +73,7 @@ foreach (var result in await engine.WaitForAllTargetsToLaunch())
     Console.WriteLine();
 }
 
-JsonStorageProvider<AutostartConfiguration> storageProvider = new();
+YamlStorageProvider<AutostartConfiguration> storageProvider = new();
 storageProvider.Persist("autoStartConfig", config);
 config = storageProvider.Load("autoStartConfig");
 Console.WriteLine(config);

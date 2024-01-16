@@ -15,7 +15,7 @@ public static class CustomTypeRegistry
         {
             typeof(Target),
             new Mapping(
-                "configName",
+                "targetType",
                 new Dictionary<string, Type>
                 {
                     { "executable", typeof(ExecutableTarget) },

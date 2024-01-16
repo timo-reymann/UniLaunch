@@ -5,7 +5,7 @@ namespace UniLaunch.Core.Targets;
 
 public class AppFileTarget : Target
 {
-    public override string ConfigName => "appFile";
+    public override string TargetType => "appFile";
     
     public string Path { get; set; }
 
