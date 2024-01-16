@@ -1,6 +1,9 @@
+using UniLaunch.Core.Storage;
+
 namespace UniLaunch.Core.Targets;
 
 [Serializable]
+[PropertyBasedSerialization("targetType")]
 public abstract class Target
 {
     public string Name { get; set; }

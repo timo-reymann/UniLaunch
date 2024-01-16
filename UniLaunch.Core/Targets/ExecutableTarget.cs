@@ -1,9 +1,10 @@
 using System.Diagnostics;
 using Microsoft.VisualBasic;
+using UniLaunch.Core.Storage;
 
 namespace UniLaunch.Core.Targets;
 
-[Serializable]
+[PropertyValueForSerialization("executable")]
 public class ExecutableTarget : Target
 {
     public string? Executable { get; set; }

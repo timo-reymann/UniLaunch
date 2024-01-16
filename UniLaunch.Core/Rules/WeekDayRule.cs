@@ -1,6 +1,8 @@
+using UniLaunch.Core.Storage;
+
 namespace UniLaunch.Core.Rules;
 
-[Serializable]
+[PropertyValueForSerialization("week-day")]
 public class WeekDayRule : Rule
 {
     public DayOfWeek[] DaysOfWeekToRun { get; set; }

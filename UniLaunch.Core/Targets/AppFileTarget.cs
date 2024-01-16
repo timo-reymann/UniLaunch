@@ -1,12 +1,13 @@
 using System.Diagnostics;
-using Microsoft.VisualBasic;
+using UniLaunch.Core.Storage;
 
 namespace UniLaunch.Core.Targets;
 
+[PropertyValueForSerialization("appFile")]
 public class AppFileTarget : Target
 {
     public override string TargetType => "appFile";
-    
+
     public string Path { get; set; }
 
     public override Task<TargetInvokeResult> Invoke()
@@ -29,7 +30,7 @@ public class AppFileTarget : Target
                 {
                     new("OpenFailed", process.StandardError.ReadToEnd())
                 }));
-            } 
+            }
         }
         catch (Exception e)
         {
@@ -38,4 +39,5 @@ public class AppFileTarget : Target
 
         return Task.FromResult(Success());
     }
+
 }

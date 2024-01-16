@@ -21,7 +21,7 @@ public class YamlStorageProvider<T> : IStorageProvider<T>
             {
                 addKeyValueTypeDiscriminator
                     .MakeGenericMethod(mapping.Key)
-                    .Invoke(o, new object[] { mapping.Value.Property, mapping.Value.ValueMapping });
+                    .Invoke(o, new object[] { mapping.Value.Property, mapping.Value.ValueTypeMapping });
             }
         })
         .Build();

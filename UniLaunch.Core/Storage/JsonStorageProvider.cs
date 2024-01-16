@@ -15,7 +15,7 @@ public class JsonStorageProvider<T> : IStorageProvider<T>
         Converters = CustomTypeRegistry.TypeMapping
             .Select(mapping => new PropertyBasedConverter(
                 mapping.Value.Property,
-                mapping.Value.ValueMapping,
+                mapping.Value.ValueTypeMapping,
                 mapping.Key)
             )
             .ToArray()

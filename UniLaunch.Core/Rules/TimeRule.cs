@@ -1,6 +1,8 @@
+using UniLaunch.Core.Storage;
+
 namespace UniLaunch.Core.Rules;
 
-[Serializable]
+[PropertyValueForSerialization("time")]
 public class TimeRule : Rule
 {
     public TimeOnly StartRange { get; set; }

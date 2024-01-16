@@ -1,4 +1,6 @@
+using System.ComponentModel;
 using UniLaunch.Core.Rules;
+using UniLaunch.Core.Storage;
 using UniLaunch.Core.Targets;
 using ExecutionContext = UniLaunch.Core.Rules.ExecutionContext;
 
@@ -40,13 +42,17 @@ public class AutoStartEngine
 
     public AutoStartEngine RegisterTarget<T>() where T : Target
     {
-        _enabledTargetTypes.Add(typeof(T));
+        var targetType = typeof(T);
+        _enabledTargetTypes.Add(targetType);
+        CustomTypeRegistry.Register(targetType);
         return this;
     }
 
     public AutoStartEngine RegisterRule<T>() where T : Rule
     {
-        _enabledRuleTypes.Add(typeof(T));
+        var ruleType = typeof(T);
+        _enabledRuleTypes.Add(ruleType);
+        CustomTypeRegistry.Register(ruleType);
         return this;
     }
 

@@ -1,39 +1,43 @@
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using UniLaunch.Core.Rules;
 using UniLaunch.Core.Targets;
 
 namespace UniLaunch.Core.Storage;
 
-public record Mapping(
+public record PropertyNameValueTypeMapping(
     string Property,
-    Dictionary<string, Type> ValueMapping
+    PropertyValueTypeMapping ValueTypeMapping
 );
+
+public class PropertyValueTypeMapping : Dictionary<string, Type>
+{
+}
 
 public static class CustomTypeRegistry
 {
-    public static readonly Dictionary<Type, Mapping> TypeMapping = new()
+    public static void Register(Type type)
     {
+        var baseType = type.BaseType!;
+
+        var propertyName = type
+            .GetCustomAttribute<PropertyBasedSerialization>(true)!
+            .PropertyName;
+
+        var propertyValue = type
+            .GetCustomAttribute<PropertyValueForSerialization>(true)!
+            .Value;
+
+        if (
+            !TypeMapping.TryAdd(
+                baseType,
+                new PropertyNameValueTypeMapping(propertyName, new PropertyValueTypeMapping()
+                    { { propertyValue, type } }))
+        )
         {
-            typeof(Target),
-            new Mapping(
-                "targetType",
-                new Dictionary<string, Type>
-                {
-                    { "executable", typeof(ExecutableTarget) },
-                    { "appFile", typeof(AppFileTarget) }
-                }
-            )
-        },
-        {
-            typeof(Rule),
-            new Mapping(
-                "ruleName",
-                new Dictionary<string, Type>
-                {
-                    { "always", typeof(AlwaysRule) },
-                    { "time", typeof(TimeRule) },
-                    { "week-day", typeof(WeekDayRule) }
-                }
-            )
+            TypeMapping[baseType].ValueTypeMapping.Add(propertyValue, type);
         }
-    };
+    }
+
+    public static readonly Dictionary<Type, PropertyNameValueTypeMapping> TypeMapping = new();
 }
