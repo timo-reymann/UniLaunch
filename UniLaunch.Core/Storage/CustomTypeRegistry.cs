@@ -10,7 +10,7 @@ public record Mapping(
 
 public static class CustomTypeRegistry
 {
-    public static Dictionary<Type, Mapping> TypeMapping = new()
+    public static readonly Dictionary<Type, Mapping> TypeMapping = new()
     {
         {
             typeof(Target),
