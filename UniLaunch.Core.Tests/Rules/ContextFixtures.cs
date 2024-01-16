@@ -19,4 +19,9 @@ public static class ContextFixtures
         var baseDate = new DateTime(1999, 1, 1);
         return At(baseDate.AddDays((int)dayOfWeek - (int)baseDate.DayOfWeek));
     }
+
+    public static ExecutionContext At(TimeOnly time)
+    {
+        return At(new DateTime(1999, 1, 1, time.Hour, time.Minute, time.Second));
+    }
 }

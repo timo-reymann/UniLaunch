@@ -1,15 +1,15 @@
 using UniLaunch.Core.Rules;
-using ExecutionContext = UniLaunch.Core.Rules.ExecutionContext;
 
 namespace UniLaunch.Core.Tests.Rules;
+
 using System;
 using Xunit;
 
 public class TimeRuleTests
 {
     [Theory]
-    [InlineData(10, 30, 12, 45, 10, 30)] 
-    [InlineData(8, 0, 9, 0, 8, 45)] 
+    [InlineData(10, 30, 12, 45, 10, 30)]
+    [InlineData(8, 0, 9, 0, 8, 45)]
     [InlineData(18, 0, 20, 0, 20, 0)]
     public void Match_ReturnsTrue_WhenInvocationTimeWithinRange(
         byte startHour, byte startMinute, byte endHour, byte endMinute, byte invocationHour, byte invocationMinute)
@@ -21,7 +21,7 @@ public class TimeRuleTests
             EndRange = new TimeOnly(endHour, endMinute)
         };
 
-        var context = ContextFixtures.At(new DateTime(2022, 1, 1, invocationHour, invocationMinute, 0));
+        var context = ContextFixtures.At(new TimeOnly(invocationHour, invocationMinute));
 
         // Act & Assert
         Assert.True(rule.Match(context));
@@ -41,7 +41,7 @@ public class TimeRuleTests
             EndRange = new TimeOnly(endHour, endMinute)
         };
 
-        var context = ContextFixtures.At(new DateTime(2022, 1, 1, invocationHour, invocationMinute, 0));
+        var context = ContextFixtures.At(new TimeOnly(invocationHour, invocationMinute));
 
         // Act & Assert
         Assert.False(rule.Match(context));
