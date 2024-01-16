@@ -6,7 +6,7 @@ namespace UniLaunch.Core.Storage;
 using Newtonsoft.Json;
 using System.IO;
 
-public class JsonStorageProvider<T> : IStorageProvider<T>
+public class JsonStorageProvider<T> : StorageProvider<T>
 {
     private readonly JsonSerializerSettings _jsonSerializerSettings = new()
     {
@@ -26,27 +26,13 @@ public class JsonStorageProvider<T> : IStorageProvider<T>
             }).ToList()
     };
 
-    private static string GetFileName(string identifier)
+    public override void Persist(string identifier, T data)
     {
-        return $"{identifier}.json";
+        WriteFile(identifier, JsonConvert.SerializeObject(data, Formatting.Indented, _jsonSerializerSettings));
     }
 
-    public void Persist(string identifier, T data)
-    {
-        var json = JsonConvert.SerializeObject(data, Formatting.Indented, _jsonSerializerSettings);
-        File.WriteAllText(GetFileName(identifier), json);
-    }
+    public override T Load(string identifier) => 
+        JsonConvert.DeserializeObject<T>(GetFileContents(identifier), _jsonSerializerSettings)!;
 
-    public T Load(string identifier)
-    {
-        var fileName = GetFileName(identifier);
-
-        if (!File.Exists(fileName))
-        {
-            throw new StorageException($"Could not find file {fileName}");
-        }
-
-        var json = File.ReadAllText(fileName);
-        return JsonConvert.DeserializeObject<T>(json, _jsonSerializerSettings)!;
-    }
+    protected override string GetFilePath(string identifier) => CreateFilePath(identifier, "json");
 }

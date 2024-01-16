@@ -53,6 +53,9 @@ var engine = new AutoStartEngine()
     .RegisterRule<AlwaysRule>()
     .RegisterRule<TimeRule>()
     .RegisterRule<WeekDayRule>()
+    // Storage provider registration
+    .RegisterStorageProvider<YamlStorageProvider<AutostartConfiguration>>(true)
+    .RegisterStorageProvider<JsonStorageProvider<AutostartConfiguration>>()
     // Load configuration
     .ApplyConfiguration(config);
 
@@ -73,7 +76,6 @@ foreach (var result in await engine.WaitForAllTargetsToLaunch())
     Console.WriteLine();
 }
 
-YamlStorageProvider<AutostartConfiguration> storageProvider = new();
+var storageProvider = engine.DefaultStorageProvider;
 storageProvider.Persist("autoStartConfig", config);
-config = storageProvider.Load("autoStartConfig");
-Console.WriteLine(config);
+storageProvider.Load("autoStartConfig");

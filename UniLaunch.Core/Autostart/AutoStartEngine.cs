@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using UniLaunch.Core.Rules;
 using UniLaunch.Core.Storage;
 using UniLaunch.Core.Targets;
@@ -9,11 +8,13 @@ namespace UniLaunch.Core.Autostart;
 public class AutoStartEngine
 {
     private AutostartConfiguration? Configuration { get; set; }
+    public StorageProvider<AutostartConfiguration> DefaultStorageProvider { get; private set; }
+    private List<StorageProvider<AutostartConfiguration>> AvailableStoreProviders { get; set; } = new();
 
-    private HashSet<Type> _enabledTargetTypes = new();
-    private HashSet<Type> _enabledRuleTypes = new();
+    private readonly HashSet<Type> _enabledTargetTypes = new();
+    private readonly HashSet<Type> _enabledRuleTypes = new();
 
-    private ExecutionContext CreateContext() => new ExecutionContext(DateTime.Now);
+    private ExecutionContext CreateContext() => new(DateTime.Now);
 
     private IEnumerable<Target> GetTargets()
     {
@@ -59,6 +60,22 @@ public class AutoStartEngine
     public AutoStartEngine ApplyConfiguration(AutostartConfiguration config)
     {
         Configuration = config;
+        return this;
+    }
+    
+    public AutoStartEngine RegisterStorageProvider<T>() where T : StorageProvider<AutostartConfiguration> => 
+        RegisterStorageProvider<T>(false);
+
+    public AutoStartEngine RegisterStorageProvider<T>(bool setDefault) where T : StorageProvider<AutostartConfiguration>
+    {
+        var provider = (T)Activator.CreateInstance(typeof(T))!;
+        
+        AvailableStoreProviders.Add(provider);
+        if (setDefault)
+        {
+            DefaultStorageProvider = provider;
+        }
+
         return this;
     }
 

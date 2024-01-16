@@ -6,7 +6,7 @@ using TimeOnlyConverter = UniLaunch.Core.Storage.YAML.TimeOnlyConverter;
 
 namespace UniLaunch.Core.Storage;
 
-public class YamlStorageProvider<T> : IStorageProvider<T>
+public class YamlStorageProvider<T> : StorageProvider<T>
 {
     private readonly IDeserializer yamlDeserializer = new DeserializerBuilder()
         .WithTypeConverter(new YAML.TimeOnlyConverter())
@@ -31,20 +31,12 @@ public class YamlStorageProvider<T> : IStorageProvider<T>
         .WithNamingConvention(CamelCaseNamingConvention.Instance)
         .Build();
 
-    public void Persist(string identifier, T data)
+    public override void Persist(string identifier, T data)
     {
-        string yaml = yamlSerializer.Serialize(data);
-        File.WriteAllText(identifier + ".yaml", yaml);
+        WriteFile(identifier, yamlSerializer.Serialize(data));
     }
 
-    public T Load(string identifier)
-    {
-        if (!File.Exists(identifier + ".yaml"))
-        {
-            return default(T);
-        }
+    protected override string GetFilePath(string identifier) => CreateFilePath(identifier, "yaml");
 
-        string yaml = File.ReadAllText(identifier + ".yaml");
-        return yamlDeserializer.Deserialize<T>(yaml);
-    }
+    public override T Load(string identifier) => yamlDeserializer.Deserialize<T>(GetFileContents(identifier));
 }
