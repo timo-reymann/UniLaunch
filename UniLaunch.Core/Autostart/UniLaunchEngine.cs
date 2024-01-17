@@ -8,8 +8,8 @@ namespace UniLaunch.Core.Autostart;
 
 public class UniLaunchEngine
 {
-    private UniLaunchConfiguration? Configuration { get; set; }
-    private string ConfigFilePath { get; set; }
+    private UniLaunchConfiguration? Configuration { get; set; } = new();
+    private string? ConfigFilePath { get; set; }
     public StorageProvider<UniLaunchConfiguration> DefaultStorageProvider { get; private set; }
     private List<StorageProvider<UniLaunchConfiguration>> AvailableStoreProviders { get; set; } = new();
 
