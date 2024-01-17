@@ -3,7 +3,7 @@ using UniLaunch.Core.Rules;
 using UniLaunch.Core.Storage;
 using UniLaunch.Core.Targets;
 
-var config = new AutostartConfiguration()
+var config = new AutostartConfiguration
 {
     Targets =
     {

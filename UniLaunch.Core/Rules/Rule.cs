@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
 using UniLaunch.Core.Storage;
+using UniLaunch.Core.Storage.Serialization;
 
 namespace UniLaunch.Core.Rules;
 

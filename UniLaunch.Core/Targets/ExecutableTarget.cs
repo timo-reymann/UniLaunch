@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.VisualBasic;
 using UniLaunch.Core.Storage;
+using UniLaunch.Core.Storage.Serialization;
 
 namespace UniLaunch.Core.Targets;
 

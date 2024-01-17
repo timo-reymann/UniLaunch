@@ -1,4 +1,4 @@
-namespace UniLaunch.Core.Storage;
+namespace UniLaunch.Core.Storage.Serialization;
 
 [AttributeUsage(AttributeTargets.Class)]
 public class PropertyBasedSerialization : Attribute

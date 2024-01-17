@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace UniLaunch.Core.Storage;
+namespace UniLaunch.Core.Storage.Serialization;
 
 public record PropertyNameValueTypeMapping(
     string Property,

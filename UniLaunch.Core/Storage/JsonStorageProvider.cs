@@ -1,5 +1,6 @@
 using Newtonsoft.Json.Serialization;
 using UniLaunch.Core.Storage.JSON;
+using UniLaunch.Core.Storage.Serialization;
 
 namespace UniLaunch.Core.Storage;
 

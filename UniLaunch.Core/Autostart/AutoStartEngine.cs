@@ -1,5 +1,6 @@
 using UniLaunch.Core.Rules;
 using UniLaunch.Core.Storage;
+using UniLaunch.Core.Storage.Serialization;
 using UniLaunch.Core.Targets;
 using ExecutionContext = UniLaunch.Core.Rules.ExecutionContext;
 
