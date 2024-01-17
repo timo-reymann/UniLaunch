@@ -2,7 +2,12 @@
 using UniLaunch.Core.Rules;
 using UniLaunch.Core.Storage;
 using UniLaunch.Core.Targets;
+using UniLaunch.Core.Util;
+using UniLaunch.MacOS.Autostart;
 using UniLaunch.MacOS.Targets;
+
+new SharedListFileAutoStartRegistrationProvider()
+    .Register(new List<string> { "--autostart" });
 
 var engine = new UniLaunchEngine()
     .RegisterTarget<AppFileTarget>()
@@ -15,9 +20,9 @@ var engine = new UniLaunchEngine()
     .UseConfigFileLocator(
         new FileLocator(new List<string>
             {
-                $"{Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)}/Library/Application Support/UniLaunch/config",
-                $"{Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)}/.config/uniLaunch",
-                $"{Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)}/.config/uniLaunch.macos"
+                $"{PathUtil.UserHome}/Library/Application Support/UniLaunch/config",
+                $"{PathUtil.UserHome}/.config/uniLaunch",
+                $"{PathUtil.UserHome}/.config/uniLaunch.macos"
             }
         )
     )
