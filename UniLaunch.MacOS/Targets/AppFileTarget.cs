@@ -1,8 +1,8 @@
 using System.Diagnostics;
-using UniLaunch.Core.Storage;
 using UniLaunch.Core.Storage.Serialization;
+using UniLaunch.Core.Targets;
 
-namespace UniLaunch.Core.Targets;
+namespace UniLaunch.MacOS.Targets;
 
 [PropertyValueForSerialization("appFile")]
 public class AppFileTarget : Target

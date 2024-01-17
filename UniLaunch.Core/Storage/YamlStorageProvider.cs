@@ -31,6 +31,8 @@ public class YamlStorageProvider<T> : StorageProvider<T>
         .WithTypeConverter(new TimeOnlyConverter())
         .WithNamingConvention(CamelCaseNamingConvention.Instance)
         .Build();
+    
+    public YamlStorageProvider() {}
 
     public override string Extension => "yaml";
 

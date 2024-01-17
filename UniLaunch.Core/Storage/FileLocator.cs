@@ -11,6 +11,11 @@ public class FileLocator
         FallbackLocation = fallbackLocation;
     }
 
+    public FileLocator(List<string> locationsToSearch)
+        : this(locationsToSearch, locationsToSearch.First())
+    {
+    }
+
     private bool LocationExists(string location, string extension) => File.Exists($"{location}.{extension}");
 
     public string? Locate(string extension) => LocationsToSearch.FirstOrDefault(ls => LocationExists(ls, extension));

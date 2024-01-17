@@ -16,4 +16,24 @@ public record TargetInvokeResult(
     TargetInvokeResultStatus Status,
     Warning[]? Warnings = null,
     Error[]? Errors = null
-);
+)
+{
+    public void Print()
+    {
+        Console.Write($"{Target.Name} => {Status}");
+        if (Errors == null)
+        {
+            return;
+        }
+
+        Console.Write("( ");
+        foreach (var resultError in Errors)
+        {
+            Console.Write(resultError.Details?.Trim() ?? "N/A");
+        }
+
+        Console.Write(" )");
+
+        Console.WriteLine();
+    }
+}
