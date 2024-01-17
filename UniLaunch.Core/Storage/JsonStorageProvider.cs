@@ -27,13 +27,14 @@ public class JsonStorageProvider<T> : StorageProvider<T>
             }).ToList()
     };
 
-    public override void Persist(string identifier, T data)
+    public override string Extension => "json";
+
+    public override void Persist(string filePathWithoutExtension, T data)
     {
-        WriteFile(identifier, JsonConvert.SerializeObject(data, Formatting.Indented, _jsonSerializerSettings));
+        WriteFile(filePathWithoutExtension, JsonConvert.SerializeObject(data, Formatting.Indented, _jsonSerializerSettings));
     }
 
-    public override T Load(string identifier) => 
-        JsonConvert.DeserializeObject<T>(GetFileContents(identifier), _jsonSerializerSettings)!;
+    public override T Load(string filePathWithOutExtension) => 
+        JsonConvert.DeserializeObject<T>(GetFileContents(filePathWithOutExtension), _jsonSerializerSettings)!;
 
-    protected override string GetFilePath(string identifier) => CreateFilePath(identifier, "json");
 }

@@ -3,38 +3,42 @@ namespace UniLaunch.Core.Storage;
 public abstract class StorageProvider<T>
 {
     /// <summary>
+    /// Extension for files written by the storage provider.
+    ///
+    /// The implementing StorageProvider sets this and only works with paths excluding the extension provided here.
+    /// </summary>
+    public abstract string Extension { get; }
+
+    /// <summary>
     /// Persist data to storage
     /// </summary>
-    /// <param name="identifier">Identifier for data to persist</param>
+    /// <param name="filePathWithoutExtension">File path without extension</param>
     /// <param name="data">Data to persist</param>
-    public abstract void Persist(string identifier, T data);
+    public abstract void Persist(string filePathWithoutExtension, T data);
 
     /// <summary>
     /// Load data from storage
     /// </summary>
-    /// <param name="identifier">Identifier for data to load</param>
+    /// <param name="filePathWithOutExtension">File path without extension</param>
     /// <returns>Deserialized data from storage</returns>
-    public abstract T Load(string identifier);
+    public abstract T Load(string filePathWithOutExtension);
 
-    protected abstract string GetFilePath(string identifier);
-
-    protected void WriteFile(string identifier, string contents)
+    protected void WriteFile(string filePathWithoutExtension, string contents)
     {
-        var fileName = GetFilePath(identifier);
-        File.WriteAllText(fileName, contents);
+        File.WriteAllText(AddExtension(filePathWithoutExtension), contents);
     }
 
-    protected string GetFileContents(string identifier)
-    {
-        var fileName = GetFilePath(identifier);
+    protected string AddExtension(string filePathWithoutExtension) => $"{filePathWithoutExtension}.{Extension}";
 
-        if (!File.Exists(fileName))
+    protected string GetFileContents(string filePathWithoutExtension)
+    {
+        var filePath = AddExtension(filePathWithoutExtension);
+
+        if (!File.Exists(filePath))
         {
-            throw new StorageException($"Could not find file {fileName}");
+            throw new StorageException($"Could not find file {filePath}");
         }
 
-        return File.ReadAllText(fileName);
+        return File.ReadAllText(filePath);
     }
-
-    protected string CreateFilePath(string identifier, string extension) => $"{identifier}.{extension}";
 }

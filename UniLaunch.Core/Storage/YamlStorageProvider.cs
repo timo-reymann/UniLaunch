@@ -32,12 +32,12 @@ public class YamlStorageProvider<T> : StorageProvider<T>
         .WithNamingConvention(CamelCaseNamingConvention.Instance)
         .Build();
 
-    public override void Persist(string identifier, T data)
+    public override string Extension => "yaml";
+
+    public override void Persist(string filePathWithoutExtension, T data)
     {
-        WriteFile(identifier, yamlSerializer.Serialize(data));
+        WriteFile(filePathWithoutExtension, yamlSerializer.Serialize(data));
     }
 
-    protected override string GetFilePath(string identifier) => CreateFilePath(identifier, "yaml");
-
-    public override T Load(string identifier) => yamlDeserializer.Deserialize<T>(GetFileContents(identifier));
+    public override T Load(string filePathWithOutExtension) => yamlDeserializer.Deserialize<T>(GetFileContents(filePathWithOutExtension));
 }

@@ -1,9 +1,12 @@
-﻿using UniLaunch.Core.Autostart;
+﻿using System.Diagnostics;using UniLaunch.Core.Autostart;
 using UniLaunch.Core.Rules;
 using UniLaunch.Core.Storage;
 using UniLaunch.Core.Targets;
 
-var config = new AutostartConfiguration
+var watch = new Stopwatch();
+watch.Start();
+
+var config = new UniLaunchConfiguration
 {
     Targets =
     {
@@ -27,7 +30,7 @@ var config = new AutostartConfiguration
             {
                 new WeekDayRule
                 {
-                    DaysOfWeekToRun = new [] { DayOfWeek.Saturday }
+                    DaysOfWeekToRun = new[] { DayOfWeek.Saturday }
                 },
                 new AlwaysRule(),
                 new TimeRule
@@ -45,7 +48,7 @@ var config = new AutostartConfiguration
     },
 };
 
-var engine = new AutoStartEngine()
+var engine = new UniLaunchEngine()
     // Register all activated targets
     .RegisterTarget<AppFileTarget>()
     .RegisterTarget<ExecutableTarget>()
@@ -54,10 +57,19 @@ var engine = new AutoStartEngine()
     .RegisterRule<TimeRule>()
     .RegisterRule<WeekDayRule>()
     // Storage provider registration
-    .RegisterStorageProvider<YamlStorageProvider<AutostartConfiguration>>(true)
-    .RegisterStorageProvider<JsonStorageProvider<AutostartConfiguration>>()
-    // Load configuration
-    .ApplyConfiguration(config);
+    .RegisterStorageProvider<YamlStorageProvider<UniLaunchConfiguration>>(true)
+    .RegisterStorageProvider<JsonStorageProvider<UniLaunchConfiguration>>()
+    // Setup possible configuration locations
+    .UseConfigFileLocator(new FileLocator(new List<string>()
+        {
+            "uniLaunchConfig",
+            $"{Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)}/uniLaunchConfig"
+        }, "uniLaunchConfig")
+    )
+    // Try locate and parse config file
+    .LocateAndParseConfigFile();
+    // Override config on disk
+    //.OverrideConfiguration(config);
 
 foreach (var result in await engine.WaitForAllTargetsToLaunch())
 {
@@ -72,11 +84,11 @@ foreach (var result in await engine.WaitForAllTargetsToLaunch())
     {
         Console.Write(resultError.Details?.Trim() ?? "N/A");
     }
+
     Console.Write(" )");
 
     Console.WriteLine();
 }
 
-var storageProvider = engine.DefaultStorageProvider;
-storageProvider.Persist("autoStartConfig", config);
-storageProvider.Load("autoStartConfig");
+watch.Stop();
+Console.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms");

@@ -4,7 +4,7 @@ using UniLaunch.Core.Targets;
 namespace UniLaunch.Core.Autostart;
 
 [Serializable]
-public class AutostartConfiguration
+public class UniLaunchConfiguration
 {
     public List<RuleSet> RuleSets { get; set; } = new();
     public List<Target> Targets { get; set; } = new();
