@@ -3,8 +3,10 @@
 <plist version="1.0">
 	<dict>
 		<key>CFBundleExecutable</key>
-		<string>UniLaunch.MacOS</string>
+		<string>UniLaunch</string>
 		<key>CFBundleIconFile</key>
 		<string>logo-512.png</string>
+		<key>CFBundleIdentifier</key>
+		<string>de.timo_reymann.unilaunch</string>
 	</dict>
 </plist>
