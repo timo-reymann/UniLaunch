@@ -1,4 +1,4 @@
-namespace UniLaunch.Linux.DesktopFile;
+namespace UniLaunch.Linux.Desktop;
 
 public class DesktopFileWriter : IDisposable
 {

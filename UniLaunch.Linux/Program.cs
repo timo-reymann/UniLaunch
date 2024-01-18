@@ -4,7 +4,7 @@ using UniLaunch.Core.Storage;
 using UniLaunch.Core.Targets;
 using UniLaunch.Core.Util;
 using UniLaunch.Linux.Autostart;
-using UniLaunch.Linux.DesktopFile;
+using UniLaunch.Linux.Desktop;
 
 if (!CommandLineUtil.IsAutoStart())
 {

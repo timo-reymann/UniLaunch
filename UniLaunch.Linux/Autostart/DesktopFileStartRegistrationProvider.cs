@@ -1,23 +1,35 @@
+using System.Reflection;
 using UniLaunch.Core.Autostart;
-using UniLaunch.Linux.DesktopFile;
+using UniLaunch.Core.Util;
+using UniLaunch.Linux.Desktop;
 
 namespace UniLaunch.Linux.Autostart;
 
 public class DesktopFileStartRegistrationProvider : AutoStartRegistrationProvider
 {
     private static string DesktopFilePath => $"{XdgConfig.UserConfigFolder}/autostart/UniLaunch.desktop";
-    
+    private static string IconPath => $"{PathUtil.UserHome}/.local/share/icons/UniLaunch.png";
+
+    private Stream GetIconStream()
+    {
+        var assembly = Assembly.GetExecutingAssembly();
+        return assembly.GetManifestResourceStream("UniLaunch.Linux.Resources.icon.png")!;
+    }
+
     public override void Register(List<string> arguments)
     {
         try
         {
-            using var writer = new DesktopFileWriter(DesktopFilePath);
-            writer.Write("Name","UniLaunch");
-            writer.Write("Type", "Application");
-            writer.Write("Exec", $"{ExecutableFile} {string.Join(" ", arguments)}");
-            // TODO: Add + write icon
-            // writer.Write("Icon","");
-            writer.Write("X-GNOME-Autostart-enabled", "true");
+            using var desktopFileWriter = new DesktopFileWriter(DesktopFilePath);
+            desktopFileWriter.Write("Name", "UniLaunch");
+            desktopFileWriter.Write("Type", "Application");
+            desktopFileWriter.Write("Exec", $"{ExecutableFile} {string.Join(" ", arguments)}");
+            desktopFileWriter.Write("Icon", IconPath);
+            desktopFileWriter.Write("X-GNOME-Autostart-enabled", "true");
+
+            using var iconWriter = GetIconStream();
+            using var file = File.Open(IconPath, FileMode.Create);
+            iconWriter.CopyTo(file);
         }
         catch (Exception e)
         {

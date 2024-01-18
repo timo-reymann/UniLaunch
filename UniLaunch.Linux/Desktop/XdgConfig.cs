@@ -1,6 +1,6 @@
 using UniLaunch.Core.Util;
 
-namespace UniLaunch.Linux.DesktopFile;
+namespace UniLaunch.Linux.Desktop;
 
 public static class XdgConfig
 {

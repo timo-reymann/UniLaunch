@@ -10,4 +10,12 @@
         <ProjectReference Include="..\UniLaunch.Core\UniLaunch.Core.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="System.Runtime.CompilerServices.Unsafe"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\icon.png"/>
+    </ItemGroup>
+
 </Project>
