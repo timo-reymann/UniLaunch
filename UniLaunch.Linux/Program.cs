@@ -3,16 +3,15 @@ using UniLaunch.Core.Rules;
 using UniLaunch.Core.Storage;
 using UniLaunch.Core.Targets;
 using UniLaunch.Core.Util;
-using UniLaunch.MacOS.Autostart;
-using UniLaunch.MacOS.Targets;
+using UniLaunch.Linux.Autostart;
+using UniLaunch.Linux.DesktopFile;
 
 if (!CommandLineUtil.IsAutoStart())
 {
-    CommandLineUtil.RegisterAutoStart(new SharedListFileAutoStartRegistrationProvider());
+    CommandLineUtil.RegisterAutoStart(new DesktopFileStartRegistrationProvider());
 }
 
 var engine = new UniLaunchEngine()
-    .RegisterTarget<AppFileTarget>()
     .RegisterTarget<ExecutableTarget>()
     .RegisterRule<AlwaysRule>()
     .RegisterRule<TimeRule>()
@@ -22,9 +21,8 @@ var engine = new UniLaunchEngine()
     .UseConfigFileLocator(
         new FileLocator(new List<string>
             {
-                $"{PathUtil.UserHome}/Library/Application Support/UniLaunch/config",
-                $"{PathUtil.UserHome}/.config/uniLaunch",
-                $"{PathUtil.UserHome}/.config/uniLaunch.macos"
+                $"{XdgConfig.UserConfigFolder}/UniLaunch/config",
+                "/etc/default/UniLaunch"
             }
         )
     )

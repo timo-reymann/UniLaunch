@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniLaunch.Core.Tests", "Uni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniLaunch.MacOS", "UniLaunch.MacOS\UniLaunch.MacOS.csproj", "{9EAD2153-4903-46B2-B020-A117FCEB3A56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniLaunch.Linux", "UniLaunch.Linux\UniLaunch.Linux.csproj", "{EE9DAA47-3B00-454F-BD10-2736D58AE98F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{9EAD2153-4903-46B2-B020-A117FCEB3A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EAD2153-4903-46B2-B020-A117FCEB3A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EAD2153-4903-46B2-B020-A117FCEB3A56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE9DAA47-3B00-454F-BD10-2736D58AE98F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE9DAA47-3B00-454F-BD10-2736D58AE98F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE9DAA47-3B00-454F-BD10-2736D58AE98F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE9DAA47-3B00-454F-BD10-2736D58AE98F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

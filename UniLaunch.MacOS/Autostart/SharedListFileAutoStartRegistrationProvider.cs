@@ -5,14 +5,14 @@ using UniLaunch.MacOS.Plist;
 
 namespace UniLaunch.MacOS.Autostart;
 
-public class SharedListFileAutoStartRegistrationProvider : IAutoStartRegistrationProvider
+public class SharedListFileAutoStartRegistrationProvider : AutoStartRegistrationProvider
 {
     private const string GroupId = "de.timo_reymann.unilaunch";
 
     private string LaunchPListFile => $"{PathUtil.UserHome}/Library/LaunchAgents/{GroupId}.plist";
     private string AppFile => Path.GetDirectoryName(Process.GetCurrentProcess().MainModule!.FileName)! + "/UniLaunch";
 
-    public void Register(List<string> arguments)
+    public override void Register(List<string> arguments)
     {
         try
         {
@@ -30,12 +30,7 @@ public class SharedListFileAutoStartRegistrationProvider : IAutoStartRegistratio
         }
     }
 
-    public void Register()
-    {
-        Register(new List<string>());
-    }
-
-    public void DeRegister(List<string> arguments)
+    public override void DeRegister(List<string> arguments)
     {
         if (File.Exists(LaunchPListFile))
         {
@@ -46,10 +41,5 @@ public class SharedListFileAutoStartRegistrationProvider : IAutoStartRegistratio
             throw new AutoStartRegistrationException(
                 "Could not remove registration for autostart as item could not be found");
         }
-    }
-
-    public void DeRegister()
-    {
-        DeRegister(new List<string>());
     }
 }
