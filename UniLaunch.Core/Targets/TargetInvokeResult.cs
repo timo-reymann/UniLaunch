@@ -20,9 +20,10 @@ public record TargetInvokeResult(
 {
     public void Print()
     {
-        Console.Write($"{Target.Name} => {Status}");
+        Console.Write($"{Target.Name,-30} => {Status}");
         if (Errors == null)
         {
+            Console.WriteLine();
             return;
         }
 
