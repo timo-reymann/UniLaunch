@@ -12,15 +12,22 @@ public class SharedListFileAutoStartRegistrationProvider : IAutoStartRegistratio
     private string LaunchPListFile => $"{PathUtil.UserHome}/Library/LaunchAgents/{GroupId}.plist";
     private string AppFile => Path.GetDirectoryName(Process.GetCurrentProcess().MainModule!.FileName)! + "/UniLaunch";
 
-    public void Register( List<string> arguments)
+    public void Register(List<string> arguments)
     {
-        using var writer = new PlistDictWriter(LaunchPListFile);
-        writer.WriteString("Label", GroupId);
-        writer.WriteArray("ProgramArguments", new[] { AppFile }.Concat(arguments).ToArray());
-        writer.WriteBool("RunAtLoad", true);
-        writer.WriteBool("AbandonProcessGroup", true);
-        writer.WriteString("StandardOutPath", $"{PathUtil.UserHome}/Library/Logs/UniLaunch/launchd-stdout.log");
-        writer.WriteString("StandardErrorPath", $"{PathUtil.UserHome}/Library/Logs/UniLaunch/launchd-stderr.log");
+        try
+        {
+            using var writer = new PlistDictWriter(LaunchPListFile);
+            writer.WriteString("Label", GroupId);
+            writer.WriteArray("ProgramArguments", new[] { AppFile }.Concat(arguments).ToArray());
+            writer.WriteBool("RunAtLoad", true);
+            writer.WriteBool("AbandonProcessGroup", true);
+            writer.WriteString("StandardOutPath", $"{PathUtil.UserHome}/Library/Logs/UniLaunch/launchd-stdout.log");
+            writer.WriteString("StandardErrorPath", $"{PathUtil.UserHome}/Library/Logs/UniLaunch/launchd-stderr.log");
+        }
+        catch (Exception e)
+        {
+            throw new AutoStartRegistrationException("Failed to write autostart entry", e);
+        }
     }
 
     public void Register()
@@ -33,6 +40,11 @@ public class SharedListFileAutoStartRegistrationProvider : IAutoStartRegistratio
         if (File.Exists(LaunchPListFile))
         {
             File.Delete(LaunchPListFile);
+        }
+        else
+        {
+            throw new AutoStartRegistrationException(
+                "Could not remove registration for autostart as item could not be found");
         }
     }
 

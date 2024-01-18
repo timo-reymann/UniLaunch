@@ -3,6 +3,9 @@ using UniLaunch.Core.Storage.Serialization;
 
 namespace UniLaunch.Core.Rules;
 
+/// <summary>
+/// Always match
+/// </summary>
 [PropertyValueForSerialization("always")]
 public class AlwaysRule : Rule
 {

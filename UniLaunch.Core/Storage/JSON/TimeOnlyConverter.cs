@@ -2,6 +2,9 @@ using Newtonsoft.Json;
 
 namespace UniLaunch.Core.Storage.JSON;
 
+/// <summary>
+/// Convert time frames to and from JSON
+/// </summary>
 public class TimeOnlyConverter : JsonConverter
 {
     private static readonly string Format = "HH:mm";

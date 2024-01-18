@@ -5,6 +5,9 @@ using UniLaunch.Core.Storage.Serialization;
 
 namespace UniLaunch.Core.Targets;
 
+/// <summary>
+/// Run a standalone binary
+/// </summary>
 [PropertyValueForSerialization("executable")]
 public class ExecutableTarget : Target
 {

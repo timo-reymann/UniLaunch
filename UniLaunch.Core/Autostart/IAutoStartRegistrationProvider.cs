@@ -6,13 +6,13 @@ public interface IAutoStartRegistrationProvider
     /// Register a executable for startup on the current platform
     /// </summary>
     /// <param name="arguments">Arguments to pass to the registration</param>
-    /// <exception cref="AutoStartRegistrationFailed">Failed to register the executable for system autostart</exception>
+    /// <exception cref="AutoStartRegistrationException">Failed to register the executable for system autostart</exception>
     public void Register(List<string> arguments);
     
     /// <summary>
     /// Register a executable for startup on the current platform
     /// </summary>
-    /// <exception cref="AutoStartRegistrationFailed">Failed to register the executable for system autostart</exception>
+    /// <exception cref="AutoStartRegistrationException">Failed to register the executable for system autostart</exception>
     public void Register();
 
     /// <summary>

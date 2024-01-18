@@ -1,12 +1,15 @@
 
 using UniLaunch.Core.Storage.Serialization;
 using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.Converters;
 using YamlDotNet.Serialization.NamingConventions;
 using TimeOnlyConverter = UniLaunch.Core.Storage.YAML.TimeOnlyConverter;
 
 namespace UniLaunch.Core.Storage;
 
+/// <summary>
+/// StorageProvider for interacting with YAML files
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public class YamlStorageProvider<T> : StorageProvider<T>
 {
     private readonly IDeserializer yamlDeserializer = new DeserializerBuilder()

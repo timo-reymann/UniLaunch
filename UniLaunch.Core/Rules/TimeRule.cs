@@ -3,11 +3,14 @@ using UniLaunch.Core.Storage.Serialization;
 
 namespace UniLaunch.Core.Rules;
 
+/// <summary>
+/// Match based on a given time frame
+/// </summary>
 [PropertyValueForSerialization("time")]
 public class TimeRule : Rule
 {
-    public TimeOnly StartRange { get; set; }
-    public TimeOnly EndRange { get; set; }
+    public TimeOnly StartRange { get; init; }
+    public TimeOnly EndRange { get; init; }
     
     public override bool Match(ExecutionContext context) =>
         IsWithinRange(context.InvocationTime);

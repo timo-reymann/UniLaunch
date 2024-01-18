@@ -2,6 +2,9 @@ using Newtonsoft.Json;
 
 namespace UniLaunch.Core.Storage.JSON;
 
+/// <summary>
+/// Convert weekdays from and to JSON
+/// </summary>
 public class WeekDayConverter : JsonConverter
 {
     public override bool CanConvert(Type objectType) => typeof(DayOfWeek) == objectType;

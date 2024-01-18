@@ -5,8 +5,8 @@ public class AutoStartEntry
 {
     public AutoStartEntry(string ruleSetName, string targetName)
     {
-        this.RuleSetName = ruleSetName;
-        this.TargetName = targetName;
+        RuleSetName = ruleSetName;
+        TargetName = targetName;
     }
     
     public AutoStartEntry() {}

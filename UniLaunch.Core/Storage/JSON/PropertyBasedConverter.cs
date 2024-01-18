@@ -3,6 +3,9 @@ using Newtonsoft.Json.Linq;
 
 namespace UniLaunch.Core.Storage.JSON;
 
+/// <summary>
+/// Converter for Newtonsoft.JSON to serialize based on a property names value to given types
+/// </summary>
 public class PropertyBasedConverter : JsonConverter
 {
     public PropertyBasedConverter(string propertyName, Dictionary<string, Type> typeMapping, Type baseType)

@@ -1,12 +1,14 @@
 using Newtonsoft.Json.Serialization;
 using UniLaunch.Core.Storage.JSON;
 using UniLaunch.Core.Storage.Serialization;
+using Newtonsoft.Json;
 
 namespace UniLaunch.Core.Storage;
 
-using Newtonsoft.Json;
-using System.IO;
-
+/// <summary>
+/// StorageProvider for interacting with JSON files
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public class JsonStorageProvider<T> : StorageProvider<T>
 {
     private readonly JsonSerializerSettings _jsonSerializerSettings = new()
@@ -31,10 +33,10 @@ public class JsonStorageProvider<T> : StorageProvider<T>
 
     public override void Persist(string filePathWithoutExtension, T data)
     {
-        WriteFile(filePathWithoutExtension, JsonConvert.SerializeObject(data, Formatting.Indented, _jsonSerializerSettings));
+        WriteFile(filePathWithoutExtension,
+            JsonConvert.SerializeObject(data, Formatting.Indented, _jsonSerializerSettings));
     }
 
-    public override T Load(string filePathWithOutExtension) => 
+    public override T Load(string filePathWithOutExtension) =>
         JsonConvert.DeserializeObject<T>(GetFileContents(filePathWithOutExtension), _jsonSerializerSettings)!;
-
 }
