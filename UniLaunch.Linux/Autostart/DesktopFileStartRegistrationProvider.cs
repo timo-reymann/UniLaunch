@@ -12,8 +12,9 @@ public class DesktopFileStartRegistrationProvider : AutoStartRegistrationProvide
         try
         {
             using var writer = new DesktopFileWriter(DesktopFilePath);
+            writer.Write("Name","UniLaunch");
             writer.Write("Type", "Application");
-            writer.Write("Exec", string.Join(" ", arguments));
+            writer.Write("Exec", $"{ExecutableFile} {string.Join(" ", arguments)}");
             // TODO: Add + write icon
             // writer.Write("Icon","");
             writer.Write("X-GNOME-Autostart-enabled", "true");

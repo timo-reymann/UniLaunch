@@ -1,7 +1,11 @@
+using System.Diagnostics;
+
 namespace UniLaunch.Core.Autostart;
 
 public abstract class AutoStartRegistrationProvider
 {
+    protected string ExecutableFile = Process.GetCurrentProcess().MainModule!.FileName;
+    
     /// <summary>
     /// Register a executable for startup on the current platform
     /// </summary>

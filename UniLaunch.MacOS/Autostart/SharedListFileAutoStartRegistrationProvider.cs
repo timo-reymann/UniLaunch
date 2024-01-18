@@ -10,7 +10,7 @@ public class SharedListFileAutoStartRegistrationProvider : AutoStartRegistration
     private const string GroupId = "de.timo_reymann.unilaunch";
 
     private string LaunchPListFile => $"{PathUtil.UserHome}/Library/LaunchAgents/{GroupId}.plist";
-    private string AppFile => Path.GetDirectoryName(Process.GetCurrentProcess().MainModule!.FileName)! + "/UniLaunch";
+    private string AppFile => Path.GetDirectoryName(ExecutableFile)! + "/UniLaunch";
 
     public override void Register(List<string> arguments)
     {
