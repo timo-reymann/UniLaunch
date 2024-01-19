@@ -3,3 +3,4 @@ Name=UniLaunch
 Type=Application
 Icon=UniLaunch
 Categories=Utility
+Exec=unilaunch

@@ -14,10 +14,8 @@ RUN curl -LsS https://github.com/linuxdeploy/linuxdeploy/releases/download/conti
     && chmod +x linuxdeploy && \
     mkdir AppDir dist/
 COPY . ./AppDir
-RUN ln -s ./.DirIcon ./AppDir/UniLaunch.png && \
-    chmod +x ./AppDir/AppRun
+RUN ln -s ./.DirIcon ./AppDir/UniLaunch.png
 
 WORKDIR /build/dist
 ENTRYPOINT ["/build/linuxdeploy"]
 
-# ./linuxdeploy --appimage-extract-and-run --appdir=AppDir --desktop-file=AppDir/UniLaunch.desktop -i AppDir/UniLaunch.png  --output=appimage

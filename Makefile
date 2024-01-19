@@ -102,13 +102,15 @@ _linux-deb:
 
 _linux-build-appfile:
 	$(eval TMP := $(shell mktemp -d))
-	cp ./dist/UniLaunch-linux-$(ARCH) $(TMP)/AppRun
+	mkdir -p $(TMP)/usr/local/bin/
+	cp ./dist/UniLaunch-linux-$(ARCH) $(TMP)/usr/local/bin/unilaunch
 	cp $(APP_IMAGE_FILE_ICON) $(TMP)/.DirIcon
 	cp -r UniLaunch.Linux/AppImageResources/* $(TMP)
-	docker buildx build  -f Dockerfile.AppImageBuilder.Linux $(TMP) --build-arg linuxdeploy_arch=$(LINUXDEPLOY_ARCH) --platform linux/$(DOCKER_ARCH) -t unilaunch/appimage-builder/linux:$(DOCKER_ARCH)
+	docker build  -f Dockerfile.AppImageBuilder.Linux $(TMP) --build-arg linuxdeploy_arch=$(LINUXDEPLOY_ARCH) --platform linux/$(DOCKER_ARCH) -t unilaunch/appimage-builder/linux:$(DOCKER_ARCH)
 	docker run --rm  --platform linux/$(DOCKER_ARCH) -v $(PWD)/dist:/build/dist -it unilaunch/appimage-builder/linux:$(DOCKER_ARCH) \
 		--appimage-extract-and-run \
 		--appdir=../AppDir \
+		--executable=../AppDir/usr/local/bin/unilaunch \
 		--desktop-file=../AppDir/UniLaunch.desktop \
 		--output=appimage \
 		-i ../AppDir/UniLaunch.png
