@@ -16,6 +16,12 @@ public class DesktopFileStartRegistrationProvider : AutoStartRegistrationProvide
         return assembly.GetManifestResourceStream("UniLaunch.Linux.Resources.icon.png")!;
     }
 
+    private string GetExecutablePath()
+    {
+       var appImagePath = Environment.GetEnvironmentVariable("APPIMAGE");
+       return appImagePath ?? ExecutableFile;
+    }
+
     public override void Register(List<string> arguments)
     {
         try
@@ -23,7 +29,7 @@ public class DesktopFileStartRegistrationProvider : AutoStartRegistrationProvide
             using var desktopFileWriter = new DesktopFileWriter(DesktopFilePath);
             desktopFileWriter.Write("Name", "UniLaunch");
             desktopFileWriter.Write("Type", "Application");
-            desktopFileWriter.Write("Exec", $"{ExecutableFile} {string.Join(" ", arguments)}");
+            desktopFileWriter.Write("Exec", $"{GetExecutablePath()} {string.Join(" ", arguments)}");
             desktopFileWriter.Write("Icon", IconPath);
             desktopFileWriter.Write("X-GNOME-Autostart-enabled", "true");
 
