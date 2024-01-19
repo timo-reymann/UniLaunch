@@ -1,4 +1,10 @@
 <Project>
+    <!-- App Metadata -->
+    <PropertyGroup>
+        <Version>0.0.1</Version>
+    </PropertyGroup>
+
+    <!-- Runtime & Publish Configuration -->
     <PropertyGroup>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>

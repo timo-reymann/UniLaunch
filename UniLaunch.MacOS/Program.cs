@@ -9,6 +9,7 @@ using UniLaunch.MacOS.Targets;
 if (!CommandLineUtil.IsAutoStart())
 {
     CommandLineUtil.RegisterAutoStart(new SharedListFileAutoStartRegistrationProvider());
+    CommandLineUtil.PrintAppInfo();
 }
 
 var engine = new UniLaunchEngine()
