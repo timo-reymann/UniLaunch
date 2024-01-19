@@ -62,7 +62,7 @@ VERSION := $(extract_version_command)
 
 # --- BEGIN MacOS ---
 MACOS_APP_FILE_EXECUTABLE := UniLaunch
-MACOS_APP_FILE_ICON := Resources/logo-512.png
+MACOS_APP_FILE_ICON := Resources/UniLaunch.icns
 MACOS_DMG_FILE_ICON := Resources/UniLaunch.icns
 
 macos-build: macos-build-binary macos-build-app macos-build-dmg ## Build all MacOS targets
