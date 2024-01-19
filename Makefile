@@ -62,15 +62,15 @@ _macos-build-dmg:
       "$(TMP)/UniLaunch.app"
 	@find . -type f -name 'rw.*.UniLaunchInstaller*.dmg' -exec rm -f {} +
 
-linux-build: linux-build-binary linux-build-appfile linux-build-deb ## Build all linux targets
+linux-build: linux-build-binary linux-build-appimage linux-build-deb ## Build all linux targets
 
 linux-build-binary: ## Build the binary for linux
 	$(MAKE) _linux-build RID=linux-x64 DOCKER_ARCH=amd64
 	$(MAKE) _linux-build RID=linux-arm64 DOCKER_ARCH=arm64
 
-linux-build-appfile: ## Build appfiles
-	$(MAKE) _linux-build-appfile ARCH=x64 DOCKER_ARCH=amd64 LINUXDEPLOY_ARCH=static-x86_64
-	$(MAKE) _linux-build-appfile ARCH=arm64 DOCKER_ARCH=arm64 LINUXDEPLOY_ARCH=aarch64
+linux-build-appimage: ## Build appfiles
+	$(MAKE) _linux-build-appimage ARCH=x64 DOCKER_ARCH=amd64 LINUXDEPLOY_ARCH=static-x86_64
+	$(MAKE) _linux-build-appimage ARCH=arm64 DOCKER_ARCH=arm64 LINUXDEPLOY_ARCH=aarch64
 
 linux-build-deb: ## Build deb files
 	make _linux-deb ARCH=x64 DEB_ARCH=amd64 DOCKER_ARCH=amd64
@@ -100,12 +100,14 @@ _linux-deb:
 	@rm -rf dist/UniLaunch-$(DEB_ARCH).debsrc
 	@mv dist/UniLaunch-$(DEB_ARCH).debsrc.deb  dist/UniLaunch-$(DEB_ARCH).deb
 
-_linux-build-appfile:
+_linux-build-appimage:
 	$(eval TMP := $(shell mktemp -d))
-	mkdir -p $(TMP)/usr/local/bin/
-	cp ./dist/UniLaunch-linux-$(ARCH) $(TMP)/usr/local/bin/unilaunch
-	cp $(APP_IMAGE_FILE_ICON) $(TMP)/.DirIcon
-	cp -r UniLaunch.Linux/AppImageResources/* $(TMP)
+	@echo "Prepare docker context ..."
+	@mkdir -p $(TMP)/usr/local/bin/
+	@cp ./dist/UniLaunch-linux-$(ARCH) $(TMP)/usr/local/bin/unilaunch
+	@cp $(APP_IMAGE_FILE_ICON) $(TMP)/.DirIcon
+	@cp -r UniLaunch.Linux/AppImageResources/* $(TMP)
+	echo "Create builder image and build app image using dockerized setup"
 	docker build  -f Dockerfile.AppImageBuilder.Linux $(TMP) --build-arg linuxdeploy_arch=$(LINUXDEPLOY_ARCH) --platform linux/$(DOCKER_ARCH) -t unilaunch/appimage-builder/linux:$(DOCKER_ARCH)
 	docker run --rm  --platform linux/$(DOCKER_ARCH) -v $(PWD)/dist:/build/dist -it unilaunch/appimage-builder/linux:$(DOCKER_ARCH) \
 		--appimage-extract-and-run \
