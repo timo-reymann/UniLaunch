@@ -1,0 +1,22 @@
+FROM ubuntu:18.04
+WORKDIR /build
+RUN apt-get update \
+    && apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends \
+      curl \
+      ca-certificates \
+      fuse \
+      libfuse2 \
+      libglib2.0-dev \
+      file
+RUN curl -LsS https://github.com/linuxdeploy/linuxdeploy/releases/download/1-alpha-20240109-1/linuxdeploy-$(arch).AppImage -o linuxdeploy \
+    && chmod +x linuxdeploy && \
+    mkdir AppDir dist/
+COPY . ./AppDir
+RUN ln -s ./.DirIcon ./AppDir/UniLaunch.png && \
+    chmod +x ./AppDir/AppRun
+
+WORKDIR /build/dist
+ENTRYPOINT ["/build/linuxdeploy"]
+
+# ./linuxdeploy --appimage-extract-and-run --appdir=AppDir --desktop-file=AppDir/UniLaunch.desktop -i AppDir/UniLaunch.png  --output=appimage

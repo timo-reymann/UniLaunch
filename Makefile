@@ -5,6 +5,8 @@ MACOS_APP_FILE_EXECUTABLE := UniLaunch
 MACOS_APP_FILE_ICON := UniLaunch.MacOS/Resources/Resources/logo-512.png
 MACOS_DMG_FILE_ICON := UniLaunch.MacOS/InstallerResources/UniLaunch.icns
 
+APP_IMAGE_FILE_ICON := UniLaunch.Linux/Resources/icon.png
+
 help: ## Display this help page
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[33m%-30s\033[0m %s\n", $$1, $$2}'
 
@@ -53,6 +55,25 @@ _linux-build:
 	dotnet publish UniLaunch.Linux/UniLaunch.Linux.csproj -r $(RID) -c Release
 	cp UniLaunch.Linux/bin/Release/net7.0/$(RID)/publish/UniLaunch.Linux ./dist/UniLaunch-$(RID)
 
-linux-build:
-	$(MAKE) _linux-build RID=linux-x64
-	$(MAKE) _linux-build RID=linux-arm64
+linux-build: linux-build-binary ## Build all linux targets
+
+linux-build-binary: ## Build the binary for linux
+	$(MAKE) _linux-build RID=linux-x64 DOCKER_ARCH=amd64
+	$(MAKE) _linux-build RID=linux-arm64 DOCKER_ARCH=arm64
+
+linux-build-appfile: ## Build app file for ARM and x86
+#	$(MAKE) _linux-build-appfile ARCH=x64 DOCKER_ARCH=amd64
+	$(MAKE) _linux-build-appfile ARCH=arm64 DOCKER_ARCH=arm64
+
+_linux-build-appfile:
+	$(eval TMP := $(shell mktemp -d))
+	cp ./dist/UniLaunch-linux-$(ARCH) $(TMP)/AppRun
+	cp $(APP_IMAGE_FILE_ICON) $(TMP)/.DirIcon
+	cp -r UniLaunch.Linux/AppImageResources/* $(TMP)
+	docker build -f Dockerfile.Builder.Linux $(TMP) --platform linux/$(DOCKER_ARCH) -t unilaunch/builder/linux:$(DOCKER_ARCH)
+	docker run --rm -v $(PWD)/dist:/build/dist -it unilaunch/builder/linux:$(DOCKER_ARCH) \
+			--appimage-extract-and-run \
+			--appdir=../AppDir \
+			--desktop-file=../AppDir/UniLaunch.desktop \
+			-i ../AppDir/UniLaunch.png \
+			--output=appimage
