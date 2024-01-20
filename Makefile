@@ -16,31 +16,26 @@ _is_windows = $(filter Windows_NT,$(OS))
 
 require_osx:
 	@if [ -z "$(call _is_osx)" ]; then \
-        echo "This task requires OSX platform."; \
-        exit 1; \
+        echo "This task requires OSX platform."; exit 1; \
     fi
 
 require_linux:
 	@if [ -z "$(call _is_linux)" ]; then \
-        echo "This task requires Linux platform."; \
-        exit 1; \
+        echo "This task requires Linux platform."; exit 1; \
     fi
 
 require_windows:
 	@if [ -z "$(call _is_windows)" ]; then \
-        echo "This task requires Windows platform."; \
-        exit 1; \
+        echo "This task requires Windows platform."; exit 1; \
     fi
 
 require_proper_dev_env:
 	@if [ -z "$(call _is_linux)" ] && [ -z "$(call _is_osx)" ]; then \
-        echo "This task requires a proper dev setup. Linux or macOS platform."; \
-        exit 1; \
+        echo "This task requires a proper dev setup. Linux or macOS platform."; exit 1; \
     fi
 
 require_docker:
 	@docker --version > /dev/null 2>&1 || (echo "Docker is not installed. Please install Docker to proceed."; exit 1)
-
 
 clean: ## Clean dist folder and dotnet binary cache
 	@rm -rf dist/ || true
@@ -57,7 +52,6 @@ else
 endif
 
 VERSION := $(extract_version_command)
-
 # --- END GENERAL ---
 
 # --- BEGIN MacOS ---
@@ -71,11 +65,11 @@ macos-build-app: require_osx macos-build-binary ## Build MacOS app file from sta
 	$(MAKE) _macos-build-app MACOS_APP_FILE_NAME=UniLaunch-x64.app RID=osx-x64
 	$(MAKE) _macos-build-app MACOS_APP_FILE_NAME=UniLaunch-Silicon.app RID=osx-arm64
 
-macos-build-dmg: require_osx macos-build-app ## Create the dmg drag and drop installer
+macos-build-dmg: require_osx macos-build-app ## Create the dmg drag and drop installer for silicon and intel mac
 	$(MAKE) _macos-build-dmg MACOS_APP_FILE_NAME=UniLaunch-Silicon.app MACOS_DMG_FILE_NAME=UniLaunchInstaller-Silicon.dmg
 	$(MAKE) _macos-build-dmg MACOS_APP_FILE_NAME=UniLaunch-x64.app MACOS_DMG_FILE_NAME=UniLaunchInstaller-x64.dmg
 
-macos-build-binary: require_osx ## Build the binary for MacOS
+macos-build-binary: require_osx ## Build the binaries for all supported architectures on MacOS
 	$(MAKE) _linux-build RID=osx-x64 DOCKER_ARCH=amd64
 	$(MAKE) _linux-build RID=osx-arm64 DOCKER_ARCH=arm64
 
@@ -139,17 +133,17 @@ _macos-build-dmg:
 # --- BEGIN Linux ---
 APP_IMAGE_FILE_ICON := UniLaunch.Linux/Resources/icon.png
 
-linux-build: linux-build-binary linux-build-appimage linux-build-deb ## Build all linux targets
+linux-build: linux-build-binary linux-build-appimage linux-build-deb ## Build all Linux targets
 
-linux-build-binary: ## Build the binary for linux
+linux-build-binary: ## Build the binaries for all supported architectures on linux
 	$(MAKE) _linux-build RID=linux-x64 DOCKER_ARCH=amd64
 	$(MAKE) _linux-build RID=linux-arm64 DOCKER_ARCH=arm64
 
-linux-build-appimage: linux-build-binary ## Build appfiles
+linux-build-appimage: linux-build-binary ## Build app image for all supported platforms inside docker
 	$(MAKE) _linux-build-appimage ARCH=x64 DOCKER_ARCH=amd64 LINUXDEPLOY_ARCH=x86_64
 	$(MAKE) _linux-build-appimage ARCH=arm64 DOCKER_ARCH=arm LINUXDEPLOY_ARCH=aarch64
 
-linux-build-deb: linux-build-binary ## Build deb files
+linux-build-deb: linux-build-binary ## Build deb file for all supported platforms on Linux
 	make _linux-deb ARCH=x64 DEB_ARCH=amd64 DOCKER_ARCH=amd64
 	make _linux-deb ARCH=arm64 DEB_ARCH=arm64 DOCKER_ARCH=arm64
 
@@ -206,11 +200,11 @@ _linux-build-appimage: require_docker
 # -- BEGIN Windows ---
 windows-build: windows-build-binary windows-build-installer ## Build all Windows targets
 
-windows-build-binary: require_windows ## Build the binary for Windows
+windows-build-binary: require_windows ## Build the binaries for all supported architectures on Windows
 	$(MAKE) _windows-build RID=win-x64
 	$(MAKE) _windows-build RID=win-arm64
 
-windows-build-installer: require_windows ## Build a Windows installer
+windows-build-installer: require_windows ## Build the Windows installer for x64
 	@$(eval TMP := $(shell mktemp -d))
 	@cp dist/UniLaunch-win-x64.exe $(TMP)/unilaunch.exe
 	@cp Resources/UniLaunch.ico $(TMP)
