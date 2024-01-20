@@ -3,7 +3,7 @@
     
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <OutputType>Exe</OutputType>
+        <OutputType>WinExe</OutputType>
         <ApplicationIcon>../Resources/UniLaunch.ico</ApplicationIcon>
     </PropertyGroup>
 
