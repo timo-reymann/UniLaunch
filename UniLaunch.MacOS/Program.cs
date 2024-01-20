@@ -20,15 +20,13 @@ var engine = new UniLaunchEngine()
     .RegisterRule<WeekDayRule>()
     .RegisterStorageProvider<YamlStorageProvider<UniLaunchConfiguration>>(true)
     .RegisterStorageProvider<JsonStorageProvider<UniLaunchConfiguration>>()
-    .UseConfigFileLocator(
-        new FileLocator(new List<string>
-            {
-                $"{PathUtil.UserHome}/Library/Application Support/UniLaunch/config",
-                $"{PathUtil.UserHome}/.config/uniLaunch",
-                $"{PathUtil.UserHome}/.config/uniLaunch.macos"
-            }
-        )
-    )
+    .UseConfigFileLocator(new FileLocator(new List<string>
+        {
+            $"{PathUtil.UserHome}/Library/Application Support/UniLaunch/config",
+            $"{PathUtil.UserHome}/.config/uniLaunch",
+            $"{PathUtil.UserHome}/.config/uniLaunch.macos"
+        }
+    ))
     .LocateAndParseConfigFile();
 
 foreach (var result in await engine.WaitForAllTargetsToLaunch())
