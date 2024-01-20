@@ -1,7 +1,13 @@
 UniLaunch
 ===
 
-Advanced universal autostart tool for use on Liux, MacOS and Windows.
+Advanced universal autostart tool for use on Linux, MacOS and Windows.
+
+# TODO
+
+- [ ] Add usage documentation for each platform
+- [ ] Add development documentation
+- [ ] CircleCI
 
 # Development
 
