@@ -15,7 +15,7 @@ Advanced universal autostart tool for use on Linux, MacOS and Windows.
 
 ### General
 
-- [.NET Core SDK 7.x](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+- [.NET Core SDK 8.x](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 - [make](https://www.gnu.org/software/make/)
 
 ### Linux

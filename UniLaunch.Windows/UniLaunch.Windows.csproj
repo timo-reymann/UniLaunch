@@ -2,8 +2,9 @@
     <Import Project="../Platform.targets"/>
     
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
-        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <OutputType>Exe</OutputType>
+        <ApplicationIcon>../Resources/UniLaunch.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>
@@ -12,10 +13,6 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-    </ItemGroup>
-    
-    <ItemGroup>
-      <Folder Include="Installer\" />
     </ItemGroup>
 
     <PropertyGroup>
