@@ -1,3 +1,4 @@
 FROM debian:12
+ARG deb_arch
 WORKDIR /build/dist
 ENTRYPOINT ["/bin/dpkg-deb"]

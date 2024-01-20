@@ -153,6 +153,7 @@ _linux-build: _create_dist
 
 _linux-deb: require_docker
 	@echo "Set up directory structure ..."
+	@rm -rf dist/UniLaunch-$(DEB_ARCH).debsrc || true
 	@mkdir -p dist/UniLaunch-$(DEB_ARCH).debsrc/DEBIAN
 	@mkdir -p dist/UniLaunch-$(DEB_ARCH).debsrc/usr/local/bin
 	@echo -en "\
@@ -160,15 +161,26 @@ _linux-deb: require_docker
 	Version: $(VERSION)\n\
 	Maintainer: Timo Reymann\n\
 	Architecture: $(DEB_ARCH)\n\
-	Description: UniLaunch\
+	Description: UniLaunch\n\
 	" >  dist/UniLaunch-$(DEB_ARCH).debsrc/DEBIAN/control
+	@echo -en "\
+	#!/bin/sh\n\
+    set -e\n\
+    if [ \"$1\" = \"remove\" ]; then\n\
+    	CURRENT_USER=${SUDO_USER:-$USER}\n\
+    	if [ \"$CURRENT_USER\" = \"root\" ]; then\n\
+            exit 0\n\
+        fi\n\
+        rm -f /home/${CURRENT_USER}/.config/autostart/UniLaunch.desktop > /dev/null 2>&1\n\
+    fi\n\
+	" >  dist/UniLaunch-$(DEB_ARCH).debsrc/DEBIAN/postrm && \
+	chmod 755 dist/UniLaunch-$(DEB_ARCH).debsrc/DEBIAN/postrm
 	@echo "Copy executable ..."
 	@cp ./dist/UniLaunch-linux-$(ARCH) dist/UniLaunch-$(DEB_ARCH).debsrc/usr/local/bin/unilaunch
 	@echo "Run deb file build in docker ..."
 	docker build -f Dockerfile.DebBuilder.Linux --platform linux/$(DOCKER_ARCH)  . -t unilaunch/deb-builder/linux:$(DOCKER_ARCH)
 	docker run --rm -v $(PWD)/dist:/build/dist -it unilaunch/deb-builder/linux:$(DOCKER_ARCH) --build UniLaunch-$(DEB_ARCH).debsrc
 	@echo "Move deb file in place"
-	@rm -rf dist/UniLaunch-$(DEB_ARCH).debsrc
 	@mv dist/UniLaunch-$(DEB_ARCH).debsrc.deb  dist/UniLaunch-$(DEB_ARCH).deb
 
 _linux-build-appimage: require_docker
@@ -200,12 +212,16 @@ _linux-build-appimage: require_docker
 # -- BEGIN Windows ---
 windows-build: windows-build-binary windows-build-installer ## Build all Windows targets
 
-windows-build-binary: require_windows ## Build the binaries for all supported architectures on Windows
+windows-build-binary: ## Build the binaries for all supported architectures on Windows
 	$(MAKE) _windows-build RID=win-x64
 	$(MAKE) _windows-build RID=win-arm64
 
 windows-build-installer: require_windows ## Build the Windows installer for x64
 	@$(eval TMP := $(shell mktemp -d))
+	@if [ -z "$(call _is_windows)" ]; then \
+            echo "WARNING: This is not required to run on Windows but for ready2run to work it should."; \
+    fi
+
 	@cp dist/UniLaunch-win-x64.exe $(TMP)/unilaunch.exe
 	@cp Resources/UniLaunch.ico $(TMP)
 	@cp LICENSE $(TMP)
@@ -214,5 +230,5 @@ windows-build-installer: require_windows ## Build the Windows installer for x64
 
 _windows-build: _create_dist
 	dotnet publish UniLaunch.Windows/UniLaunch.Windows.csproj -r $(RID) -c Release
-	cp UniLaunch.Windows/bin/Release/net7.0/$(RID)/publish/UniLaunch.Windows.exe 
+	cp UniLaunch.Windows/bin/Release/net7.0/$(RID)/publish/UniLaunch.Windows.exe dist/UniLaunch-$(RID).exe
 # -- END Windows ---
