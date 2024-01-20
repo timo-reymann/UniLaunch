@@ -119,7 +119,7 @@ _macos-build-app:
     rm dist/tmpicns.rsrc || true
 
 _macos-build-dmg:
-	$(eval TMP := $(shell mktemp -d))
+	@$(eval TMP := $(shell mktemp -d))
 	@rm dist/$(MACOS_DMG_FILE_NAME) || true
 	cp -r dist/$(MACOS_APP_FILE_NAME) $(TMP)/UniLaunch.app && \
 	create-dmg \
@@ -178,7 +178,7 @@ _linux-deb: require_docker
 	@mv dist/UniLaunch-$(DEB_ARCH).debsrc.deb  dist/UniLaunch-$(DEB_ARCH).deb
 
 _linux-build-appimage: require_docker
-	$(eval TMP := $(shell mktemp -d))
+	@$(eval TMP := $(shell mktemp -d))
 	@echo "Prepare docker context ..."
 	@mkdir -p $(TMP)/usr/local/bin/
 	@cp ./dist/UniLaunch-linux-$(ARCH) $(TMP)/usr/local/bin/unilaunch
@@ -202,3 +202,24 @@ _linux-build-appimage: require_docker
 	  --output=appimage \
 	  -i ../AppDir/UniLaunch.png
 # --- END Linux ---
+
+# -- BEGIN Windows ---
+windows-build: windows-build-binary windows-build-installer ## Build all Windows targets
+
+windows-build-binary: require_windows ## Build the binary for Windows
+	$(MAKE) _windows-build RID=win-x64
+	$(MAKE) _windows-build RID=win-arm64
+
+windows-build-installer: require_windows ## Build a Windows installer
+	@$(eval TMP := $(shell mktemp -d))
+	@cp dist/UniLaunch-win-x64.exe $(TMP)/unilaunch.exe
+	@cp Resources/UniLaunch.ico $(TMP)
+	@cp LICENSE $(TMP)
+	@cp UniLaunch.Windows/Installer/* $(TMP)
+	docker run --platform linux/amd64 --rm -it -v $(TMP):/work -v $(PWD)/dist:/work/dist amake/innosetup \
+		/DAppVersion=$(VERSION) /F"UniLaunch-Setup" config.iss
+
+_windows-build: _create_dist
+	dotnet publish UniLaunch.Windows/UniLaunch.Windows.csproj -r $(RID) -c Release
+	cp UniLaunch.Windows/bin/Release/net7.0/$(RID)/publish/UniLaunch.Windows.exe 
+# -- END Windows ---

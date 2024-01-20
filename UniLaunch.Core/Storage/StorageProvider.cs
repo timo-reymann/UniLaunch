@@ -25,6 +25,12 @@ public abstract class StorageProvider<T>
 
     protected void WriteFile(string filePathWithoutExtension, string contents)
     {
+        var folder = Path.GetDirectoryName(filePathWithoutExtension);
+        if (folder != null && !Directory.Exists(folder))
+        {
+            Directory.CreateDirectory(folder);
+        }
+        
         File.WriteAllText(AddExtension(filePathWithoutExtension), contents);
     }
 
