@@ -11,7 +11,7 @@ public class AppFileTarget : Target
 
     public string Path { get; set; }
 
-    public override Task<TargetInvokeResult> Invoke()
+    public override async Task<TargetInvokeResult> Invoke()
     {
         try
         {
@@ -22,23 +22,23 @@ public class AppFileTarget : Target
                 FileName = "/usr/bin/open",
                 Arguments = $"{Path}"
             });
-            process.Start();
+            process!.Start();
 
-            process.WaitForExit(3_000);
+            await process.WaitForExitAsync(new CancellationTokenSource(TimeSpan.FromSeconds(3)).Token);
             if (process.ExitCode != 0)
             {
-                return Task.FromResult(Error(new Error[]
+                return Error(new Error[]
                 {
                     new("OpenFailed", process.StandardError.ReadToEnd())
-                }));
+                });
             }
         }
         catch (Exception e)
         {
-            return Task.FromResult(Error(e));
+            return Error(e);
         }
 
-        return Task.FromResult(Success());
+        return Success();
     }
 
 }
