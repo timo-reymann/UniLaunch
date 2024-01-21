@@ -17,6 +17,7 @@ UniLaunch
 - Multiple configuration file formats available
 - Customizable autostart functionality
 - Reusable rule sets
+- dotfile-compatible configuration file location
 
 ## Requirements
 
