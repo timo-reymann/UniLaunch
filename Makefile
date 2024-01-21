@@ -44,6 +44,9 @@ clean: ## Clean dist folder and dotnet binary cache
 _create_dist:
 	@mkdir dist/ || true
 
+test: ## Run all tests for the project
+	dotnet test
+
 # Determine the command to extract the version based on the platform
 ifeq ($(call _is_windows),Windows_NT)
     extract_version_command = $(shell type Platform.targets | Select-String '<Version>(.*?)<\/Version>' | ForEach-Object { $matches[1] })
@@ -70,11 +73,11 @@ macos-build-dmg: require_osx macos-build-app ## Create the dmg drag and drop ins
 	$(MAKE) _macos-build-dmg MACOS_APP_FILE_NAME=UniLaunch-x64.app MACOS_DMG_FILE_NAME=UniLaunchInstaller-x64.dmg
 
 macos-build-binary: require_osx ## Build the binaries for all supported architectures on MacOS
-	$(MAKE) _linux-build RID=osx-x64 DOCKER_ARCH=amd64
-	$(MAKE) _linux-build RID=osx-arm64 DOCKER_ARCH=arm64
+	$(MAKE) _macos-build RID=osx-x64 DOCKER_ARCH=amd64
+	$(MAKE) _macos-build RID=osx-arm64 DOCKER_ARCH=arm64
 
 _macos-build: _create_dist
-	dotnet publish UniLaunch.MacOS/MacOS.Linux.csproj -r $(RID) -c Release
+	dotnet publish UniLaunch.MacOS/UniLaunch.MacOS.csproj -r $(RID) -c Release
 	cp UniLaunch.MacOS/bin/Release/net8.0/$(RID)/publish/UniLaunch.MacOS ./dist/UniLaunch-$(RID)
 
 _macos-build-app:
