@@ -179,7 +179,7 @@ public class UniLaunchEngine
         return this;
     }
 
-    private List<Task<TargetInvokeResult>> GetTargetInvokes()
+    private IEnumerable<Task<TargetInvokeResult>> GetTargetInvokes()
     {
         return GetTargets()
             .Select(target => target.Invoke())
