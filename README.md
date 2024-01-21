@@ -8,7 +8,7 @@ UniLaunch
 <p align="center">
 	<img width="300" src="./Resources/logo-512.png">
     <br />
-    Short description goes here
+    Advanced universal autostart tool for use on Liux, MacOS and Windows.
 </p>
 
 ## Features
