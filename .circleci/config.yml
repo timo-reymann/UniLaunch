@@ -4,19 +4,57 @@ orbs:
   win: circleci/windows@5.0.0
   github-utils: trustedshops-public/github-utils@1.1.2
 
+commands:
+  install_dotnet:
+    parameters:
+      installer_type:
+        type: string
+        enum:
+          - sh
+          - ps1
+        default: sh
+      channel:
+        type: string
+        default: 8.0.1xx
+    steps:
+      - when:
+          condition:
+            and:
+              - equal: [ <<parameters.installer_type>>, "sh" ]
+          steps:
+            - run:
+                name: Install dotnet <<parameters.channel>>
+                command: |
+                  curl -L https://dot.net/v1/dotnet-install.<<parameters.installer_type>> -o dotnetInstall.<<parameters.installer_type>>
+                  echo 'export DOTNET_ROOT=$HOME/.dotnet' >> $BASH_ENV 
+                  echo 'export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools' >> $BASH_ENV
+                  chmod +x ./dotnetInstall.sh
+                  ./dotnetInstall.sh -Channel <<parameters.channel>>
+      - when:
+          condition:
+            and:
+              - equal: [ <<parameters.installer_type>>, "ps1" ]
+          steps:
+            - run:
+                name: Install dotnet <<parameters.channel>>
+                command: |
+                  curl https://dot.net/v1/dotnet-install.<<parameters.installer_type>> -o dotnetInstall.<<parameters.installer_type>>
+                  ./dotnetInstall.ps1 -Channel <<parameters.channel>>
+
 executors:
-  dotnet-sdk:
-    docker:
-      - image: mcr.microsoft.com/dotnet/sdk:8.0
   macos:
     macos:
       xcode: "14.2.0"
+  linux:
+    machine:
+      image: ubuntu-2004:current
 
 jobs:
   unit-test:
-    executor: dotnet-sdk
+    executor: linux
     steps:
       - checkout
+      - install_dotnet
       - run:
           name: Run tests
           command: dotnet test
@@ -27,13 +65,15 @@ jobs:
       size: medium
     steps:
       - checkout
+      - install_dotnet:
+          installer_type: ps1
       - run:
-          name: Install dependencies
+          name: Install build dependencies
           command: |
             choco install -y make curl innosetup
-            curl https://dot.net/v1/dotnet-install.ps1 -o dotnetInstall.ps1
-            ./dotnetInstall.ps1 -Channel 8.0.1xx
-            make windows-build
+      - run:
+          name: Build Windows artifacts
+          command: make windows-build
       - store_artifacts:
           path: ./dist
   
@@ -41,40 +81,26 @@ jobs:
     executor: macos
     steps:
       - checkout
+      - install_dotnet
       - run:
-          name: Install dependencies
+          name: Install build dependencies
           command: |
             brew install make create-dmg
-            echo 'export DOTNET_ROOT=$HOME/.dotnet' >> $BASH_ENV 
-            echo 'export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools' >> $BASH_ENV 
-            curl -L https://dot.net/v1/dotnet-install.sh --output dotnetInstall
-            chmod +x dotnetInstall
-            ./dotnetInstall -Channel 8.0.1xx
       - run:
           name: Build MacOS artifacts
-          command: |
-            make macos-build
+          command: make macos-build
       - store_artifacts:
           path: ./dist
   build-linux:
-    machine: 
-      image: ubuntu-2004:current
-      docker_layer_caching: true
+    executor: linux
     environment:
       DOCKER_BUILDKIT: 1
       BUILDX_PLATFORMS: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6,linux/arm64/v8
     steps:
       - checkout
+      - install_dotnet
       - run:
-          name: Install dotnet
-          command: |
-            echo 'export DOTNET_ROOT=$HOME/.dotnet' >> $BASH_ENV 
-            echo 'export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools' >> $BASH_ENV 
-            curl -L https://dot.net/v1/dotnet-install.sh --output dotnetInstall
-            chmod +x dotnetInstall
-            ./dotnetInstall -Channel 8.0.1xx
-      - run: 
-          name: Run make
+          name: Build Linux artifacts
           command: |
             docker buildx create --use
             make linux-build
