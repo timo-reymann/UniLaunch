@@ -128,6 +128,7 @@ _macos-build-dmg:
       --icon "UniLaunch.app" 200 190 \
       --hide-extension "UniLaunch.app" \
       --app-drop-link 400 185 \
+      --sandbox-safe \
       "dist/$(MACOS_DMG_FILE_NAME)" \
       "$(TMP)/UniLaunch.app"
 	@find . -type f -name 'rw.*.UniLaunchInstaller*.dmg' -exec rm -f {} +
