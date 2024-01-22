@@ -185,7 +185,7 @@ _linux-build-appimage: require_docker
 	@mkdir -p $(TMP)/usr/local/bin/
 	@cp ./dist/UniLaunch-linux-$(ARCH) $(TMP)/usr/local/bin/unilaunch
 	@cp $(APP_IMAGE_FILE_ICON) $(TMP)/.DirIcon
-	@echo "\
+	@echo -en "\
 	[Desktop Entry]\n\
     Name=UniLaunch\n\
     Type=Application\n\
