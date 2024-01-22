@@ -174,7 +174,7 @@ fi\n\
 	@cp ./dist/UniLaunch-linux-$(ARCH) dist/UniLaunch-$(DEB_ARCH).debsrc/usr/local/bin/unilaunch
 	@echo "Run deb file build in docker ..."
 	docker build -f Dockerfile.DebBuilder.Linux --platform linux/$(DOCKER_ARCH)  . -t unilaunch/deb-builder/linux:$(DOCKER_ARCH)
-	docker run --rm -v $(PWD)/dist:/build/dist -it unilaunch/deb-builder/linux:$(DOCKER_ARCH) --build UniLaunch-$(DEB_ARCH).debsrc
+	docker run --platform linux/$(DOCKER_ARCH)  --rm -v $(PWD)/dist:/build/dist -it unilaunch/deb-builder/linux:$(DOCKER_ARCH) --build UniLaunch-$(DEB_ARCH).debsrc
 	@echo "Move deb file in place"
 	@mv dist/UniLaunch-$(DEB_ARCH).debsrc.deb  dist/UniLaunch-$(DEB_ARCH).deb
 
