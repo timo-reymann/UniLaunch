@@ -223,7 +223,7 @@ windows-build-installer: require_windows ## Build the Windows installer for x64
 	@cp Resources/UniLaunch.ico $(TMP)
 	@cp LICENSE $(TMP)
 	@cp UniLaunch.Windows/Installer/* $(TMP)
-	iscc.exe /DAppVersion=$(VERSION) /F"UniLaunch-Setup" config.iss
+	iscc.exe /D"AppVersion=$(VERSION)" /F"UniLaunch-Setup" config.iss
 
 _windows-build: _create_dist
 	dotnet publish UniLaunch.Windows/UniLaunch.Windows.csproj -r $(RID) -c Release
