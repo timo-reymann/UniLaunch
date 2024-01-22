@@ -5,21 +5,36 @@ orbs:
   github-utils: trustedshops-public/github-utils@1.1.2
 
 executors:
+  dotnet-sdk:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:8.0
   macos:
     macos:
       xcode: "15.1.0"
 
 jobs:
   unit-test:
-    docker:
-      - image: mcr.microsoft.com/dotnet/sdk:8.0
+    executor: dotnet-sdk
     steps:
       - checkout
       - run:
           name: Run tests
           command: dotnet test
+  build-macos:
+    executor: macos
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            brew install make
+      - run:
+          name: Build MacOS artifacts
+          command: |
+            make macos-build
 
 workflows: 
   main:
     jobs:
       - unit-test
+      - build-macos
