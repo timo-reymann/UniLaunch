@@ -186,13 +186,13 @@ _linux-build-appimage: require_docker
 	@cp ./dist/UniLaunch-linux-$(ARCH) $(TMP)/usr/local/bin/unilaunch
 	@cp $(APP_IMAGE_FILE_ICON) $(TMP)/.DirIcon
 	@echo -en "\
-	[Desktop Entry]\n\
-    Name=UniLaunch\n\
-    Type=Application\n\
-    Icon=UniLaunch\n\
-    Categories=Utility\n\
-    Exec=unilaunch\n\
-    X-AppImage-Version=$(VERSION)\n\
+[Desktop Entry]\n\
+Name=UniLaunch\n\
+Type=Application\n\
+Icon=UniLaunch\n\
+Categories=Utility\n\
+Exec=unilaunch\n\
+X-AppImage-Version=$(VERSION)\n\
 	" > $(TMP)/UniLaunch.desktop
 	echo "Create builder image and build app image using dockerized setup"
 	docker build  -f Dockerfile.AppImageBuilder.Linux $(TMP) --build-arg linuxdeploy_arch=$(LINUXDEPLOY_ARCH) --platform linux/$(DOCKER_ARCH) -t unilaunch/appimage-builder/linux:$(DOCKER_ARCH)
