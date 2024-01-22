@@ -56,6 +56,21 @@ jobs:
             make macos-build
       - store_artifacts:
           path: ./dist
+  build-linux:
+    executor: dotnet-sdk
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Install dependencies
+          command: |
+            apt-get update && \
+            apt-get install -y make
+      - run: 
+          name: Run make
+          command: |
+            make linux-build
 
 workflows:
   main:
@@ -63,3 +78,4 @@ workflows:
       - unit-test
       - build-macos
       - build-windows
+      - build-linux
