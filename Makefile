@@ -66,7 +66,7 @@ macos-build-dmg: require_osx macos-build-app ## Create the dmg drag and drop ins
 
 macos-build-binary: require_osx ## Build the binaries for all supported architectures on MacOS
 	$(MAKE) _macos-build RID=osx-x64 DOCKER_ARCH=amd64
-	$(MAKE) _macos-build RID=osx-arm64 DOCKER_ARCH=arm64
+	$(MAKE) _macos-build RID=osx-arm64 DOCKER_ARCH=linux/arm64/v8
 
 _macos-build: _create_dist
 	dotnet publish UniLaunch.MacOS/UniLaunch.MacOS.csproj -r $(RID) -c Release
@@ -135,9 +135,8 @@ linux-build-binary: ## Build the binaries for all supported architectures on lin
 	$(MAKE) _linux-build RID=linux-x64 DOCKER_ARCH=amd64
 	$(MAKE) _linux-build RID=linux-arm64 DOCKER_ARCH=arm64
 
-linux-build-appimage: linux-build-binary ## Build app image for all supported platforms inside docker
+linux-build-appimage: ## Build app image for all supported platforms inside docker
 	$(MAKE) _linux-build-appimage ARCH=x64 DOCKER_ARCH=amd64 LINUXDEPLOY_ARCH=x86_64
-	$(MAKE) _linux-build-appimage ARCH=arm64 DOCKER_ARCH=arm LINUXDEPLOY_ARCH=aarch64
 
 linux-build-deb: linux-build-binary ## Build deb file for all supported platforms on Linux
 	make _linux-deb ARCH=x64 DEB_ARCH=amd64 DOCKER_ARCH=amd64

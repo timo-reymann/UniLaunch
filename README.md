@@ -30,6 +30,7 @@ I provide multiple installation options for each platform, see the list below:
 | OS           | CPU Architecture | Type          | Download                |
 |:-------------|:-----------------|:--------------|:------------------------|
 | Linux        | x64              | executable    | UniLaunch-linux-x64     |
+| Linux        | x64              | App-Image     | UniLaunch-x64.AppImage  |
 | Linux        | ARM x64          | executable    | UniLaunch-linux amd64   |
 | Debian-based | x64              | deb-Package   | UniLaunch-amd64.deb     |
 | Debian-based | arm64            | deb-Package   | UniLaunch-arm64.deb     |
