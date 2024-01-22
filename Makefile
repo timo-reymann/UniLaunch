@@ -127,7 +127,7 @@ _macos-build-dmg:
 # --- END MacOS ---
 
 # --- BEGIN Linux ---
-APP_IMAGE_FILE_ICON := UniLaunch.Linux/Resources/icon.png
+APP_IMAGE_FILE_ICON := Resources/logo-512.png
 
 linux-build: linux-build-binary linux-build-appimage linux-build-deb ## Build all Linux targets
 

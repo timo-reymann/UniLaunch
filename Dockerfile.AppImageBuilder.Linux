@@ -10,7 +10,7 @@ RUN apt-get update \
       libfuse2 \
       libglib2.0-dev \
       file
-RUN curl -LsS https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-${linuxdeploy_arch}.AppImage -o linuxdeploy \
+RUN curl -LsS https://github.com/linuxdeploy/linuxdeploy/releases/download/1-alpha-20240109-1/linuxdeploy-${linuxdeploy_arch}.AppImage -o linuxdeploy \
     && chmod +x linuxdeploy && \
     mkdir AppDir dist/
 COPY . ./AppDir
