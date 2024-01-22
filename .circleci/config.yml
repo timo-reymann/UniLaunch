@@ -20,6 +20,23 @@ jobs:
       - run:
           name: Run tests
           command: dotnet test
+  
+  build-windows:
+    executor:
+      name: win/default
+      size: medium
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            choco install -y make curl
+            curl https://dot.net/v1/dotnet-install.ps1 -o dotnetInstall.ps1
+            ./dotnetInstall.ps1 -Channel 8.0.1xx
+            make windows-build
+      - store_artifacts:
+          path: ./dist
+  
   build-macos:
     executor: macos
     steps:
@@ -45,3 +62,4 @@ workflows:
     jobs:
       - unit-test
       - build-macos
+      - build-windows

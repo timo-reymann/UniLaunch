@@ -1,9 +1,6 @@
 # --- BEGIN HELP ---
 .PHONY: help
 SHELL := /bin/bash
-ifeq ($(call _is_windows),Windows_NT)
-    SHELL := powershell.exe
-endif
 
 help: require_proper_dev_env ## Display this help page
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[33m%-30s\033[0m %s\n", $$1, $$2}'
@@ -47,13 +44,8 @@ _create_dist:
 test: ## Run all tests for the project
 	dotnet test
 
-# Determine the command to extract the version based on the platform
-ifeq ($(call _is_windows),Windows_NT)
-    extract_version_command = $(shell type Platform.targets | Select-String '<Version>(.*?)<\/Version>' | ForEach-Object { $matches[1] })
-else
-    extract_version_command = $(shell awk -F'[<>]' '/<Version>/{print $$3}' Platform.targets)
-endif
 
+extract_version_command = $(shell awk -F'[<>]' '/<Version>/{print $$3}' Platform.targets)
 VERSION := $(extract_version_command)
 # --- END GENERAL ---
 
