@@ -40,6 +40,9 @@ I provide multiple installation options for each platform, see the list below:
 | Windows      | x64              | Setup         | UniLaunch-Setup.exe     |
 | Windows      | ARM x64          | exe           | UniLaunch-win-amr64.exe |
 
+> For MacOS allow apps from unidentified developers or run sudo xattr -r -d com.apple.quarantine /Applications/UniLaunch.app
+> after install.
+
 ## Usage
 
 ### Configuration
