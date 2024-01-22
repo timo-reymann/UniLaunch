@@ -140,7 +140,7 @@ linux-build-appimage: ## Build app image for all supported platforms inside dock
 
 linux-build-deb: linux-build-binary ## Build deb file for all supported platforms on Linux
 	make _linux-deb ARCH=x64 DEB_ARCH=amd64 DOCKER_ARCH=amd64
-	make _linux-deb ARCH=arm64 DEB_ARCH=arm64 DOCKER_ARCH=arm64
+	make _linux-deb ARCH=arm64 DEB_ARCH=arm64 DOCKER_ARCH=arm64/v8
 
 _linux-build: _create_dist
 	dotnet publish UniLaunch.Linux/UniLaunch.Linux.csproj -r $(RID) -c Release
