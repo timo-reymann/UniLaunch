@@ -1,0 +1,25 @@
+version: "2.1"
+
+orbs:
+  win: circleci/windows@5.0.0
+  github-utils: trustedshops-public/github-utils@1.1.2
+
+executors:
+  macos:
+    macos:
+      xcode: "15.1.0"
+
+jobs:
+  unit-test:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:8.0
+    steps:
+      - checkout
+      - run:
+          name: Run tests
+          command: dotnet test
+
+workflows: 
+  main:
+    jobs:
+      - unit-test
