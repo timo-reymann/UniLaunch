@@ -57,15 +57,14 @@ jobs:
       - store_artifacts:
           path: ./dist
   build-linux:
-    docker:
-      - image: cimg/base:stable
+    machine: 
+      image: ubuntu-2004:current
+      docker_layer_caching: true
     environment:
       DOCKER_BUILDKIT: 1
       BUILDX_PLATFORMS: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6,linux/arm64/v8
     steps:
       - checkout
-      - setup_remote_docker:
-          docker_layer_caching: true
       - run:
           name: Install dotnet
           command: |
