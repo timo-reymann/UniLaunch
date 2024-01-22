@@ -214,6 +214,7 @@ windows-build-binary: ## Build the binaries for all supported architectures on W
 
 windows-build-installer: require_windows ## Build the Windows installer for x64
 	@$(eval TMP := $(shell mktemp -d))
+	@mkdir -p $(TMP)
 	@if [ -z "$(call _is_windows)" ]; then \
             echo "WARNING: This is not required to run on Windows but for ready2run to work it should."; \
     fi
