@@ -39,7 +39,7 @@ commands:
                 name: Install dotnet <<parameters.channel>>
                 command: |
                   curl https://dot.net/v1/dotnet-install.<<parameters.installer_type>> -o dotnetInstall.<<parameters.installer_type>>
-                  ./dotnetInstall.ps1 -Channel <<parameters.channel>>
+                  ./dotnetInstall.ps1 -InstallDir 'C:\\Program Files\\dotnet' -Channel <<parameters.channel>>
 
 executors:
   macos:
