@@ -37,8 +37,10 @@ jobs:
           name: Build MacOS artifacts
           command: |
             make macos-build
+      - store_artifacts:
+          path: ./dist
 
-workflows: 
+workflows:
   main:
     jobs:
       - unit-test
