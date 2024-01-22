@@ -125,3 +125,6 @@ make {linux|windows|macos}-build
 ### Alternatives
 
 - Manual autostart and scripts for each platform (script-based; etc.)
+
+## TODO
+- [ ] Build artifacts completely in docker (allowing cross compile) - build & cp file instead of build & run
