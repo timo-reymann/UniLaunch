@@ -152,22 +152,22 @@ _linux-deb: require_docker
 	@mkdir -p dist/UniLaunch-$(DEB_ARCH).debsrc/DEBIAN
 	@mkdir -p dist/UniLaunch-$(DEB_ARCH).debsrc/usr/local/bin
 	@echo -en "\
-	Package: UniLaunch\n\
-	Version: $(VERSION)\n\
-	Maintainer: Timo Reymann\n\
-	Architecture: $(DEB_ARCH)\n\
-	Description: UniLaunch\n\
+Package: UniLaunch\n\
+Version: $(VERSION)\n\
+Maintainer: Timo Reymann\n\
+Architecture: $(DEB_ARCH)\n\
+Description: UniLaunch\n\
 	" >  dist/UniLaunch-$(DEB_ARCH).debsrc/DEBIAN/control
 	@echo -en "\
-	#!/bin/sh\n\
-    set -e\n\
-    if [ \"$1\" = \"remove\" ]; then\n\
-    	CURRENT_USER=${SUDO_USER:-$USER}\n\
-    	if [ \"$CURRENT_USER\" = \"root\" ]; then\n\
-            exit 0\n\
-        fi\n\
-        rm -f /home/${CURRENT_USER}/.config/autostart/UniLaunch.desktop > /dev/null 2>&1\n\
+#!/bin/sh\n\
+set -e\n\
+if [ \"$1\" = \"remove\" ]; then\n\
+	CURRENT_USER=${SUDO_USER:-$USER}\n\
+ 	if [ \"$CURRENT_USER\" = \"root\" ]; then\n\
+         exit 0\n\
     fi\n\
+     rm -f /home/${CURRENT_USER}/.config/autostart/UniLaunch.desktop > /dev/null 2>&1\n\
+fi\n\
 	" >  dist/UniLaunch-$(DEB_ARCH).debsrc/DEBIAN/postrm && \
 	chmod 755 dist/UniLaunch-$(DEB_ARCH).debsrc/DEBIAN/postrm
 	@echo "Copy executable ..."
