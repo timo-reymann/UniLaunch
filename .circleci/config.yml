@@ -66,6 +66,7 @@ jobs:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: true
+          version: 20.10.14
       - run:
           name: Install dotnet
           command: |
@@ -77,6 +78,7 @@ jobs:
       - run: 
           name: Run make
           command: |
+            docker buildx create --use
             make linux-build
 
 workflows:
