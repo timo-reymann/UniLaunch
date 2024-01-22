@@ -110,6 +110,12 @@ workflows:
   main:
     jobs:
       - unit-test
-      - build-macos
-      - build-windows
-      - build-linux
+      - build-macos:
+          requires:
+            - unit-test
+      - build-windows:
+          requires:
+            - unit-test
+      - build-linux:
+          requires:
+            - unit-test
