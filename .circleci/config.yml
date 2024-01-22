@@ -78,7 +78,8 @@ jobs:
           command: |
             docker buildx create --use
             make linux-build
-
+      - store_artifacts:
+          path: ./dist
 workflows:
   main:
     jobs:
