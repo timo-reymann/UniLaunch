@@ -128,3 +128,4 @@ make {linux|windows|macos}-build
 
 ## TODO
 - [ ] Build artifacts completely in docker (allowing cross compile) - build & cp file instead of build & run
+- [ ] Add Avalonia Config Editor UI
