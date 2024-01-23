@@ -40,10 +40,69 @@ I provide multiple installation options for each platform, see the list below:
 | Windows      | x64              | Setup         | UniLaunch-Setup.exe     |
 | Windows      | ARM x64          | exe           | UniLaunch-win-amr64.exe |
 
-> For MacOS allow apps from unidentified developers or run sudo xattr -r -d com.apple.quarantine /Applications/UniLaunch.app
+> For MacOS allow apps from unidentified developers or run sudo xattr -r -d com.apple.quarantine
+> /Applications/UniLaunch.app
 > after install.
 
 ## Usage
+
+### Concepts
+
+#### Terminology
+
+- **Rule**: Specifies a condition that should be fulfilled
+- **Ruleset**: Combines multiple rules into a reusable set
+- **Target**: Something to launch based on a ruleset, (e.g. an application, scripts)
+- **Entry**: An autostart element. It consists of the name of the ruleset (when to execute) and the name of the target (
+  what to execute)
+
+#### Targets
+
+Targets are defined by UniLaunch, the following target types are supported:
+
+##### `appFile`
+
+Start an `.app` file.
+
+> This target type is only available for MacOS.
+
+| Parameter | Value                                    | Example                 |
+|:----------|:-----------------------------------------|:------------------------|
+| Path      | Absolute path to the .app file to launch | /Applications/Slack.app |
+
+##### `executable`
+
+Launch any executable.
+
+| Parameter | Value                                          | Examples                                                    |
+|:----------|:-----------------------------------------------|:------------------------------------------------------------|
+| Path      | Absolute path to the executable file to launch | /usr/bin/test.exe, C:/Program Files/MyProgram/MyProgram.exe |
+| Arguments | List of arguments to pass to the executable    | `[foo, bar]`                                                |
+
+#### Rules
+
+Rules are defined by UniLaunch, the following target types are supported:
+
+##### `time`
+
+Execute based on given time frames.
+
+| Parameter  | Value                    | Example |
+|:-----------|:-------------------------|:--------|
+| StartRange | 24h time in format HH:mm | 13:15   |
+| EndRange   | 24h time in format HH:mm | 20:00   |
+
+#### Hoe it works
+
+1. On startup the configuration file is located and parsed
+2. All entries are loaded
+3. Resolve rules and targets
+4. Drop unsupported rules and targets for the platform
+5. Execute all targets in parallel
+    1. Verify rule set matches all rules
+    2. Start up target
+6. Report start up results to stdout
+7. Terminate the autostart mode of UniLaunch
 
 ### Configuration
 
@@ -91,6 +150,7 @@ entries:
 ```
 
 ##### JSON
+
 ````json
 {
   "ruleSets": [
@@ -166,7 +226,7 @@ entries:
 Depending on your platform there are different configuration locations searched.
 
 UniLaunch checks sequentially down the list, once one file is found that is readable,
-it tries to load and parse the given file. If an error occurs during read an runtime error is thrown and 
+it tries to load and parse the given file. If an error occurs during read an runtime error is thrown and
 the startup of applications does not succeed.
 
 ##### Windows
@@ -250,5 +310,6 @@ make {linux|windows|macos}-build
 - Manual autostart and scripts for each platform (script-based; etc.)
 
 ## TODO
+
 - [ ] Build artifacts completely in docker (allowing cross compile) - build & cp file instead of build & run
 - [ ] Add Avalonia Config Editor UI
