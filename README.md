@@ -81,18 +81,34 @@ Launch any executable.
 
 #### Rules
 
-Rules are defined by UniLaunch, the following target types are supported:
+Rules are defined by UniLaunch, the following are supported:
 
 ##### `time`
 
-Execute based on given time frames.
+Execute if startup happens in the given time frame.
 
 | Parameter  | Value                    | Example |
 |:-----------|:-------------------------|:--------|
 | StartRange | 24h time in format HH:mm | 13:15   |
 | EndRange   | 24h time in format HH:mm | 20:00   |
 
-#### Hoe it works
+##### `week-day`
+
+Execute on all listed weekdays
+
+| Parameter       | Value                                       | Example             |
+|:----------------|:--------------------------------------------|:--------------------|
+| DaysOfWeekToRun | List of names of the weekdays to execute on | `[Monday, Tuesday]` |
+
+##### `always`
+
+The always rule is just a simple trick to allow you to use UniLaunch to manage your regular startup or just quickly
+verify it works with your applications.
+
+In case you want to e.g. version autostart of applications using your dotfiles to not have to configure your OS when you
+move around a lot between machines etc. this also comes quite handy.
+
+#### How it works
 
 1. On startup the configuration file is located and parsed
 2. All entries are loaded
@@ -109,6 +125,8 @@ Execute based on given time frames.
 #### Example configuration
 
 ##### YAML
+
+YAML is the recommended file format, as it is easier to read and more compact than JSON.
 
 ```yaml
 ruleSets:
@@ -151,6 +169,10 @@ entries:
 
 ##### JSON
 
+JSON is not recommended, but supported. See the example config below:
+
+<details>
+  <summary>Example JSON config</summary>
 ````json
 {
   "ruleSets": [
@@ -220,6 +242,7 @@ entries:
   ]
 }
 ````
+</details>
 
 #### Configuration file location
 
