@@ -47,14 +47,134 @@ I provide multiple installation options for each platform, see the list below:
 
 ### Configuration
 
+#### Example configuration
+
+##### YAML
+
+```yaml
+ruleSets:
+  - name: Weekend
+    rules:
+      - ruleName: week-day
+        daysOfWeekToRun:
+          - Saturday
+          - Sunday
+      - ruleName: time
+        startRange: 00:00
+        endRange: 19:00
+  - name: Workday
+    rules:
+      - ruleName: week-day
+        daysOfWeekToRun:
+          - Monday
+          - Tuesday
+          - Wednesday
+          - Thursday
+          - Friday
+      - ruleName: time
+        startRange: 07:30
+        endRange: 17:30
+targets:
+  - targetType: appFile
+    path: /Applications/Slack.app
+    name: Slack
+  - targetType: appFile
+    path: /Applications/Thunderbird.app
+    name: Thunderbird
+entries:
+  - ruleSetName: Workday
+    targetName: Slack
+  - ruleSetName: Workday
+    targetName: Thunderbird
+  - ruleSetName: Weekend
+    targetName: Thunderbird
+```
+
+##### JSON
+````json
+{
+  "ruleSets": [
+    {
+      "name": "Weekend",
+      "rules": [
+        {
+          "ruleName": "week-day",
+          "daysOfWeekToRun": [
+            "Saturday",
+            "Sunday"
+          ]
+        },
+        {
+          "ruleName": "time",
+          "startRange": "00:00",
+          "endRange": 1140
+        }
+      ]
+    },
+    {
+      "name": "Workday",
+      "rules": [
+        {
+          "ruleName": "week-day",
+          "daysOfWeekToRun": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ]
+        },
+        {
+          "ruleName": "time",
+          "startRange": "07:30",
+          "endRange": 1050
+        }
+      ]
+    }
+  ],
+  "targets": [
+    {
+      "targetType": "appFile",
+      "path": "/Applications/Slack.app",
+      "name": "Slack"
+    },
+    {
+      "targetType": "appFile",
+      "path": "/Applications/Thunderbird.app",
+      "name": "Thunderbird"
+    }
+  ],
+  "entries": [
+    {
+      "ruleSetName": "Workday",
+      "targetName": "Slack"
+    },
+    {
+      "ruleSetName": "Workday",
+      "targetName": "Thunderbird"
+    },
+    {
+      "ruleSetName": "Weekend",
+      "targetName": "Thunderbird"
+    }
+  ]
+}
+````
+
+#### Configuration file location
+
 Depending on your platform there are different configuration locations searched.
 
-#### Windows
+UniLaunch checks sequentially down the list, once one file is found that is readable,
+it tries to load and parse the given file. If an error occurs during read an runtime error is thrown and 
+the startup of applications does not succeed.
+
+##### Windows
 
 1. `%LOCALAPPDATA%`\UniLaunch\config.yaml
 2. `%LOCALAPPDATA%`\UniLaunch\config.json
 
-#### Linux
+##### Linux
 
 1. `$XDG_CONFIG_HOME`/UniLaunch/config.yaml
 2. `$HOME`/.config/UniLaunch/config.yaml
@@ -62,7 +182,7 @@ Depending on your platform there are different configuration locations searched.
 4. `$HOME`/.config/UniLaunch/config.json
 5. /etc/default/UniLaunch
 
-#### MaCOS
+##### MaCOS
 
 1. `$HOME`/Library/Application Support/UniLaunch/config.yaml
 2. `$HOME`/.config/uniLaunch.yaml
