@@ -1,0 +1,37 @@
+<Project>
+    <ItemGroup>
+        <PackageVersion Include="Microsoft.NET.Test.Sdk"
+                        Version="17.7.1"/>
+        <PackageVersion Include="xunit"
+                        Version="2.4.2"/>
+        <PackageVersion Include="xunit.runner.visualstudio"
+                        Version="2.4.5"/>
+        <PackageVersion Include="coverlet.collector"
+                        Version="3.2.0"/>
+        <PackageVersion Include="Newtonsoft.Json" 
+                        Version="13.0.3"/>
+        <PackageVersion Include="YamlDotNet" 
+                        Version="13.7.1"/>
+        <PackageVersion Include="System.Runtime.CompilerServices.Unsafe" 
+                        Version="5.0.3"/>
+        <PackageVersion Include="NSubsys" 
+                        Version="1.0.0"/>
+        <PackageVersion Include="Avalonia" 
+                        Version="11.0.6"/>
+        <PackageVersion Include="Avalonia.Desktop" 
+                        Version="11.0.6"/>
+        <PackageVersion Include="Avalonia.Themes.Fluent" 
+                        Version="11.0.6"/>
+        <PackageVersion Include="Avalonia.Fonts.Inter" 
+                        Version="11.0.6"/>
+        <PackageVersion Include="Avalonia.Diagnostics" 
+                        Version="11.0.6"/>
+        <PackageVersion Include="Avalonia.ReactiveUI" 
+                        Version="11.0.6"/>
+        <PackageVersion Include="Avalonia.Native" 
+                        Version="11.0.6" />
+    </ItemGroup>
+    <PropertyGroup>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    </PropertyGroup>
+</Project>

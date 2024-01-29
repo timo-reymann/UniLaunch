@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="../Platform.targets"/>
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\UniLaunch.Core\UniLaunch.Core.csproj"/>
+        <PackageReference Include="System.Runtime.CompilerServices.Unsafe"/>
+        <ProjectReference Include="..\UniLaunch.UI\UniLaunch.UI.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\icon.png"/>
+    </ItemGroup>
+
+</Project>

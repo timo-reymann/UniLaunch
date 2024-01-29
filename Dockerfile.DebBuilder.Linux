@@ -1,0 +1,5 @@
+FROM debian:12
+ARG deb_arch
+WORKDIR /build/dist
+RUN dpkg-deb --help
+ENTRYPOINT ["/bin/dpkg-deb"]

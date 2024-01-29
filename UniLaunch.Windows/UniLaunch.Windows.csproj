@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="../Platform.targets"/>
+    
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <OutputType>WinExe</OutputType>
+        <ApplicationIcon>../Resources/UniLaunch.ico</ApplicationIcon>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\UniLaunch.Core\UniLaunch.Core.csproj"/>
+        <ProjectReference Include="..\UniLaunch.UI\UniLaunch.UI.csproj" />
+        <PackageReference Include="NSubsys">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <PropertyGroup>
+        <NSubsysTasksPath Condition="'$(NSubsysTasksPath)' == ''">$(NugetPackageRoot)/nsubsys/1.0.0/tool/NSubsys.Tasks.dll</NSubsysTasksPath>
+    </PropertyGroup>
+
+    <UsingTask TaskName="NSubsys.Tasks.NSubsys" AssemblyFile="$(NSubsysTasksPath)"/>
+
+    <Target Name="CustomAfterBuild" AfterTargets="Build" Condition="$(RuntimeIdentifier.StartsWith('win'))">
+        <NSubsys TargetFile="$(OutputPath)$(AssemblyName)$(_NativeExecutableExtension)"/>
+    </Target>
+
+    <Target Name="CustomAfterPublish" AfterTargets="Publish" Condition="$(RuntimeIdentifier.StartsWith('win'))">
+        <NSubsys TargetFile="$(PublishDir)$(AssemblyName)$(_NativeExecutableExtension)"/>
+    </Target>
+</Project>

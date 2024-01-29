@@ -1,0 +1,20 @@
+<Project>
+    <!-- App Metadata -->
+    <PropertyGroup>
+        <Version>0.0.1</Version>
+    </PropertyGroup>
+
+    <!-- Runtime & Publish Configuration -->
+    <PropertyGroup>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PublishReadyToRun>true</PublishReadyToRun>
+        <DebugType>embedded</DebugType>
+        <GenerateProgramFile>false</GenerateProgramFile>
+        <SelfContained>true</SelfContained>
+        <PublishSingleFile>true</PublishSingleFile>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+        <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+        <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+    </PropertyGroup>
+</Project>

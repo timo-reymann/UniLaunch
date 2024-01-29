@@ -1,0 +1,210 @@
+version: "2.1"
+
+.anchors:
+  .only_tags: &only_tags
+    filters:
+      tags:
+        only: /.*/
+      branches:
+        ignore: /.*/
+  .tags_and_branches: &tags_and_branches
+    filters:
+      tags:
+        only: /.*/
+      branches:
+        only: /.*/
+
+orbs:
+  win: circleci/windows@5.0.0
+  github-utils: trustedshops-public/github-utils@1.1.2
+  github-cli: circleci/github-cli@2.3.0
+
+commands:
+  install_dotnet:
+    parameters:
+      installer_type:
+        type: string
+        enum:
+          - sh
+          - ps1
+        default: sh
+      channel:
+        type: string
+        default: 8.0.1xx
+    steps:
+      - when:
+          condition:
+            and:
+              - equal: [ <<parameters.installer_type>>, "sh" ]
+          steps:
+            - run:
+                name: Install dotnet <<parameters.channel>>
+                command: |
+                  curl -L https://dot.net/v1/dotnet-install.<<parameters.installer_type>> -o dotnetInstall.<<parameters.installer_type>>
+                  echo 'export DOTNET_ROOT=$HOME/.dotnet' >> $BASH_ENV 
+                  echo 'export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools' >> $BASH_ENV
+                  chmod +x ./dotnetInstall.sh
+                  ./dotnetInstall.sh -Channel <<parameters.channel>>
+      - when:
+          condition:
+            and:
+              - equal: [ <<parameters.installer_type>>, "ps1" ]
+          steps:
+            - run:
+                name: Install dotnet <<parameters.channel>>
+                command: |
+                  curl https://dot.net/v1/dotnet-install.<<parameters.installer_type>> -o dotnetInstall.<<parameters.installer_type>>
+                  ./dotnetInstall.ps1 -InstallDir 'C:\\Program Files\\dotnet' -Channel <<parameters.channel>>
+
+  persist_dist_folder:
+    steps:
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist/
+  checkout_and_attach:
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+          name: Attach persisted files modified by previous jobs
+
+executors:
+  macos:
+    macos:
+      xcode: "14.2.0"
+  linux:
+    machine:
+      image: ubuntu-2004:current
+
+jobs:
+  unit-test:
+    executor: linux
+    steps:
+      - checkout
+      - install_dotnet
+      - run:
+          name: Run tests
+          command: dotnet test
+  
+  build-windows:
+    executor:
+      name: win/default
+      size: medium
+    steps:
+      - checkout_and_attach
+      - install_dotnet:
+          installer_type: ps1
+      - run:
+          name: Install build dependencies
+          command: |
+            choco install -y make curl innosetup
+      - run:
+          name: Build Windows artifacts
+          command: make windows-build
+      - persist_dist_folder
+  
+  build-macos:
+    executor: macos
+    steps:
+      - checkout_and_attach
+      - install_dotnet
+      - run:
+          name: Install build dependencies
+          command: |
+            brew install make create-dmg
+      - run:
+          name: Build MacOS artifacts
+          command: make macos-build macos-purge-app-files
+      - persist_dist_folder
+  build-linux:
+    executor: linux
+    environment:
+      DOCKER_BUILDKIT: 1
+      BUILDX_PLATFORMS: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6,linux/arm64/v8
+    steps:
+      - checkout_and_attach
+      - install_dotnet
+      - run:
+          name: Build Linux artifacts
+          command: |
+            docker buildx create --use
+            make linux-build
+      - persist_dist_folder
+  prepare-release:
+    executor: linux
+    steps:
+      - checkout_and_attach
+      - run:
+          name: Generate checksums
+          command: make generate-checksums
+      - store_artifacts:
+          path: dist/
+      - persist_dist_folder
+  release:
+    executor: linux
+    steps:
+      - checkout_and_attach
+      - github-cli/install:
+          version: "2.21.2"
+      - run:
+          name: Publish release
+          command: |
+            gh release create ${CIRCLE_TAG} --generate-notes dist/*
+      - github-utils/rewrite_urls_with_token:
+          token_env_var: GH_TOKEN
+      - run:
+          name: Update cask
+          command: |
+            make macos-generate-cask
+            git config --global user.name "CircleCI"
+            git config --global user.email no-reply@circleci.com
+            git checkout main
+            git stage Casks/UniLaunch.rb
+            git commit -m "chore: Update cask for ${CIRCLE_TAG}" -m "[skip-ci]"
+            git push origin main
+            
+  patch-version:
+    executor: linux
+    steps:
+      - checkout
+      - run:
+          name: Update version to $CIRCLE_TAG
+          command: make patch-version patched_version="${CIRCLE_TAG}"
+      - persist_to_workspace:
+          paths:
+            - Platform.targets
+          root: .
+
+workflows:
+  main:
+    jobs:
+      - patch-version:
+          <<: *only_tags
+      - unit-test
+      - build-macos:
+          <<: *tags_and_branches
+          requires:
+            - unit-test
+            - patch-version
+      - build-windows:
+          <<: *tags_and_branches
+          requires:
+            - unit-test
+            - patch-version
+      - build-linux:
+          <<: *tags_and_branches
+          requires:
+            - unit-test
+            - patch-version
+      - prepare-release:
+          <<: *tags_and_branches
+          requires:
+            - patch-version
+            - build-macos
+            - build-windows
+            - build-linux
+      - release:
+          <<: *only_tags
+          requires:
+            - prepare-release

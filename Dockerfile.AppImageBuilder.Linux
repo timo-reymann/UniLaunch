@@ -1,0 +1,21 @@
+FROM ubuntu:16.04
+ARG linuxdeploy_arch
+WORKDIR /build
+RUN apt-get update \
+    && apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends \
+      curl \
+      ca-certificates \
+      fuse \
+      libfuse2 \
+      libglib2.0-dev \
+      file
+RUN curl -LsS https://github.com/linuxdeploy/linuxdeploy/releases/download/1-alpha-20240109-1/linuxdeploy-${linuxdeploy_arch}.AppImage -o linuxdeploy \
+    && chmod +x linuxdeploy && \
+    mkdir AppDir dist/
+COPY . ./AppDir
+RUN ln -s ./.DirIcon ./AppDir/UniLaunch.png
+
+WORKDIR /build/dist
+ENTRYPOINT ["/build/linuxdeploy"]
+
