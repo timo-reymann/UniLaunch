@@ -50,7 +50,7 @@ If you have brew installed, installing UniLaunch is very easy:
 
 ```sh
 brew tap timo-reymann/unilaunch https://github.com/timo-reymann/UniLaunch.git
-brew install --cask --no-quarantine unilaunch 
+brew install --cask --no-quarantine UniLaunch 
 ```
 
 Otherwise you will have to download the file manually and allow it for Gatekeeper manually:

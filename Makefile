@@ -68,7 +68,7 @@ macos-build: macos-build-binary macos-build-app macos-build-dmg macos-generate-c
 macos-generate-cask:
 	@echo -en 'cask "UniLaunch" do' \
 		'\n  version "$(VERSION)"' \
-		'\n  url "https://github.com/timo-reymann/UniLaunch/releases/$(VERSION)/UniLaunchInstaller-Silicon.dmg"' \
+		'\n  url "https://github.com/timo-reymann/UniLaunch/releases/download/$(VERSION)/UniLaunchInstaller-Silicon.dmg"' \
 		'\n  sha256 "$(shell shasum -a 256 dist/UniLaunchInstaller-Silicon.dmg | awk "{print \$$1}")"' \
 		'\n  name "UniLaunch"' \
 		'\n  homepage "https://github.com/timo-reymann/UniLaunch"' \
