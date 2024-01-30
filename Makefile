@@ -73,7 +73,7 @@ macos-generate-cask:
 		'\n  name "UniLaunch"' \
 		'\n  homepage "https://github.com/timo-reymann/UniLaunch"' \
 		'\n  app "UniLaunch.app"' \
-		'\nend' > Casks/UniLaunch.rb
+		'\nend' > Casks/unilaunch.rb
 
 
 
