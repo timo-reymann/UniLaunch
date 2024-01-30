@@ -49,8 +49,8 @@ from [the latest GitHub Release](https://github.com/timo-reymann/UniLaunch/relea
 If you have brew installed, installing UniLaunch is very easy:
 
 ```sh
-brew tap timo-reymann/unilaunch
-brew install --cask --no-quarantine UniLaunch 
+brew tap timo-reymann/unilaunch https://github.com/timo-reymann/UniLaunch.git
+brew install --cask --no-quarantine unilaunch 
 ```
 
 Otherwise you will have to download the file manually and allow it for Gatekeeper manually:
