@@ -161,7 +161,7 @@ jobs:
             git config --global user.email no-reply@circleci.com
             git checkout main
             git stage Casks/UniLaunch.rb
-            git commit -m "chore: Update cask for ${CIRCLE_TAG}" -m "[skip-ci]"
+            git commit -m "chore: Update cask for ${CIRCLE_TAG}" -m "[skip ci]"
             git push origin main
             
   patch-version:
