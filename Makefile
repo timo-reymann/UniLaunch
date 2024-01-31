@@ -65,8 +65,8 @@ MACOS_DMG_FILE_ICON := Resources/UniLaunch.icns
 
 macos-build: macos-build-binary macos-build-app macos-build-dmg macos-generate-cask ## Build all MacOS targets
 
-macos-generate-cask:
-	@echo -en 'cask "UniLaunch" do' \
+macos-generate-cask: ## Generate cask ruby file
+	@echo -en 'cask "unilaunch" do' \
 		'\n  version "$(VERSION)"' \
 		'\n  url "https://github.com/timo-reymann/UniLaunch/releases/download/$(VERSION)/UniLaunchInstaller-Silicon.dmg"' \
 		'\n  sha256 "$(shell shasum -a 256 dist/UniLaunchInstaller-Silicon.dmg | awk "{print \$$1}")"' \
@@ -74,8 +74,6 @@ macos-generate-cask:
 		'\n  homepage "https://github.com/timo-reymann/UniLaunch"' \
 		'\n  app "UniLaunch.app"' \
 		'\nend' > Casks/unilaunch.rb
-
-
 
 macos-build-app: require_osx macos-build-binary ## Build MacOS app file from static file
 	$(MAKE) _macos-build-app MACOS_APP_FILE_NAME=UniLaunch-x64.app RID=osx-x64
