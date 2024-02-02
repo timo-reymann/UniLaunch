@@ -1,8 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Input;
+using Avalonia.Controls;
 using MsBox.Avalonia;
+using MsBox.Avalonia.Dto;
+using MsBox.Avalonia.Models;
 using ReactiveUI;
+using UniLaunch.Core.Meta;
 using UniLaunch.UI.Services;
+using Icon = MsBox.Avalonia.Enums.Icon;
 
 namespace UniLaunch.UI.ViewModels;
 
@@ -48,6 +55,24 @@ public class MainWindowViewModel : ViewModelBase
 
     private async void _ShowAbout()
     {
+        var provider = new AppInfoProvider();
+        
+        await MessageBoxManager.GetMessageBoxCustom(new MessageBoxCustomParams()
+        {
+            ButtonDefinitions = new List<ButtonDefinition>(),
+            Markdown = true,
+            ShowInCenter = true,
+            ContentTitle = "About",
+            SizeToContent = SizeToContent.WidthAndHeight,
+            Icon = Icon.Info,
+            ContentMessage = $"""
+                             **Version:** {provider.VersionInfo.ProductVersion} 
+                             
+                             **Created by** Timo Reymann
+                             
+                             **GitHub**: timo-reymann/UniLaunch
+                             """,
+        }).ShowAsync();
     }
 
     private async void _OpenFile()

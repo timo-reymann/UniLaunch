@@ -27,4 +27,8 @@
         <PackageReference Include="Projektanker.Icons.Avalonia" />
         <PackageReference Include="Projektanker.Icons.Avalonia.FontAwesome" />
     </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\UniLaunch.Core\UniLaunch.Core.csproj" />
+    </ItemGroup>
 </Project>
