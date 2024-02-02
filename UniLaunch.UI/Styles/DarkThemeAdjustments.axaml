@@ -1,0 +1,6 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="MenuBar.Background" Color="#27213C"/>
+    <SolidColorBrush x:Key="MenuBar.PrimaryMenuItem.Foreground" Color="#E2E2E2" />
+    <SolidColorBrush x:Key="SidePanel.Background" Color="#14FFFFFF" />
+</ResourceDictionary>

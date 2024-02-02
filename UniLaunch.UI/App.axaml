@@ -3,13 +3,52 @@
              x:Class="UniLaunch.UI.App"
              xmlns:local="using:UniLaunch.UI"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
-        <local:ViewLocator/>
+        <local:ViewLocator />
     </Application.DataTemplates>
-  
+
     <Application.Styles>
+        <StyleInclude Source = "avares://UniLaunch.UI/Controls/TabItemWithIcon.axaml" />
+        <Style Selector="Menu>MenuItem">
+            <Setter Property="Foreground"
+                    Value="{DynamicResource MenuBar.PrimaryMenuItem.Foreground}" />
+        </Style>
+        <Style Selector="Menu>MenuItem">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource MenuBar.PrimaryMenuItem.Foreground}" />
+        </Style>
+        <Style Selector="TabItem">
+            <Setter Property="MinWidth" Value="100" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="0 0 10 0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="HorizontalContentAlignment" Value="Center"  />
+        </Style>
+        <Style Selector="TabStripItem">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="0 0 10 0" />
+            <Setter Property="Margin" Value="0" />
+        </Style>
         <FluentTheme />
     </Application.Styles>
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceInclude Source='avares://UniLaunch.UI/Styles/LightThemeAdjustments.axaml' />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+
+                <ResourceDictionary x:Key="Dark">
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceInclude Source='avares://UniLaunch.UI/Styles/DarkThemeAdjustments.axaml' />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
