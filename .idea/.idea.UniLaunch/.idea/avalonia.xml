@@ -3,7 +3,10 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
-        <entry key="UniLaunch.UI/App.axaml" value="UniLaunch.Linux/UniLaunch.Linux.csproj" />
+        <entry key="UniLaunch.UI/App.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
+        <entry key="UniLaunch.UI/Controls/TabItemWithIcon.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
+        <entry key="UniLaunch.UI/Styles/DarkThemeAdjustments.axaml" value="UniLaunch.Linux/UniLaunch.Linux.csproj" />
+        <entry key="UniLaunch.UI/Styles/LightThemeAdjustments.axaml" value="UniLaunch.Linux/UniLaunch.Linux.csproj" />
         <entry key="UniLaunch.UI/Views/MainWindow.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
       </map>
     </option>

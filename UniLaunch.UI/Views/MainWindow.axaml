@@ -2,11 +2,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:UniLaunch.UI.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="https://github.com/projektanker/icons.avalonia"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:UniLaunch.UI.Controls"
         MinWidth="800"
         MinHeight="400"
-        mc:Ignorable="d" 
-        d:DesignWidth="800" 
+        mc:Ignorable="d"
+        d:DesignWidth="800"
         d:DesignHeight="400"
         x:Class="UniLaunch.UI.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -15,41 +17,86 @@
         WindowStartupLocation="CenterScreen"
         Icon="avares://UniLaunch.UI/Assets/window-icon.ico"
         Title="UniLaunch">
+
     <Design.DataContext>
         <vm:MainWindowViewModel />
     </Design.DataContext>
-    
+
     <DockPanel PointerMoved="InputElement_OnPointerMoved"
                PointerPressed="InputElement_OnPointerPressed"
                PointerReleased="InputElement_OnPointerReleased">
-        <StackPanel DockPanel.Dock="Top"  Background="#2C3A47">
-            <DockPanel Margin="100 40 0 10"
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+        <StackPanel DockPanel.Dock="Top"
+                    Background="{DynamicResource MenuBar.Background}">
+            <DockPanel Margin="100 20 0 20"
                        DockPanel.Dock="Top">
-                <Image Margin="0 0 30 0" 
-                       Source="avares://UniLaunch.UI/Assets/logo-1024x.png" 
-                       Height="100"></Image>
+                <Image Margin="0 0 30 0"
+                       Source="avares://UniLaunch.UI/Assets/logo-1024x.png"
+                       Height="100">
+                </Image>
                 <DockPanel Margin="0 0 40 0">
                     <Menu VerticalAlignment="Center"
                           DockPanel.Dock="Right">
-                        <MenuItem Header="_About" />
+                        <MenuItem Header="_About"
+                                  Command="{Binding ShowAbout}" />
                     </Menu>
                     <Menu VerticalAlignment="Center"
                           DockPanel.Dock="Right">
                         <MenuItem Header="_File">
-                            <MenuItem Header="Open ..." />
-                            <MenuItem Header="Save" />
-                            <MenuItem Header="Close" />
+                            <MenuItem Header="Open ..."
+                                      i:MenuItem.Icon="fa-static fa-folder-open"
+                                      Command="{Binding OpenFile}" />
+                            <MenuItem Header="Save"
+                                      i:MenuItem.Icon="fa-static fa-save" />
+                            <MenuItem Header="Save to ..."
+                                      i:MenuItem.Icon="fa-static fa-save" />
+                            <MenuItem Header="Close"
+                                      i:MenuItem.Icon="fa-static fa-xmark"
+                                      Command="{Binding Close}" />
                         </MenuItem>
                         <MenuItem Header="Settings" />
                     </Menu>
                 </DockPanel>
             </DockPanel>
+            <TabStrip Margin="5 0 0 0"
+                      SelectedIndex="{Binding SelectedTab, Mode=TwoWay}"
+                      HorizontalAlignment="Center">
+                <TabStrip.Styles>
+                    <Style Selector="WrapPanel>TextBlock">
+                        <Setter Property="Padding" Value="10 0 5 0" />
+                    </Style>
+                </TabStrip.Styles>
+                <controls:TabItemWithIcon Title="Targets"
+                                          Icon="fa-solid fa-bullseye" />
+                <controls:TabItemWithIcon Title="Rulesets"
+                                          Icon="fa-solid fa-check-double" />
+                <controls:TabItemWithIcon Title="Entries"
+                                          Icon="fa-static fa-play" />
+            </TabStrip>
         </StackPanel>
-       
-        <Panel Margin="10">
-            <TextBlock Text="{Binding Greeting}" 
-                       HorizontalAlignment="Center" 
-                       VerticalAlignment="Center" />
-        </Panel>
+
+        <DockPanel>
+            <ListBox DockPanel.Dock="Left"
+                     Background="{DynamicResource SidePanel.Background}"
+                     MinWidth="300">
+                <ListBoxItem>Item 1</ListBoxItem>
+                <ListBoxItem>Item 2</ListBoxItem>
+                <ListBoxItem>Item 3</ListBoxItem>
+            </ListBox>
+            <Panel>
+                <TextBlock VerticalAlignment="Center"
+                           HorizontalAlignment="Center">
+                    Child component goes here
+                </TextBlock>
+            </Panel>
+        </DockPanel>
     </DockPanel>
 </Window>

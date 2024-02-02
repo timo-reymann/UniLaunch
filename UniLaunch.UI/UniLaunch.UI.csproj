@@ -22,5 +22,9 @@
                           Condition="'$(Configuration)' == 'Debug'"/>
         <PackageReference Include="Avalonia.ReactiveUI"/>
         <PackageReference Include="Avalonia.Native" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+        <PackageReference Include="MessageBox.Avalonia" />
+        <PackageReference Include="Projektanker.Icons.Avalonia" />
+        <PackageReference Include="Projektanker.Icons.Avalonia.FontAwesome" />
     </ItemGroup>
 </Project>
