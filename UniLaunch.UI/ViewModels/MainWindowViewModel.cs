@@ -22,6 +22,7 @@ namespace UniLaunch.UI.ViewModels;
 public class MainWindowViewModel : ViewModelBase
 {
     public ICommand OpenFile { get; }
+    public ICommand SaveFile { get; }
     public ICommand ShowAbout { get; }
     public ICommand Close { get; }
 
@@ -52,6 +53,7 @@ public class MainWindowViewModel : ViewModelBase
         OpenFile = ReactiveCommand.Create(_OpenFile);
         ShowAbout = ReactiveCommand.Create(_ShowAbout);
         Close = ReactiveCommand.Create(_Close);
+        SaveFile = ReactiveCommand.Create(_SaveFile);
 
         this.WhenAnyValue(x => x.SelectedTab)
             .Subscribe(_ => SelectedTabChanged());
@@ -84,6 +86,23 @@ public class MainWindowViewModel : ViewModelBase
     private void _Close()
     {
         Environment.Exit(0);
+    }
+
+    private async void _SaveFile()
+    {
+        try
+        {
+            UniLaunchEngine.Instance.PersistCurrentConfiguration();
+        }
+        catch (Exception e)
+        {
+            await MessageBoxManager.GetMessageBoxStandard(
+                "Failed to save file",
+                $"Could not persist configuration: {e.Message}",
+                ButtonEnum.Ok,
+                Icon.Error
+            ).ShowAsync();
+        }
     }
 
     private async void _ShowAbout()
@@ -159,8 +178,9 @@ public class MainWindowViewModel : ViewModelBase
 
         try
         {
-            var config = storeProvider.Load(file.Path.AbsolutePath[..^(fileExtension.Length)]);
-            UniLaunchEngine.Instance.OverrideConfiguration(config, false);
+            var configFilePath = file.Path.AbsolutePath[..^(fileExtension.Length)];
+            var config = storeProvider.Load(configFilePath);
+            UniLaunchEngine.Instance.OverrideConfiguration(config, configFilePath, false);
             SelectedTabChanged();
         }
         catch (Exception e)

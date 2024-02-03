@@ -95,7 +95,7 @@ public class UniLaunchEngine
             {
                 continue;
             }
-            
+
             DefaultStorageProvider = alternativeProvider;
             return alternativeConfigFile;
         }
@@ -134,14 +134,26 @@ public class UniLaunchEngine
     /// Override the current configuration for autostart engine
     /// </summary>
     /// <param name="config">Configuration to set</param>
+    /// <param name="configFilePath">Override path to config file without extension</param>
     /// <param name="persist">Persist the configuration to the configuration file used</param>
     /// <returns></returns>
-    public UniLaunchEngine OverrideConfiguration(UniLaunchConfiguration config, bool persist = true)
+    public UniLaunchEngine OverrideConfiguration(
+        UniLaunchConfiguration config,
+        string? configFilePath = null,
+        bool persist = true)
     {
         Configuration = config;
 
+        if (configFilePath != null)
+        {
+            ConfigFilePath = configFilePath;
+        }
+
         if (persist)
+        {
             PersistCurrentConfiguration();
+        }
+        
         return this;
     }
 

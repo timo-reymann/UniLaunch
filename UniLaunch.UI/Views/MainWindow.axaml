@@ -46,6 +46,7 @@
                                       i:MenuItem.Icon="fa-static fa-folder-open"
                                       Command="{Binding OpenFile}" />
                             <MenuItem Header="Save"
+                                      Command="{Binding SaveFile}"
                                       i:MenuItem.Icon="fa-static fa-save" />
                             <MenuItem Header="Save to ..."
                                       i:MenuItem.Icon="fa-static fa-save" />
