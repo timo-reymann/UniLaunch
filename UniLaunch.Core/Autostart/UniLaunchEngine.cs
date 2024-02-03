@@ -10,21 +10,23 @@ public class UniLaunchEngine
 {
     public StorageProvider<UniLaunchConfiguration> DefaultStorageProvider { get; private set; }
     public UniLaunchConfiguration? Configuration { get; private set; } = new();
-    
+    public List<StorageProvider<UniLaunchConfiguration>> AvailableStoreProviders { get; private set; } = new();
+
     /// <summary>
     /// Global shared instance of the engine
     /// </summary>
     public static readonly UniLaunchEngine Instance = new();
-    
+
     private string? ConfigFilePath { get; set; }
-    private List<StorageProvider<UniLaunchConfiguration>> AvailableStoreProviders { get; set; } = new();
     private FileLocator ConfigFileLocator { get; set; }
 
     private readonly HashSet<Type> _enabledTargetTypes = new();
     private readonly HashSet<Type> _enabledRuleTypes = new();
 
-    private UniLaunchEngine() {}
-    
+    private UniLaunchEngine()
+    {
+    }
+
     private ExecutionContext CreateContext() => new(DateTime.Now);
 
     private IEnumerable<Target> GetTargets()
@@ -89,11 +91,13 @@ public class UniLaunchEngine
         foreach (var alternativeProvider in AvailableStoreProviders)
         {
             var alternativeConfigFile = ConfigFileLocator.Locate(alternativeProvider.Extension);
-            if (alternativeConfigFile != null)
+            if (alternativeConfigFile == null)
             {
-                DefaultStorageProvider = alternativeProvider;
-                return alternativeConfigFile;
+                continue;
             }
+            
+            DefaultStorageProvider = alternativeProvider;
+            return alternativeConfigFile;
         }
 
         return ConfigFileLocator.LocateWithFallback(DefaultStorageProvider.Extension);
@@ -105,12 +109,11 @@ public class UniLaunchEngine
     /// </summary>
     /// <param name="ignoreErrors">Ignore errors due to missing file etc.</param>
     /// <returns></returns>
-    public UniLaunchEngine LocateAndParseConfigFile(bool ignoreErrors = false)
+    public UniLaunchEngine LocateAndParseConfigFile(bool ignoreErrors = true)
     {
         ConfigFilePath = LocateConfigFile();
         if (ignoreErrors)
-            Configuration = DefaultStorageProvider.Load(ConfigFilePath);
-        else
+        {
             try
             {
                 Configuration = DefaultStorageProvider.Load(ConfigFilePath);
@@ -118,6 +121,11 @@ public class UniLaunchEngine
             catch (StorageException)
             {
             }
+        }
+        else
+        {
+            Configuration = DefaultStorageProvider.Load(ConfigFilePath);
+        }
 
         return this;
     }

@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Windows.Input;
 using Avalonia.Controls;
 using DynamicData;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
+using MsBox.Avalonia.Enums;
 using MsBox.Avalonia.Models;
 using ReactiveUI;
 using UniLaunch.Core.Autostart;
 using UniLaunch.Core.Meta;
 using UniLaunch.Core.Spec;
+using UniLaunch.Core.Storage;
 using UniLaunch.UI.Services;
 using Icon = MsBox.Avalonia.Enums.Icon;
 
@@ -37,7 +40,7 @@ public class MainWindowViewModel : ViewModelBase
         get => _selectedTab;
         set => this.RaiseAndSetIfChanged(ref _selectedTab, value);
     }
-    
+
     public INameable SelectedItem
     {
         get => _selectedItem;
@@ -49,7 +52,7 @@ public class MainWindowViewModel : ViewModelBase
         OpenFile = ReactiveCommand.Create(_OpenFile);
         ShowAbout = ReactiveCommand.Create(_ShowAbout);
         Close = ReactiveCommand.Create(_Close);
-        
+
         this.WhenAnyValue(x => x.SelectedTab)
             .Subscribe(_ => SelectedTabChanged());
     }
@@ -58,25 +61,24 @@ public class MainWindowViewModel : ViewModelBase
     {
         Items.Clear();
         var config = UniLaunchEngine.Instance.Configuration!;
-        
-        switch(SelectedTab)
+
+        switch (SelectedTab)
         {
             case 0: // Targets
                 Items.AddRange(config.Targets);
                 break;
-            
+
             case 1: // Rulesets
                 Items.AddRange(config.RuleSets);
                 break;
-            
+
             case 2: // Entries
                 Items.AddRange(config.Entries);
                 break;
-            
+
             default:
                 throw new ArgumentOutOfRangeException(nameof(SelectedTab), SelectedTab, "Tab index not known");
         }
-        Console.WriteLine(Items.Count);
     }
 
     private void _Close()
@@ -120,8 +122,55 @@ public class MainWindowViewModel : ViewModelBase
             return;
         }
 
-        var box = MessageBoxManager
-            .GetMessageBoxStandard("File selected", $"You selected {file!.Name}");
-        await box.ShowAsync();
+        var fileExtension = Path.GetExtension(file.Name);
+        if (fileExtension.Length == 0)
+        {
+            await MessageBoxManager.GetMessageBoxStandard(
+                "Failed to parse file",
+                $"{file.Name} could not be parsed: Files without extension in the file path are not supported by the editor.",
+                ButtonEnum.Ok,
+                Icon.Error
+            ).ShowAsync();
+            return;
+        }
+
+        StorageProvider<UniLaunchConfiguration>? storeProvider = null;
+        foreach (var availableStoreProvider in UniLaunchEngine.Instance.AvailableStoreProviders)
+        {
+            if (fileExtension[1..] != availableStoreProvider.Extension)
+            {
+                continue;
+            }
+
+            storeProvider = availableStoreProvider;
+            break;
+        }
+
+        if (storeProvider == null || fileExtension.Length == 0)
+        {
+            await MessageBoxManager.GetMessageBoxStandard(
+                "Failed to parse file",
+                $"{file!.Name} could not be parsed: The file format is not supported.",
+                ButtonEnum.Ok,
+                Icon.Error
+            ).ShowAsync();
+            return;
+        }
+
+        try
+        {
+            var config = storeProvider.Load(file.Path.AbsolutePath[..^(fileExtension.Length)]);
+            UniLaunchEngine.Instance.OverrideConfiguration(config, false);
+            SelectedTabChanged();
+        }
+        catch (Exception e)
+        {
+            await MessageBoxManager.GetMessageBoxStandard(
+                "Failed to parse file",
+                $"{file!.Name} could not be parsed: {e.Message}",
+                ButtonEnum.Ok,
+                Icon.Error
+            ).ShowAsync();
+        }
     }
 }
