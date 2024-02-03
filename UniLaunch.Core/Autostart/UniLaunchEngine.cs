@@ -8,17 +8,23 @@ namespace UniLaunch.Core.Autostart;
 
 public class UniLaunchEngine
 {
-    private UniLaunchConfiguration? Configuration { get; set; } = new();
-    private string? ConfigFilePath { get; set; }
     public StorageProvider<UniLaunchConfiguration> DefaultStorageProvider { get; private set; }
+    public UniLaunchConfiguration? Configuration { get; private set; } = new();
+    
+    /// <summary>
+    /// Global shared instance of the engine
+    /// </summary>
+    public static readonly UniLaunchEngine Instance = new();
+    
+    private string? ConfigFilePath { get; set; }
     private List<StorageProvider<UniLaunchConfiguration>> AvailableStoreProviders { get; set; } = new();
-
     private FileLocator ConfigFileLocator { get; set; }
-
 
     private readonly HashSet<Type> _enabledTargetTypes = new();
     private readonly HashSet<Type> _enabledRuleTypes = new();
 
+    private UniLaunchEngine() {}
+    
     private ExecutionContext CreateContext() => new(DateTime.Now);
 
     private IEnumerable<Target> GetTargets()

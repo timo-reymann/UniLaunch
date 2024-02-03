@@ -6,15 +6,8 @@ using UniLaunch.Core.Util;
 using UniLaunch.UI;
 using UniLaunch.Windows.Autostart;
 
-if (!CommandLineUtil.IsAutoStart())
-{
-    CommandLineUtil.RegisterAutoStart(new RegistryAutoStartRegistrationProvider());
-    CommandLineUtil.PrintAppInfo();
-    EditorUi.Main(Environment.GetCommandLineArgs());
-    return 0;
-}
-
-var engine = new UniLaunchEngine()
+var engine = UniLaunchEngine
+    .Instance
     .RegisterTarget<ExecutableTarget>()
     .RegisterRule<AlwaysRule>()
     .RegisterRule<TimeRule>()
@@ -27,6 +20,14 @@ var engine = new UniLaunchEngine()
         }
     ))
     .LocateAndParseConfigFile();
+
+if (!CommandLineUtil.IsAutoStart())
+{
+    CommandLineUtil.RegisterAutoStart(new RegistryAutoStartRegistrationProvider());
+    CommandLineUtil.PrintAppInfo();
+    EditorUi.Run(Environment.GetCommandLineArgs());
+    return 0;
+}
 
 foreach (var result in await engine.WaitForAllTargetsToLaunch())
 {

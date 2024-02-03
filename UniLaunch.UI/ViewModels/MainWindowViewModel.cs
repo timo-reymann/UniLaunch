@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Avalonia.Controls;
+using DynamicData;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Models;
 using ReactiveUI;
+using UniLaunch.Core.Autostart;
 using UniLaunch.Core.Meta;
+using UniLaunch.Core.Spec;
 using UniLaunch.UI.Services;
 using Icon = MsBox.Avalonia.Enums.Icon;
 
@@ -20,11 +23,25 @@ public class MainWindowViewModel : ViewModelBase
     public ICommand Close { get; }
 
     private int _selectedTab;
+    private ObservableCollection<INameable> _items = new();
+    private INameable _selectedItem = null!;
+
+    public ObservableCollection<INameable> Items
+    {
+        get => _items;
+        set => this.RaiseAndSetIfChanged(ref _items, value);
+    }
 
     public int SelectedTab
     {
         get => _selectedTab;
         set => this.RaiseAndSetIfChanged(ref _selectedTab, value);
+    }
+    
+    public INameable SelectedItem
+    {
+        get => _selectedItem;
+        set => this.RaiseAndSetIfChanged(ref _selectedItem, value);
     }
 
     public MainWindowViewModel()
@@ -32,20 +49,34 @@ public class MainWindowViewModel : ViewModelBase
         OpenFile = ReactiveCommand.Create(_OpenFile);
         ShowAbout = ReactiveCommand.Create(_ShowAbout);
         Close = ReactiveCommand.Create(_Close);
-        this.ObservableForProperty(it => it.SelectedTab)
-            .Subscribe(selectedTab => SelectedTabChanged());
+        
+        this.WhenAnyValue(x => x.SelectedTab)
+            .Subscribe(_ => SelectedTabChanged());
     }
 
     private void SelectedTabChanged()
     {
-        var tabs = new[]
+        Items.Clear();
+        var config = UniLaunchEngine.Instance.Configuration!;
+        
+        switch(SelectedTab)
         {
-            "Targets",
-            "Rulesets",
-            "Entries"
-        };
-        Console.WriteLine($"Selected tab {tabs[SelectedTab]}");
-        // TODO Add logic for different item load
+            case 0: // Targets
+                Items.AddRange(config.Targets);
+                break;
+            
+            case 1: // Rulesets
+                Items.AddRange(config.RuleSets);
+                break;
+            
+            case 2: // Entries
+                Items.AddRange(config.Entries);
+                break;
+            
+            default:
+                throw new ArgumentOutOfRangeException(nameof(SelectedTab), SelectedTab, "Tab index not known");
+        }
+        Console.WriteLine(Items.Count);
     }
 
     private void _Close()
@@ -56,7 +87,7 @@ public class MainWindowViewModel : ViewModelBase
     private async void _ShowAbout()
     {
         var provider = new AppInfoProvider();
-        
+
         await MessageBoxManager.GetMessageBoxCustom(new MessageBoxCustomParams()
         {
             ButtonDefinitions = new List<ButtonDefinition>(),
@@ -66,12 +97,12 @@ public class MainWindowViewModel : ViewModelBase
             SizeToContent = SizeToContent.WidthAndHeight,
             Icon = Icon.Info,
             ContentMessage = $"""
-                             **Version:** {provider.VersionInfo.ProductVersion} 
-                             
-                             **Created by** Timo Reymann
-                             
-                             **GitHub**: timo-reymann/UniLaunch
-                             """,
+                              **Version:** {provider.VersionInfo.ProductVersion}
+
+                              **Created by** Timo Reymann
+
+                              **GitHub**: timo-reymann/UniLaunch
+                              """,
         }).ShowAsync();
     }
 

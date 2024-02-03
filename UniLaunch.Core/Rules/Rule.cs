@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using UniLaunch.Core.Spec;
 using UniLaunch.Core.Storage;
 using UniLaunch.Core.Storage.Serialization;
 
@@ -9,7 +10,7 @@ namespace UniLaunch.Core.Rules;
 /// </summary>
 [Serializable]
 [PropertyBasedSerialization("ruleName")]
-public abstract class Rule 
+public abstract class Rule : INameable
 {
     /// <summary>
     /// Match checks if the rule matches given the execution context.
@@ -24,4 +25,6 @@ public abstract class Rule
     /// It needs to be unique for each rule
     /// </summary>
     public abstract string RuleName { get; }
+
+    public string Name => RuleName;
 }

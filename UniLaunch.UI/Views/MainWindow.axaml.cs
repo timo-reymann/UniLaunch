@@ -2,6 +2,7 @@ using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
+using UniLaunch.Core.Autostart;
 
 namespace UniLaunch.UI.Views;
 

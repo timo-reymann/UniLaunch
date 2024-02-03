@@ -76,11 +76,18 @@
 
         <DockPanel>
             <ListBox DockPanel.Dock="Left"
+                     SelectedItem="{Binding SelectedItem}"
+                     ItemsSource="{Binding Items}"
                      Background="{DynamicResource SidePanel.Background}"
                      MinWidth="300">
-                <ListBoxItem>Item 1</ListBoxItem>
-                <ListBoxItem>Item 2</ListBoxItem>
-                <ListBoxItem>Item 3</ListBoxItem>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" 
+                                       Margin="0,0,10,0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
             <Panel>
                 <TextBlock VerticalAlignment="Center"

@@ -7,15 +7,8 @@ using UniLaunch.MacOS.Autostart;
 using UniLaunch.MacOS.Targets;
 using UniLaunch.UI;
 
-if (!CommandLineUtil.IsAutoStart())
-{
-    CommandLineUtil.RegisterAutoStart(new SharedListFileAutoStartRegistrationProvider());
-    CommandLineUtil.PrintAppInfo();
-    EditorUi.Main(Environment.GetCommandLineArgs());
-    return;
-}
 
-var engine = new UniLaunchEngine()
+var engine = UniLaunchEngine.Instance
     .RegisterTarget<AppFileTarget>()
     .RegisterTarget<ExecutableTarget>()
     .RegisterRule<AlwaysRule>()
@@ -31,6 +24,14 @@ var engine = new UniLaunchEngine()
         }
     ))
     .LocateAndParseConfigFile();
+
+if (!CommandLineUtil.IsAutoStart())
+{
+    CommandLineUtil.RegisterAutoStart(new SharedListFileAutoStartRegistrationProvider());
+    CommandLineUtil.PrintAppInfo();
+    EditorUi.Run(Environment.GetCommandLineArgs());
+    return;
+}
 
 foreach (var result in await engine.WaitForAllTargetsToLaunch())
 {
