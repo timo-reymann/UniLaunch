@@ -25,22 +25,13 @@
     <DockPanel PointerMoved="InputElement_OnPointerMoved"
                PointerPressed="InputElement_OnPointerPressed"
                PointerReleased="InputElement_OnPointerReleased">
-        <ExperimentalAcrylicBorder IsHitTestVisible="False">
-            <ExperimentalAcrylicBorder.Material>
-                <ExperimentalAcrylicMaterial
-                    BackgroundSource="Digger"
-                    TintColor="Black"
-                    TintOpacity="1"
-                    MaterialOpacity="0.65" />
-            </ExperimentalAcrylicBorder.Material>
-        </ExperimentalAcrylicBorder>
         <StackPanel DockPanel.Dock="Top"
                     Background="{DynamicResource MenuBar.Background}">
-            <DockPanel Margin="100 20 0 20"
+            <DockPanel Margin="100 20 0 0"
                        DockPanel.Dock="Top">
                 <Image Margin="0 0 30 0"
-                       Source="avares://UniLaunch.UI/Assets/logo-1024x.png"
-                       Height="100">
+                       Source="avares://UniLaunch.UI/Assets/banner-logo.png"
+                       Height="80">
                 </Image>
                 <DockPanel Margin="0 0 40 0">
                     <Menu VerticalAlignment="Center"

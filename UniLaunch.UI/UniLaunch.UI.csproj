@@ -7,8 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <AvaloniaResource Include="Assets\logo-1024x.png" />
-        <AvaloniaResource Include="Assets\window-icon.ico" />
+        <AvaloniaResource Include="Assets\*" />
         <Folder Include="Models\"/>
         <AvaloniaResource Include="..\Resources\**"/>
     </ItemGroup>

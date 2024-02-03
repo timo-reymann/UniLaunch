@@ -9,11 +9,14 @@
     <Style Selector="controls|TabItemWithIcon">
         <Setter Property="Template">
             <ControlTemplate>
-                <TabItem>
+                <TabItem Margin="0" 
+                         Padding="0">
                     <TabItem.Header>
                         <WrapPanel>
                             <avalonia:Icon Value="{TemplateBinding Icon}" />
-                            <TextBlock Text="{TemplateBinding Title}" />
+                            <TextBlock Margin="10 0 0 0" 
+                                       Padding="0" 
+                                       Text="{TemplateBinding Title}" />
                         </WrapPanel>
                     </TabItem.Header>
                 </TabItem>
