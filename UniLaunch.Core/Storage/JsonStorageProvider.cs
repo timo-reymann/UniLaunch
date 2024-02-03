@@ -33,10 +33,27 @@ public class JsonStorageProvider<T> : StorageProvider<T>
 
     public override void Persist(string filePathWithoutExtension, T data)
     {
-        WriteFile(filePathWithoutExtension,
-            JsonConvert.SerializeObject(data, Formatting.Indented, _jsonSerializerSettings));
+        try
+        {
+            WriteFile(filePathWithoutExtension,
+                JsonConvert.SerializeObject(data, Formatting.Indented, _jsonSerializerSettings));
+        }
+        catch (Exception e)
+        {
+            throw new StorageException(e.Message, e);
+        }
     }
 
-    public override T Load(string filePathWithOutExtension) =>
-        JsonConvert.DeserializeObject<T>(GetFileContents(filePathWithOutExtension), _jsonSerializerSettings)!;
+    public override T Load(string filePathWithOutExtension)
+    {
+        try
+        {
+            return JsonConvert.DeserializeObject<T>(GetFileContents(filePathWithOutExtension),
+                _jsonSerializerSettings)!;
+        }
+        catch (Exception e)
+        {
+            throw new StorageException(e.Message, e);
+        }
+    }
 }
