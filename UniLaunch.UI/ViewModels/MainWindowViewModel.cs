@@ -81,6 +81,11 @@ public class MainWindowViewModel : ViewModelBase
             default:
                 throw new ArgumentOutOfRangeException(nameof(SelectedTab), SelectedTab, "Tab index not known");
         }
+
+        if (Items.Count > 0)
+        {
+            SelectedItem = Items[0];
+        }
     }
 
     private void _Close()
