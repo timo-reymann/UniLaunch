@@ -59,7 +59,7 @@ internal static class Program
                 Entries = [
                     new("Ruleset #1", "Bash")
                 ]
-            }, false);
+            }, "",false);
         EditorUi.Run(args);
     }
 

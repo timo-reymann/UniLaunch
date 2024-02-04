@@ -1,6 +1,7 @@
 using System;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Diagnostics;
 using Avalonia.Input;
 using UniLaunch.Core.Autostart;
 
@@ -10,10 +11,13 @@ public partial class MainWindow : Window
 {
     private bool _mouseDownForWindowMoving;
     private PointerPoint _originalPoint;
-    
+
     public MainWindow()
     {
         InitializeComponent();
+#if DEBUG
+        this.AttachDevTools();
+#endif
     }
 
     private void InputElement_OnPointerMoved(object? sender, PointerEventArgs e)
@@ -34,7 +38,7 @@ public partial class MainWindow : Window
         {
             return;
         }
-        
+
         if (WindowState is WindowState.Maximized or WindowState.FullScreen)
         {
             return;

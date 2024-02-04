@@ -27,52 +27,55 @@
                PointerReleased="InputElement_OnPointerReleased">
         <StackPanel DockPanel.Dock="Top"
                     Background="{DynamicResource MenuBar.Background}">
-            <DockPanel Margin="100 20 0 0"
-                       DockPanel.Dock="Top">
-                <Image Margin="0 0 30 0"
-                       Source="avares://UniLaunch.UI/Assets/banner-logo.png"
-                       Height="80">
-                </Image>
-                <DockPanel Margin="0 0 40 0">
-                    <Menu VerticalAlignment="Center"
-                          DockPanel.Dock="Right">
-                        <MenuItem Header="_About"
-                                  Command="{Binding ShowAbout}" />
-                    </Menu>
-                    <Menu VerticalAlignment="Center"
-                          DockPanel.Dock="Right">
-                        <MenuItem Header="_File">
-                            <MenuItem Header="Open ..."
-                                      i:MenuItem.Icon="fa-static fa-folder-open"
-                                      Command="{Binding OpenFile}" />
-                            <MenuItem Header="Save"
-                                      Command="{Binding SaveFile}"
-                                      i:MenuItem.Icon="fa-static fa-save" />
-                            <MenuItem Header="Save to ..."
-                                      i:MenuItem.Icon="fa-static fa-save" />
-                            <MenuItem Header="Close"
-                                      i:MenuItem.Icon="fa-static fa-xmark"
-                                      Command="{Binding Close}" />
-                        </MenuItem>
-                        <MenuItem Header="Settings" />
-                    </Menu>
-                </DockPanel>
+            <DockPanel DockPanel.Dock="Top" Margin="0 20 0 0">
+                <Panel Width="150" Margin="0 0 0 0">
+                    <Image Source="avares://UniLaunch.UI/Assets/banner-logo.png"
+                           Height="100" />
+                </Panel>
+                <StackPanel>
+                    <DockPanel Dock="Top"
+                               Margin="0 40 30 0">
+                        <Menu VerticalAlignment="Center"
+                              DockPanel.Dock="Right">
+                            <MenuItem Header="_About"
+                                      Command="{Binding ShowAbout}" />
+                        </Menu>
+                        <Menu VerticalAlignment="Center"
+                              DockPanel.Dock="Right">
+                            <MenuItem Header="_File">
+                                <MenuItem Header="Open ..."
+                                          i:MenuItem.Icon="fa-static fa-folder-open"
+                                          Command="{Binding OpenFile}" />
+                                <MenuItem Header="Save"
+                                          Command="{Binding SaveFile}"
+                                          i:MenuItem.Icon="fa-static fa-save" />
+                                <MenuItem Header="Save to ..."
+                                          i:MenuItem.Icon="fa-static fa-save" />
+                                <MenuItem Header="Close"
+                                          i:MenuItem.Icon="fa-static fa-xmark"
+                                          Command="{Binding Close}" />
+                            </MenuItem>
+                            <MenuItem Header="Settings" />
+                        </Menu>
+                    </DockPanel>
+                    <TabStrip Margin="5 0 0 0"
+                              DockPanel.Dock="Bottom"
+                              SelectedIndex="{Binding SelectedTab, Mode=TwoWay}"
+                              HorizontalAlignment="Center">
+                        <TabStrip.Styles>
+                            <Style Selector="WrapPanel>TextBlock">
+                                <Setter Property="Padding" Value="10 0 5 0" />
+                            </Style>
+                        </TabStrip.Styles>
+                        <controls:TabItemWithIcon Title="Targets"
+                                                  Icon="fa-solid fa-bullseye" />
+                        <controls:TabItemWithIcon Title="Rulesets"
+                                                  Icon="fa-solid fa-check-double" />
+                        <controls:TabItemWithIcon Title="Entries"
+                                                  Icon="fa-static fa-play" />
+                    </TabStrip>
+                </StackPanel>
             </DockPanel>
-            <TabStrip Margin="5 0 0 0"
-                      SelectedIndex="{Binding SelectedTab, Mode=TwoWay}"
-                      HorizontalAlignment="Center">
-                <TabStrip.Styles>
-                    <Style Selector="WrapPanel>TextBlock">
-                        <Setter Property="Padding" Value="10 0 5 0" />
-                    </Style>
-                </TabStrip.Styles>
-                <controls:TabItemWithIcon Title="Targets"
-                                          Icon="fa-solid fa-bullseye" />
-                <controls:TabItemWithIcon Title="Rulesets"
-                                          Icon="fa-solid fa-check-double" />
-                <controls:TabItemWithIcon Title="Entries"
-                                          Icon="fa-static fa-play" />
-            </TabStrip>
         </StackPanel>
 
         <DockPanel>
@@ -84,8 +87,8 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Name}" 
-                                       Margin="0,0,10,0"/>
+                            <TextBlock Text="{Binding Name}"
+                                       Margin="0,0,10,0" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
