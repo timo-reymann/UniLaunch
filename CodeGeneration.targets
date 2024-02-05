@@ -1,0 +1,7 @@
+<Project>
+    <ItemGroup>
+        <ProjectReference Include="..\UniLaunch.CodeGenerator\UniLaunch.CodeGenerator.csproj"
+                          OutputItemType="Analyzer"
+                          ReferenceOutputAssembly="false"/>
+    </ItemGroup>
+</Project>

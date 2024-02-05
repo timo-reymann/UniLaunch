@@ -1,4 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="../CodeGeneration.targets"/>
+    
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
@@ -7,11 +9,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <AvaloniaResource Include="Assets\*" />
+        <AvaloniaResource Include="Assets\*"/>
         <Folder Include="Models\"/>
         <AvaloniaResource Include="..\Resources\**"/>
     </ItemGroup>
-    
+
     <ItemGroup>
         <PackageReference Include="Avalonia"/>
         <PackageReference Include="Avalonia.Desktop"/>
@@ -20,14 +22,16 @@
         <PackageReference Include="Avalonia.Diagnostics"
                           Condition="'$(Configuration)' == 'Debug'"/>
         <PackageReference Include="Avalonia.ReactiveUI"/>
-        <PackageReference Include="Avalonia.Native" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
-        <PackageReference Include="MessageBox.Avalonia" />
-        <PackageReference Include="Projektanker.Icons.Avalonia" />
-        <PackageReference Include="Projektanker.Icons.Avalonia.FontAwesome" />
+        <PackageReference Include="Avalonia.Native"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection"/>
+        <PackageReference Include="MessageBox.Avalonia"/>
+        <PackageReference Include="Projektanker.Icons.Avalonia"/>
+        <PackageReference Include="Projektanker.Icons.Avalonia.FontAwesome"/>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.8.0"/>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.2"/>
     </ItemGroup>
-    
+
     <ItemGroup>
-      <ProjectReference Include="..\UniLaunch.Core\UniLaunch.Core.csproj" />
+        <ProjectReference Include="..\UniLaunch.Core\UniLaunch.Core.csproj"/>
     </ItemGroup>
 </Project>
