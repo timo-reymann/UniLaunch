@@ -27,8 +27,8 @@
         <PackageReference Include="MessageBox.Avalonia"/>
         <PackageReference Include="Projektanker.Icons.Avalonia"/>
         <PackageReference Include="Projektanker.Icons.Avalonia.FontAwesome"/>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.8.0"/>
-        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.2"/>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" />
     </ItemGroup>
 
     <ItemGroup>
