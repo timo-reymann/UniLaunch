@@ -12,8 +12,8 @@ using MsBox.Avalonia.Models;
 using ReactiveUI;
 using UniLaunch.Core.Autostart;
 using UniLaunch.Core.Meta;
-using UniLaunch.Core.Spec;
 using UniLaunch.Core.Storage;
+using UniLaunch.UI.CodeGeneration;
 using UniLaunch.UI.Services;
 using Icon = MsBox.Avalonia.Enums.Icon;
 
@@ -27,10 +27,10 @@ public class MainWindowViewModel : ViewModelBase
     public ICommand Close { get; }
 
     private int _selectedTab;
-    private ObservableCollection<INameable> _items = new();
-    private INameable _selectedItem = null!;
-
-    public ObservableCollection<INameable> Items
+    private ObservableCollection<BaseEntityViewModel> _items = new();
+    private BaseEntityViewModel? _selectedItem = null;
+    
+    public ObservableCollection<BaseEntityViewModel> Items
     {
         get => _items;
         set => this.RaiseAndSetIfChanged(ref _items, value);
@@ -42,7 +42,7 @@ public class MainWindowViewModel : ViewModelBase
         set => this.RaiseAndSetIfChanged(ref _selectedTab, value);
     }
 
-    public INameable SelectedItem
+    public BaseEntityViewModel? SelectedItem
     {
         get => _selectedItem;
         set => this.RaiseAndSetIfChanged(ref _selectedItem, value);
@@ -59,32 +59,43 @@ public class MainWindowViewModel : ViewModelBase
             .Subscribe(_ => SelectedTabChanged());
     }
 
-    private void SelectedTabChanged()
+    private void UpdateItems()
     {
-        Items.Clear();
         var config = UniLaunchEngine.Instance.Configuration!;
+        var viewModelRegistry = EntityViewModelRegistry.Instance;
+
+        Items.Clear();
 
         switch (SelectedTab)
         {
             case 0: // Targets
-                Items.AddRange(config.Targets);
+                Items.AddRange(viewModelRegistry.Of(config.Targets));
                 break;
 
             case 1: // Rulesets
-                Items.AddRange(config.RuleSets);
+                Items.AddRange(viewModelRegistry.Of(config.RuleSets));
                 break;
 
             case 2: // Entries
-                Items.AddRange(config.Entries);
+                Items.AddRange(viewModelRegistry.Of(config.Entries));
                 break;
 
             default:
                 throw new ArgumentOutOfRangeException(nameof(SelectedTab), SelectedTab, "Tab index not known");
         }
+    }
 
+    private void SelectedTabChanged()
+    {
+        UpdateItems();
+        
         if (Items.Count > 0)
         {
             SelectedItem = Items[0];
+        }
+        else
+        {
+            SelectedItem = null;
         }
     }
 

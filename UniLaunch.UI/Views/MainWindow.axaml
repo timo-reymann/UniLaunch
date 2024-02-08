@@ -60,7 +60,7 @@
                     </DockPanel>
                     <TabStrip Margin="5 0 0 0"
                               DockPanel.Dock="Bottom"
-                              SelectedIndex="{Binding SelectedTab, Mode=TwoWay}"
+                              SelectedIndex="{Binding SelectedTab}"
                               HorizontalAlignment="Center">
                         <TabStrip.Styles>
                             <Style Selector="WrapPanel>TextBlock">
@@ -94,10 +94,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <Panel>
-                <TextBlock VerticalAlignment="Center"
-                           HorizontalAlignment="Center">
-                    Child component goes here
-                </TextBlock>
+               <ContentControl Content="{Binding SelectedItem}"></ContentControl>
             </Panel>
         </DockPanel>
     </DockPanel>
