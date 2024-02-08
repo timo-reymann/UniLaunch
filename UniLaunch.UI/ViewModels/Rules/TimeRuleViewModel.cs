@@ -5,7 +5,7 @@ using UniLaunch.UI.CodeGeneration;
 namespace UniLaunch.UI.ViewModels.Rules;
 
 [GenerateViewModel(typeof(TimeRule))]
-public partial class TimeRuleViewModel : ReactiveObject
+public partial class TimeRuleViewModel 
 {
     
 }

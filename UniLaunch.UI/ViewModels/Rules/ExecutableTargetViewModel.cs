@@ -5,7 +5,7 @@ using UniLaunch.UI.CodeGeneration;
 namespace UniLaunch.UI.ViewModels.Rules;
 
 [GenerateViewModel(typeof(ExecutableTarget))]
-public partial class ExecutableTargetViewModel : ReactiveObject
+public partial class ExecutableTargetViewModel
 {
     
 }

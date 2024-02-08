@@ -5,6 +5,6 @@ using UniLaunch.UI.CodeGeneration;
 namespace UniLaunch.MacOS.ViewModel;
 
 [GenerateViewModel(typeof(AppFileTarget))]
-public partial class AppFileTargetViewModel : ReactiveObject
+public partial class AppFileTargetViewModel
 {
 }

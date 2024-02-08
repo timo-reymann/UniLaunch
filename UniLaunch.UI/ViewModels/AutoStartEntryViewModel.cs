@@ -5,7 +5,7 @@ using UniLaunch.UI.CodeGeneration;
 namespace UniLaunch.UI.ViewModels;
 
 [GenerateViewModel(typeof(AutoStartEntry))]
-public partial class AutoStartEntryViewModel : ReactiveObject
+public partial class AutoStartEntryViewModel
 {
     
 }

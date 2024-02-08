@@ -50,7 +50,7 @@ public class ViewModelGenerator : ISourceGenerator
         
         var controlType = (attributeArgs[1]
                 .Value as INamedTypeSymbol
-            )?.ToString() ?? "void";
+            )?.ToString() ?? "TextBlock";
 
         var properties = modelType!.GetMembers()
             .OfType<IPropertySymbol>()
@@ -66,18 +66,22 @@ public class ViewModelGenerator : ISourceGenerator
                      //----------------------
                      using System;
                      using ReactiveUI;
+                     using Avalonia.Controls;
+                     using UniLaunch.UI.CodeGeneration;
                      using System.Collections.ObjectModel;
                      using {{modelType.ContainingNamespace.ToDisplayString()}};
 
                      namespace {{namespaceName}}
                      {
-                         public partial class {{className}} : {{classSymbol.BaseType}}, UniLaunch.UI.CodeGeneration.IAssociatedUserControl
+                         public partial class {{className}} : BaseEntityViewModel
                          {
                              private {{modelType}} _model = null;
                      
                              {{propertyDefinitions}}
                              
-                             public Type UserControl => typeof({{controlType}});
+                             public override Type UserControl => typeof({{controlType}});
+                             
+                             public override string Name => _model.Name;
                      
                              /// <summary>
                              /// Create empty few model

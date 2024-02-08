@@ -5,6 +5,6 @@ using UniLaunch.UI.CodeGeneration;
 namespace UniLaunch.UI.ViewModels.Rules;
 
 [GenerateViewModel(typeof(AlwaysRule))]
-public partial class AlwaysRuleViewModel : ReactiveObject
+public partial class AlwaysRuleViewModel
 {
 }

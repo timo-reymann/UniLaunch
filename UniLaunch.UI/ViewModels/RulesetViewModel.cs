@@ -5,7 +5,7 @@ using UniLaunch.UI.CodeGeneration;
 namespace UniLaunch.UI.ViewModels;
 
 [GenerateViewModel(typeof(RuleSet))]
-public partial class RulesetViewModel : ReactiveObject
+public partial class RulesetViewModel
 {
     
 }
