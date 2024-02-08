@@ -5,7 +5,10 @@ using UniLaunch.Core.Targets;
 using UniLaunch.Core.Util;
 using UniLaunch.MacOS.Autostart;
 using UniLaunch.MacOS.Targets;
+using UniLaunch.MacOS.ViewModel;
 using UniLaunch.UI;
+using UniLaunch.UI.ViewModels;
+using UniLaunch.UI.ViewModels.Rules;
 
 
 var engine = UniLaunchEngine.Instance
@@ -27,6 +30,13 @@ var engine = UniLaunchEngine.Instance
 
 if (!CommandLineUtil.IsAutoStart())
 {
+    // TODO Make this more robust, this is just for testing
+    EntityViewModelRegistry.Instance
+        .Register<RuleSet, RulesetViewModel>()
+        .Register<AutoStartEntry, AutoStartEntryViewModel>()
+        .Register<AlwaysRule, AlwaysRuleViewModel>()
+        .Register<AppFileTarget, AppFileTargetViewModel>();
+
     CommandLineUtil.RegisterAutoStart(new SharedListFileAutoStartRegistrationProvider());
     CommandLineUtil.PrintAppInfo();
     EditorUi.Run(Environment.GetCommandLineArgs());
