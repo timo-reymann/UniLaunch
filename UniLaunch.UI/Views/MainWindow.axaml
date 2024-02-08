@@ -94,7 +94,9 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <Panel>
-               <ContentControl Content="{Binding SelectedItem}"></ContentControl>
+               <ContentControl
+                   Margin="40"
+                   Content="{Binding SelectedItem}" />
             </Panel>
         </DockPanel>
     </DockPanel>
