@@ -54,6 +54,7 @@ public class ViewModelGenerator : ISourceGenerator
 
         var properties = modelType!.GetMembers()
             .OfType<IPropertySymbol>()
+            .Where(symbol => symbol.SetMethod != null)
             .Select(GenerateProperty);
         var className = classSymbol.Name;
         var propertyDefinitions = string.Join("\n", properties);
@@ -118,7 +119,6 @@ public class ViewModelGenerator : ISourceGenerator
     private string GenerateProperty(IPropertySymbol propertySymbol)
     {
         var propertyName = propertySymbol.Name;
-        var isList = propertySymbol.Type.Name == "List";
 
         return $$"""
                  /// <summary>
@@ -126,10 +126,9 @@ public class ViewModelGenerator : ISourceGenerator
                  /// </summary>
                  public {{propertySymbol.Type.ToDisplayString()}} {{propertyName}}Property
                          {
-                         // {{isList}}
                              set {
-                                var propVal = _model.{{propertyName}};
-                                this.RaiseAndSetIfChanged(ref propVal, value);
+                                _model.{{propertyName}} = value;
+                                this.RaisePropertyChanged(nameof({{propertyName}}Property));
                              }
                              get => _model.{{propertyName}};
                          }
