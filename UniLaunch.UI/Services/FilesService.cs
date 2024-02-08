@@ -6,15 +6,16 @@ using Avalonia.Platform.Storage;
 
 public class FilesService(Window target) : IFilesService
 {
-    public async Task<IStorageFile?> OpenFileAsync()
+    public async Task<IStorageFile?> OpenFileAsync(FilePickerOpenOptions? options = null)
     {
-        var files = await target.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions()
-        {
-            Title = "Open Text File",
-            AllowMultiple = false
-        });
-
+        var files = await target.StorageProvider.OpenFilePickerAsync(options ?? new FilePickerOpenOptions());
         return files.Count >= 1 ? files[0] : null;
+    }
+
+    public async Task<IStorageFolder?> OpenFolderAsync(FolderPickerOpenOptions? options = null)
+    {
+        var folder = await target.StorageProvider.OpenFolderPickerAsync(options ?? new FolderPickerOpenOptions());
+        return folder.Count >= 1 ? folder[0] : null;
     }
 
     public async Task<IStorageFile?> SaveFileAsync()
