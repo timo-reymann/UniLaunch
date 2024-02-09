@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using UniLaunch.Core.Spec;
-using UniLaunch.Core.Storage;
 using UniLaunch.Core.Storage.Serialization;
+using YamlDotNet.Serialization;
 
 namespace UniLaunch.Core.Rules;
 
@@ -26,5 +26,7 @@ public abstract class Rule : INameable
     /// </summary>
     public abstract string RuleName { get; }
 
+    [JsonIgnore]
+    [YamlIgnore]
     public string Name => RuleName;
 }

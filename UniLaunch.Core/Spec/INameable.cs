@@ -1,3 +1,6 @@
+using Newtonsoft.Json;
+using YamlDotNet.Serialization;
+
 namespace UniLaunch.Core.Spec;
 
 /// <summary>

@@ -30,7 +30,12 @@ internal static class Program
                     new ExecutableTarget
                     {
                         Executable = "/bin/bash",
-                        Name = "Bash"
+                        Name = "Bash",
+                        Arguments =
+                        [
+                            "foo#",
+                            "bar"
+                        ]
                     }
                 ],
                 RuleSets =
@@ -56,10 +61,11 @@ internal static class Program
                         ]
                     }
                 ],
-                Entries = [
+                Entries =
+                [
                     new("Ruleset #1", "Bash")
                 ]
-            }, "",false);
+            }, "", false);
         EditorUi.Run(args);
     }
 

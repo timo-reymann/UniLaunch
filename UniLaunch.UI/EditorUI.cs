@@ -8,6 +8,7 @@ using UniLaunch.Core.Rules;
 using UniLaunch.Core.Targets;
 using UniLaunch.UI.ViewModels;
 using UniLaunch.UI.ViewModels.Rules;
+using ExecutableTargetViewModel = UniLaunch.UI.ViewModels.Targets.ExecutableTargetViewModel;
 
 namespace UniLaunch.UI;
 

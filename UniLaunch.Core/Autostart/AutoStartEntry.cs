@@ -1,5 +1,6 @@
-using UniLaunch.Core.Rules;
+using Newtonsoft.Json;
 using UniLaunch.Core.Spec;
+using YamlDotNet.Serialization;
 
 namespace UniLaunch.Core.Autostart;
 
@@ -17,5 +18,8 @@ public class AutoStartEntry : INameable
     public string RuleSetName { get; set; }
     public string TargetName { get; set; }
 
+    
+    [JsonIgnore]
+    [YamlIgnore]
     public string Name => $"{TargetName} when {RuleSetName} matches";
 }
