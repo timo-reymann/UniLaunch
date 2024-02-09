@@ -9,7 +9,9 @@ public static class CommandLineUtil
 
     public static void RegisterAutoStart(AutoStartRegistrationProvider provider)
     {
+# if !DEBUG
         provider.Register(new List<string> { "--autostart" });
+#endif
     }
 
     public static void PrintAppInfo()
