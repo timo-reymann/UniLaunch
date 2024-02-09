@@ -30,11 +30,7 @@ var engine = UniLaunchEngine.Instance
 
 if (!CommandLineUtil.IsAutoStart())
 {
-    // TODO Make this more robust, this is just for testing
     EntityViewModelRegistry.Instance
-        .Register<RuleSet, RulesetViewModel>()
-        .Register<AutoStartEntry, AutoStartEntryViewModel>()
-        .Register<AlwaysRule, AlwaysRuleViewModel>()
         .Register<AppFileTarget, AppFileTargetViewModel>();
 
     CommandLineUtil.RegisterAutoStart(new SharedListFileAutoStartRegistrationProvider());
