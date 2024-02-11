@@ -34,16 +34,12 @@
                            Height="100" />
                 </Panel>
                 <StackPanel>
-                    <DockPanel Dock="Top"
+                    <StackPanel
                                Margin="0 40 30 0">
                         <Menu VerticalAlignment="Center"
+                              HorizontalAlignment="Left"
                               Margin="0 0 0 10"
-                              DockPanel.Dock="Right">
-                            <MenuItem Header="_About"
-                                      Command="{Binding ShowAbout}" />
-                        </Menu>
-                        <Menu VerticalAlignment="Center"
-                              DockPanel.Dock="Right">
+                              DockPanel.Dock="Left">
                             <MenuItem Header="_File">
                                 <MenuItem Header="Open ..."
                                           i:MenuItem.Icon="fa-static fa-folder-open"
@@ -58,8 +54,10 @@
                                           Command="{Binding Close}" />
                             </MenuItem>
                             <MenuItem Header="Settings" />
+                            <MenuItem Header="_About"
+                                      Command="{Binding ShowAbout}" />
                         </Menu>
-                    </DockPanel>
+                    </StackPanel>
                     <TabStrip Margin="5 0 0 0"
                               DockPanel.Dock="Bottom"
                               SelectedIndex="{Binding SelectedTab}"
