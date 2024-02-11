@@ -79,20 +79,31 @@
         </StackPanel>
 
         <DockPanel>
-            <ListBox DockPanel.Dock="Left"
-                     SelectedItem="{Binding SelectedItem}"
-                     ItemsSource="{Binding Items}"
-                     Background="{DynamicResource SidePanel.Background}"
-                     MinWidth="300">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Name}"
-                                       Margin="0,0,10,0" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <DockPanel VerticalAlignment="Stretch" 
+                       DockPanel.Dock="Left">
+                <StackPanel DockPanel.Dock="Top" 
+                            HorizontalAlignment="Stretch">
+                    <Button HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center"
+                            Command="{Binding AddItem}">
+                        <i:Icon Value="fas fa-plus"></i:Icon>
+                    </Button>
+                </StackPanel>
+                <ListBox SelectedItem="{Binding SelectedItem}"
+                         VerticalAlignment="Stretch"
+                         ItemsSource="{Binding Items}"
+                         Background="{DynamicResource SidePanel.Background}"
+                         MinWidth="300">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}"
+                                           Margin="0,0,10,0" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
             <Panel>
                <ContentControl
                    Margin="20"

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Windows.Input;
 using Avalonia.Controls;
@@ -12,6 +13,8 @@ using MsBox.Avalonia.Models;
 using ReactiveUI;
 using UniLaunch.Core.Autostart;
 using UniLaunch.Core.Meta;
+using UniLaunch.Core.Rules;
+using UniLaunch.Core.Spec;
 using UniLaunch.Core.Storage;
 using UniLaunch.UI.CodeGeneration;
 using UniLaunch.UI.Services;
@@ -25,11 +28,12 @@ public class MainWindowViewModel : ViewModelBase
     public ICommand SaveFile { get; }
     public ICommand ShowAbout { get; }
     public ICommand Close { get; }
+    public ICommand AddItem { get; }
 
     private int _selectedTab;
     private ObservableCollection<BaseEntityViewModel> _items = new();
     private BaseEntityViewModel? _selectedItem = null;
-    
+
     public ObservableCollection<BaseEntityViewModel> Items
     {
         get => _items;
@@ -54,9 +58,45 @@ public class MainWindowViewModel : ViewModelBase
         ShowAbout = ReactiveCommand.Create(_ShowAbout);
         Close = ReactiveCommand.Create(_Close);
         SaveFile = ReactiveCommand.Create(_SaveFile);
+        AddItem = ReactiveCommand.Create(_AddItem);
 
         this.WhenAnyValue(x => x.SelectedTab)
             .Subscribe(_ => SelectedTabChanged());
+    }
+
+    private void AddItemAndSelect(INameable model)
+    {
+        var viewModel = EntityViewModelRegistry.Instance.Of(model)!;
+        Items.Add(viewModel);
+        SelectedItem = viewModel;
+    }
+
+    private void _AddItem()
+    {
+        switch ((SelectedTabIndex)SelectedTab)
+        {
+            case SelectedTabIndex.Targets:
+                // TODO Show target selector for MacOS or on other platforms use default
+                break;
+
+            case SelectedTabIndex.RuleSets:
+                var ruleSet = new RuleSet()
+                {
+                    Name = $"New rule set ({Items.Count})"
+                };
+                UniLaunchEngine.Instance.Configuration!.RuleSets.Add(ruleSet);
+                AddItemAndSelect(ruleSet);
+                break;
+
+            case SelectedTabIndex.Entries:
+                var entry = new AutoStartEntry();
+                UniLaunchEngine.Instance.Configuration!.Entries.Add(entry);
+                AddItemAndSelect(entry);
+                break;
+
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
     private void UpdateItems()
@@ -66,17 +106,17 @@ public class MainWindowViewModel : ViewModelBase
 
         Items.Clear();
 
-        switch (SelectedTab)
+        switch ((SelectedTabIndex)SelectedTab)
         {
-            case 0: // Targets
+            case SelectedTabIndex.Targets:
                 Items.AddRange(viewModelRegistry.Of(config.Targets));
                 break;
 
-            case 1: // Rulesets
+            case SelectedTabIndex.RuleSets:
                 Items.AddRange(viewModelRegistry.Of(config.RuleSets));
                 break;
 
-            case 2: // Entries
+            case SelectedTabIndex.Entries:
                 Items.AddRange(viewModelRegistry.Of(config.Entries));
                 break;
 
@@ -88,7 +128,7 @@ public class MainWindowViewModel : ViewModelBase
     private void SelectedTabChanged()
     {
         UpdateItems();
-        
+
         if (Items.Count > 0)
         {
             SelectedItem = Items[0];
@@ -208,5 +248,12 @@ public class MainWindowViewModel : ViewModelBase
                 Icon.Error
             ).ShowAsync();
         }
+    }
+
+    private enum SelectedTabIndex
+    {
+        Targets = 0,
+        RuleSets = 1,
+        Entries = 2,
     }
 }
