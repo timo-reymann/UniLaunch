@@ -35,7 +35,7 @@
                 </Panel>
                 <StackPanel>
                     <StackPanel
-                               Margin="0 40 30 0">
+                        Margin="0 40 30 0">
                         <Menu VerticalAlignment="Center"
                               HorizontalAlignment="Left"
                               Margin="0 0 0 10"
@@ -77,23 +77,23 @@
                 </StackPanel>
             </DockPanel>
         </StackPanel>
-
-        <DockPanel>
-            <DockPanel VerticalAlignment="Stretch" 
-                       DockPanel.Dock="Left">
-                <StackPanel DockPanel.Dock="Top" 
-                            HorizontalAlignment="Stretch">
-                    <Button HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Center"
-                            Command="{Binding AddItem}">
-                        <i:Icon Value="fas fa-plus"></i:Icon>
-                    </Button>
-                </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MinWidth="200" />
+                <ColumnDefinition Width="1"/>
+                <ColumnDefinition Width="*" MinWidth="300"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0"
+                        Background="{DynamicResource SidePanel.Background}"
+                        HorizontalAlignment="Stretch">
+                <Button HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        Command="{Binding AddItem}">
+                    <i:Icon Value="fas fa-plus"></i:Icon>
+                </Button>
                 <ListBox SelectedItem="{Binding SelectedItem}"
                          VerticalAlignment="Stretch"
-                         ItemsSource="{Binding Items}"
-                         Background="{DynamicResource SidePanel.Background}"
-                         MinWidth="300">
+                         ItemsSource="{Binding Items}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -103,12 +103,14 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-            </DockPanel>
-            <Panel>
-               <ContentControl
-                   Margin="20"
-                   Content="{Binding SelectedItem}" />
-            </Panel>
-        </DockPanel>
+            </StackPanel>
+            <GridSplitter Grid.Column="1"
+                          Background="{DynamicResource SidePanel.Background}" 
+                          ResizeDirection="Columns" />
+            <ContentControl
+                Grid.Column="2"
+                Margin="20"
+                Content="{Binding SelectedItem}" />
+        </Grid>
     </DockPanel>
 </Window>
