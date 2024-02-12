@@ -13,6 +13,7 @@
         <vm:AppFileTargetViewModel />
     </Design.DataContext>
     <StackPanel>
+        <Label>Path to .app file</Label>
         <controls:TextInputWithFilePicker FilePickerOpenOptions="{Binding FilePickerOpenOptions}"
                                           Path="{Binding PathProperty,Mode=TwoWay}" />
     </StackPanel>

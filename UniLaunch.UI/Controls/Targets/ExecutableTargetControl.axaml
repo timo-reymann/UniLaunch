@@ -6,16 +6,18 @@
              xmlns:controls="using:UniLaunch.UI.Controls"
              mc:Ignorable="d"
              d:DesignWidth="300"
-             d:DesignHeight="34"
+             d:DesignHeight="120"
              x:DataType="vm:ExecutableTargetViewModel"
              x:Class="UniLaunch.UI.Controls.Targets.ExecutableTargetControl">
     <Design.DataContext>
         <vm:ExecutableTargetViewModel />
     </Design.DataContext>
     <StackPanel>
+        <Label>Path to executable</Label>
         <controls:TextInputWithFilePicker 
             Margin="0 0 0 5 "
             Path="{Binding ExecutableProperty,Mode=TwoWay}" />
-        <TextBox Text="{Binding ArgumentsListProperty}"></TextBox>
+        <Label>Arguments to pass to executable</Label>
+        <TextBox Text="{Binding ArgumentsListProperty}" />
     </StackPanel>
 </UserControl>
