@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using UniLaunch.Core.Rules;
 using UniLaunch.Core.Storage;
 using UniLaunch.Core.Storage.Serialization;
@@ -22,6 +23,9 @@ public class UniLaunchEngine
 
     private readonly HashSet<Type> _enabledTargetTypes = new();
     private readonly HashSet<Type> _enabledRuleTypes = new();
+
+    public ImmutableHashSet<Type> EnabledTargetTypes => _enabledTargetTypes.ToImmutableHashSet();
+    public ImmutableHashSet<Type> EnabledRuleTypes => _enabledRuleTypes.ToImmutableHashSet();
 
     private UniLaunchEngine()
     {
@@ -153,7 +157,7 @@ public class UniLaunchEngine
         {
             PersistCurrentConfiguration();
         }
-        
+
         return this;
     }
 

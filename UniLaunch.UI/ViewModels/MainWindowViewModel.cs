@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Windows.Input;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using DynamicData;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
@@ -16,6 +18,7 @@ using UniLaunch.Core.Meta;
 using UniLaunch.Core.Rules;
 using UniLaunch.Core.Spec;
 using UniLaunch.Core.Storage;
+using UniLaunch.Core.Targets;
 using UniLaunch.UI.CodeGeneration;
 using UniLaunch.UI.Services;
 using Icon = MsBox.Avalonia.Enums.Icon;
@@ -32,7 +35,10 @@ public class MainWindowViewModel : ViewModelBase
 
     private int _selectedTab;
     private ObservableCollection<BaseEntityViewModel> _items = new();
-    private BaseEntityViewModel? _selectedItem = null;
+    private BaseEntityViewModel? _selectedItem;
+    private bool _buttonFlyoutVisible = false;
+
+    public UniLaunchEngine Engine => UniLaunchEngine.Instance;
 
     public ObservableCollection<BaseEntityViewModel> Items
     {
@@ -44,6 +50,12 @@ public class MainWindowViewModel : ViewModelBase
     {
         get => _selectedTab;
         set => this.RaiseAndSetIfChanged(ref _selectedTab, value);
+    }
+
+    public bool ButtonFlyoutVisible
+    {
+        get => _buttonFlyoutVisible;
+        set => this.RaiseAndSetIfChanged(ref _buttonFlyoutVisible, value);
     }
 
     public BaseEntityViewModel? SelectedItem
@@ -58,7 +70,7 @@ public class MainWindowViewModel : ViewModelBase
         ShowAbout = ReactiveCommand.Create(_ShowAbout);
         Close = ReactiveCommand.Create(_Close);
         SaveFile = ReactiveCommand.Create(_SaveFile);
-        AddItem = ReactiveCommand.Create(_AddItem);
+        AddItem = ReactiveCommand.Create<Type>(_AddItem);
 
         this.WhenAnyValue(x => x.SelectedTab)
             .Subscribe(_ => SelectedTabChanged());
@@ -71,26 +83,31 @@ public class MainWindowViewModel : ViewModelBase
         SelectedItem = viewModel;
     }
 
-    private void _AddItem()
+    private void _AddItem(Type? t = null)
     {
         switch ((SelectedTabIndex)SelectedTab)
         {
             case SelectedTabIndex.Targets:
-                // TODO Show target selector for MacOS or on other platforms use default
+                Console.WriteLine(t);
+                var type = t ?? Engine.EnabledTargetTypes.First();
+                var instance = Activator.CreateInstance(type) as Target;
+                instance!.Name = $" {instance.TargetType} ({Items.Count})";
+                Engine.Configuration!.Targets.Add(instance);
+                AddItemAndSelect(instance);
                 break;
 
             case SelectedTabIndex.RuleSets:
-                var ruleSet = new RuleSet()
+                var ruleSet = new RuleSet
                 {
                     Name = $"New rule set ({Items.Count})"
                 };
-                UniLaunchEngine.Instance.Configuration!.RuleSets.Add(ruleSet);
+                Engine.Configuration!.RuleSets.Add(ruleSet);
                 AddItemAndSelect(ruleSet);
                 break;
 
             case SelectedTabIndex.Entries:
                 var entry = new AutoStartEntry();
-                UniLaunchEngine.Instance.Configuration!.Entries.Add(entry);
+                Engine.Configuration!.Entries.Add(entry);
                 AddItemAndSelect(entry);
                 break;
 
@@ -101,7 +118,7 @@ public class MainWindowViewModel : ViewModelBase
 
     private void UpdateItems()
     {
-        var config = UniLaunchEngine.Instance.Configuration!;
+        var config = Engine.Configuration!;
         var viewModelRegistry = EntityViewModelRegistry.Instance;
 
         Items.Clear();
@@ -128,15 +145,9 @@ public class MainWindowViewModel : ViewModelBase
     private void SelectedTabChanged()
     {
         UpdateItems();
-
-        if (Items.Count > 0)
-        {
-            SelectedItem = Items[0];
-        }
-        else
-        {
-            SelectedItem = null;
-        }
+        SelectedItem = Items.Count > 0 ? Items[0] : null;
+        ButtonFlyoutVisible = Engine.EnabledTargetTypes.Count > 1 &&
+                              (SelectedTabIndex)SelectedTab == SelectedTabIndex.Targets;
     }
 
     private void _Close()
@@ -148,7 +159,7 @@ public class MainWindowViewModel : ViewModelBase
     {
         try
         {
-            UniLaunchEngine.Instance.PersistCurrentConfiguration();
+            Engine.PersistCurrentConfiguration();
         }
         catch (Exception e)
         {
@@ -210,7 +221,7 @@ public class MainWindowViewModel : ViewModelBase
         }
 
         StorageProvider<UniLaunchConfiguration>? storeProvider = null;
-        foreach (var availableStoreProvider in UniLaunchEngine.Instance.AvailableStoreProviders)
+        foreach (var availableStoreProvider in Engine.AvailableStoreProviders)
         {
             if (fileExtension[1..] != availableStoreProvider.Extension)
             {
@@ -236,7 +247,7 @@ public class MainWindowViewModel : ViewModelBase
         {
             var configFilePath = file.Path.AbsolutePath[..^(fileExtension.Length)];
             var config = storeProvider.Load(configFilePath);
-            UniLaunchEngine.Instance.OverrideConfiguration(config, configFilePath, false);
+            Engine.OverrideConfiguration(config, configFilePath, false);
             SelectedTabChanged();
         }
         catch (Exception e)

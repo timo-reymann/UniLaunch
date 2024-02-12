@@ -5,12 +5,14 @@
         xmlns:i="https://github.com/projektanker/icons.avalonia"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="clr-namespace:UniLaunch.UI.Controls"
+        xmlns:converter="clr-namespace:UniLaunch.UI.Converter"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime"
         MinWidth="600"
         Width="700"
         MinHeight="400"
         mc:Ignorable="d"
-        d:DesignWidth="800"
-        d:DesignHeight="400"
+        d:DesignWidth="600"
+        d:DesignHeight="300"
         x:Class="UniLaunch.UI.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         ExtendClientAreaToDecorationsHint="True"
@@ -80,16 +82,37 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" MinWidth="200" />
-                <ColumnDefinition Width="1"/>
-                <ColumnDefinition Width="*" MinWidth="300"/>
+                <ColumnDefinition Width="1" />
+                <ColumnDefinition Width="*" MinWidth="300" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0"
                         Background="{DynamicResource SidePanel.Background}"
                         HorizontalAlignment="Stretch">
                 <Button HorizontalAlignment="Stretch"
+                        IsVisible="{Binding !ButtonFlyoutVisible}"
                         HorizontalContentAlignment="Center"
                         Command="{Binding AddItem}">
                     <i:Icon Value="fas fa-plus"></i:Icon>
+                </Button>
+                <Button HorizontalAlignment="Stretch"
+                        IsVisible="{Binding ButtonFlyoutVisible}"
+                        HorizontalContentAlignment="Center">
+                    <i:Icon Value="fas fa-plus"></i:Icon>
+                    <Button.Flyout>
+                        <MenuFlyout Placement="Bottom"
+                                    ItemsSource="{Binding Engine.EnabledTargetTypes}"
+                                    HorizontalOffset="0"
+                                    ShowMode="Transient">
+                            <MenuFlyout.ItemContainerTheme>
+                                <ControlTheme TargetType="MenuItem" x:DataType="system:Type" BasedOn="{StaticResource {x:Type MenuItem}}">
+                                    <Setter Property="Header" Value="{Binding Mode=OneWay,Converter={x:Static converter:TypeConverter.TargetType}}"/>
+                                    <Setter Property="Command" Value="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).AddItem}"/>
+                                    <Setter Property="CommandParameter" Value="{Binding }" />
+                                </ControlTheme>
+                            </MenuFlyout.ItemContainerTheme>
+                            
+                        </MenuFlyout>
+                    </Button.Flyout>
                 </Button>
                 <ListBox SelectedItem="{Binding SelectedItem}"
                          VerticalAlignment="Stretch"
@@ -105,7 +128,7 @@
                 </ListBox>
             </StackPanel>
             <GridSplitter Grid.Column="1"
-                          Background="{DynamicResource SidePanel.Background}" 
+                          Background="{DynamicResource SidePanel.Background}"
                           ResizeDirection="Columns" />
             <ContentControl
                 Grid.Column="2"
