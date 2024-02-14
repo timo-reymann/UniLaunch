@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Input;
 using Avalonia.Controls;
-using Avalonia.Interactivity;
 using DynamicData;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
@@ -32,6 +30,7 @@ public class MainWindowViewModel : ViewModelBase
     public ICommand ShowAbout { get; }
     public ICommand Close { get; }
     public ICommand AddItem { get; }
+    public ICommand DeleteCurrentItem { get; }
 
     private int _selectedTab;
     private ObservableCollection<BaseEntityViewModel> _items = new();
@@ -52,6 +51,8 @@ public class MainWindowViewModel : ViewModelBase
         set => this.RaiseAndSetIfChanged(ref _selectedTab, value);
     }
 
+    private SelectedTabIndex IndexOfSelectedTab => (SelectedTabIndex)SelectedTab;
+
     public bool ButtonFlyoutVisible
     {
         get => _buttonFlyoutVisible;
@@ -71,9 +72,47 @@ public class MainWindowViewModel : ViewModelBase
         Close = ReactiveCommand.Create(_Close);
         SaveFile = ReactiveCommand.Create(_SaveFile);
         AddItem = ReactiveCommand.Create<Type>(_AddItem);
+        DeleteCurrentItem = ReactiveCommand.Create(_DeleteCurrentItem);
 
         this.WhenAnyValue(x => x.SelectedTab)
             .Subscribe(_ => SelectedTabChanged());
+    }
+
+    private void _DeleteCurrentItem()
+    {
+        switch (IndexOfSelectedTab)
+        {
+            case SelectedTabIndex.Targets:
+                Engine.Configuration!.Targets.Remove((Target)SelectedItem.Model);
+                break;
+
+            case SelectedTabIndex.RuleSets:
+                Engine.Configuration!.RuleSets.Remove((RuleSet)SelectedItem.Model);
+                break;
+
+            case SelectedTabIndex.Entries:
+                Engine.Configuration!.Entries.Remove((AutoStartEntry)SelectedItem.Model);
+                break;
+            
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
+        var index = Items.IndexOf(SelectedItem);
+        Items.RemoveAt(index);
+
+        if (Items.Count == 0)
+        {
+            SelectedItem = null;
+        }
+        else if (index > 1)
+        {
+            SelectedItem = Items.Last();
+        }
+        else
+        {
+            SelectedItem = Items.First();
+        }
     }
 
     private void AddItemAndSelect(INameable model)
@@ -85,12 +124,10 @@ public class MainWindowViewModel : ViewModelBase
 
     private void _AddItem(Type? t = null)
     {
-        switch ((SelectedTabIndex)SelectedTab)
+        switch (IndexOfSelectedTab)
         {
             case SelectedTabIndex.Targets:
-                Console.WriteLine(t);
-                var type = t ?? Engine.EnabledTargetTypes.First();
-                var instance = Activator.CreateInstance(type) as Target;
+                var instance = Activator.CreateInstance(t ?? Engine.EnabledTargetTypes.First()) as Target;
                 instance!.Name = $" {instance.TargetType} ({Items.Count})";
                 Engine.Configuration!.Targets.Add(instance);
                 AddItemAndSelect(instance);
@@ -123,7 +160,7 @@ public class MainWindowViewModel : ViewModelBase
 
         Items.Clear();
 
-        switch ((SelectedTabIndex)SelectedTab)
+        switch (IndexOfSelectedTab)
         {
             case SelectedTabIndex.Targets:
                 Items.AddRange(viewModelRegistry.Of(config.Targets));

@@ -105,13 +105,16 @@
                                     HorizontalOffset="0"
                                     ShowMode="Transient">
                             <MenuFlyout.ItemContainerTheme>
-                                <ControlTheme TargetType="MenuItem" x:DataType="system:Type" BasedOn="{StaticResource {x:Type MenuItem}}">
-                                    <Setter Property="Header" Value="{Binding Mode=OneWay,Converter={x:Static converter:TypeConverter.TargetType}}"/>
-                                    <Setter Property="Command" Value="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).AddItem}"/>
+                                <ControlTheme TargetType="MenuItem" x:DataType="system:Type"
+                                              BasedOn="{StaticResource {x:Type MenuItem}}">
+                                    <Setter Property="Header"
+                                            Value="{Binding Mode=OneWay,Converter={x:Static converter:TypeConverter.TargetType}}" />
+                                    <Setter Property="Command"
+                                            Value="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).AddItem}" />
                                     <Setter Property="CommandParameter" Value="{Binding }" />
                                 </ControlTheme>
                             </MenuFlyout.ItemContainerTheme>
-                            
+
                         </MenuFlyout>
                     </Button.Flyout>
                 </Button>
@@ -131,10 +134,25 @@
             <GridSplitter Grid.Column="1"
                           Background="{DynamicResource SidePanel.Background}"
                           ResizeDirection="Columns" />
-            <ContentControl
-                Grid.Column="2"
-                Margin="20"
-                Content="{Binding SelectedItem}" />
+            <DockPanel Grid.Column="2">
+                <Button HorizontalAlignment="Right"
+                        Command="{Binding DeleteCurrentItem}"
+                        Background="DarkRed"
+                        Foreground="White"
+                        Margin="0 0 10 10"
+                        DockPanel.Dock="Bottom">
+                    <Button.Styles>
+                        <Style Selector="Button:pointerover /template/ ContentPresenter">
+                            <Setter Property="Background" Value="Red"></Setter>
+                        </Style>
+                    </Button.Styles>
+                    <i:Icon Value="fas fa-trash" />
+                </Button>
+                <ContentControl
+                    Margin="20"
+                    Content="{Binding SelectedItem}" />
+            </DockPanel>
+
         </Grid>
     </DockPanel>
 </Window>

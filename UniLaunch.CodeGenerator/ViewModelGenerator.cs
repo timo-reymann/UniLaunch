@@ -102,7 +102,7 @@ public class ViewModelGenerator : ISourceGenerator
                              /// <summary>
                              /// Get the model from view model
                              /// </summary>
-                             public {{modelType}} Model {
+                             public override {{modelType}} Model {
                                 get => this._model;
                              }
                          }
