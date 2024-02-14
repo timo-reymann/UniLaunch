@@ -118,7 +118,7 @@ public class MainWindowViewModel : ViewModelBase
 
     private void AddItemAndSelect(INameable model)
     {
-        var viewModel = EntityViewModelRegistry.Instance.Of(model)!;
+        var viewModel = model.ToViewModel();
         Items.Add(viewModel);
         SelectedItem = viewModel;
     }
@@ -157,22 +157,21 @@ public class MainWindowViewModel : ViewModelBase
     private void UpdateItems()
     {
         var config = Engine.Configuration!;
-        var viewModelRegistry = EntityViewModelRegistry.Instance;
 
         Items.Clear();
 
         switch (IndexOfSelectedTab)
         {
             case SelectedTabIndex.Targets:
-                Items.AddRange(viewModelRegistry.Of(config.Targets));
+                Items.AddRange(config.Targets.ToViewModel());
                 break;
 
             case SelectedTabIndex.RuleSets:
-                Items.AddRange(viewModelRegistry.Of(config.RuleSets));
+                Items.AddRange(config.RuleSets.ToViewModel());
                 break;
 
             case SelectedTabIndex.Entries:
-                Items.AddRange(viewModelRegistry.Of(config.Entries));
+                Items.AddRange(config.Entries.ToViewModel());
                 break;
 
             default:
@@ -197,10 +196,7 @@ public class MainWindowViewModel : ViewModelBase
     {
         if (withFilePicker)
         {
-            var possibleExtensions = Engine.AvailableStoreProviders
-                .Select(s => s.Extension)
-                .ToList();
-
+            var possibleExtensions = Engine.AvailableStoreProviders.GetAllExtensions();
             var file = await GetFilesService()!.SaveFileAsync(new FilePickerSaveOptions()
             {
                 Title = "Select file to save to",
