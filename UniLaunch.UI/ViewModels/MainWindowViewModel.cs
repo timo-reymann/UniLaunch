@@ -9,7 +9,6 @@ using Avalonia.Platform.Storage;
 using DynamicData;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
-using MsBox.Avalonia.Enums;
 using MsBox.Avalonia.Models;
 using ReactiveUI;
 using UniLaunch.Core.Autostart;
@@ -20,6 +19,7 @@ using UniLaunch.Core.Storage;
 using UniLaunch.Core.Targets;
 using UniLaunch.UI.CodeGeneration;
 using UniLaunch.UI.Services;
+using UniLaunch.UI.Util;
 using Icon = MsBox.Avalonia.Enums.Icon;
 
 namespace UniLaunch.UI.ViewModels;
@@ -200,14 +200,15 @@ public class MainWindowViewModel : ViewModelBase
             var possibleExtensions = Engine.AvailableStoreProviders
                 .Select(s => s.Extension)
                 .ToList();
-            
+
             var file = await GetFilesService()!.SaveFileAsync(new FilePickerSaveOptions()
             {
                 Title = "Select file to save to",
-                FileTypeChoices = possibleExtensions.Select(extension => new FilePickerFileType($"UniLaunch {extension.ToUpper()}")
-                    {
-                        Patterns = [$"*.{extension}"]
-                    })
+                FileTypeChoices = possibleExtensions.Select(extension =>
+                        new FilePickerFileType($"UniLaunch {extension.ToUpper()}")
+                        {
+                            Patterns = [$"*.{extension}"]
+                        })
                     .ToList()
             });
 
@@ -219,19 +220,16 @@ public class MainWindowViewModel : ViewModelBase
             var fileExtension = Path.GetExtension(file.Name);
             if (fileExtension.Length == 0 || !possibleExtensions.Contains(fileExtension[1..]))
             {
-                await MessageBoxManager.GetMessageBoxStandard(
+                await MessageBoxUtil.ShowErrorDialog(
                     "Failed to save file",
-                    $"{file.Name} could not be used for saving: Invalid file type",
-                    ButtonEnum.Ok,
-                    Icon.Error
-                ).ShowAsync();
+                    $"{file.Name} could not be used for saving: Invalid file type"
+                );
                 return;
             }
 
-            var storageProvider = Engine.AvailableStoreProviders
-                .First(s => s.Extension == fileExtension[1..]);
+            var storageProvider = Engine.AvailableStoreProviders.GetProviderForFileExtension(fileExtension)!;
             Engine.DefaultStorageProvider = storageProvider;
-            Engine.ConfigFilePath = file.Path.AbsolutePath.Replace(fileExtension, "");
+            Engine.ConfigFilePath = StorageProviderUtil.RemoveExtensionForPath(file.Path, fileExtension);
         }
 
         try
@@ -240,12 +238,10 @@ public class MainWindowViewModel : ViewModelBase
         }
         catch (Exception e)
         {
-            await MessageBoxManager.GetMessageBoxStandard(
+            await MessageBoxUtil.ShowErrorDialog(
                 "Failed to save file",
-                $"Could not persist configuration: {e.Message}",
-                ButtonEnum.Ok,
-                Icon.Error
-            ).ShowAsync();
+                $"Could not persist configuration: {e.Message}"
+            );
         }
     }
 
@@ -282,53 +278,35 @@ public class MainWindowViewModel : ViewModelBase
         var fileExtension = Path.GetExtension(file.Name);
         if (fileExtension.Length == 0)
         {
-            await MessageBoxManager.GetMessageBoxStandard(
+            await MessageBoxUtil.ShowErrorDialog(
                 "Failed to parse file",
-                $"{file.Name} could not be parsed: Files without extension in the file path are not supported by the editor.",
-                ButtonEnum.Ok,
-                Icon.Error
-            ).ShowAsync();
+                $"{file.Name} could not be parsed: Files without extension in the file path are not supported by the editor."
+            );
             return;
         }
 
-        StorageProvider<UniLaunchConfiguration>? storeProvider = null;
-        foreach (var availableStoreProvider in Engine.AvailableStoreProviders)
+        var storageProvider = Engine.AvailableStoreProviders.GetProviderForFileExtension(fileExtension);
+        if (storageProvider == null || fileExtension.Length == 0)
         {
-            if (fileExtension[1..] != availableStoreProvider.Extension)
-            {
-                continue;
-            }
-
-            storeProvider = availableStoreProvider;
-            break;
-        }
-
-        if (storeProvider == null || fileExtension.Length == 0)
-        {
-            await MessageBoxManager.GetMessageBoxStandard(
+            await MessageBoxUtil.ShowErrorDialog(
                 "Failed to parse file",
-                $"{file!.Name} could not be parsed: The file format is not supported.",
-                ButtonEnum.Ok,
-                Icon.Error
-            ).ShowAsync();
+                $"{file!.Name} could not be parsed: The file format is not supported."
+            );
             return;
         }
 
         try
         {
-            var configFilePath = file.Path.AbsolutePath[..^(fileExtension.Length)];
-            var config = storeProvider.Load(configFilePath);
-            Engine.OverrideConfiguration(config, configFilePath, false);
+            var configFilePath = StorageProviderUtil.RemoveExtensionForPath(file.Path, fileExtension);
+            Engine.OverrideConfiguration(storageProvider.Load(configFilePath), configFilePath, false);
             SelectedTabChanged();
         }
         catch (Exception e)
         {
-            await MessageBoxManager.GetMessageBoxStandard(
+            await MessageBoxUtil.ShowErrorDialog(
                 "Failed to parse file",
-                $"{file!.Name} could not be parsed: {e.Message}",
-                ButtonEnum.Ok,
-                Icon.Error
-            ).ShowAsync();
+                $"{file!.Name} could not be parsed: {e.Message}"
+            );
         }
     }
 
