@@ -9,7 +9,7 @@ namespace UniLaunch.Core.Autostart;
 
 public class UniLaunchEngine
 {
-    public StorageProvider<UniLaunchConfiguration> DefaultStorageProvider { get; private set; }
+    public StorageProvider<UniLaunchConfiguration> DefaultStorageProvider { get;  set; }
     public UniLaunchConfiguration? Configuration { get; private set; } = new();
     public List<StorageProvider<UniLaunchConfiguration>> AvailableStoreProviders { get; private set; } = new();
 
@@ -18,7 +18,7 @@ public class UniLaunchEngine
     /// </summary>
     public static readonly UniLaunchEngine Instance = new();
 
-    private string? ConfigFilePath { get; set; }
+    public string? ConfigFilePath { get; set; }
     private FileLocator ConfigFileLocator { get; set; }
 
     private readonly HashSet<Type> _enabledTargetTypes = new();

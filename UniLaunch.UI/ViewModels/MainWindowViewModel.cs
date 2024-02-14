@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Input;
 using Avalonia.Controls;
+using Avalonia.Platform.Storage;
 using DynamicData;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
@@ -70,7 +71,7 @@ public class MainWindowViewModel : ViewModelBase
         OpenFile = ReactiveCommand.Create(_OpenFile);
         ShowAbout = ReactiveCommand.Create(_ShowAbout);
         Close = ReactiveCommand.Create(_Close);
-        SaveFile = ReactiveCommand.Create(_SaveFile);
+        SaveFile = ReactiveCommand.Create<bool>(_SaveFile);
         AddItem = ReactiveCommand.Create<Type>(_AddItem);
         DeleteCurrentItem = ReactiveCommand.Create(_DeleteCurrentItem);
 
@@ -93,7 +94,7 @@ public class MainWindowViewModel : ViewModelBase
             case SelectedTabIndex.Entries:
                 Engine.Configuration!.Entries.Remove((AutoStartEntry)SelectedItem.Model);
                 break;
-            
+
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -192,8 +193,47 @@ public class MainWindowViewModel : ViewModelBase
         Environment.Exit(0);
     }
 
-    private async void _SaveFile()
+    private async void _SaveFile(bool withFilePicker = false)
     {
+        if (withFilePicker)
+        {
+            var possibleExtensions = Engine.AvailableStoreProviders
+                .Select(s => s.Extension)
+                .ToList();
+            
+            var file = await GetFilesService()!.SaveFileAsync(new FilePickerSaveOptions()
+            {
+                Title = "Select file to save to",
+                FileTypeChoices = possibleExtensions.Select(extension => new FilePickerFileType($"UniLaunch {extension.ToUpper()}")
+                    {
+                        Patterns = [$"*.{extension}"]
+                    })
+                    .ToList()
+            });
+
+            if (file == null)
+            {
+                return;
+            }
+
+            var fileExtension = Path.GetExtension(file.Name);
+            if (fileExtension.Length == 0 || !possibleExtensions.Contains(fileExtension[1..]))
+            {
+                await MessageBoxManager.GetMessageBoxStandard(
+                    "Failed to save file",
+                    $"{file.Name} could not be used for saving: Invalid file type",
+                    ButtonEnum.Ok,
+                    Icon.Error
+                ).ShowAsync();
+                return;
+            }
+
+            var storageProvider = Engine.AvailableStoreProviders
+                .First(s => s.Extension == fileExtension[1..]);
+            Engine.DefaultStorageProvider = storageProvider;
+            Engine.ConfigFilePath = file.Path.AbsolutePath.Replace(fileExtension, "");
+        }
+
         try
         {
             Engine.PersistCurrentConfiguration();
@@ -233,13 +273,7 @@ public class MainWindowViewModel : ViewModelBase
 
     private async void _OpenFile()
     {
-        var filesService = App.Current?.Services?.GetService(typeof(IFilesService)) as IFilesService;
-        if (filesService is null)
-        {
-            throw new NullReferenceException("Missing File Service instance.");
-        }
-
-        var file = await filesService.OpenFileAsync();
+        var file = await GetFilesService().OpenFileAsync();
         if (file == null)
         {
             return;
@@ -296,6 +330,17 @@ public class MainWindowViewModel : ViewModelBase
                 Icon.Error
             ).ShowAsync();
         }
+    }
+
+    private static IFilesService GetFilesService()
+    {
+        var filesService = App.Current?.Services?.GetService(typeof(IFilesService)) as IFilesService;
+        if (filesService is null)
+        {
+            throw new NullReferenceException("Missing File Service instance.");
+        }
+
+        return filesService;
     }
 
     private enum SelectedTabIndex
