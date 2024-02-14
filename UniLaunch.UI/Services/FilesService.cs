@@ -18,11 +18,11 @@ public class FilesService(Window target) : IFilesService
         return folder.Count >= 1 ? folder[0] : null;
     }
 
-    public async Task<IStorageFile?> SaveFileAsync()
+    public async Task<IStorageFile?> SaveFileAsync(FilePickerSaveOptions? options = null)
     {
-        return await target.StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions()
+        return await target.StorageProvider.SaveFilePickerAsync(options ?? new FilePickerSaveOptions()
         {
-            Title = "Save Text File"
+            Title = "Save File"
         });
     }
 }
