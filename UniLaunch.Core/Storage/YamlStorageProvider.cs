@@ -38,7 +38,7 @@ public class YamlStorageProvider<T> : StorageProvider<T>
     {
     }
 
-    public override string Extension => "yaml";
+    public override string Extension => "yml";
 
     public override void Persist(string filePathWithoutExtension, T data)
     {
