@@ -26,74 +26,90 @@
         <vm:MainWindowViewModel />
     </Design.DataContext>
 
-    <DockPanel PointerMoved="InputElement_OnPointerMoved"
-               PointerPressed="InputElement_OnPointerPressed"
-               PointerReleased="InputElement_OnPointerReleased">
-        <StackPanel DockPanel.Dock="Top"
-                    Background="{DynamicResource MenuBar.Background}">
-            <Grid DockPanel.Dock="Top" Margin="0 20 0 0"
-                  ColumnDefinitions="*"
-                  RowDefinitions="Auto, Auto">
-                <Panel Width="150"
-                       HorizontalAlignment="Left"
-                       Grid.Row="0"
-                       Grid.Column="0"
-                       ZIndex="100"
-                       Margin="0 0 0 0">
-                    <Image Source="avares://UniLaunch.UI/Assets/banner-logo.png"
-                           Height="100" />
-                </Panel>
-                <StackPanel Grid.Row="0"
-                            HorizontalAlignment="Stretch"
-                            Grid.Column="0">
-                    <StackPanel Margin="140 40 30 0">
-                        <Menu VerticalAlignment="Center"
-                              HorizontalAlignment="Left"
-                              Margin="0 0 0 10"
-                              DockPanel.Dock="Left">
-                            <MenuItem Header="_File">
-                                <MenuItem Header="Open ..."
-                                          i:MenuItem.Icon="fa-static fa-folder-open"
-                                          Command="{Binding OpenFile}" />
-                                <MenuItem Header="Save"
-                                          Command="{Binding SaveFile}"
-                                          i:MenuItem.Icon="fa-static fa-save" />
-                                <MenuItem Header="Save to ..."
-                                          Command="{Binding SaveFile}"
-                                          i:MenuItem.Icon="fa-static fa-save">
-                                    <MenuItem.CommandParameter>
-                                        <system:Boolean>True</system:Boolean>
-                                    </MenuItem.CommandParameter>
-                                </MenuItem>
-                                <MenuItem Header="Close"
-                                          i:MenuItem.Icon="fa-static fa-xmark"
-                                          Command="{Binding Close}" />
-                            </MenuItem>
-                            <MenuItem Header="Settings" />
-                            <MenuItem Header="_About"
-                                      Command="{Binding ShowAbout}" />
-                        </Menu>
-                    </StackPanel>
-                    <TabStrip Margin="5 0 0 0"
-                              DockPanel.Dock="Bottom"
-                              SelectedIndex="{Binding SelectedTab}"
-                              HorizontalAlignment="Center">
-                        <TabStrip.Styles>
-                            <Style Selector="WrapPanel>TextBlock">
-                                <Setter Property="Padding" Value="10 0 5 0" />
-                            </Style>
-                        </TabStrip.Styles>
-                        <controls:TabItemWithIcon Title="Targets"
-                                                  Icon="fa-solid fa-bullseye" />
-                        <controls:TabItemWithIcon Title="Rulesets"
-                                                  Icon="fa-solid fa-check-double" />
-                        <controls:TabItemWithIcon Title="Entries"
-                                                  Icon="fa-static fa-play" />
-                    </TabStrip>
-                </StackPanel>
-            </Grid>
+    <Grid PointerMoved="InputElement_OnPointerMoved"
+          PointerPressed="InputElement_OnPointerPressed"
+          PointerReleased="InputElement_OnPointerReleased">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Rectangle Grid.Row="0"
+                   Fill="{DynamicResource MenuBar.Background}"/>
+        
+        <Grid Grid.Row="1"
+              Background="{DynamicResource MenuBar.Background}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" 
+                        Margin="10" 
+                        Orientation="Horizontal"
+                        Spacing="10">
+                <Image Source="avares://UniLaunch.UI/Assets/banner-logo.png"
+                       Stretch="Uniform" />
+                <TextBlock FontSize="30" 
+                           Text="UniLaunch"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+            <Menu Grid.Column="1" VerticalAlignment="Center"
+                  HorizontalAlignment="Right"
+                  Margin="0 0 20 0">
+                <MenuItem  >
+                    <MenuItem.Header>
+                        <i:Icon Value="fas fa-file"></i:Icon>
+                    </MenuItem.Header>
+                    <MenuItem Header="Open ..."
+                              i:MenuItem.Icon="fa-static fa-folder-open"
+                              Command="{Binding OpenFile}" />
+                    <MenuItem Header="Save"
+                              Command="{Binding SaveFile}"
+                              i:MenuItem.Icon="fa-static fa-save" />
+                    <MenuItem Header="Save to ..."
+                              Command="{Binding SaveFile}"
+                              i:MenuItem.Icon="fa-static fa-save">
+                        <MenuItem.CommandParameter>
+                            <system:Boolean>True</system:Boolean>
+                        </MenuItem.CommandParameter>
+                    </MenuItem>
+                    <MenuItem Header="Close"
+                              i:MenuItem.Icon="fa-static fa-xmark"
+                              Command="{Binding Close}" />
+                </MenuItem>
+                <MenuItem>
+                    <MenuItem.Header>
+                        <i:Icon Value="fas fa-gear"></i:Icon>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Command="{Binding ShowAbout}">
+                    <MenuItem.Header>
+                        <i:Icon Value="fas fa-info"></i:Icon>
+                    </MenuItem.Header>
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <StackPanel Grid.Row="2"
+                    Background="{DynamicResource MenuBar.Background.Accent}">
+            <TabStrip Grid.Row="1" Margin="5 0 0 0"
+                      SelectedIndex="{Binding SelectedTab}"
+                      HorizontalAlignment="Center">
+                <TabStrip.Styles>
+                    <Style Selector="WrapPanel>TextBlock">
+                        <Setter Property="Padding" Value="10 0 5 0" />
+                    </Style>
+                </TabStrip.Styles>
+                <controls:TabItemWithIcon Title="Targets"
+                                          Icon="fa-solid fa-bullseye" />
+                <controls:TabItemWithIcon Title="Rulesets"
+                                          Icon="fa-solid fa-check-double" />
+                <controls:TabItemWithIcon Title="Entries"
+                                          Icon="fa-static fa-play" />
+            </TabStrip>
         </StackPanel>
-        <Grid>
+        <Grid  x:Name="grid" Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" MinWidth="200" />
                 <ColumnDefinition Width="1" />
@@ -105,10 +121,12 @@
                 <Button HorizontalAlignment="Stretch"
                         IsVisible="{Binding !ButtonFlyoutVisible}"
                         HorizontalContentAlignment="Center"
+                        Margin="0 0 0 5"
                         Command="{Binding AddItem}">
                     <i:Icon Value="fas fa-plus"></i:Icon>
                 </Button>
                 <Button HorizontalAlignment="Stretch"
+                        Margin="0 0 0 5"
                         IsVisible="{Binding ButtonFlyoutVisible}"
                         HorizontalContentAlignment="Center">
                     <i:Icon Value="fas fa-plus"></i:Icon>
@@ -132,14 +150,29 @@
                     </Button.Flyout>
                 </Button>
                 <ListBox SelectedItem="{Binding SelectedItem}"
+                         Height="{Binding ElementName=grid,Path=Bounds.Height,Converter={x:Static converter:TypeConverter.ListBoxHeightConverter}}"
                          VerticalAlignment="Stretch"
                          ItemsSource="{Binding Items}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Name}"
+                            <DockPanel VerticalAlignment="Center">
+                                <Button Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).DeleteItem}" 
+                                        Background="DarkRed"
+                                        VerticalAlignment="Center"
+                                        Foreground="White"
+                                        DockPanel.Dock="Right"
+                                        CommandParameter="{Binding}">
+                                    <Button.Styles>
+                                        <Style Selector="Button:pointerover /template/ ContentPresenter">
+                                            <Setter Property="Background" Value="Red"></Setter>
+                                        </Style>
+                                    </Button.Styles>
+                                    <i:Icon Value="fas fa-trash" />
+                                </Button>
+                                <TextBlock Text="{Binding NameProperty}"
+                                           VerticalAlignment="Center"
                                            Margin="0,0,10,0" />
-                            </StackPanel>
+                            </DockPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -148,24 +181,10 @@
                           Background="{DynamicResource SidePanel.Background}"
                           ResizeDirection="Columns" />
             <DockPanel Grid.Column="2">
-                <Button HorizontalAlignment="Right"
-                        Command="{Binding DeleteCurrentItem}"
-                        Background="DarkRed"
-                        Foreground="White"
-                        Margin="0 0 10 10"
-                        DockPanel.Dock="Bottom">
-                    <Button.Styles>
-                        <Style Selector="Button:pointerover /template/ ContentPresenter">
-                            <Setter Property="Background" Value="Red"></Setter>
-                        </Style>
-                    </Button.Styles>
-                    <i:Icon Value="fas fa-trash" />
-                </Button>
                 <ContentControl
                     Margin="20"
                     Content="{Binding SelectedItem}" />
             </DockPanel>
-
         </Grid>
-    </DockPanel>
+    </Grid>
 </Window>

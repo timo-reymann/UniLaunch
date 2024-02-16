@@ -13,6 +13,8 @@
         <vm:ExecutableTargetViewModel />
     </Design.DataContext>
     <StackPanel>
+        <Label>Target Name</Label>
+        <TextBox Text="{Binding NameProperty,Mode=TwoWay}" />
         <Label>Path to executable</Label>
         <controls:TextInputWithFilePicker 
             Margin="0 0 0 5 "
