@@ -31,14 +31,22 @@
                PointerReleased="InputElement_OnPointerReleased">
         <StackPanel DockPanel.Dock="Top"
                     Background="{DynamicResource MenuBar.Background}">
-            <DockPanel DockPanel.Dock="Top" Margin="0 20 0 0">
-                <Panel Width="150" Margin="0 0 0 0">
+            <Grid DockPanel.Dock="Top" Margin="0 20 0 0"
+                  ColumnDefinitions="*"
+                  RowDefinitions="Auto, Auto">
+                <Panel Width="150"
+                       HorizontalAlignment="Left"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       ZIndex="100"
+                       Margin="0 0 0 0">
                     <Image Source="avares://UniLaunch.UI/Assets/banner-logo.png"
                            Height="100" />
                 </Panel>
-                <StackPanel>
-                    <StackPanel
-                        Margin="0 40 30 0">
+                <StackPanel Grid.Row="0"
+                            HorizontalAlignment="Stretch"
+                            Grid.Column="0">
+                    <StackPanel Margin="140 40 30 0">
                         <Menu VerticalAlignment="Center"
                               HorizontalAlignment="Left"
                               Margin="0 0 0 10"
@@ -83,7 +91,7 @@
                                                   Icon="fa-static fa-play" />
                     </TabStrip>
                 </StackPanel>
-            </DockPanel>
+            </Grid>
         </StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
