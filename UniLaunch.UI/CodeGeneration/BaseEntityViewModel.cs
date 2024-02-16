@@ -12,5 +12,7 @@ public abstract class BaseEntityViewModel : ReactiveObject, IAssociatedUserContr
     /// <inheritdoc />
     public abstract string Name { get; }
     
+    public abstract string NameProperty { get; set; }
+    
     public abstract object Model { get; }
 }

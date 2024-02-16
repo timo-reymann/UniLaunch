@@ -14,7 +14,7 @@
     
     <StackPanel>
         <Label>Name</Label>
-        <TextBox Text="{Binding NameProperty}" />
+        <TextBox Text="{Binding NameProperty, Mode=TwoWay}" />
         <Label>Included rules:</Label>
         <ItemsControl ItemsSource="{Binding RulesProperty}" >
             <ItemsControl.ItemTemplate>

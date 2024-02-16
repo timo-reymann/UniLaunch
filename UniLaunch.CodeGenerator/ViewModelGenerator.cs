@@ -47,17 +47,32 @@ public class ViewModelGenerator : ISourceGenerator
 
         var modelType = attributeArgs[0]
             .Value as INamedTypeSymbol;
-        
+
         var controlType = (attributeArgs[1]
                 .Value as INamedTypeSymbol
             )?.ToString() ?? "TextBlock";
 
         var properties = modelType!.GetMembers()
             .OfType<IPropertySymbol>()
-            .Where(symbol => symbol.SetMethod != null)
+            .Where(symbol => symbol.SetMethod != null && symbol.Name != "Name")
             .Select(GenerateProperty);
         var className = classSymbol.Name;
         var propertyDefinitions = string.Join("\n", properties);
+
+        var baseNameProperty = modelType.BaseType?
+            .GetMembers()
+            .OfType<IPropertySymbol>()
+            .FirstOrDefault(m => m.Name == "Name");
+        var nameProperty = modelType.GetMembers()
+            .OfType<IPropertySymbol>()
+            .FirstOrDefault(m => m.Name == "Name");
+
+        var namePropertySetter = nameProperty?.IsReadOnly == false
+                                 || baseNameProperty?.IsReadOnly == false
+            ? "_model.Name = value;"
+            : "";
+       var conc = string.Join(",",
+            modelType!.GetMembers().OfType<IPropertySymbol>().Select(s => s.Name));
 
         var code = $$"""
                      //----------------------
@@ -82,7 +97,16 @@ public class ViewModelGenerator : ISourceGenerator
                              
                              public override Type UserControl => typeof({{controlType}});
                              
+                             // {{conc}}
                              public override string Name => _model.Name;
+                     
+                             public override string NameProperty {
+                                 set {
+                                    {{namePropertySetter}}
+                                    this.RaisePropertyChanged(nameof(NameProperty));
+                                 }
+                                 get => _model.Name;
+                             }
                      
                              /// <summary>
                              /// Create empty few model

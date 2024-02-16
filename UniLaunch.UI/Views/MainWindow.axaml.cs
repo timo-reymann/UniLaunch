@@ -1,9 +1,7 @@
-using System;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Diagnostics;
+using Avalonia.Controls.Shapes;
 using Avalonia.Input;
-using UniLaunch.Core.Autostart;
 
 namespace UniLaunch.UI.Views;
 
@@ -34,7 +32,7 @@ public partial class MainWindow : Window
 
     private void InputElement_OnPointerPressed(object? sender, PointerPressedEventArgs e)
     {
-        if (e.Source is not Panel && e.Source is not Image)
+        if (e.Source is not Panel && e.Source is not Image && e.Source is not Rectangle)
         {
             return;
         }

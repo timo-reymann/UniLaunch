@@ -18,7 +18,7 @@
         <Label>Path to executable</Label>
         <controls:TextInputWithFilePicker 
             Margin="0 0 0 5 "
-            Path="{Binding ExecutableProperty,Mode=TwoWay}" />
+            Path="{Binding ExecutableProperty}" />
         <Label>Arguments to pass to executable</Label>
         <TextBox Text="{Binding ArgumentsListProperty}" />
     </StackPanel>

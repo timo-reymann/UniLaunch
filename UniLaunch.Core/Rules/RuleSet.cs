@@ -5,7 +5,6 @@ namespace UniLaunch.Core.Rules;
 /// <summary>
 /// Set of multiple rules to execute in order to launch targets
 /// </summary>
-[Serializable]
 public class RuleSet : INameable
 {
     /// <summary>

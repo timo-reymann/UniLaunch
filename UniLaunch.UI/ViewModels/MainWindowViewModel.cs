@@ -31,7 +31,7 @@ public class MainWindowViewModel : ViewModelBase
     public ICommand ShowAbout { get; }
     public ICommand Close { get; }
     public ICommand AddItem { get; }
-    public ICommand DeleteCurrentItem { get; }
+    public ICommand DeleteItem { get; }
 
     private int _selectedTab;
     private ObservableCollection<BaseEntityViewModel> _items = new();
@@ -73,33 +73,35 @@ public class MainWindowViewModel : ViewModelBase
         Close = ReactiveCommand.Create(_Close);
         SaveFile = ReactiveCommand.Create<bool>(_SaveFile);
         AddItem = ReactiveCommand.Create<Type>(_AddItem);
-        DeleteCurrentItem = ReactiveCommand.Create(_DeleteCurrentItem);
+        DeleteItem = ReactiveCommand.Create<BaseEntityViewModel>(_DeleteItem);
 
         this.WhenAnyValue(x => x.SelectedTab)
             .Subscribe(_ => SelectedTabChanged());
     }
 
-    private void _DeleteCurrentItem()
+    private void _DeleteItem(BaseEntityViewModel viewModel)
     {
+        var model = viewModel.Model;
+        
         switch (IndexOfSelectedTab)
         {
             case SelectedTabIndex.Targets:
-                Engine.Configuration!.Targets.Remove((Target)SelectedItem.Model);
+                Engine.Configuration!.Targets.Remove((Target)model);
                 break;
 
             case SelectedTabIndex.RuleSets:
-                Engine.Configuration!.RuleSets.Remove((RuleSet)SelectedItem.Model);
+                Engine.Configuration!.RuleSets.Remove((RuleSet)model);
                 break;
 
             case SelectedTabIndex.Entries:
-                Engine.Configuration!.Entries.Remove((AutoStartEntry)SelectedItem.Model);
+                Engine.Configuration!.Entries.Remove((AutoStartEntry)model);
                 break;
 
             default:
                 throw new ArgumentOutOfRangeException();
         }
 
-        var index = Items.IndexOf(SelectedItem);
+        var index = Items.IndexOf(viewModel);
         Items.RemoveAt(index);
 
         if (Items.Count == 0)
