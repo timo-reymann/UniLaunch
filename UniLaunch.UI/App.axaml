@@ -9,7 +9,7 @@
     </Application.DataTemplates>
 
     <Application.Styles>
-        <StyleInclude Source = "avares://UniLaunch.UI/Controls/TabItemWithIcon.axaml" />
+        <StyleInclude Source="avares://UniLaunch.UI/Controls/TabItemWithIcon.axaml" />
         <StyleInclude Source="avares://UniLaunch.UI/Controls/TextInputWithFilePicker.axaml" />
         <Style Selector="Menu>MenuItem">
             <Setter Property="Foreground"
@@ -25,7 +25,7 @@
             <Setter Property="FontSize" Value="18" />
             <Setter Property="Padding" Value="0 0 10 0" />
             <Setter Property="Margin" Value="0" />
-            <Setter Property="HorizontalContentAlignment" Value="Center"  />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
         </Style>
         <Style Selector="TabStripItem">
             <Setter Property="FontSize" Value="18" />
@@ -50,6 +50,7 @@
                     </ResourceDictionary.MergedDictionaries>
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
+            <FontFamily x:Key="Syne">avares://UniLaunch.UI/Assets/Fonts#Lilita One</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

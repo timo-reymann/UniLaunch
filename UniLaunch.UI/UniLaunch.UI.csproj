@@ -10,6 +10,7 @@
 
     <ItemGroup>
         <AvaloniaResource Include="Assets\*"/>
+        <AvaloniaResource Include="Assets\Fonts\*.ttf" />
         <Folder Include="Models\"/>
         <AvaloniaResource Include="..\Resources\**"/>
     </ItemGroup>

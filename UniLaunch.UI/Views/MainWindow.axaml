@@ -51,7 +51,8 @@
                         Spacing="10">
                 <Image Source="avares://UniLaunch.UI/Assets/banner-logo.png"
                        Stretch="Uniform" />
-                <TextBlock FontSize="30" 
+                <TextBlock FontSize="37" 
+                           FontFamily="{StaticResource Syne}"
                            Text="UniLaunch"
                            VerticalAlignment="Center"/>
             </StackPanel>
