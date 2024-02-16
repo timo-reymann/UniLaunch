@@ -1,7 +1,13 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <LinearGradientBrush x:Key="MenuBar.Tab.Background" StartPoint="100%,0%" EndPoint="100%,100%">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Offset="0" Color="#AEA5DE"/>
+            <GradientStop Offset="1"  Color="#8F89B9"/>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
     <SolidColorBrush x:Key="MenuBar.Background" Color="#AEA5DE"/>
-    <SolidColorBrush x:Key="MenuBar.Background.Accent" Color="#C1B7F1"/>
+    <SolidColorBrush x:Key="MenuBar.Background.Accent" Color="#8F89B9"/>
     <SolidColorBrush x:Key="MenuBar.PrimaryMenuItem.Foreground" Color="#000" />
     <SolidColorBrush x:Key="SidePanel.Background" Color="#14000000" />
 </ResourceDictionary>
