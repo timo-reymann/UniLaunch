@@ -1,0 +1,3 @@
+is_global = true
+
+dotnet_diagnostics.CS0169.severity = none
