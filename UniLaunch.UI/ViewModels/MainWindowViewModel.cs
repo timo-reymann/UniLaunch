@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using DynamicData.Binding;
 using ReactiveUI;
 using UniLaunch.Core.Autostart;
 using UniLaunch.Core.Spec;
@@ -14,6 +15,7 @@ public partial class MainWindowViewModel : ViewModelBase
     private ObservableCollection<BaseEntityViewModel> _items = new();
     private BaseEntityViewModel? _selectedItem;
     private bool _buttonFlyoutVisible = false;
+    private bool _hasUnsavedChanges = false;
 
     public UniLaunchEngine Engine => UniLaunchEngine.Instance;
 
@@ -43,21 +45,35 @@ public partial class MainWindowViewModel : ViewModelBase
         set => this.RaiseAndSetIfChanged(ref _selectedItem, value);
     }
 
+    public bool HasUnsavedChanges
+    {
+        get => _hasUnsavedChanges;
+        set => this.RaiseAndSetIfChanged(ref _hasUnsavedChanges, value);
+    }
+
     public MainWindowViewModel()
     {
         CreateCommands();
 
         this.WhenAnyValue(x => x.SelectedTab)
             .Subscribe(_ => SelectedTabChanged());
+
+        this.WhenAnyValue(x => x.SelectedItem)
+            .Subscribe(item =>
+            {
+                item?.WhenAnyPropertyChanged(item.PropertiesToWatchForChanges)
+                    .Subscribe(_ => HasUnsavedChanges = true);
+            });
     }
-    
+
     private void AddItemAndSelect(INameable model)
     {
         var viewModel = model.ToViewModel();
         Items.Add(viewModel);
         SelectedItem = viewModel;
+        HasUnsavedChanges = true;
     }
-    
+
     private static IFilesService GetFilesService()
     {
         var filesService = App.Current?.Services?.GetService(typeof(IFilesService)) as IFilesService;

@@ -20,6 +20,7 @@
         CanResize="True"
         WindowStartupLocation="CenterScreen"
         Icon="avares://UniLaunch.UI/Assets/window-icon.ico"
+        Closing="BeforeClose"
         Title="UniLaunch">
 
     <Design.DataContext>
@@ -30,38 +31,52 @@
           PointerPressed="InputElement_OnPointerPressed"
           PointerReleased="InputElement_OnPointerReleased">
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
+
         <Rectangle Grid.Row="0"
-                   Fill="{DynamicResource MenuBar.Background}"/>
-        
+                   Fill="{DynamicResource MenuBar.Background}" />
+
         <Grid Grid.Row="1"
               Background="{DynamicResource MenuBar.Background}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" 
-                        Margin="10" 
+            <StackPanel Grid.Column="0"
+                        Margin="10"
                         Orientation="Horizontal"
                         Spacing="10">
                 <Image Source="avares://UniLaunch.UI/Assets/banner-logo.png"
                        Stretch="Uniform" />
-                <TextBlock FontSize="37" 
+                <TextBlock FontSize="37"
                            FontFamily="{StaticResource Syne}"
                            Text="UniLaunch"
-                           VerticalAlignment="Center"/>
+                           VerticalAlignment="Center" />
             </StackPanel>
             <Menu Grid.Column="1" VerticalAlignment="Center"
                   HorizontalAlignment="Right"
                   Margin="0 0 20 0">
-                <MenuItem  >
+                <Menu.Styles>
+                    <Style Selector="Menu>MenuItem">
+                        <Setter Property="FontSize" Value="20" />
+                    </Style>
+                </Menu.Styles>
+                <MenuItem ToolTip.ShowDelay="100"
+                          ToolTip.Tip="You have unsaved changes">
                     <MenuItem.Header>
-                        <i:Icon Value="fas fa-file"></i:Icon>
+                        <Panel>
+                            <i:Icon IsVisible="{Binding HasUnsavedChanges}"
+                                    Foreground="{DynamicResource FileIcon.Unsaved.Color}"
+                                    Value="fas fa-file">
+                            </i:Icon>
+                            <i:Icon IsVisible="{Binding !HasUnsavedChanges}"
+                                    Value="fas fa-file">
+                            </i:Icon>
+                        </Panel>
                     </MenuItem.Header>
                     <MenuItem Header="Open ..."
                               i:MenuItem.Icon="fa-static fa-folder-open"
@@ -71,7 +86,7 @@
                               i:MenuItem.Icon="fa-static fa-save" />
                     <MenuItem Header="Save to ..."
                               Command="{Binding SaveFile}"
-                              i:MenuItem.Icon="fa-static fa-save">
+                              i:MenuItem.Icon="fa-static fa-file-export">
                         <MenuItem.CommandParameter>
                             <system:Boolean>True</system:Boolean>
                         </MenuItem.CommandParameter>
@@ -110,7 +125,7 @@
                                           Icon="fa-static fa-play" />
             </TabStrip>
         </StackPanel>
-        <Grid  x:Name="grid" Grid.Row="3">
+        <Grid x:Name="grid" Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" MinWidth="200" />
                 <ColumnDefinition Width="1" />
@@ -157,12 +172,13 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <DockPanel VerticalAlignment="Center">
-                                <Button Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).DeleteItem}" 
-                                        Background="DarkRed"
-                                        VerticalAlignment="Center"
-                                        Foreground="White"
-                                        DockPanel.Dock="Right"
-                                        CommandParameter="{Binding}">
+                                <Button
+                                    Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).DeleteItem}"
+                                    Background="DarkRed"
+                                    VerticalAlignment="Center"
+                                    Foreground="White"
+                                    DockPanel.Dock="Right"
+                                    CommandParameter="{Binding}">
                                     <Button.Styles>
                                         <Style Selector="Button:pointerover /template/ ContentPresenter">
                                             <Setter Property="Background" Value="Red"></Setter>

@@ -6,6 +6,7 @@ using System.Windows.Input;
 using Avalonia.Controls;
 using Avalonia.Platform.Storage;
 using DynamicData;
+using DynamicData.Binding;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
@@ -159,6 +160,8 @@ public partial class MainWindowViewModel
                 $"{file!.Name} could not be parsed: {e.Message}"
             );
         }
+
+        HasUnsavedChanges = false;
     }
 
     private void _DeleteItem(BaseEntityViewModel viewModel)
@@ -198,6 +201,8 @@ public partial class MainWindowViewModel
         {
             SelectedItem = Items.First();
         }
+        
+        HasUnsavedChanges = true;
     }
 
     private void _Close()
@@ -251,6 +256,9 @@ public partial class MainWindowViewModel
                 "Failed to save file",
                 $"Could not persist configuration: {e.Message}"
             );
+            return;
         }
+        
+        HasUnsavedChanges = false;
     }
 }
