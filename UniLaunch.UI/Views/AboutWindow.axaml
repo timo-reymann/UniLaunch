@@ -1,0 +1,120 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:UniLaunch.UI.ViewModels"
+        mc:Ignorable="d"
+        Width="600"
+        Height="430"
+        SizeToContent="WidthAndHeight"
+        CanResize="False"
+        d:DesignWidth="600"
+        d:DesignHeight="430"
+        x:DataType="vm:AboutWindowViewModel"
+        x:Class="UniLaunch.UI.Views.AboutWindow"
+        Title="About UniLaunch">
+    <Window.Styles>
+        <Style Selector="Button.Link">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Foreground" Value="CornflowerBlue" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+        <Style Selector="Button.Link:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+    </Window.Styles>
+    <Design.DataContext>
+        <vm:AboutWindowViewModel />
+    </Design.DataContext>
+    <StackPanel Margin="30">
+
+        <Grid HorizontalAlignment="Center"
+              RowDefinitions="200, 50, 50, 25, 25, 25, 25, 70"
+              ColumnDefinitions="130, *">
+            <Image Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   Grid.Column="0"
+                   Source="avares://UniLaunch.UI/Assets/banner-logo.png"
+                   Stretch="Uniform" />
+            <TextBlock Grid.Row="1"
+                       VerticalAlignment="Bottom"
+                       Grid.ColumnSpan="2"
+                       Grid.Column="0"
+                       TextAlignment="Center"
+                       FontSize="40">
+                UniLaunch
+            </TextBlock>
+            <TextBlock Grid.Row="2" 
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2">
+                Advanced universal autostart tool for use on Linux, MacOS and Windows.
+            </TextBlock>
+            <TextBlock FontWeight="Bold"
+                       HorizontalAlignment="Left"
+                       Grid.Row="3"
+                       Grid.Column="0">
+                Version
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left"
+                       Grid.Row="3"
+                       Grid.Column="1"
+                       Text="{Binding VersionInfo.ProductVersion}" />
+            <TextBlock FontWeight="Bold"
+                       HorizontalAlignment="Left"
+                       Grid.Row="4"
+                       Grid.Column="0">
+                Created by
+            </TextBlock>
+            <Button Classes="Link"
+                    Command="{Binding OpenLink}"
+                    CommandParameter="https://timo-reymann.de"
+                    HorizontalAlignment="Left"
+                    Cursor="Hand"
+                    Grid.Row="4"
+                    Grid.Column="1">
+                Timo Reymann
+            </Button>
+            <TextBlock FontWeight="Bold"
+                       HorizontalAlignment="Left"
+                       Grid.Row="5"
+                       Grid.Column="0">
+                GitHub
+            </TextBlock>
+            <Button Classes="Link"
+                    Command="{Binding OpenLink}"
+                    CommandParameter="https://github.com/timo-reymann/UniLaunch"
+                    HorizontalAlignment="Left"
+                    Cursor="Hand"
+                    Grid.Row="5"
+                    Grid.Column="1">
+                timo-reymann/UniLaunch
+            </Button>
+            <TextBlock FontWeight="Bold"
+                       HorizontalAlignment="Left"
+                       Grid.Row="6"
+                       Grid.Column="0">
+                Licensed under
+            </TextBlock>
+            <Button Classes="Link"
+                    Command="{Binding OpenLink}"
+                    CommandParameter="https://github.com/timo-reymann/UniLaunch/blob/main/LICENSE"
+                    HorizontalAlignment="Left"
+                    Cursor="Hand"
+                    Grid.Row="6"
+                    Grid.Column="1">
+                Apache License 2.0
+            </Button>
+            <TextBlock Grid.Row="7"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2">
+                © 2023 Timo Reymann
+            </TextBlock>
+        </Grid>
+    </StackPanel>
+</Window>

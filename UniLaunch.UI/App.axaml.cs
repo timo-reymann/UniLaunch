@@ -25,17 +25,16 @@ public class App : Application
             {
                 DataContext = new MainWindowViewModel(),
             };
-            
-            var services = new ServiceCollection();
 
-            services.AddSingleton<IFilesService>(x => new FilesService(desktop.MainWindow));
-
-            Services = services.BuildServiceProvider();
+            Services = new ServiceCollection()
+                .AddSingleton<IFilesService>(_ => new FilesService(desktop.MainWindow))
+                .AddSingleton<IWindowService>(_ => new WindowService(desktop.MainWindow))
+                .BuildServiceProvider();
         }
 
         base.OnFrameworkInitializationCompleted();
     }
-    
+
     public new static App? Current => Application.Current as App;
 
     /// <summary>

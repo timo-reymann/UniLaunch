@@ -17,7 +17,9 @@ using UniLaunch.Core.Rules;
 using UniLaunch.Core.Storage;
 using UniLaunch.Core.Targets;
 using UniLaunch.UI.CodeGeneration;
+using UniLaunch.UI.Services;
 using UniLaunch.UI.Util;
+using UniLaunch.UI.Views;
 
 namespace UniLaunch.UI.ViewModels;
 
@@ -107,24 +109,13 @@ public partial class MainWindowViewModel
 
     private async void _ShowAbout()
     {
-        var provider = new AppInfoProvider();
-
-        await MessageBoxManager.GetMessageBoxCustom(new MessageBoxCustomParams()
-        {
-            ButtonDefinitions = new List<ButtonDefinition>(),
-            Markdown = true,
-            ShowInCenter = true,
-            ContentTitle = "About",
-            SizeToContent = SizeToContent.WidthAndHeight,
-            Icon = Icon.Info,
-            ContentMessage = $"""
-                              **Version:** {provider.VersionInfo.ProductVersion}
-
-                              **Created by** Timo Reymann
-
-                              **GitHub**: timo-reymann/UniLaunch
-                              """,
-        }).ShowAsync();
+        (App.Current
+                ?.Services?
+                .GetService(typeof(IWindowService)) as WindowService)
+            !.ShowWindowAsDialog(new AboutWindow
+            {
+                DataContext = new AboutWindowViewModel(),
+            });
     }
 
     private async void _OpenFile()
