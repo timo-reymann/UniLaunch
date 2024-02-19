@@ -14,23 +14,30 @@ public partial class AutoStartEntryViewModel
 {
     public List<Target> AvailableTargets => UniLaunchEngine.Instance.Configuration?.Targets ?? new();
     public List<RuleSet> AvailableRuleSets => UniLaunchEngine.Instance.Configuration.RuleSets ?? new();
-    
+
+    partial void InitViewModel()
+    {
+        _propertiesToWatchForChanges = _propertiesToWatchForChanges.Append(nameof(SelectedRuleSet))
+            .Append(nameof(SelectedTarget))
+            .ToArray();
+    }
+
     public RuleSet? SelectedRuleSet
     {
         set
         {
-            _model.RuleSetName = value?.Name;
+            _model.RuleSetName = value?.Name ?? "";
             this.RaisePropertyChanged();
         }
 
         get => AvailableRuleSets.FirstOrDefault(ruleSet => ruleSet.Name == RuleSetNameProperty);
     }
-    
+
     public Target? SelectedTarget
     {
         set
         {
-            _model.TargetName = value?.Name;
+            _model.TargetName = value?.Name ?? "";
             this.RaisePropertyChanged();
         }
 

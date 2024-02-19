@@ -52,9 +52,11 @@ public class ViewModelGenerator : ISourceGenerator
                 .Value as INamedTypeSymbol
             )?.ToString() ?? "TextBlock";
 
-        var properties = modelType!.GetMembers()
+        var propertiesToCreate = modelType!.GetMembers()
             .OfType<IPropertySymbol>()
-            .Where(symbol => symbol.SetMethod != null && symbol.Name != "Name")
+            .Where(symbol => symbol.SetMethod != null && symbol.Name != "Name");
+
+        var properties = propertiesToCreate
             .Select(GenerateProperty);
         var className = classSymbol.Name;
         var propertyDefinitions = string.Join("\n", properties);
@@ -66,13 +68,12 @@ public class ViewModelGenerator : ISourceGenerator
         var nameProperty = modelType.GetMembers()
             .OfType<IPropertySymbol>()
             .FirstOrDefault(m => m.Name == "Name");
-
         var namePropertySetter = nameProperty?.IsReadOnly == false
                                  || baseNameProperty?.IsReadOnly == false
             ? "_model.Name = value;"
             : "";
-       var conc = string.Join(",",
-            modelType!.GetMembers().OfType<IPropertySymbol>().Select(s => s.Name));
+
+        var propertyWatcher = GeneratePropertiesToWatch(propertiesToCreate.ToList());
 
         var code = $$"""
                      //----------------------
@@ -97,7 +98,6 @@ public class ViewModelGenerator : ISourceGenerator
                              
                              public override Type UserControl => typeof({{controlType}});
                              
-                             // {{conc}}
                              public override string Name => _model.Name;
                      
                              public override string NameProperty {
@@ -113,13 +113,17 @@ public class ViewModelGenerator : ISourceGenerator
                              /// </summary>
                              public {{className}}()
                              {
+                                InitViewModel();
                              }
+                             
+                             partial void InitViewModel();
                              
                              /// <summary>
                              /// Create view model from model
                              /// </summary>
                              public {{className}}({{modelType}} model)
                              {
+                                InitViewModel();
                                 this._model = model;
                              }
                              
@@ -129,6 +133,8 @@ public class ViewModelGenerator : ISourceGenerator
                              public override {{modelType}} Model {
                                 get => this._model;
                              }
+                             
+                             {{propertyWatcher}}
                          }
                      }
                      """;
@@ -138,6 +144,20 @@ public class ViewModelGenerator : ISourceGenerator
             .NormalizeWhitespace()
             .GetText()
             .ToString();
+    }
+
+    private string GeneratePropertiesToWatch(List<IPropertySymbol> properties)
+    {
+        var nameOfProperties = properties
+            .Where(p => p != null)
+            .Select(p => $"nameof({p.Name}Property)")
+            .Append("nameof(NameProperty)")
+            .ToList();
+
+        return $"""
+                private string[] _propertiesToWatchForChanges = [{string.Join(",", nameOfProperties)}];
+                public override string[] PropertiesToWatchForChanges => _propertiesToWatchForChanges;
+                """;
     }
 
     private string GenerateProperty(IPropertySymbol propertySymbol)
