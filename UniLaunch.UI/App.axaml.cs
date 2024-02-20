@@ -2,8 +2,9 @@ using System;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Avalonia.Styling;
 using Microsoft.Extensions.DependencyInjection;
-using UniLaunch.Core.Autostart;
+using UniLaunch.Core.Storage;
 using UniLaunch.UI.Services;
 using UniLaunch.UI.ViewModels;
 using UniLaunch.UI.Views;
@@ -21,9 +22,10 @@ public class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
+            var mainWindowViewModel = new MainWindowViewModel();
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainWindowViewModel(),
+                DataContext = mainWindowViewModel
             };
 
             Services = new ServiceCollection()
@@ -31,9 +33,31 @@ public class App : Application
                 .AddSingleton<IWindowService>(_ => new WindowService(desktop.MainWindow))
                 .AddSingleton<IEditorConfigurationService>(_ => new EditorConfigurationService())
                 .BuildServiceProvider();
+
+            AdjustEditorUIBasedOnSettings();
         }
 
         base.OnFrameworkInitializationCompleted();
+    }
+
+    private void AdjustEditorUIBasedOnSettings()
+    {
+        var editorConfigService = this.GetService<IEditorConfigurationService>()!;
+        try
+        {
+            editorConfigService.LoadFromDisk();
+        }
+        catch (StorageException exc)
+        {
+            Console.WriteLine($"Warning: Could not load user config: {exc.Message}");
+        }
+
+        RequestedThemeVariant = editorConfigService.Current.ThemeVariant switch
+        {
+            "Light" => ThemeVariant.Light,
+            "Dark" => ThemeVariant.Dark,
+            _ => ThemeVariant.Default
+        };
     }
 
     public new static App? Current => Application.Current as App;

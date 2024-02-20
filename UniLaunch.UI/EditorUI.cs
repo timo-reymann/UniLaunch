@@ -6,6 +6,7 @@ using Projektanker.Icons.Avalonia.FontAwesome;
 using UniLaunch.Core.Autostart;
 using UniLaunch.Core.Rules;
 using UniLaunch.Core.Targets;
+using UniLaunch.UI.Configuration;
 using UniLaunch.UI.ViewModels;
 using UniLaunch.UI.ViewModels.Rules;
 using ExecutableTargetViewModel = UniLaunch.UI.ViewModels.Targets.ExecutableTargetViewModel;
@@ -22,14 +23,15 @@ public static class EditorUi
     public static AppBuilder BuildAvaloniaApp()
     {
         EntityViewModelRegistry.Instance
+            .Register<EditorConfiguration, EditorConfigurationViewModel>()
             .Register<RuleSet, RulesetViewModel>()
             .Register<AutoStartEntry, AutoStartEntryViewModel>()
             .Register<AlwaysRule, AlwaysRuleViewModel>()
             .Register<ExecutableTarget, ExecutableTargetViewModel>();
-        
+
         IconProvider.Current
             .Register<FontAwesomeIconProvider>();
-        
+
         return AppBuilder.Configure<App>()
             .UsePlatformDetect()
             .WithInterFont()

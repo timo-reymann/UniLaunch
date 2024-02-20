@@ -7,22 +7,14 @@ namespace UniLaunch.UI.Services;
 
 public class EditorConfigurationService : IEditorConfigurationService
 {
-    private readonly string _settingsPath;
-    private readonly StorageProvider<EditorConfiguration> _storageProvider;
+    private readonly string _settingsPath = Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+        "UniLaunch",
+        "appsettings"
+    );
+    private readonly StorageProvider<EditorConfiguration> _storageProvider = new JsonStorageProvider<EditorConfiguration>();
 
-    public EditorConfigurationService()
-    {
-        _settingsPath = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-            "UniLaunch",
-            "appsettings"
-        );
-        _storageProvider = new JsonStorageProvider<EditorConfiguration>();
-
-        Current = new EditorConfiguration();
-    }
-
-    public EditorConfiguration Current { get; private set; }
+    public EditorConfiguration Current { get; private set; } = new();
 
     public void Save()
     {
@@ -31,6 +23,6 @@ public class EditorConfigurationService : IEditorConfigurationService
 
     public void LoadFromDisk()
     {
-        Current = _storageProvider.Load(_settingsPath);
+        Current = _storageProvider.Load(_settingsPath) ?? new();
     }
 }
