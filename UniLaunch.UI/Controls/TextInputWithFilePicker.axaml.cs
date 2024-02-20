@@ -18,17 +18,18 @@ public class TextInputWithFilePicker : TemplatedControl
             o => o.Path,
             (o, v) => o.Path = v,
             defaultBindingMode: BindingMode.TwoWay);
-    
-    public static readonly DirectProperty<TextInputWithFilePicker, FilePickerOpenOptions> FilePickerOpenOptionsProperty =
-        AvaloniaProperty.RegisterDirect<TextInputWithFilePicker, FilePickerOpenOptions>(
-            "FilePickerOpenOptions",
-            o => o.FilePickerOpenOptions,
-            (o, v) => o.FilePickerOpenOptions = v,
-            defaultBindingMode: BindingMode.TwoWay);
+
+    public static readonly DirectProperty<TextInputWithFilePicker, FilePickerOpenOptions>
+        FilePickerOpenOptionsProperty =
+            AvaloniaProperty.RegisterDirect<TextInputWithFilePicker, FilePickerOpenOptions>(
+                "FilePickerOpenOptions",
+                o => o.FilePickerOpenOptions,
+                (o, v) => o.FilePickerOpenOptions = v,
+                defaultBindingMode: BindingMode.TwoWay);
 
     private string _path = "";
     private FilePickerOpenOptions _filePickerOpenOptions;
-    
+
     public string Path
     {
         get => _path;
@@ -43,13 +44,13 @@ public class TextInputWithFilePicker : TemplatedControl
 
     private async void ClickHandler(object sender, RoutedEventArgs args)
     {
-        var filesService = App.Current?.Services?.GetService(typeof(IFilesService)) as IFilesService;
-        var file = await filesService.OpenFileAsync(FilePickerOpenOptions);
+        var filesService = App.Current?.GetService<IFilesService>();
+        var file = await filesService!.OpenFileAsync(FilePickerOpenOptions);
         if (file == null)
         {
             return;
         }
-        
+
         Path = file.Path.AbsolutePath;
     }
 

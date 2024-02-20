@@ -8,8 +8,6 @@ using UniLaunch.MacOS.Targets;
 using UniLaunch.MacOS.ViewModel;
 using UniLaunch.UI;
 using UniLaunch.UI.ViewModels;
-using UniLaunch.UI.ViewModels.Rules;
-
 
 var engine = UniLaunchEngine.Instance
     .RegisterTarget<AppFileTarget>()

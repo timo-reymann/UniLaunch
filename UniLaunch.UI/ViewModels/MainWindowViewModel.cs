@@ -76,7 +76,7 @@ public partial class MainWindowViewModel : ViewModelBase
 
     private static IFilesService GetFilesService()
     {
-        var filesService = App.Current?.Services?.GetService(typeof(IFilesService)) as IFilesService;
+        var filesService = App.Current?.GetService<IFilesService>();
         if (filesService is null)
         {
             throw new NullReferenceException("Missing File Service instance.");

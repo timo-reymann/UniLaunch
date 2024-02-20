@@ -1,19 +1,11 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Input;
-using Avalonia.Controls;
 using Avalonia.Platform.Storage;
 using DynamicData;
-using DynamicData.Binding;
-using MsBox.Avalonia;
-using MsBox.Avalonia.Dto;
-using MsBox.Avalonia.Enums;
-using MsBox.Avalonia.Models;
 using ReactiveUI;
 using UniLaunch.Core.Autostart;
-using UniLaunch.Core.Meta;
 using UniLaunch.Core.Rules;
 using UniLaunch.Core.Storage;
 using UniLaunch.Core.Targets;
@@ -110,9 +102,8 @@ public partial class MainWindowViewModel
 
     private async void _ShowAbout()
     {
-        (App.Current
-                ?.Services?
-                .GetService(typeof(IWindowService)) as WindowService)
+        App.Current
+            ?.GetService<IWindowService>()
             !.ShowWindowAsDialog(new AboutWindow
             {
                 DataContext = new AboutWindowViewModel(),
@@ -201,7 +192,7 @@ public partial class MainWindowViewModel
         {
             SelectedItem = Items.First();
         }
-        
+
         HasUnsavedChanges = true;
     }
 
@@ -258,7 +249,7 @@ public partial class MainWindowViewModel
             );
             return;
         }
-        
+
         HasUnsavedChanges = false;
     }
 }
