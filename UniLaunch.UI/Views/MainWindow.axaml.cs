@@ -34,7 +34,7 @@ public partial class MainWindow : Window
 
     private void InputElement_OnPointerPressed(object? sender, PointerPressedEventArgs e)
     {
-        if (e.Source is not Panel && e.Source is not Image && e.Source is not Rectangle)
+        if (e.Source is not Panel && e.Source is not Rectangle && e.Source is not TextBlock)
         {
             return;
         }

@@ -11,7 +11,7 @@ public static class TypeConverter
     // Workaround converter to fix the freaking broken ListBox scroll and gridsplitter shit
     public static readonly IValueConverter ListBoxHeightConverter =
         new FuncValueConverter<double, double>( height => height - 30.0);
-
+    
     private static string ConvertTargetType(Type? t)
     {
         if (t == null)

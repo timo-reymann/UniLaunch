@@ -40,7 +40,7 @@ public class App : Application
         base.OnFrameworkInitializationCompleted();
     }
 
-    private void AdjustEditorUIBasedOnSettings()
+    internal void AdjustEditorUIBasedOnSettings()
     {
         var editorConfigService = this.GetService<IEditorConfigurationService>()!;
         try

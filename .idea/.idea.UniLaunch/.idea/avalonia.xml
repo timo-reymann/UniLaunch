@@ -14,6 +14,7 @@
         <entry key="UniLaunch.UI/Styles/LightThemeAdjustments.axaml" value="UniLaunch.Linux/UniLaunch.Linux.csproj" />
         <entry key="UniLaunch.UI/Views/AboutWindow.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
         <entry key="UniLaunch.UI/Views/MainWindow.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
+        <entry key="UniLaunch.UI/Views/SettingsWindow.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
       </map>
     </option>
   </component>

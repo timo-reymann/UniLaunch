@@ -21,6 +21,7 @@ public partial class MainWindowViewModel
     public ICommand OpenFile { get; private set; } = null!;
     public ICommand SaveFile { get; private set; } = null!;
     public ICommand ShowAbout { get; private set; } = null!;
+    public ICommand ShowSettings { get; private set; } = null!;
     public ICommand Close { get; private set; } = null!;
     public ICommand AddItem { get; private set; } = null!;
     public ICommand DeleteItem { get; private set; } = null!;
@@ -29,6 +30,7 @@ public partial class MainWindowViewModel
     {
         OpenFile = ReactiveCommand.Create(_OpenFile);
         ShowAbout = ReactiveCommand.Create(_ShowAbout);
+        ShowSettings = ReactiveCommand.Create(_ShowSettings);
         Close = ReactiveCommand.Create(_Close);
         SaveFile = ReactiveCommand.Create<bool>(_SaveFile);
         AddItem = ReactiveCommand.Create<Type>(_AddItem);
@@ -102,11 +104,24 @@ public partial class MainWindowViewModel
 
     private async void _ShowAbout()
     {
-        App.Current
-            ?.GetService<IWindowService>()
-            !.ShowWindowAsDialog(new AboutWindow
+        App.Current!
+            .GetService<IWindowService>()!
+            .ShowWindowAsDialog(new AboutWindow
             {
                 DataContext = new AboutWindowViewModel(),
+            });
+    }
+
+    private async void _ShowSettings()
+    {
+        App.Current
+            !.GetService<IWindowService>()
+            !.ShowWindowAsDialog(new SettingsWindow
+            {
+                DataContext = App.Current!
+                    .GetService<IEditorConfigurationService>()!
+                    .Current
+                    .ToViewModel(),
             });
     }
 

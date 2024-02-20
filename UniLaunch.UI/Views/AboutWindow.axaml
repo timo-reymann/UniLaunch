@@ -31,7 +31,6 @@
         <vm:AboutWindowViewModel />
     </Design.DataContext>
     <StackPanel Margin="30">
-
         <Grid HorizontalAlignment="Center"
               RowDefinitions="200, 50, 50, 25, 25, 25, 25, 70"
               ColumnDefinitions="130, *">
