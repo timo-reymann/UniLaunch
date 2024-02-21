@@ -38,7 +38,6 @@ public partial class SettingsWindow : Window
                 MsBox.Avalonia.Enums.Icon.Error
             ).ShowAsPopupAsync(this);
             Close();
-            
         }
     }
 }

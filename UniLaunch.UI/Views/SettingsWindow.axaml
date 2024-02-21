@@ -22,7 +22,8 @@
     </Design.DataContext>
     <StackPanel Margin="30">
         <Grid HorizontalAlignment="Center"
-              RowDefinitions="60, 20, 100" ColumnDefinitions="Auto">
+              RowDefinitions="60, 20, 100" 
+              ColumnDefinitions="Auto">
             <TextBlock Grid.Row="0" FontSize="40">
                 Editor Settings
             </TextBlock>
@@ -31,7 +32,9 @@
                        FontWeight="Bold">
                 Theme Variant
             </TextBlock>
-            <StackPanel Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <StackPanel Grid.Row="2"
+                        HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Center">
                 <RadioButton GroupName="ThemeVariant"
                              IsChecked="{Binding ThemeVariantProperty, Converter={StaticResource StringEqualityConverter},ConverterParameter=Default}"
                              Content="Same as system" />
@@ -42,7 +45,6 @@
                              IsChecked="{Binding ThemeVariantProperty, Converter={StaticResource StringEqualityConverter},ConverterParameter=Light}"
                              Content="Light" />
             </StackPanel>
-
         </Grid>
     </StackPanel>
 </Window>
