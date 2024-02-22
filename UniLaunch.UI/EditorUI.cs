@@ -27,6 +27,8 @@ public static class EditorUi
             .Register<RuleSet, RulesetViewModel>()
             .Register<AutoStartEntry, AutoStartEntryViewModel>()
             .Register<AlwaysRule, AlwaysRuleViewModel>()
+            .Register<TimeRule, TimeRuleViewModel>()
+            .Register<WeekDayRule, WeekdayRuleViewModel>()
             .Register<ExecutableTarget, ExecutableTargetViewModel>();
 
         IconProvider.Current

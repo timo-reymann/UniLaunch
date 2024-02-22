@@ -34,4 +34,15 @@
     <ItemGroup>
         <ProjectReference Include="..\UniLaunch.Core\UniLaunch.Core.csproj"/>
     </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Controls\Rules\TimeRuleControl.axaml.cs">
+        <DependentUpon>TimeRuleControl.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Controls\Rules\WeekdayRuleControl.axaml.cs">
+        <DependentUpon>WeekdayRuleControl.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
 </Project>

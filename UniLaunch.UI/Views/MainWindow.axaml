@@ -204,7 +204,14 @@
             <DockPanel Grid.Column="2">
                 <ContentControl
                     Margin="20"
-                    Content="{Binding SelectedItem}" />
+                    Content="{Binding SelectedItem}">
+                    <ContentControl.Styles>
+                        <Style Selector="Label">
+                            <Setter Property="Margin" Value="0 10 0 0 " />
+                            <Setter Property="FontWeight" Value="Bold" />
+                        </Style>
+                    </ContentControl.Styles>
+                </ContentControl>
             </DockPanel>
         </Grid>
     </Grid>
