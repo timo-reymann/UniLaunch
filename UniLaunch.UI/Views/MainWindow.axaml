@@ -110,7 +110,7 @@
         </Grid>
         <StackPanel Grid.Row="2"
                     Background="{DynamicResource MenuBar.Tab.Background}">
-            <TabStrip Grid.Row="1" 
+            <TabStrip Grid.Row="1"
                       Margin="5 0 0 0"
                       SelectedIndex="{Binding SelectedTab}"
                       HorizontalAlignment="Center">
@@ -127,13 +127,13 @@
                                           Icon="fa-static fa-play" />
             </TabStrip>
         </StackPanel>
-        <Grid x:Name="grid" 
+        <Grid x:Name="grid"
               Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"
                                   MinWidth="200" />
                 <ColumnDefinition Width="1" />
-                <ColumnDefinition Width="*" 
+                <ColumnDefinition Width="*"
                                   MinWidth="300" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0"
@@ -203,16 +203,19 @@
                           Background="{DynamicResource SidePanel.Background}"
                           ResizeDirection="Columns" />
             <DockPanel Grid.Column="2">
-                <ContentControl
-                    Margin="20"
-                    Content="{Binding SelectedItem}">
-                    <ContentControl.Styles>
-                        <Style Selector="Label">
-                            <Setter Property="Margin" Value="0 10 0 0 " />
-                            <Setter Property="FontWeight" Value="Bold" />
-                        </Style>
-                    </ContentControl.Styles>
-                </ContentControl>
+                <ScrollViewer>
+                    <ContentControl HorizontalAlignment="Stretch"
+                                    Margin="20"
+                                    Content="{Binding SelectedItem}">
+                        <ContentControl.Styles>
+                            <Style Selector="Label">
+                                <Setter Property="Margin" Value="0 10 0 0 " />
+                                <Setter Property="FontWeight" Value="Bold" />
+                            </Style>
+                        </ContentControl.Styles>
+                    </ContentControl>
+                </ScrollViewer>
+
             </DockPanel>
         </Grid>
     </Grid>

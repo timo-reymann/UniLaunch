@@ -8,7 +8,7 @@
         <entry key="UniLaunch.UI/Controls/AutoStartEntryControl.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
         <entry key="UniLaunch.UI/Controls/RuleSetControl.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
         <entry key="UniLaunch.UI/Controls/Rules/AlwaysRuleControl.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
-        <entry key="UniLaunch.UI/Controls/Rules/TimeRuleControl.axaml" value="UniLaunch.Linux/UniLaunch.Linux.csproj" />
+        <entry key="UniLaunch.UI/Controls/Rules/TimeRuleControl.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
         <entry key="UniLaunch.UI/Controls/Rules/WeekdayRuleControl.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
         <entry key="UniLaunch.UI/Controls/TabItemWithIcon.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
         <entry key="UniLaunch.UI/Controls/Targets/ExecutableTargetControl.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />

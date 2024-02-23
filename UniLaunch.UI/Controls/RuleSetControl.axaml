@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             d:DesignWidth="800" 
+             d:DesignWidth="800"
              d:DesignHeight="200"
              xmlns:vm="using:UniLaunch.UI.ViewModels"
              x:DataType="vm:RulesetViewModel"
@@ -11,23 +11,22 @@
     <Design.DataContext>
         <vm:RulesetViewModel />
     </Design.DataContext>
-    
-    <StackPanel>
+
+    <StackPanel HorizontalAlignment="Stretch">
         <Label>Name</Label>
         <TextBox Text="{Binding NameProperty, Mode=TwoWay}" />
         <Label>Included rules:</Label>
-        <ItemsControl ItemsSource="{Binding RulesListProperty}" >
+        <ItemsControl ItemsSource="{Binding RulesListProperty}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Border Margin="2"
                             CornerRadius="5"
                             BorderBrush="Gray" BorderThickness="1"
                             Padding="5">
-                        <StackPanel Orientation="Horizontal">
-                            <ContentControl
-                                Margin="10"
-                                Content="{Binding }" />
-                        </StackPanel>
+                        <ContentControl
+                            Margin="10"
+                            Content="{Binding }" />
+
                     </Border>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

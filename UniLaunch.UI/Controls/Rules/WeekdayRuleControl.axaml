@@ -20,7 +20,7 @@
         </ItemsControl.Styles>
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <StackPanel Orientation="Horizontal"></StackPanel>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"></StackPanel>
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>

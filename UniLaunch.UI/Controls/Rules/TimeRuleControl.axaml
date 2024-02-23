@@ -3,12 +3,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:UniLaunch.UI.ViewModels.Rules"
+             xmlns:converter="clr-namespace:UniLaunch.UI.Converter"
              mc:Ignorable="d"
-             d:DesignWidth="200" 
-             d:DesignHeight="25"
+             d:DesignWidth="600"
+             d:DesignHeight="100"
              x:DataType="vm:TimeRuleViewModel"
              x:Class="UniLaunch.UI.Controls.Rules.TimeRuleControl">
-    <TextBlock HorizontalAlignment="Center" 
-               VerticalAlignment="Center" 
-               Text="Time" />
+    <UserControl.Resources>
+        <converter:TimeOnlyConverter x:Key="TimeOnlyConverter" />
+    </UserControl.Resources>
+    <StackPanel HorizontalAlignment="Stretch">
+        <TimePicker HorizontalAlignment="Stretch"
+                    SelectedTime="{Binding StartRangeProperty, Converter={StaticResource TimeOnlyConverter}}" />
+        <Label HorizontalAlignment="Center"
+               Margin="10">
+            until
+        </Label>
+        <TimePicker HorizontalAlignment="Stretch"
+                    SelectedTime="{Binding EndRangeProperty, Converter={StaticResource TimeOnlyConverter}}" />
+    </StackPanel>
+
 </UserControl>
