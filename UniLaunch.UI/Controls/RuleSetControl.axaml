@@ -2,10 +2,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converter="clr-namespace:UniLaunch.UI.Converter"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="200"
              xmlns:vm="using:UniLaunch.UI.ViewModels"
+             xmlns:i="https://github.com/projektanker/icons.avalonia"
              x:DataType="vm:RulesetViewModel"
              x:Class="UniLaunch.UI.Controls.RuleSetControl">
     <Design.DataContext>
@@ -15,7 +17,30 @@
     <StackPanel HorizontalAlignment="Stretch">
         <Label>Name</Label>
         <TextBox Text="{Binding NameProperty, Mode=TwoWay}" />
-        <Label>Included rules:</Label>
+        <Label>Rules</Label>
+        <Button HorizontalAlignment="Stretch"
+                Margin="0 0 0 5"
+                HorizontalContentAlignment="Center">
+            <i:Icon Value="fas fa-plus"></i:Icon>
+            <Button.Flyout>
+                <MenuFlyout Placement="Bottom"
+                            ItemsSource="{Binding EnabledRuleTypes}"
+                            HorizontalOffset="0"
+                            ShowMode="Transient">
+                    <MenuFlyout.ItemContainerTheme>
+                        <ControlTheme TargetType="MenuItem"
+                                      BasedOn="{StaticResource {x:Type MenuItem}}">
+                            <Setter Property="Header"
+                                    Value="{Binding Mode=OneWay,Converter={x:Static converter:TypeConverter.RuleType}}" />
+                            <Setter Property="Command"
+                                    Value="{Binding $parent[UserControl].((vm:RulesetViewModel)DataContext).AddRule}" />
+                            <Setter Property="CommandParameter" Value="{Binding }" />
+                        </ControlTheme>
+                    </MenuFlyout.ItemContainerTheme>
+
+                </MenuFlyout>
+            </Button.Flyout>
+        </Button>
         <ItemsControl ItemsSource="{Binding RulesListProperty}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
