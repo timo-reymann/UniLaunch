@@ -1,4 +1,5 @@
 using System;
+using System.Reactive.Linq;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
@@ -6,6 +7,7 @@ using Avalonia.Input;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
+using UniLaunch.UI.Services;
 using UniLaunch.UI.ViewModels;
 
 namespace UniLaunch.UI.Views;

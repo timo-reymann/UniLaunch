@@ -60,10 +60,8 @@ public partial class MainWindowViewModel : ViewModelBase
 
         this.WhenAnyValue(x => x.SelectedItem)
             .Subscribe(item =>
-            {
                 item?.WhenAnyPropertyChanged(item.PropertiesToWatchForChanges)
-                    .Subscribe(_ => HasUnsavedChanges = true);
-            });
+                    .Subscribe(_ => HasUnsavedChanges = true));
     }
 
     private void AddItemAndSelect(INameable model)

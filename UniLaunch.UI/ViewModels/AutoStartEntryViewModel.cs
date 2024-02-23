@@ -13,11 +13,12 @@ namespace UniLaunch.UI.ViewModels;
 public partial class AutoStartEntryViewModel
 {
     public List<Target> AvailableTargets => UniLaunchEngine.Instance.Configuration?.Targets ?? new();
-    public List<RuleSet> AvailableRuleSets => UniLaunchEngine.Instance.Configuration.RuleSets ?? new();
+    public List<RuleSet> AvailableRuleSets => UniLaunchEngine.Instance.Configuration?.RuleSets ?? new();
 
     partial void InitViewModel()
     {
-        _propertiesToWatchForChanges = _propertiesToWatchForChanges.Append(nameof(SelectedRuleSet))
+        _propertiesToWatchForChanges = _propertiesToWatchForChanges
+            .Append(nameof(SelectedRuleSet))
             .Append(nameof(SelectedTarget))
             .ToArray();
     }

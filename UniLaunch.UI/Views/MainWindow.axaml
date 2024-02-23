@@ -17,6 +17,7 @@
         x:Class="UniLaunch.UI.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         ExtendClientAreaToDecorationsHint="True"
+        SizeToContent="Width"
         CanResize="True"
         WindowStartupLocation="CenterScreen"
         Icon="avares://UniLaunch.UI/Assets/window-icon.ico"
