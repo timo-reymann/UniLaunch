@@ -9,6 +9,9 @@
              d:DesignHeight="50"
              x:DataType="vm:WeekdayRuleViewModel"
              x:Class="UniLaunch.UI.Controls.Rules.WeekdayRuleControl">
+    <Design.DataContext>
+        <vm:WeekdayRuleViewModel />
+    </Design.DataContext>
     <UserControl.Resources>
         <converter:ListMemberShipConverter x:Key="ListMemberShipConverter" />
     </UserControl.Resources>
@@ -21,14 +24,15 @@
         </ItemsControl.Styles>
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <StackPanel HorizontalAlignment="Center" 
-                            Orientation="Horizontal" />
+                <UniformGrid Rows="1" />
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate x:DataType="vm:WeekdayOption">
                 <ToggleButton Command="{Binding $parent[UserControl].((vm:WeekdayRuleViewModel)DataContext).ToggleWeekday}" 
                               CommandParameter="{Binding Value}"
+                              HorizontalAlignment="Stretch"
+                              HorizontalContentAlignment="Center"
                               Content="{Binding Name}">
                     <ToggleButton.IsChecked>
                         <MultiBinding Converter="{StaticResource ListMemberShipConverter}">
