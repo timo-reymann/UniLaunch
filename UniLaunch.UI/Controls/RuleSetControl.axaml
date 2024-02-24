@@ -44,14 +44,50 @@
         <ItemsControl ItemsSource="{Binding RulesListProperty}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border Margin="2"
+                    <Border Margin="1"
                             CornerRadius="5"
-                            BorderBrush="Gray" BorderThickness="1"
-                            Padding="5">
-                        <ContentControl
-                            Margin="10"
-                            Content="{Binding }" />
-
+                            BorderBrush="#37808080"
+                            BorderThickness="1">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="50" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding NameProperty}"
+                                       Margin="5 5 0 0"
+                                       FontSize="13"
+                                       Foreground="#37808080" />
+                            <Button Grid.Row="0"
+                                    Command="{Binding $parent[UserControl].((vm:RulesetViewModel)DataContext).DeleteRule}"
+                                    CommandParameter="{Binding}"
+                                    Foreground="Red"
+                                    Opacity=".4"
+                                    HorizontalAlignment="Center"
+                                    Grid.Column="1">
+                                <Button.Styles>
+                                    <Style Selector="Button">
+                                        <Setter Property="Background" Value="Transparent" />
+                                    </Style>
+                                    <Style Selector="Button:pointerover /template/ ContentPresenter">
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="BorderThickness" Value="0" />
+                                        <Setter Property="Foreground" Value="Red" />
+                                        <Setter Property="Opacity" Value="2" />
+                                    </Style>
+                                </Button.Styles>
+                                <i:Icon Value="fas fa-trash"></i:Icon>
+                            </Button>
+                            <ContentControl
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Margin="10"
+                                Content="{Binding}" />
+                        </Grid>
                     </Border>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

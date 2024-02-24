@@ -18,7 +18,8 @@ public partial class RulesetViewModel
     private ObservableCollection<BaseEntityViewModel>? _rules;
     public ImmutableHashSet<Type> EnabledRuleTypes => UniLaunchEngine.Instance.EnabledRuleTypes;
     public ICommand AddRule { get; private set; }
-    
+    public ICommand DeleteRule { get; private set; }
+
     public ObservableCollection<BaseEntityViewModel> RulesListProperty
     {
         get
@@ -27,9 +28,9 @@ public partial class RulesetViewModel
             {
                 return _rules;
             }
-            
+
             _rules = new(EntityViewModelRegistry.Instance.Of(_model.Rules));
-                
+
             // register change listener for initial rules to trigger a change,
             // when new items are added the observable collection change event is enough to trigger it
             foreach (var rule in _rules)
@@ -54,6 +55,7 @@ public partial class RulesetViewModel
             .Append(nameof(RulesListProperty))
             .ToArray();
         AddRule = ReactiveCommand.Create<Type>(_AddRule);
+        DeleteRule = ReactiveCommand.Create<BaseEntityViewModel>(_DeleteRule);
     }
 
     private void _AddRule(Type t)
@@ -61,6 +63,14 @@ public partial class RulesetViewModel
         var rule = Activator.CreateInstance(t) as Rule;
         RulesListProperty.Add(rule!.ToViewModel()!);
         _model.Rules.Add(rule!);
+        this.RaisePropertyChanged(nameof(RulesListProperty));
+    }
+
+    private void _DeleteRule(BaseEntityViewModel vm)
+    {
+        var model = vm.Model;
+        RulesListProperty.Remove(vm);
+        _model.Rules.Remove(model as Rule);
         this.RaisePropertyChanged(nameof(RulesListProperty));
     }
 }
