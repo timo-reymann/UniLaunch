@@ -46,7 +46,7 @@
                 <DataTemplate>
                     <Border Margin="1"
                             CornerRadius="5"
-                            BorderBrush="#37808080"
+                            BorderBrush="{DynamicResource RuleSet.RuleForeground}"
                             BorderThickness="1">
                         <Grid>
                             <Grid.RowDefinitions>
@@ -60,12 +60,12 @@
                             <TextBlock Text="{Binding NameProperty}"
                                        Margin="5 5 0 0"
                                        FontSize="13"
-                                       Foreground="#37808080" />
+                                       Foreground="{DynamicResource RuleSet.RuleForeground}" />
                             <Button Grid.Row="0"
                                     Command="{Binding $parent[UserControl].((vm:RulesetViewModel)DataContext).DeleteRule}"
                                     CommandParameter="{Binding}"
                                     Foreground="Red"
-                                    Opacity=".4"
+                                    Opacity=".7"
                                     HorizontalAlignment="Center"
                                     Grid.Column="1">
                                 <Button.Styles>

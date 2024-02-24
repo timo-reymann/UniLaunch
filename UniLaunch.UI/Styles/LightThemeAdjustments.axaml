@@ -11,4 +11,5 @@
     <SolidColorBrush x:Key="MenuBar.PrimaryMenuItem.Foreground" Color="#000" />
     <SolidColorBrush x:Key="SidePanel.Background" Color="#14000000" />
     <SolidColorBrush x:Key="FileIcon.Unsaved.Color" Color="#FFCC00" />
+    <SolidColorBrush x:Key="RuleSet.RuleForeground" Color="#81000000" />
 </ResourceDictionary>
