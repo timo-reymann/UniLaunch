@@ -57,6 +57,8 @@ public partial class WeekdayRuleViewModel
             _model.DaysOfWeekToRun.Add(day);
             DaysOfWeekToRunListProperty.Add(day);
         }
+        
+        this.RaisePropertyChanged(nameof(DaysOfWeekToRunListProperty));
     }
 }
 
