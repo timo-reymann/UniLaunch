@@ -154,6 +154,9 @@ jobs:
       - github-utils/rewrite_urls_with_token:
           token_env_var: GH_TOKEN
       - run:
+          name: Update version to $CIRCLE_TAG
+          command: make patch-version patched_version="${CIRCLE_TAG}"
+      - run:
           name: Update cask
           command: |
             make macos-generate-cask
