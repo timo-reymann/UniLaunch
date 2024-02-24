@@ -4,6 +4,9 @@ using System.Linq;
 using System.Windows.Input;
 using Avalonia.Platform.Storage;
 using DynamicData;
+using MsBox.Avalonia;
+using MsBox.Avalonia.Dto;
+using MsBox.Avalonia.Enums;
 using ReactiveUI;
 using UniLaunch.Core.Autostart;
 using UniLaunch.Core.Rules;
@@ -127,6 +130,22 @@ public partial class MainWindowViewModel
 
     private async void _OpenFile()
     {
+        if (HasUnsavedChanges)
+        {
+            var result = await MessageBoxManager.GetMessageBoxStandard(new MessageBoxStandardParams()
+            {
+                Icon = Icon.Warning,
+                ButtonDefinitions = ButtonEnum.YesNo,
+                ContentTitle = "You have unsaved changes",
+                ContentMessage = "You have unsaved changes. Do you really want to open another file?"
+            }).ShowAsync();
+
+            if (result == ButtonResult.No)
+            {
+                return;
+            }
+        }
+        
         var file = await GetFilesService().OpenFileAsync();
         if (file == null)
         {
