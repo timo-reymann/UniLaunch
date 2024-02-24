@@ -5,22 +5,41 @@
              xmlns:vm="clr-namespace:UniLaunch.UI.ViewModels.Rules"
              xmlns:converter="clr-namespace:UniLaunch.UI.Converter"
              mc:Ignorable="d"
-             d:DesignWidth="600"
-             d:DesignHeight="100"
+             d:DesignWidth="400"
+             d:DesignHeight="50"
              x:DataType="vm:TimeRuleViewModel"
              x:Class="UniLaunch.UI.Controls.Rules.TimeRuleControl">
     <UserControl.Resources>
         <converter:TimeOnlyConverter x:Key="TimeOnlyConverter" />
     </UserControl.Resources>
-    <StackPanel HorizontalAlignment="Stretch">
-        <TimePicker HorizontalAlignment="Stretch"
-                    SelectedTime="{Binding StartRangeProperty, Converter={StaticResource TimeOnlyConverter}}" />
-        <Label HorizontalAlignment="Center"
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Viewbox 
+            HorizontalAlignment="Stretch" 
+                 VerticalAlignment="Stretch">
+            <TimePicker Grid.Column="0"
+                        VerticalAlignment="Stretch"
+                        SelectedTime="{Binding StartRangeProperty, Converter={StaticResource TimeOnlyConverter}}" />
+        </Viewbox>
+        <Label Grid.Column="1"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
                Margin="10">
-            until
+            to
         </Label>
-        <TimePicker HorizontalAlignment="Stretch"
-                    SelectedTime="{Binding EndRangeProperty, Converter={StaticResource TimeOnlyConverter}}" />
-    </StackPanel>
+        <Viewbox Grid.Column="2" HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch">
+            <TimePicker
+                VerticalAlignment="Stretch"
+                SelectedTime="{Binding EndRangeProperty, Converter={StaticResource TimeOnlyConverter}}" />
+        </Viewbox>
+    </Grid>
 
 </UserControl>
