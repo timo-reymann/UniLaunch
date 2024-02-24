@@ -5,17 +5,11 @@ using UniLaunch.Core.Targets;
 using UniLaunch.Core.Util;
 using UniLaunch.MacOS.Autostart;
 using UniLaunch.MacOS.Targets;
+using UniLaunch.MacOS.ViewModel;
 using UniLaunch.UI;
+using UniLaunch.UI.ViewModels;
 
-if (!CommandLineUtil.IsAutoStart())
-{
-    CommandLineUtil.RegisterAutoStart(new SharedListFileAutoStartRegistrationProvider());
-    CommandLineUtil.PrintAppInfo();
-    EditorUi.Main(Environment.GetCommandLineArgs());
-    return;
-}
-
-var engine = new UniLaunchEngine()
+var engine = UniLaunchEngine.Instance
     .RegisterTarget<AppFileTarget>()
     .RegisterTarget<ExecutableTarget>()
     .RegisterRule<AlwaysRule>()
@@ -31,6 +25,17 @@ var engine = new UniLaunchEngine()
         }
     ))
     .LocateAndParseConfigFile();
+
+if (!CommandLineUtil.IsAutoStart())
+{
+    EntityViewModelRegistry.Instance
+        .Register<AppFileTarget, AppFileTargetViewModel>();
+
+    CommandLineUtil.RegisterAutoStart(new SharedListFileAutoStartRegistrationProvider());
+    CommandLineUtil.PrintAppInfo();
+    EditorUi.Run(Environment.GetCommandLineArgs());
+    return;
+}
 
 foreach (var result in await engine.WaitForAllTargetsToLaunch())
 {

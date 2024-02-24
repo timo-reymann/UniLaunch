@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:UniLaunch.UI.ViewModels.Rules"
+             xmlns:converter="clr-namespace:UniLaunch.UI.Converter"
+             mc:Ignorable="d"
+             d:DesignWidth="500"
+             d:DesignHeight="50"
+             x:DataType="vm:WeekdayRuleViewModel"
+             x:Class="UniLaunch.UI.Controls.Rules.WeekdayRuleControl">
+    <Design.DataContext>
+        <vm:WeekdayRuleViewModel />
+    </Design.DataContext>
+    <UserControl.Resources>
+        <converter:ListMemberShipConverter x:Key="ListMemberShipConverter" />
+    </UserControl.Resources>
+    <ItemsControl ItemsSource="{Binding Options,DataType=vm:WeekdayRuleViewModel}">
+        <ItemsControl.Styles>
+            <Style Selector="ToggleButton">
+                <Setter Property="Margin" 
+                        Value="2 0 2 0" />
+            </Style>
+        </ItemsControl.Styles>
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <UniformGrid Rows="1" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate x:DataType="vm:WeekdayOption">
+                <ToggleButton Command="{Binding $parent[UserControl].((vm:WeekdayRuleViewModel)DataContext).ToggleWeekday}" 
+                              CommandParameter="{Binding Value}"
+                              HorizontalAlignment="Stretch"
+                              HorizontalContentAlignment="Center"
+                              Content="{Binding Name}">
+                    <ToggleButton.IsChecked>
+                        <MultiBinding Converter="{StaticResource ListMemberShipConverter}">
+                            <Binding RelativeSource="{RelativeSource Mode=FindAncestor,AncestorType=UserControl}" 
+                                     DataType="UserControl" 
+                                     Path="((vm:WeekdayRuleViewModel)DataContext).DaysOfWeekToRunListProperty" />
+                            <Binding Path="Value" />
+                        </MultiBinding>
+                    </ToggleButton.IsChecked>
+                </ToggleButton>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</UserControl>

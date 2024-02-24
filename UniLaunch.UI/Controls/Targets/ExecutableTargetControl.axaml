@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:UniLaunch.UI.ViewModels.Targets"
+             xmlns:controls="using:UniLaunch.UI.Controls"
+             mc:Ignorable="d"
+             d:DesignWidth="300"
+             d:DesignHeight="120"
+             x:DataType="vm:ExecutableTargetViewModel"
+             x:Class="UniLaunch.UI.Controls.Targets.ExecutableTargetControl">
+    <Design.DataContext>
+        <vm:ExecutableTargetViewModel />
+    </Design.DataContext>
+    <StackPanel>
+        <Label>Target Name</Label>
+        <TextBox Text="{Binding NameProperty,Mode=TwoWay}" />
+        <Label>Path to executable</Label>
+        <controls:TextInputWithFilePicker 
+            Margin="0 0 0 5 "
+            Path="{Binding ExecutableProperty}" />
+        <Label>Arguments to pass to executable</Label>
+        <TextBox Text="{Binding ArgumentsListProperty}" />
+    </StackPanel>
+</UserControl>

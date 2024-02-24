@@ -1,0 +1,12 @@
+<Project>
+    <ItemGroup>
+        <ProjectReference Include="..\UniLaunch.CodeGenerator\UniLaunch.CodeGenerator.csproj"
+                          OutputItemType="Analyzer"
+                          ReferenceOutputAssembly="false" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <NoWarn>$(NoWarn);NU1608,NU1603</NoWarn>
+    </PropertyGroup>
+
+</Project>

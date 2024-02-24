@@ -1,11 +1,11 @@
-using UniLaunch.Core.Storage;
+using UniLaunch.Core.Spec;
 using UniLaunch.Core.Storage.Serialization;
 
 namespace UniLaunch.Core.Targets;
 
 [Serializable]
 [PropertyBasedSerialization("targetType")]
-public abstract class Target
+public abstract class Target : INameable
 {
     public string Name { get; set; }
     

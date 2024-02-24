@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:UniLaunch.UI.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignWidth="700" 
+             d:DesignHeight="120"
+             x:DataType="vm:AutoStartEntryViewModel"
+             x:Class="UniLaunch.UI.Controls.AutoStartEntryControl">
+    <Design.DataContext>
+        <vm:AutoStartEntryViewModel />
+    </Design.DataContext>
+    <StackPanel>
+        <Label>Target</Label>
+        <ComboBox HorizontalAlignment="Stretch"
+                  SelectedItem="{Binding SelectedTarget}"
+                  ItemsSource="{Binding AvailableTargets}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        
+        <Label>Rule Set</Label>
+        <ComboBox HorizontalAlignment="Stretch" 
+                  SelectedItem="{Binding SelectedRuleSet}"
+                  ItemsSource="{Binding AvailableRuleSets}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text="{Binding Rules.Capacity,  StringFormat=' (contains {0} rules)'}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+    </StackPanel>
+</UserControl>

@@ -1,4 +1,3 @@
-
 using UniLaunch.Core.Storage.Serialization;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
@@ -34,15 +33,34 @@ public class YamlStorageProvider<T> : StorageProvider<T>
         .WithTypeConverter(new TimeOnlyConverter())
         .WithNamingConvention(CamelCaseNamingConvention.Instance)
         .Build();
-    
-    public YamlStorageProvider() {}
 
-    public override string Extension => "yaml";
+    public YamlStorageProvider()
+    {
+    }
+
+    public override string Extension => "yml";
 
     public override void Persist(string filePathWithoutExtension, T data)
     {
-        WriteFile(filePathWithoutExtension, yamlSerializer.Serialize(data));
+        try
+        {
+            WriteFile(filePathWithoutExtension, yamlSerializer.Serialize(data));
+        }
+        catch (Exception e)
+        {
+            throw new StorageException(e.Message, e);
+        }
     }
 
-    public override T Load(string filePathWithOutExtension) => yamlDeserializer.Deserialize<T>(GetFileContents(filePathWithOutExtension));
+    public override T Load(string filePathWithOutExtension)
+    {
+        try
+        {
+            return yamlDeserializer.Deserialize<T>(GetFileContents(filePathWithOutExtension));
+        }
+        catch (Exception e)
+        {
+            throw new StorageException(e.Message, e);
+        }
+    }
 }

@@ -4,4 +4,4 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 dist/
-*.DotSettings.user
+*.DotSettings*

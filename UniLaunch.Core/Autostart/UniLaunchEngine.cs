@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using UniLaunch.Core.Rules;
 using UniLaunch.Core.Storage;
 using UniLaunch.Core.Storage.Serialization;
@@ -8,16 +9,27 @@ namespace UniLaunch.Core.Autostart;
 
 public class UniLaunchEngine
 {
-    private UniLaunchConfiguration? Configuration { get; set; } = new();
-    private string? ConfigFilePath { get; set; }
-    public StorageProvider<UniLaunchConfiguration> DefaultStorageProvider { get; private set; }
-    private List<StorageProvider<UniLaunchConfiguration>> AvailableStoreProviders { get; set; } = new();
+    public StorageProvider<UniLaunchConfiguration> DefaultStorageProvider { get;  set; }
+    public UniLaunchConfiguration? Configuration { get; private set; } = new();
+    public List<StorageProvider<UniLaunchConfiguration>> AvailableStoreProviders { get; private set; } = new();
 
+    /// <summary>
+    /// Global shared instance of the engine
+    /// </summary>
+    public static readonly UniLaunchEngine Instance = new();
+
+    public string? ConfigFilePath { get; set; }
     private FileLocator ConfigFileLocator { get; set; }
-
 
     private readonly HashSet<Type> _enabledTargetTypes = new();
     private readonly HashSet<Type> _enabledRuleTypes = new();
+
+    public ImmutableHashSet<Type> EnabledTargetTypes => _enabledTargetTypes.ToImmutableHashSet();
+    public ImmutableHashSet<Type> EnabledRuleTypes => _enabledRuleTypes.ToImmutableHashSet();
+
+    private UniLaunchEngine()
+    {
+    }
 
     private ExecutionContext CreateContext() => new(DateTime.Now);
 
@@ -83,11 +95,13 @@ public class UniLaunchEngine
         foreach (var alternativeProvider in AvailableStoreProviders)
         {
             var alternativeConfigFile = ConfigFileLocator.Locate(alternativeProvider.Extension);
-            if (alternativeConfigFile != null)
+            if (alternativeConfigFile == null)
             {
-                DefaultStorageProvider = alternativeProvider;
-                return alternativeConfigFile;
+                continue;
             }
+
+            DefaultStorageProvider = alternativeProvider;
+            return alternativeConfigFile;
         }
 
         return ConfigFileLocator.LocateWithFallback(DefaultStorageProvider.Extension);
@@ -99,12 +113,11 @@ public class UniLaunchEngine
     /// </summary>
     /// <param name="ignoreErrors">Ignore errors due to missing file etc.</param>
     /// <returns></returns>
-    public UniLaunchEngine LocateAndParseConfigFile(bool ignoreErrors = false)
+    public UniLaunchEngine LocateAndParseConfigFile(bool ignoreErrors = true)
     {
         ConfigFilePath = LocateConfigFile();
         if (ignoreErrors)
-            Configuration = DefaultStorageProvider.Load(ConfigFilePath);
-        else
+        {
             try
             {
                 Configuration = DefaultStorageProvider.Load(ConfigFilePath);
@@ -112,6 +125,11 @@ public class UniLaunchEngine
             catch (StorageException)
             {
             }
+        }
+        else
+        {
+            Configuration = DefaultStorageProvider.Load(ConfigFilePath);
+        }
 
         return this;
     }
@@ -120,14 +138,26 @@ public class UniLaunchEngine
     /// Override the current configuration for autostart engine
     /// </summary>
     /// <param name="config">Configuration to set</param>
+    /// <param name="configFilePath">Override path to config file without extension</param>
     /// <param name="persist">Persist the configuration to the configuration file used</param>
     /// <returns></returns>
-    public UniLaunchEngine OverrideConfiguration(UniLaunchConfiguration config, bool persist = true)
+    public UniLaunchEngine OverrideConfiguration(
+        UniLaunchConfiguration config,
+        string? configFilePath = null,
+        bool persist = true)
     {
         Configuration = config;
 
+        if (configFilePath != null)
+        {
+            ConfigFilePath = configFilePath;
+        }
+
         if (persist)
+        {
             PersistCurrentConfiguration();
+        }
+
         return this;
     }
 

@@ -1,4 +1,6 @@
 <Project>
+    <Import Project="CodeGeneration.targets" />
+    
     <!-- App Metadata -->
     <PropertyGroup>
         <Version>0.0.2</Version>

@@ -1,0 +1,28 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:UniLaunch.UI.Controls"
+        xmlns:i="https://github.com/projektanker/icons.avalonia">
+    <Design.PreviewWith>
+        <controls:TextInputWithFilePicker />
+    </Design.PreviewWith>
+
+    <Style Selector="controls|TextInputWithFilePicker">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid ColumnDefinitions="*,Auto">
+                    <TextBox Text="{TemplateBinding Path,Mode=TwoWay}"
+                             CornerRadius="4 0 0 4"
+                             Height="34"
+                             Margin="0" />
+                    <Button CornerRadius="0 4 4 0"
+                            Name="OpenFileBtn"
+                            Height="34"
+                            Grid.Column="1"
+                            Margin="0">
+                        <i:Icon Value="fa-static fa-folder-open" />
+                    </Button>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

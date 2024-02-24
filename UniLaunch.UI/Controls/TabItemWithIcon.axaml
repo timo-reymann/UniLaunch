@@ -1,0 +1,26 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:UniLaunch.UI.Controls"
+        xmlns:avalonia="https://github.com/projektanker/icons.avalonia">
+    <Design.PreviewWith>
+        <controls:TabItemWithIcon />
+    </Design.PreviewWith>
+
+    <Style Selector="controls|TabItemWithIcon">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <TabItem Margin="0" 
+                         Padding="0">
+                    <TabItem.Header>
+                        <WrapPanel>
+                            <avalonia:Icon Value="{TemplateBinding Icon}" />
+                            <TextBlock Margin="10 0 0 0" 
+                                       Padding="0" 
+                                       Text="{TemplateBinding Title}" />
+                        </WrapPanel>
+                    </TabItem.Header>
+                </TabItem>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

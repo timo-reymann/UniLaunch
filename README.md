@@ -328,22 +328,22 @@ the startup of applications does not succeed.
 
 ##### Windows
 
-1. `%LOCALAPPDATA%`\UniLaunch\config.yaml
+1. `%LOCALAPPDATA%`\UniLaunch\config.yml
 2. `%LOCALAPPDATA%`\UniLaunch\config.json
 
 ##### Linux
 
-1. `$XDG_CONFIG_HOME`/UniLaunch/config.yaml
-2. `$HOME`/.config/UniLaunch/config.yaml
+1. `$XDG_CONFIG_HOME`/UniLaunch/config.yml
+2. `$HOME`/.config/UniLaunch/config.yml
 3. `$XDG_CONFIG_HOME`/UniLaunch/config.json
 4. `$HOME`/.config/UniLaunch/config.json
 5. /etc/default/UniLaunch
 
 ##### MaCOS
 
-1. `$HOME`/Library/Application Support/UniLaunch/config.yaml
-2. `$HOME`/.config/uniLaunch.yaml
-3. `$HOME`/.config/uniLaunch.macos.yaml
+1. `$HOME`/Library/Application Support/UniLaunch/config.yml
+2. `$HOME`/.config/uniLaunch.yml
+3. `$HOME`/.config/uniLaunch.macos.yml
 4. `$HOME`/Library/Application Support/UniLaunch/config.json
 5. `$HOME`/.config/uniLaunch.json
 6. `$HOME`/.config/uniLaunch.macos.json

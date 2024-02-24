@@ -9,8 +9,8 @@ namespace UniLaunch.Core.Rules;
 [PropertyValueForSerialization("time")]
 public class TimeRule : Rule
 {
-    public TimeOnly StartRange { get; init; }
-    public TimeOnly EndRange { get; init; }
+    public TimeOnly StartRange { get; set; }
+    public TimeOnly EndRange { get; set; }
     
     public override bool Match(ExecutionContext context) =>
         IsWithinRange(context.InvocationTime);

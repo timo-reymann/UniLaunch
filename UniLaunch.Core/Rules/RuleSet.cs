@@ -1,18 +1,19 @@
+using UniLaunch.Core.Spec;
+
 namespace UniLaunch.Core.Rules;
 
 /// <summary>
 /// Set of multiple rules to execute in order to launch targets
 /// </summary>
-[Serializable]
-public class RuleSet
+public class RuleSet : INameable
 {
     /// <summary>
     /// Name of the rulset
     /// </summary>
-    public string Name { get; init; }
+    public string Name { get; set; }
 
     // Rules contained in the set
-    public List<Rule> Rules { get; init; } = new();
+    public List<Rule> Rules { get; set; } = new();
 
     /// <summary>
     /// Match all rules that match for the given execution context
