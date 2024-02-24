@@ -3,6 +3,7 @@ using System.Collections.Immutable;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using DynamicData.Binding;
 using ReactiveUI;
 using UniLaunch.Core.Autostart;
 using UniLaunch.Core.Rules;
@@ -14,21 +15,44 @@ namespace UniLaunch.UI.ViewModels;
 [GenerateViewModel(typeof(RuleSet), typeof(RuleSetControl))]
 public partial class RulesetViewModel
 {
+    private ObservableCollection<BaseEntityViewModel>? _rules;
     public ImmutableHashSet<Type> EnabledRuleTypes => UniLaunchEngine.Instance.EnabledRuleTypes;
     public ICommand AddRule { get; private set; }
-
+    
     public ObservableCollection<BaseEntityViewModel> RulesListProperty
     {
-        get => new(EntityViewModelRegistry.Instance.Of(_model.Rules));
+        get
+        {
+            if (_rules != null)
+            {
+                return _rules;
+            }
+            
+            _rules = new(EntityViewModelRegistry.Instance.Of(_model.Rules));
+                
+            // register change listener for initial rules to trigger a change,
+            // when new items are added the observable collection change event is enough to trigger it
+            foreach (var rule in _rules)
+            {
+                rule.WhenAnyPropertyChanged(rule.PropertiesToWatchForChanges)
+                    .Subscribe(_ => this.RaisePropertyChanged());
+            }
+
+            return _rules;
+        }
         set
         {
             _model.Rules = value.Select(m => (Rule)m.Model).ToList();
+            _rules = value;
             this.RaisePropertyChanged();
         }
     }
 
     partial void InitViewModel()
     {
+        _propertiesToWatchForChanges = _propertiesToWatchForChanges
+            .Append(nameof(RulesListProperty))
+            .ToArray();
         AddRule = ReactiveCommand.Create<Type>(_AddRule);
     }
 
