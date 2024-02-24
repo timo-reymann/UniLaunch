@@ -15,12 +15,14 @@
     <ItemsControl ItemsSource="{Binding Options,DataType=vm:WeekdayRuleViewModel}">
         <ItemsControl.Styles>
             <Style Selector="ToggleButton">
-                <Setter Property="Margin" Value="2 0 2 0" />
+                <Setter Property="Margin" 
+                        Value="2 0 2 0" />
             </Style>
         </ItemsControl.Styles>
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"></StackPanel>
+                <StackPanel HorizontalAlignment="Center" 
+                            Orientation="Horizontal" />
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
@@ -31,14 +33,13 @@
                     <ToggleButton.IsChecked>
                         <MultiBinding Converter="{StaticResource ListMemberShipConverter}">
                             <Binding RelativeSource="{RelativeSource Mode=FindAncestor,AncestorType=UserControl}" 
-                                     DataType="vm:WeekdayRuleViewModel" 
+                                     DataType="UserControl" 
                                      Path="((vm:WeekdayRuleViewModel)DataContext).DaysOfWeekToRunListProperty" />
-                            <Binding Path="Value"></Binding>
+                            <Binding Path="Value" />
                         </MultiBinding>
                     </ToggleButton.IsChecked>
                 </ToggleButton>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>
-
 </UserControl>
