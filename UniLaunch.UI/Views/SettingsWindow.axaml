@@ -13,6 +13,7 @@
         Closing="OnClose"
         x:Class="UniLaunch.UI.Views.SettingsWindow"
         x:DataType="vm:EditorConfigurationViewModel"
+        Icon="avares://UniLaunch.UI/Assets/window-icon.ico"
         Title="Settings">
     <Window.Resources>
         <converter:StringEqualityConverter x:Key="StringEqualityConverter" />

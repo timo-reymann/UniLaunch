@@ -12,6 +12,7 @@
         d:DesignHeight="430"
         x:DataType="vm:AboutWindowViewModel"
         x:Class="UniLaunch.UI.Views.AboutWindow"
+        Icon="avares://UniLaunch.UI/Assets/window-icon.ico"
         Title="About UniLaunch">
     <Window.Styles>
         <Style Selector="Button.Link">
