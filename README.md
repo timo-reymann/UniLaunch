@@ -73,7 +73,8 @@ from [the latest GitHub Release](https://github.com/timo-reymann/UniLaunch/relea
 
 ### Installation for Debian / Ubuntu-based Linux distro
 
-Download the `UniLaunch-amd64.deb` from [the latest GitHub Release](https://github.com/timo-reymann/UniLaunch/releases/latest).
+Download the `UniLaunch-amd64.deb`
+from [the latest GitHub Release](https://github.com/timo-reymann/UniLaunch/releases/latest).
 
 Install it with dpkg:
 
@@ -193,6 +194,11 @@ You can also simulate this anytime with
 ```
 
 ### Configuration
+
+#### Visual
+
+You can use the built in UI of UniLaunch to create your rules, rulesets and targets easily. Just start UniLaunch, and
+start configuring.
 
 #### Example configuration
 
