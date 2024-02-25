@@ -51,7 +51,7 @@ patch-version: ## Patch the version for UniLaunch
 	@if [ "$(call _is_osx)" ]; then \
 		sed -i '' -e 's/<Version>.*<\/Version>/<Version>$(patched_version)<\/Version>/' Platform.targets; \
     else \
-		sed -e 's/<Version>.*<\/Version>/<Version>$(patched_version)<\/Version>/' Platform.targets; \
+		sed -i 's/<Version>.*<\/Version>/<Version>$(patched_version)<\/Version>/' Platform.targets; \
 	fi
 
 extract_version_command = $(shell awk -F'[<>]' '/<Version>/{print $$3}' Platform.targets)
