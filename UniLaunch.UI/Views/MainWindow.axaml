@@ -27,9 +27,7 @@
         <vm:MainWindowViewModel />
     </Design.DataContext>
 
-    <Grid PointerMoved="InputElement_OnPointerMoved"
-          PointerPressed="InputElement_OnPointerPressed"
-          PointerReleased="InputElement_OnPointerReleased">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition Height="80" />
@@ -38,9 +36,15 @@
         </Grid.RowDefinitions>
 
         <Rectangle Grid.Row="0"
+                   PointerMoved="InputElement_OnPointerMoved"
+                   PointerPressed="InputElement_OnPointerPressed"
+                   PointerReleased="InputElement_OnPointerReleased"
                    Fill="{DynamicResource MenuBar.Background}" />
 
         <Grid Grid.Row="1"
+              PointerMoved="InputElement_OnPointerMoved"
+              PointerPressed="InputElement_OnPointerPressed"
+              PointerReleased="InputElement_OnPointerReleased"
               Background="{DynamicResource MenuBar.Background}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100" />
