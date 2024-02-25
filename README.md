@@ -416,6 +416,4 @@ make {linux|windows|macos}-build
 
 ## TODO
 
-- [ ] Add Avalonia Config Editor UI
-- [ ] Add polished fancy logo
 - [ ] Create first stable release
