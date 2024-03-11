@@ -19,6 +19,14 @@ UniLaunch
 - Reusable rule sets
 - dotfile-compatible configuration file location
 
+### UI Sneak Peak
+
+No matter which side you are on. Dark or light, I got you covered:
+
+| ![](.github/images/dark_screens.gif) | ![](.github/images/light_screens.gif) |
+|:------------------------------------:|:-------------------------------------:|
+|               **Dark**               |               **Light**               |
+
 ## Requirements
 
 - Windows, MacOS or Linux
