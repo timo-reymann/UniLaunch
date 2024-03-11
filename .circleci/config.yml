@@ -18,6 +18,7 @@ orbs:
   win: circleci/windows@5.0.0
   github-utils: trustedshops-public/github-utils@1.1.2
   github-cli: circleci/github-cli@2.3.0
+  semantic-release: trustedshops-public/semantic-release@6.0.0
 
 commands:
   install_dotnet:
@@ -211,3 +212,11 @@ workflows:
           <<: *only_tags
           requires:
             - prepare-release
+      - semantic-release/with_existing_config:
+          name: semantic-release
+          requires:
+            - prepare-release
+          filters:
+            branches:
+              only:
+                - main
