@@ -1,4 +1,5 @@
 ﻿using UniLaunch.Core.Autostart;
+using UniLaunch.Core.ExclusiveInstance;
 using UniLaunch.Core.Rules;
 using UniLaunch.Core.Storage;
 using UniLaunch.Core.Targets;
@@ -6,6 +7,16 @@ using UniLaunch.Core.Util;
 using UniLaunch.Linux.Autostart;
 using UniLaunch.Linux.Desktop;
 using UniLaunch.UI;
+
+using var provider = new ExclusiveInstanceProvider();
+try
+{
+    provider.Acquire();
+}
+catch (ExclusiveInstanceAccquireFailed e)
+{
+    return 16; // Device or resource busy
+}
 
 var engine = UniLaunchEngine.Instance
     .RegisterTarget<ExecutableTarget>()
@@ -27,10 +38,12 @@ if (!CommandLineUtil.IsAutoStart())
     CommandLineUtil.RegisterAutoStart(new DesktopFileStartRegistrationProvider());
     CommandLineUtil.PrintAppInfo();
     EditorUi.Run(Environment.GetCommandLineArgs());
-    return;
+    return 0;
 }
 
 foreach (var result in await engine.WaitForAllTargetsToLaunch())
 {
     result.Print();
 }
+
+return 0;
