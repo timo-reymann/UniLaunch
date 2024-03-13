@@ -1,4 +1,5 @@
 ﻿using UniLaunch.Core.Autostart;
+using UniLaunch.Core.ExclusiveInstance;
 using UniLaunch.Core.Rules;
 using UniLaunch.Core.Storage;
 using UniLaunch.Core.Targets;
@@ -8,6 +9,16 @@ using UniLaunch.MacOS.Targets;
 using UniLaunch.MacOS.ViewModel;
 using UniLaunch.UI;
 using UniLaunch.UI.ViewModels;
+
+using var provider = new ExclusiveInstanceProvider();
+try
+{
+    provider.Acquire();
+}
+catch (ExclusiveInstanceAccquireFailed e)
+{
+    return 16; // Device or resource busy
+}
 
 var engine = UniLaunchEngine.Instance
     .RegisterTarget<AppFileTarget>()
@@ -34,10 +45,12 @@ if (!CommandLineUtil.IsAutoStart())
     CommandLineUtil.RegisterAutoStart(new SharedListFileAutoStartRegistrationProvider());
     CommandLineUtil.PrintAppInfo();
     EditorUi.Run(Environment.GetCommandLineArgs());
-    return;
+    return 0;
 }
 
 foreach (var result in await engine.WaitForAllTargetsToLaunch())
 {
     result.Print();
 }
+
+return 0;
