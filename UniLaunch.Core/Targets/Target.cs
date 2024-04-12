@@ -8,6 +8,8 @@ namespace UniLaunch.Core.Targets;
 public abstract class Target : INameable
 {
     public string Name { get; set; }
+
+    public bool WaitForNetworkConnectivity { get; set; } = false;
     
     public abstract string TargetType { get; }
 
