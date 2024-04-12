@@ -1,4 +1,5 @@
 using System.Collections.Immutable;
+using UniLaunch.Core.ConnectivityCheck;
 using UniLaunch.Core.Rules;
 using UniLaunch.Core.Storage;
 using UniLaunch.Core.Storage.Serialization;
@@ -9,7 +10,7 @@ namespace UniLaunch.Core.Autostart;
 
 public class UniLaunchEngine
 {
-    public StorageProvider<UniLaunchConfiguration> DefaultStorageProvider { get;  set; }
+    public StorageProvider<UniLaunchConfiguration> DefaultStorageProvider { get; set; }
     public UniLaunchConfiguration? Configuration { get; private set; } = new();
     public List<StorageProvider<UniLaunchConfiguration>> AvailableStoreProviders { get; private set; } = new();
 
@@ -209,12 +210,69 @@ public class UniLaunchEngine
         return this;
     }
 
-    private IEnumerable<Task<TargetInvokeResult>> GetTargetInvokes()
+    private async Task<IEnumerable<TargetInvokeResult>> WrapInvoke(Target target)
     {
-        return GetTargets()
-            .Select(target => target.Invoke())
-            .ToList();
+        var result = await target.Invoke();
+        return [result];
     }
 
-    public Task<TargetInvokeResult[]> WaitForAllTargetsToLaunch() => Task.WhenAll(GetTargetInvokes());
+    private async Task<IEnumerable<TargetInvokeResult>> WrapInNetworkWait(IEnumerable<Target> targets)
+    {
+        var connectivityChecker = new NetworkConnectivityChecker(Configuration.ConnectivityCheck);
+        try
+        {
+            await connectivityChecker.Check();
+        }
+        catch (NetworkConnectivityCheckFailedException e)
+        {
+            return targets.Select(target =>
+            {
+                return new TargetInvokeResult(
+                    Target: target,
+                    Status: TargetInvokeResultStatus.Failure,
+                    Errors: new[]
+                    {
+                        new Error("NoNetworkConnectivity", e.Message)
+                    });
+            });
+        }
+
+        return await Task.WhenAll(targets.Select(t => t.Invoke()));
+    }
+
+    private IEnumerable<Task<IEnumerable<TargetInvokeResult>>> GetTargetInvokes()
+    {
+        var targets = GetTargets();
+        var targetsWithNetworkRequirement = new List<Target>();
+
+        foreach (var target in targets)
+        {
+            if (target.WaitForNetworkConnectivity)
+            {
+                targetsWithNetworkRequirement.Add(target);
+            }
+            else
+            {
+                yield return WrapInvoke(target);
+            }
+        }
+
+        yield return WrapInNetworkWait(targetsWithNetworkRequirement);
+    }
+
+    public async Task<IEnumerable<TargetInvokeResult>> WaitForAllTargetsToLaunch()
+    {
+        var results = new List<TargetInvokeResult>();
+        var invokeGroupResults = await Task.WhenAll(GetTargetInvokes());
+
+        foreach (var invokeGroupResult in invokeGroupResults)
+        {
+            foreach (var invokeResult in invokeGroupResult)
+            {
+                results.Add(invokeResult);
+            }
+        }
+        
+        return results;
+    }
 }
