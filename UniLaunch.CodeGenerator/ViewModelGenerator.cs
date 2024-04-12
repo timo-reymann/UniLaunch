@@ -52,11 +52,15 @@ public class ViewModelGenerator : ISourceGenerator
                 .Value as INamedTypeSymbol
             )?.ToString() ?? "TextBlock";
 
-        var propertiesToCreate = modelType!.GetMembers()
+        var propertiesToCreateForImpl = modelType!.GetMembers()
             .OfType<IPropertySymbol>()
             .Where(symbol => symbol.SetMethod != null && symbol.Name != "Name");
-
-        var properties = propertiesToCreate
+        var propertiesToGenerateForParent = modelType.BaseType.GetMembers()
+            .OfType<IPropertySymbol>()
+            .Where(symbol => symbol.SetMethod != null && symbol.Name != "Name");
+        
+        var properties = propertiesToCreateForImpl
+            .Concat(propertiesToGenerateForParent)
             .Select(GenerateProperty);
         var className = classSymbol.Name;
         var propertyDefinitions = string.Join("\n", properties);
@@ -73,7 +77,7 @@ public class ViewModelGenerator : ISourceGenerator
             ? "_model.Name = value;"
             : "";
 
-        var propertyWatcher = GeneratePropertiesToWatch(propertiesToCreate.ToList());
+        var propertyWatcher = GeneratePropertiesToWatch(propertiesToCreateForImpl.ToList());
 
         var code = $$"""
                      //----------------------
