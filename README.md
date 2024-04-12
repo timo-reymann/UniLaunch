@@ -218,6 +218,9 @@ start configuring.
 YAML is the recommended file format, as it is easier to read and more compact than JSON.
 
 ```yaml
+connectivityCheck:
+  endpoint: https://connectivity.example.com
+  timeout: 00:30
 ruleSets:
   - name: Weekend
     rules:
@@ -265,6 +268,10 @@ JSON is not recommended, but supported. See the example config below:
 
 ````json
 {
+  "connectivityCheck": {
+    "endpoint": "https://connectivity.example.com",
+    "timeout": "00:30"
+  },
   "ruleSets": [
     {
       "name": "Weekend",
