@@ -11,7 +11,9 @@
         <entry key="UniLaunch.UI/Controls/Rules/TimeRuleControl.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
         <entry key="UniLaunch.UI/Controls/Rules/WeekdayRuleControl.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
         <entry key="UniLaunch.UI/Controls/TabItemWithIcon.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
+        <entry key="UniLaunch.UI/Controls/Targets/CommonTargetControls.axaml" value="UniLaunch.Linux/UniLaunch.UIDesigner.csproj" />
         <entry key="UniLaunch.UI/Controls/Targets/ExecutableTargetControl.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
+        <entry key="UniLaunch.UI/Controls/Targets/WaitForNetworkConnectivityToggle.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
         <entry key="UniLaunch.UI/Controls/TextInputWithFilePicker.axaml" value="UniLaunch.UIDesigner/UniLaunch.UIDesigner.csproj" />
         <entry key="UniLaunch.UI/Styles/DarkThemeAdjustments.axaml" value="UniLaunch.Linux/UniLaunch.Linux.csproj" />
         <entry key="UniLaunch.UI/Styles/LightThemeAdjustments.axaml" value="UniLaunch.Linux/UniLaunch.Linux.csproj" />
