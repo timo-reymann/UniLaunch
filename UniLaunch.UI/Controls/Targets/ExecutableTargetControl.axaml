@@ -4,9 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:UniLaunch.UI.ViewModels.Targets"
              xmlns:controls="using:UniLaunch.UI.Controls"
+             xmlns:targets-controls="using:UniLaunch.UI.Controls.Targets"
              mc:Ignorable="d"
              d:DesignWidth="300"
-             d:DesignHeight="120"
+             d:DesignHeight="230"
              x:DataType="vm:ExecutableTargetViewModel"
              x:Class="UniLaunch.UI.Controls.Targets.ExecutableTargetControl">
     <Design.DataContext>
@@ -16,10 +17,12 @@
         <Label>Target Name</Label>
         <TextBox Text="{Binding NameProperty,Mode=TwoWay}" />
         <Label>Path to executable</Label>
-        <controls:TextInputWithFilePicker 
+        <controls:TextInputWithFilePicker
             Margin="0 0 0 5 "
             Path="{Binding ExecutableProperty}" />
         <Label>Arguments to pass to executable</Label>
         <TextBox Text="{Binding ArgumentsListProperty}" />
+        <Label>Dependencies</Label>
+        <targets-controls:WaitForNetworkConnectivityToggle State="{Binding WaitForNetworkConnectivityProperty,Mode=TwoWay}" />
     </StackPanel>
 </UserControl>

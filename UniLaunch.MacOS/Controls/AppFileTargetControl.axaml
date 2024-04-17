@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:UniLaunch.MacOS.ViewModel"
              xmlns:controls="using:UniLaunch.UI.Controls"
+             xmlns:targets-controls="clr-namespace:UniLaunch.UI.Controls.Targets;assembly=UniLaunch.UI"
              mc:Ignorable="d" 
              d:DesignWidth="800" 
              d:DesignHeight="450"
@@ -18,5 +19,7 @@
         <Label>Path to .app file</Label>
         <controls:TextInputWithFilePicker FilePickerOpenOptions="{Binding FilePickerOpenOptions}"
                                           Path="{Binding PathProperty,Mode=TwoWay}" />
+        <Label>Dependencies</Label>
+        <targets-controls:WaitForNetworkConnectivityToggle State="{Binding WaitForNetworkConnectivityProperty,Mode=TwoWay}" />
     </StackPanel>
 </UserControl>
