@@ -11,6 +11,7 @@
     <Application.Styles>
         <StyleInclude Source="avares://UniLaunch.UI/Controls/TabItemWithIcon.axaml" />
         <StyleInclude Source="avares://UniLaunch.UI/Controls/TextInputWithFilePicker.axaml" />
+        <StyleInclude Source="avares://UniLaunch.UI/Controls/Targets/WaitForNetworkConnectivityToggle.axaml" />
         <Style Selector="Menu>MenuItem">
             <Setter Property="Foreground"
                     Value="{DynamicResource MenuBar.PrimaryMenuItem.Foreground}" />
