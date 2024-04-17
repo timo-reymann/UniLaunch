@@ -58,9 +58,10 @@ public class ViewModelGenerator : ISourceGenerator
         var propertiesToGenerateForParent = modelType.BaseType.GetMembers()
             .OfType<IPropertySymbol>()
             .Where(symbol => symbol.SetMethod != null && symbol.Name != "Name");
-        
-        var properties = propertiesToCreateForImpl
-            .Concat(propertiesToGenerateForParent)
+
+        var allProperties = propertiesToCreateForImpl
+            .Concat(propertiesToGenerateForParent);
+        var properties = allProperties
             .Select(GenerateProperty);
         var className = classSymbol.Name;
         var propertyDefinitions = string.Join("\n", properties);
@@ -77,7 +78,7 @@ public class ViewModelGenerator : ISourceGenerator
             ? "_model.Name = value;"
             : "";
 
-        var propertyWatcher = GeneratePropertiesToWatch(propertiesToCreateForImpl.ToList());
+        var propertyWatcher = GeneratePropertiesToWatch(allProperties.ToList());
 
         var code = $$"""
                      //----------------------
