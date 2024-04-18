@@ -76,6 +76,14 @@ macos-generate-cask: ## Generate cask ruby file
 		'\n  app "UniLaunch.app"' \
 		'\nend' > Casks/unilaunch.rb
 
+connectivity-check-build-image: ## Build docker image for connectivity checker
+	@docker buildx build --tag timoreymann/connectivity-check:latest \
+		--platform linux/amd64,linux/arm/v7,linux/arm64 \
+		--push .
+	@docker buildx build --tag timoreymann/connectivity-check:$(VERSION) \
+		--platform linux/amd64,linux/arm/v7,linux/arm64 \
+		--push .
+
 macos-build-app: require_osx macos-build-binary ## Build MacOS app file from static file
 	$(MAKE) _macos-build-app MACOS_APP_FILE_NAME=UniLaunch-x64.app RID=osx-x64
 	$(MAKE) _macos-build-app MACOS_APP_FILE_NAME=UniLaunch-Silicon.app RID=osx-arm64
