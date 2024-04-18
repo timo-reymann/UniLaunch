@@ -2,8 +2,8 @@ namespace UniLaunch.Core.ConnectivityCheck;
 
 public class ConnectivityCheckConfiguration
 {
-    public Uri? Endpoint { get; set; }
-    public TimeSpan? Timeout { get; set; }
+    public Uri? Endpoint { get; set; } = DefaultEndpoint;
+    public TimeSpan? Timeout { get; set; } = DefaultTimeout;
 
     public static readonly Uri DefaultEndpoint = new("https://detectportal.firefox.com");
     public Uri EndpointOrDefault() => Endpoint ?? DefaultEndpoint;

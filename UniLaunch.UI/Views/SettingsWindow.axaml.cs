@@ -1,3 +1,4 @@
+using System;
 using Avalonia.Controls;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Enums;
@@ -38,7 +39,7 @@ public partial class SettingsWindow : Window
         {
             e.Cancel = true;
             await MessageBoxManager.GetMessageBoxStandard(
-                "Failed tos ave configuration",
+                "Failed to save configuration",
                 $"Failed to save: {exc.Message}",
                 ButtonEnum.Ok,
                 MsBox.Avalonia.Enums.Icon.Error
