@@ -1,7 +1,7 @@
 using UniLaunch.Core.Storage.Serialization;
+using UniLaunch.Core.Storage.YAML;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
-using TimeOnlyConverter = UniLaunch.Core.Storage.YAML.TimeOnlyConverter;
 
 namespace UniLaunch.Core.Storage;
 
@@ -12,7 +12,8 @@ namespace UniLaunch.Core.Storage;
 public class YamlStorageProvider<T> : StorageProvider<T>
 {
     private readonly IDeserializer yamlDeserializer = new DeserializerBuilder()
-        .WithTypeConverter(new YAML.TimeOnlyConverter())
+        .WithTypeConverter(new TimeOnlyConverter())
+        .WithTypeConverter(new UriConverter())
         .WithNamingConvention(CamelCaseNamingConvention.Instance)
         .IgnoreUnmatchedProperties()
         .WithTypeDiscriminatingNodeDeserializer((o) =>
@@ -31,6 +32,7 @@ public class YamlStorageProvider<T> : StorageProvider<T>
 
     private readonly ISerializer yamlSerializer = new SerializerBuilder()
         .WithTypeConverter(new TimeOnlyConverter())
+        .WithTypeConverter(new UriConverter())
         .WithNamingConvention(CamelCaseNamingConvention.Instance)
         .Build();
 
