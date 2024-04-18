@@ -139,18 +139,20 @@ Start an `.app` file.
 
 > This target type is only available for MacOS.
 
-| Parameter | Value                                    | Example                 |
-|:----------|:-----------------------------------------|:------------------------|
-| Path      | Absolute path to the .app file to launch | /Applications/Slack.app |
+| Parameter                  | Value                                                     | Example                 |
+|:---------------------------|:----------------------------------------------------------|:------------------------|
+| Path                       | Absolute path to the .app file to launch                  | /Applications/Slack.app |
+| WaitForNetworkConnectivity | Try to wait for network to be reachable to execute target | true                    |
 
 ##### `executable`
 
 Launch any executable.
 
-| Parameter | Value                                          | Examples                                                    |
-|:----------|:-----------------------------------------------|:------------------------------------------------------------|
-| Path      | Absolute path to the executable file to launch | /usr/bin/test.exe, C:/Program Files/MyProgram/MyProgram.exe |
-| Arguments | List of arguments to pass to the executable    | `[foo, bar]`                                                |
+| Parameter                  | Value                                                     | Examples                                                    |
+|:---------------------------|:----------------------------------------------------------|:------------------------------------------------------------|
+| Path                       | Absolute path to the executable file to launch            | /usr/bin/test.exe, C:/Program Files/MyProgram/MyProgram.exe |
+| Arguments                  | List of arguments to pass to the executable               | `[foo, bar]`                                                |
+| WaitForNetworkConnectivity | Try to wait for network to be reachable to execute target | true                                                        |
 
 #### Rules
 
@@ -216,6 +218,9 @@ start configuring.
 YAML is the recommended file format, as it is easier to read and more compact than JSON.
 
 ```yaml
+connectivityCheck:
+  endpoint: https://connectivity.example.com
+  timeout: 00:30
 ruleSets:
   - name: Weekend
     rules:
@@ -263,6 +268,10 @@ JSON is not recommended, but supported. See the example config below:
 
 ````json
 {
+  "connectivityCheck": {
+    "endpoint": "https://connectivity.example.com",
+    "timeout": "00:30"
+  },
   "ruleSets": [
     {
       "name": "Weekend",

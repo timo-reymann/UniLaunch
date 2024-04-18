@@ -23,7 +23,7 @@ public static class EditorUi
     public static AppBuilder BuildAvaloniaApp()
     {
         EntityViewModelRegistry.Instance
-            .Register<EditorConfiguration, EditorConfigurationViewModel>()
+            .Register<EditorConfiguration, SettingsViewModel>()
             .Register<RuleSet, RulesetViewModel>()
             .Register<AutoStartEntry, AutoStartEntryViewModel>()
             .Register<AlwaysRule, AlwaysRuleViewModel>()

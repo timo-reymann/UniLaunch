@@ -117,15 +117,20 @@ public partial class MainWindowViewModel
 
     private async void _ShowSettings()
     {
-        App.Current
+        var window = new SettingsWindow
+        {
+            DataContext = App.Current!
+                .GetService<IEditorConfigurationService>()!
+                .Current
+                .ToViewModel(),
+        };
+        await App.Current
             !.GetService<IWindowService>()
-            !.ShowWindowAsDialog(new SettingsWindow
-            {
-                DataContext = App.Current!
-                    .GetService<IEditorConfigurationService>()!
-                    .Current
-                    .ToViewModel(),
-            });
+            !.ShowWindowAsDialog(window);
+        if (window.HasConfigChangesForLoadedConfigFile)
+        {
+            HasUnsavedChanges = true;
+        }
     }
 
     private async void _OpenFile()
@@ -145,7 +150,7 @@ public partial class MainWindowViewModel
                 return;
             }
         }
-        
+
         var file = await GetFilesService().OpenFileAsync();
         if (file == null)
         {

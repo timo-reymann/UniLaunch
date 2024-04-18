@@ -27,13 +27,13 @@ public record TargetInvokeResult(
             return;
         }
 
-        Console.Write("( ");
+        Console.Write(" (");
         foreach (var resultError in Errors)
         {
             Console.Write(resultError.Details?.Trim() ?? "N/A");
         }
 
-        Console.Write(" )");
+        Console.Write(")");
 
         Console.WriteLine();
     }

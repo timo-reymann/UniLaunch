@@ -5,25 +5,64 @@
         xmlns:vm="clr-namespace:UniLaunch.UI.ViewModels"
         xmlns:converter="clr-namespace:UniLaunch.UI.Converter"
         mc:Ignorable="d"
-        d:DesignWidth="400"
-        d:DesignHeight="250"
+        d:DesignWidth="500"
+        d:DesignHeight="550"
         Height="300"
         Width="400"
         SizeToContent="WidthAndHeight"
         Closing="OnClose"
         x:Class="UniLaunch.UI.Views.SettingsWindow"
-        x:DataType="vm:EditorConfigurationViewModel"
+        x:DataType="vm:SettingsViewModel"
         Icon="avares://UniLaunch.UI/Assets/window-icon.ico"
         Title="Settings">
     <Window.Resources>
+        <converter:TimeSpanConverter x:Key="TimeSpanConverter"></converter:TimeSpanConverter>
         <converter:StringEqualityConverter x:Key="StringEqualityConverter" />
     </Window.Resources>
     <Design.DataContext>
-        <vm:EditorConfigurationViewModel />
+        <vm:SettingsViewModel />
     </Design.DataContext>
     <StackPanel Margin="30">
-        <Grid HorizontalAlignment="Center"
-              RowDefinitions="60, 20, 100" 
+        <Grid HorizontalAlignment="Left"
+              Margin="0 0 0 30"
+              RowDefinitions="60, 20, Auto, 30, Auto"
+              ColumnDefinitions="Auto">
+            <TextBlock Grid.Row="0" FontSize="40">
+                Connectivity Check
+            </TextBlock>
+            <TextBlock Grid.Row="1"
+                       VerticalAlignment="Bottom"
+                       FontWeight="Bold">
+                Endpoint
+            </TextBlock>
+            <TextBox Grid.Row="2"
+                     Text="{Binding ConnectivityCheckConfigurationEndpoint}"/>
+            <TextBlock Grid.Row="3"
+                       VerticalAlignment="Bottom"
+                       FontWeight="Bold">
+                Timeout
+            </TextBlock>
+            <Grid Grid.Row="4"
+                  RowDefinitions="50"
+                  ColumnDefinitions="300, 50">
+                <Slider Width="280"
+                        HorizontalAlignment="Left"
+                        Minimum="1"
+                        TickFrequency="1"
+                        IsSnapToTickEnabled="True"
+                        Value="{Binding ConnectivityCheckConfigurationTimeout, Mode=TwoWay,Converter={StaticResource TimeSpanConverter}}"
+                        Maximum="30" />
+                <TextBox HorizontalContentAlignment="Center"
+                         VerticalContentAlignment="Center"
+                         HorizontalAlignment="Center"
+                         Height="30"
+                         Width="50"
+                         Text="{Binding ConnectivityCheckConfigurationTimeout, Mode=TwoWay, Converter={StaticResource TimeSpanConverter}}"
+                         Grid.Column="1" />
+            </Grid>
+        </Grid>
+        <Grid HorizontalAlignment="Left"
+              RowDefinitions="60, 20, Auto"
               ColumnDefinitions="Auto">
             <TextBlock Grid.Row="0" FontSize="40">
                 Editor Settings
@@ -34,7 +73,7 @@
                 Theme Variant
             </TextBlock>
             <StackPanel Grid.Row="2"
-                        HorizontalAlignment="Stretch" 
+                        HorizontalAlignment="Stretch"
                         VerticalAlignment="Center">
                 <RadioButton GroupName="ThemeVariant"
                              IsChecked="{Binding ThemeVariantProperty, Converter={StaticResource StringEqualityConverter},ConverterParameter=Default}"
