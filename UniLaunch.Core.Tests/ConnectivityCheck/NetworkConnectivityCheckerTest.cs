@@ -5,7 +5,7 @@ namespace UniLaunch.Core.Tests.ConnectivityCheck;
 public class NetworkConnectivityCheckerTest
 {
     [Fact]
-    public async void CheckUnreachable()
+    public async Task CheckUnreachable()
     {
         var checker = new NetworkConnectivityChecker(
             new Uri("https://no-host.timo-reymann.de"),
@@ -16,7 +16,7 @@ public class NetworkConnectivityCheckerTest
     }
 
     [Fact]
-    public async void CheckReachable()
+    public async Task CheckReachable()
     {
         var checker = new NetworkConnectivityChecker(
             new Uri("https://one.one.one.one/help/"),

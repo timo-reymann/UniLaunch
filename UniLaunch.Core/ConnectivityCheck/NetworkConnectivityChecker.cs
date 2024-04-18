@@ -2,8 +2,8 @@ namespace UniLaunch.Core.ConnectivityCheck;
 
 public class NetworkConnectivityChecker
 {
-    private Uri _endpoint;
-    private TimeSpan _timeout;
+    private readonly Uri _endpoint;
+    private readonly TimeSpan _timeout;
     private readonly HttpClient _httpClient;
 
     private readonly TimeSpan _delayBetweenRetries = TimeSpan.FromMilliseconds(50);
