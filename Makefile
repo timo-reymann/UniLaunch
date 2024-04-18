@@ -77,10 +77,8 @@ macos-generate-cask: ## Generate cask ruby file
 		'\nend' > Casks/unilaunch.rb
 
 connectivity-check-build-image: ## Build docker image for connectivity checker
-	@docker buildx build --tag timoreymann/connectivity-check:latest \
-		--platform linux/amd64,linux/arm/v7,linux/arm64 \
-		--push .
-	@docker buildx build --tag timoreymann/connectivity-check:$(VERSION) \
+	@cd ConnectivityCheckServer/ && \
+ 	docker buildx build --tag timoreymann/connectivity-check:latest \
 		--platform linux/amd64,linux/arm/v7,linux/arm64 \
 		--push .
 
