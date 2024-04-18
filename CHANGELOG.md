@@ -1,3 +1,26 @@
+## [1.1.0](https://github.com/timo-reymann/UniLaunch/compare/1.0.0...1.1.0) (2024-04-18)
+
+
+### Features
+
+* **#8:** Add connectivity check functionality for targets ([4de54de](https://github.com/timo-reymann/UniLaunch/commit/4de54de7379597e76266a72a253bef103dfe59af)), closes [#8](https://github.com/timo-reymann/UniLaunch/issues/8) [#9](https://github.com/timo-reymann/UniLaunch/issues/9)
+* Add connectivity toggle to target controls ([d8ecdce](https://github.com/timo-reymann/UniLaunch/commit/d8ecdce30b09cb65ad647ba1726c032e5c837100))
+* Add network connectivity toggle control ([98b5125](https://github.com/timo-reymann/UniLaunch/commit/98b5125ce454d55b3bfad98f038261cd55a7b529))
+* Add NetworkConnectivityChecker ([1f70102](https://github.com/timo-reymann/UniLaunch/commit/1f701025777bb985db9e4c20d7bbde987334ad11))
+* Add URI converter to write urls properly ([64106e6](https://github.com/timo-reymann/UniLaunch/commit/64106e6b8fc48318d1b300f5e950784b5b7c7ba8))
+* Extend settings dialog with connectivity config ([094fd13](https://github.com/timo-reymann/UniLaunch/commit/094fd13566b6057365b521c01ec7b22ff470df2b))
+* Extend target to have possibility to depend on network connectivity ([838b99e](https://github.com/timo-reymann/UniLaunch/commit/838b99e2ac254d6d6c9d5031893ead0be59244b2))
+* Split network depending on connectivity check and regular target startup ([433d7f7](https://github.com/timo-reymann/UniLaunch/commit/433d7f7067a9272eae008fb3dc9230c40d92e165))
+* Sync settings changes back to main window unsaved ([617f05b](https://github.com/timo-reymann/UniLaunch/commit/617f05b8846205de4699f5e8897c638eeb165a3b))
+
+
+### Bug Fixes
+
+* Add base properties to view model dependency generation ([882f0d7](https://github.com/timo-reymann/UniLaunch/commit/882f0d7529ea504c14ab0985f7b47449ddda054c))
+* Fix serialization error when endpoint and timeout are not set ([2d5ef92](https://github.com/timo-reymann/UniLaunch/commit/2d5ef9208968be1229a84baaebe3f7af69b8e35b))
+* Fix target invoke result output ([7ff0af8](https://github.com/timo-reymann/UniLaunch/commit/7ff0af8aa6997d2c36cf2a7aba535ca1230e2c41))
+* **viewmodel-generator:** Generate properties also for base model properties ([5a46972](https://github.com/timo-reymann/UniLaunch/commit/5a46972517998737378ff02c7baf81d37c15cc9f))
+
 ## [0.1.0](https://github.com/timo-reymann/UniLaunch/compare/0.0.7...0.1.0) (2024-03-13)
 
 
