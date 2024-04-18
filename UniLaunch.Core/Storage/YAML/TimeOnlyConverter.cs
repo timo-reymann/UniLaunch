@@ -32,7 +32,6 @@ public class TimeOnlyConverter : IYamlTypeConverter
     {
         if (value is TimeOnly time)
         {
-            ;
             emitter.Emit(new Scalar(time.ToString(Format)));
         }
         else
