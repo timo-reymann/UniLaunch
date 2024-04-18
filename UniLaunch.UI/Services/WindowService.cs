@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using UniLaunch.UI.Views;
 
@@ -11,9 +12,9 @@ public class WindowService(Window mainWindow) : IWindowService
         window.Show(mainWindow);
     }
 
-    public void ShowWindowAsDialog(Window window)
+    public Task ShowWindowAsDialog(Window window)
     {
         window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-        window.ShowDialog(mainWindow);
+        return window.ShowDialog(mainWindow);
     }
 }
