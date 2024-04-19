@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/timo-reymann/UniLaunch/compare/1.1.0...1.2.0) (2024-04-19)
+
+
+### Features
+
+* **#10:** Add self hosted connectivity check server ([7ab5d64](https://github.com/timo-reymann/UniLaunch/commit/7ab5d64d5bdb60b3f63b9b7f9f81f8f3cf1d34fc)), closes [#10](https://github.com/timo-reymann/UniLaunch/issues/10)
+
 ## [1.1.0](https://github.com/timo-reymann/UniLaunch/compare/1.0.0...1.1.0) (2024-04-18)
 
 
