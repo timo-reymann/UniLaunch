@@ -4,9 +4,9 @@ namespace UniLaunch.Core.Storage.Serialization;
 /// Property value to use to deserialize to the given type
 /// </summary>
 [AttributeUsage(AttributeTargets.Class)]
-public class PropertyValueForSerialization  : Attribute
+public class PropertyValueForSerializationAttribute  : Attribute
 {
-    public PropertyValueForSerialization(string value)
+    public PropertyValueForSerializationAttribute(string value)
     {
         Value = value;
     }

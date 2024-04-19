@@ -22,7 +22,7 @@ public static class CustomTypeRegistry
             .PropertyName;
 
         var propertyValue = type
-            .GetCustomAttribute<PropertyValueForSerialization>(true)!
+            .GetCustomAttribute<PropertyValueForSerializationAttribute>(true)!
             .Value;
 
         if (
