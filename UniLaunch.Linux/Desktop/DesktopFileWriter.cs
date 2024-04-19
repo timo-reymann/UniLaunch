@@ -2,23 +2,23 @@ namespace UniLaunch.Linux.Desktop;
 
 public class DesktopFileWriter : IDisposable
 {
-    private StreamWriter writer;
+    private readonly StreamWriter _writer;
 
     public DesktopFileWriter(string path)
     {
-        writer = new StreamWriter(path);
-        writer.WriteLine("[Desktop Entry]");
+        _writer = new StreamWriter(path);
+        _writer.WriteLine("[Desktop Entry]");
     }
 
     public void Write(string key, string value)
     {
-        writer.WriteLine($"{key}={value}");
+        _writer.WriteLine($"{key}={value}");
     }
 
-    public void Flush() => writer.Flush();
+    public void Flush() => _writer.Flush();
     
     public void Dispose()
     {
-        writer.Dispose();
+        _writer.Dispose();
     }
 }
