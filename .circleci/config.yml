@@ -19,6 +19,7 @@ orbs:
   github-utils: trustedshops-public/github-utils@1.1.2
   github-cli: circleci/github-cli@2.3.0
   semantic-release: trustedshops-public/semantic-release@6.0.0
+  docker: circleci/docker@2.6.0
 
 commands:
   install_dotnet:
@@ -167,7 +168,7 @@ jobs:
             git stage Casks/unilaunch.rb
             git commit -m "chore: Update cask for ${CIRCLE_TAG}" -m "[skip ci]"
             git push origin main
-            
+
   patch-version:
     executor: linux
     steps:
@@ -179,6 +180,26 @@ jobs:
           paths:
             - Platform.targets
           root: .
+
+  build-connectivity-checker:
+    executor: docker/docker
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ./
+      - setup_remote_docker:
+          version: default
+      - run:
+          name: Build and publish image
+          command: |
+            echo "$DOCKER_TOKEN" | docker login -u "$DOCKER_USERNAME" --password-stdin
+            docker buildx create --use
+            make connectivity-check-build-image
+      - docker/update-description:
+          image: timoreymann/connectivity-check
+          docker-username: DOCKER_USERNAME
+          docker-password: DOCKER_TOKEN
+          path: ConnectivityCheckServer
 
 workflows:
   main:
@@ -201,6 +222,11 @@ workflows:
           requires:
             - unit-test
             - patch-version
+      - build-connectivity-checker:
+          filters:
+            branches:
+              only:
+                - main
       - prepare-release:
           <<: *tags_and_branches
           requires:
