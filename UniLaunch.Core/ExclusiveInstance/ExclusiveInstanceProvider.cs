@@ -13,7 +13,7 @@ public class ExclusiveInstanceProvider : IDisposable
     {
         if (!_mutex!.WaitOne(TimeSpan.FromSeconds(1), false))
         {
-            throw new ExclusiveInstanceAccquireFailed();
+            throw new ExclusiveInstanceAcquireFailedException();
         }
     }
 

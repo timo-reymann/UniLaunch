@@ -13,7 +13,7 @@ try
 {
     provider.Acquire();
 }
-catch (ExclusiveInstanceAccquireFailed e)
+catch (ExclusiveInstanceAcquireFailedException e)
 {
     return 16; // Device or resource busy
 }
