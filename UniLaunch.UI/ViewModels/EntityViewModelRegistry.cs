@@ -8,7 +8,7 @@ namespace UniLaunch.UI.ViewModels;
 
 public class EntityViewModelRegistry
 {
-    private Dictionary<Type, Type> _entityViewModelMapping = new();
+    private readonly Dictionary<Type, Type> _entityViewModelMapping = new();
 
     public static EntityViewModelRegistry Instance { get; } = new();
 
