@@ -18,7 +18,7 @@ public static class CustomTypeRegistry
         var baseType = type.BaseType!;
 
         var propertyName = type
-            .GetCustomAttribute<PropertyBasedSerialization>(true)!
+            .GetCustomAttribute<PropertyBasedSerializationAttribute>(true)!
             .PropertyName;
 
         var propertyValue = type

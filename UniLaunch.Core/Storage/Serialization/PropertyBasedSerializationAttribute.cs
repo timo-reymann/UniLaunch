@@ -4,9 +4,9 @@ namespace UniLaunch.Core.Storage.Serialization;
 /// Specify which property name should be used to extract the value for the type mapping
 /// </summary>
 [AttributeUsage(AttributeTargets.Class)]
-public class PropertyBasedSerialization : Attribute
+public class PropertyBasedSerializationAttribute : Attribute
 {
-    public PropertyBasedSerialization(string propertyName)
+    public PropertyBasedSerializationAttribute(string propertyName)
     {
         PropertyName = propertyName;
     }
