@@ -63,5 +63,7 @@ public class PlistDictWriter : IDisposable
         _writer.WriteEndElement();
         _writer.WriteEndElement();
         _writer.Close();
+        _writer.Dispose();
+        GC.SuppressFinalize(this);
     }
 }

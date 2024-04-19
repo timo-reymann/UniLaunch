@@ -29,5 +29,6 @@ public class DesktopFileWriterTest : IDisposable
     {
         _desktopFileWriter.Dispose();
         File.Delete(_tempFilePath);
+        GC.SuppressFinalize(this);
     }
 }

@@ -20,5 +20,6 @@ public class DesktopFileWriter : IDisposable
     public void Dispose()
     {
         _writer.Dispose();
+        GC.SuppressFinalize(this);
     }
 }
