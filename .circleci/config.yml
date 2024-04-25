@@ -92,7 +92,7 @@ jobs:
   build-windows:
     executor:
       name: win/default
-      size: medium
+      size: large
     steps:
       - checkout_and_attach
       - install_dotnet:
