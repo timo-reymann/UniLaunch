@@ -431,7 +431,3 @@ make {linux|windows|macos}-build
 ### Alternatives
 
 - Manual autostart and scripts for each platform (script-based; etc.)
-
-## TODO
-
-- [ ] Create first stable release
