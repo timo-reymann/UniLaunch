@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:24.04
 ARG linuxdeploy_arch
 WORKDIR /build
 RUN apt-get update \
