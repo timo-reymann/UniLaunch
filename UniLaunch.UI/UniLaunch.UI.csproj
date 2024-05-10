@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <Import Project="../CodeGeneration.targets"/>
-    
+
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
@@ -10,9 +10,8 @@
 
     <ItemGroup>
         <AvaloniaResource Include="Assets\*"/>
-        <AvaloniaResource Include="Assets\Fonts\*.ttf" />
+        <AvaloniaResource Include="Assets\Fonts\*.ttf"/>
         <Folder Include="Models\"/>
-        <AvaloniaResource Include="..\Resources\**"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -20,15 +19,15 @@
         <PackageReference Include="Avalonia.Desktop"/>
         <PackageReference Include="Avalonia.Themes.Fluent"/>
         <PackageReference Include="Avalonia.Fonts.Inter"/>
-        <PackageReference Include="Avalonia.Diagnostics" Condition="'$(Configuration)' == 'Debug'" />
+        <PackageReference Include="Avalonia.Diagnostics" Condition="'$(Configuration)' == 'Debug'"/>
         <PackageReference Include="Avalonia.ReactiveUI"/>
         <PackageReference Include="Avalonia.Native"/>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection"/>
         <PackageReference Include="MessageBox.Avalonia"/>
         <PackageReference Include="Projektanker.Icons.Avalonia"/>
         <PackageReference Include="Projektanker.Icons.Avalonia.FontAwesome"/>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
-        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp"/>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -36,13 +35,25 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Controls\Rules\TimeRuleControl.axaml.cs">
-        <DependentUpon>TimeRuleControl.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Controls\Rules\WeekdayRuleControl.axaml.cs">
-        <DependentUpon>WeekdayRuleControl.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
+        <Compile Update="Controls\Rules\TimeRuleControl.axaml.cs">
+            <DependentUpon>TimeRuleControl.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+        <Compile Update="Controls\Rules\WeekdayRuleControl.axaml.cs">
+            <DependentUpon>WeekdayRuleControl.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+        <Compile Update="Assets\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Assets\Resources.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
     </ItemGroup>
 </Project>
