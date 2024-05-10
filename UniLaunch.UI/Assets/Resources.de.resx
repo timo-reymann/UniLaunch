@@ -14,172 +14,167 @@
         <value>1.3</value>
     </resheader>
     <resheader name="reader">
-        <value>
-            System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        </value>
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <resheader name="writer">
-        <value>
-            System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        </value>
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    
+
     <!-- Placeholder texts -->
     <data name="PlaceholderNewRuleSet">
-        <value>New rule set ({0})</value>
+        <value>Neuer Regelsatz ({0})</value>
     </data>
 
     <!-- MainWindow -->
     <data name="AppMenuOpenFile" xml:space="preserve">
-        <value>Open ...</value>
+        <value>Öffnen ...</value>
     </data>
     <data name="AppMenuSaveFile">
-        <value>Save</value>
+        <value>Speichern</value>
     </data>
     <data name="AppMenuSaveToFile" xml:space="preserve">
-        <value>Save to ...</value>
-    </data>
-    <data name="AppMenuExit" xml:space="preserve">
-        <value>Close</value>
+        <value>Speichern als ...</value>
     </data>
     <data name="AppMenuUnsavedChangesToolTip" xml:space="preserve">
-        <value>You have unsaved changes</value>
+        <value>Du hast ungespeicherte Änderungen</value>
+    </data>
+    <data name="AppMenuExit" xml:space="preserve">
+        <value>Beenden</value>
     </data>
     <data name="NavTabsTitleTargets">
-        <value>Targets</value>
+        <value>Ziele</value>
     </data>
     <data name="NavTabsTitleRulesets">
-        <value>Rulesets</value>
+        <value>Regelsätze</value>
     </data>
     <data name="NavTabsTitleEntries">
-        <value>Entries</value>
+        <value>Einträge</value>
     </data>
-    
 
     <!-- About -->
     <data name="AboutWindowTitle" xml:space="preserve">
-        <value>About UniLaunch</value>
+        <value>Über UniLaunch</value>
     </data>
     <data name="AboutWindowDescription" xml:space="preserve">
-        <value>Advanced universal autostart tool for use on Linux, MacOS and Windows.</value>
+        <value>Fortschrittliches universelles Autostart-Tool für den Einsatz unter Linux, MacOS und Windows.</value>
     </data>
     <data name="AboutWindowLabelVersion">
         <value>Version</value>
     </data>
     <data name="AboutWindowLabelCreatedBy" xml:space="preserve">
-        <value>Created by</value>
+        <value>Erstellt von</value>
     </data>
     <data name="AboutWindowLabelLicense" xml:space="preserve">
-        <value>Licensed under</value>
+        <value>Lizenziert unter</value>
     </data>
 
     <!-- Settings -->
     <data name="SettingsWindowTitle">
-        <value>Settings</value>
+        <value>Einstellungen</value>
     </data>
     <data name="SettingsWindowConnectivityCheckTitle" xml:space="preserve">
-        <value>Connectivity Check</value>
+        <value>Verbindungsprüfung</value>
     </data>
     <data name="SettingsWindowConnectivityCheckLabelEndpoint">
-        <value>Endpoint</value>
+        <value>Endpunkt</value>
     </data>
     <data name="SettingsWindowConnectivityCheckLabelTimeout">
-        <value>Timeout</value>
+        <value>Zeitüberschreitung</value>
     </data>
     <data name="SettingsWindowEditorSettingsTitle" xml:space="preserve">
-        <value>Editor Settings</value>
+        <value>Editor Einstellungen</value>
     </data>
     <data name="SettingsWindowEditorSettingsLabelThemeVariant" xml:space="preserve">
-        <value>Theme Variant</value>
+        <value>Themen-Variante</value>
     </data>
     <data name="SettingsWindowEditorSettingsLabelThemeVariantSystem" xml:space="preserve">
-        <value>Same as system</value>
+        <value>Gleich wie das System</value>
     </data>
     <data name="SettingsWindowEditorSettingsLabelThemeVariantDark" >
-        <value>Dark</value>
+        <value>Dunkel</value>
     </data>
     <data name="SettingsWindowEditorSettingsLabelThemeVariantLight">
-        <value>Light</value>
+        <value>Hell</value>
     </data>
-    
+
     <!-- AutoStartEntryControl -->
     <data name="AutoStartEntryControlLabelTarget">
-        <value>Target</value>
+        <value>Ziele</value>
     </data>
     <data name="AutoStartEntryControlLabelRuleset" xml:space="preserve">
-        <value>Ruleset</value>
+        <value>Regelsatz</value>
     </data>
     <data name="AutoStartEntryControlLabelContainsRules" xml:space="preserve">
-        <value> (contains {0} rules)</value>
+        <value> (enthält {0} Regeln)</value>
     </data>
-    
+
     <!-- RuleSetControl -->
     <data name="RuleSetControlLabelName">
-        <value>Name</value>
+        <value>Bezeichnung</value>
     </data>
     <data name="RuleSetControlLabelRules">
-        <value>Rules</value>
+        <value>Regeln</value>
     </data>
-    
+
     <!-- AlwaysRuleControl -->
     <data name="AlwaysRuleControlDisplayName">
-        <value>Always</value>
+        <value>Immer</value>
     </data>
 
     <!-- TimeRuleControl -->
     <data name="TimeRuleControlPreposition">
-        <value>to</value>
+        <value>bis</value>
     </data>
 
     <!-- WeekdayRuleControl -->
     <data name="WeekdayRuleControlLabelMonday">
-        <value>Mon</value>
+        <value>Mo</value>
     </data>
     <data name="WeekdayRuleControlLabelTuesday">
-        <value>Tue</value>
+        <value>Di</value>
     </data>
     <data name="WeekdayRuleControlLabelWednesday">
-        <value>Wed</value>
+        <value>Mi</value>
     </data>
     <data name="WeekdayRuleControlLabelThursday">
-        <value>Thu</value>
+        <value>Do</value>
     </data>
     <data name="WeekdayRuleControlLabelFriday">
-        <value>Fri</value>
+        <value>Fr</value>
     </data>
     <data name="WeekdayRuleControlLabelSaturday">
-        <value>Sat</value>
+        <value>Sa</value>
     </data>
     <data name="WeekdayRuleControlLabelSunday">
-        <value>Sun</value>
+        <value>So</value>
     </data>
 
     <!-- GenericTargetControl -->
     <data name="GenericTargetControlLabelDependencies" xml:space="preserve">
-        <value>Dependencies</value>
+        <value>Abhängigkeiten</value>
     </data>
-    
+
     <!-- ExecutableTargetControl -->
     <data name="ExecutableTargetControlLabelTargetName" xml:space="preserve">
-        <value>Target Name</value>
+        <value>Name des Ziels</value>
     </data>
     <data name="ExecutableTargetControlLabelExecutablePath" xml:space="preserve">
-        <value>Path to executable</value>
+        <value>Pfad zur ausführbaren Datei</value>
     </data>
     <data name="ExecutableTargetControlLabelArguments" xml:space="preserve">
-        <value>Arguments to pass to executable</value>
+        <value>Argumente für die ausführbare Datei</value>
     </data>
-    
+
     <!-- WaitForNetworkConnectivityToggleControl -->
     <data name="WaitForNetworkConnectivityToggleControlLabelWaitForNetwork" xml:space="preserve">
-        <value> Wait for network connectivity</value>
+        <value> Warte auf Netzwerkverbindung</value>
     </data>
-    
+
     <!-- AppFileTargetControl -->
     <data name="AppFileTargetControlLabelName" xml:space="preserve">
-        <value>Name</value>
+        <value>Bezeichnung</value>
     </data>
     <data name="AppFileTargetControlLabelAppFile" xml:space="preserve">
-        <value>Path to .app file</value>
+        <value>Pfad zur .app Datei</value>
     </data>
 </root>

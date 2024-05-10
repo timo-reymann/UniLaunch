@@ -45,6 +45,12 @@ namespace UniLaunch.UI.Assets {
             }
         }
         
+        public static string PlaceholderNewRuleSet {
+            get {
+                return ResourceManager.GetString("PlaceholderNewRuleSet", resourceCulture);
+            }
+        }
+        
         public static string AppMenuOpenFile {
             get {
                 return ResourceManager.GetString("AppMenuOpenFile", resourceCulture);
@@ -60,6 +66,12 @@ namespace UniLaunch.UI.Assets {
         public static string AppMenuSaveToFile {
             get {
                 return ResourceManager.GetString("AppMenuSaveToFile", resourceCulture);
+            }
+        }
+        
+        public static string AppMenuExit {
+            get {
+                return ResourceManager.GetString("AppMenuExit", resourceCulture);
             }
         }
         
