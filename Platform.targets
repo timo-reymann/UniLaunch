@@ -4,6 +4,7 @@
     <!-- App Metadata -->
     <PropertyGroup>
         <Version>0.0.2</Version>
+        <NeutralLanguage>en</NeutralLanguage>
     </PropertyGroup>
 
     <!-- Runtime & Publish Configuration -->
