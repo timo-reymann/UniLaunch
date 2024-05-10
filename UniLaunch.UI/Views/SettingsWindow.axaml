@@ -29,7 +29,7 @@
         <Grid HorizontalAlignment="Left"
               Margin="0 0 0 30"
               RowDefinitions="60, 20, Auto, 30, Auto"
-              ColumnDefinitions="380">
+              ColumnDefinitions="400">
             <TextBlock Grid.Row="0"
                        FontSize="40"
                        Text="{x:Static assets:Resources.SettingsWindowConnectivityCheckTitle}" />
@@ -64,7 +64,7 @@
         </Grid>
         <Grid HorizontalAlignment="Left"
               RowDefinitions="60, 20, Auto, 30, 40"
-              ColumnDefinitions="380">
+              ColumnDefinitions="400">
             <TextBlock Grid.Row="0"
                        FontSize="40"
                        Text="{x:Static assets:Resources.SettingsWindowEditorSettingsTitle}" />
