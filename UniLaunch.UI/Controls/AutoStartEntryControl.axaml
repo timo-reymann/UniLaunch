@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:UniLaunch.UI.ViewModels"
+             xmlns:assets="clr-namespace:UniLaunch.UI.Assets"
              mc:Ignorable="d" 
              d:DesignWidth="700" 
              d:DesignHeight="120"
@@ -12,7 +13,7 @@
         <vm:AutoStartEntryViewModel />
     </Design.DataContext>
     <StackPanel>
-        <Label>Target</Label>
+        <Label Content="{x:Static assets:Resources.AutoStartEntryControlLabelTarget}" />
         <ComboBox HorizontalAlignment="Stretch"
                   SelectedItem="{Binding SelectedTarget}"
                   ItemsSource="{Binding AvailableTargets}">
@@ -23,7 +24,7 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         
-        <Label>Rule Set</Label>
+        <Label Content="{x:Static assets:Resources.AutoStartEntryControlLabelRuleset}" />
         <ComboBox HorizontalAlignment="Stretch" 
                   SelectedItem="{Binding SelectedRuleSet}"
                   ItemsSource="{Binding AvailableRuleSets}">
@@ -31,7 +32,7 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Name}" />
-                        <TextBlock Text="{Binding Rules.Count,  StringFormat=' (contains {0} rules)', Mode=OneWay}" />
+                        <TextBlock Text="{Binding Rules.Count,  StringFormat={x:Static assets:Resources.AutoStartEntryControlLabelContainsRules}, Mode=OneWay}" />
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>

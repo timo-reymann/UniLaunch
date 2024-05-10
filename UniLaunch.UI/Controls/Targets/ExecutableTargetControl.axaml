@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:UniLaunch.UI.ViewModels.Targets"
              xmlns:controls="using:UniLaunch.UI.Controls"
-             xmlns:targets-controls="using:UniLaunch.UI.Controls.Targets"
+             xmlns:targets-Controls="using:UniLaunch.UI.Controls.Targets"
+             xmlns:assets="clr-namespace:UniLaunch.UI.Assets"
              mc:Ignorable="d"
              d:DesignWidth="300"
              d:DesignHeight="230"
@@ -14,15 +15,19 @@
         <vm:ExecutableTargetViewModel />
     </Design.DataContext>
     <StackPanel>
-        <Label>Target Name</Label>
+        <Label Content="{x:Static assets:Resources.ExecutableTargetControlLabelTargetName}" />
         <TextBox Text="{Binding NameProperty,Mode=TwoWay}" />
-        <Label>Path to executable</Label>
+        
+        <Label Content="{x:Static assets:Resources.ExecutableTargetControlLabelExecutablePath}" />
         <controls:TextInputWithFilePicker
             Margin="0 0 0 5 "
             Path="{Binding ExecutableProperty}" />
-        <Label>Arguments to pass to executable</Label>
+        
+        <Label Content="{x:Static assets:Resources.ExecutableTargetControlLabelArguments}" />
         <TextBox Text="{Binding ArgumentsListProperty}" />
-        <Label>Dependencies</Label>
-        <targets-controls:WaitForNetworkConnectivityToggle State="{Binding WaitForNetworkConnectivityProperty,Mode=TwoWay}" />
+        
+        <Label Content="{x:Static assets:Resources.GenericTargetControlLabelDependencies}" />
+        <targets-Controls:WaitForNetworkConnectivityToggle
+            State="{Binding WaitForNetworkConnectivityProperty,Mode=TwoWay}" />
     </StackPanel>
 </UserControl>

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:UniLaunch.UI.ViewModels.Rules"
              xmlns:converter="clr-namespace:UniLaunch.UI.Converter"
+             xmlns:assets="clr-namespace:UniLaunch.UI.Assets"
              mc:Ignorable="d"
              d:DesignWidth="400"
              d:DesignHeight="50"
@@ -31,9 +32,8 @@
         <Label Grid.Column="1"
                VerticalAlignment="Center"
                HorizontalAlignment="Center"
-               Margin="10">
-            to
-        </Label>
+               Margin="10" 
+               Content="{x:Static assets:Resources.TimeRuleControlPreposition}" />
         <Viewbox Grid.Column="2" HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch">
             <TimePicker
