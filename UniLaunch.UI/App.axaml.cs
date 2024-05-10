@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
@@ -33,7 +34,7 @@ public class App : Application
                 .AddSingleton<IWindowService>(_ => new WindowService(desktop.MainWindow))
                 .AddSingleton<IEditorConfigurationService>(_ => new EditorConfigurationService())
                 .BuildServiceProvider();
-
+            
             AdjustEditorUIBasedOnSettings();
         }
 
@@ -58,6 +59,7 @@ public class App : Application
             "Dark" => ThemeVariant.Dark,
             _ => ThemeVariant.Default
         };
+        Assets.Resources.Culture = new CultureInfo(editorConfigService.Current.Language);
     }
 
     public new static App? Current => Application.Current as App;

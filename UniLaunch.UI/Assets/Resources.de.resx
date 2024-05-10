@@ -25,6 +25,15 @@
         <value>Neuer Regelsatz ({0})</value>
     </data>
 
+    <!-- Locale names -->
+    <data name="LocaleNameDE">
+        <value>deutsch</value>
+    </data>
+
+    <data name="LocaleNameEN">
+        <value>englisch</value>
+    </data>
+
     <!-- MainWindow -->
     <data name="AppMenuOpenFile" xml:space="preserve">
         <value>Öffnen ...</value>
@@ -95,6 +104,9 @@
     </data>
     <data name="SettingsWindowEditorSettingsLabelThemeVariantLight">
         <value>Hell</value>
+    </data>
+    <data name="SettingsWindowEditorSettingsLabelLanguage">
+        <value>Sprache (beim Ändern muss die App neugestartet werden)</value>
     </data>
 
     <!-- AutoStartEntryControl -->

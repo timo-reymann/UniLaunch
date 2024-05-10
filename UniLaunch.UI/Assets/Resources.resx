@@ -15,15 +15,17 @@
     </resheader>
     <resheader name="reader">
         <value>
-            System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+            System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
         </value>
     </resheader>
     <resheader name="writer">
         <value>
-            System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+            System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
         </value>
     </resheader>
-    
+
     <!-- Placeholder texts -->
     <data name="PlaceholderNewRuleSet">
         <value>New rule set ({0})</value>
@@ -54,7 +56,7 @@
     <data name="NavTabsTitleEntries">
         <value>Entries</value>
     </data>
-    
+
 
     <!-- About -->
     <data name="AboutWindowTitle" xml:space="preserve">
@@ -71,6 +73,15 @@
     </data>
     <data name="AboutWindowLabelLicense" xml:space="preserve">
         <value>Licensed under</value>
+    </data>
+
+    <!-- Locale names -->
+    <data name="LocaleNameDE">
+        <value>german</value>
+    </data>
+
+    <data name="LocaleNameEN">
+        <value>english</value>
     </data>
 
     <!-- Settings -->
@@ -95,13 +106,16 @@
     <data name="SettingsWindowEditorSettingsLabelThemeVariantSystem" xml:space="preserve">
         <value>Same as system</value>
     </data>
-    <data name="SettingsWindowEditorSettingsLabelThemeVariantDark" >
+    <data name="SettingsWindowEditorSettingsLabelThemeVariantDark">
         <value>Dark</value>
     </data>
     <data name="SettingsWindowEditorSettingsLabelThemeVariantLight">
         <value>Light</value>
     </data>
-    
+    <data name="SettingsWindowEditorSettingsLabelLanguage">
+        <value>Language (restart app when changing)</value>
+    </data>
+
     <!-- AutoStartEntryControl -->
     <data name="AutoStartEntryControlLabelTarget">
         <value>Target</value>
@@ -112,7 +126,7 @@
     <data name="AutoStartEntryControlLabelContainsRules" xml:space="preserve">
         <value> (contains {0} rules)</value>
     </data>
-    
+
     <!-- RuleSetControl -->
     <data name="RuleSetControlLabelName">
         <value>Name</value>
@@ -120,7 +134,7 @@
     <data name="RuleSetControlLabelRules">
         <value>Rules</value>
     </data>
-    
+
     <!-- AlwaysRuleControl -->
     <data name="AlwaysRuleControlDisplayName">
         <value>Always</value>
@@ -158,7 +172,7 @@
     <data name="GenericTargetControlLabelDependencies" xml:space="preserve">
         <value>Dependencies</value>
     </data>
-    
+
     <!-- ExecutableTargetControl -->
     <data name="ExecutableTargetControlLabelTargetName" xml:space="preserve">
         <value>Target Name</value>
@@ -169,12 +183,12 @@
     <data name="ExecutableTargetControlLabelArguments" xml:space="preserve">
         <value>Arguments to pass to executable</value>
     </data>
-    
+
     <!-- WaitForNetworkConnectivityToggleControl -->
     <data name="WaitForNetworkConnectivityToggleControlLabelWaitForNetwork" xml:space="preserve">
         <value> Wait for network connectivity</value>
     </data>
-    
+
     <!-- AppFileTargetControl -->
     <data name="AppFileTargetControlLabelName" xml:space="preserve">
         <value>Name</value>

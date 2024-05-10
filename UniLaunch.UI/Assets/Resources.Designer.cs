@@ -183,6 +183,12 @@ namespace UniLaunch.UI.Assets {
             }
         }
         
+        public static string SettingsWindowEditorSettingsLabelLanguage {
+            get {
+                return ResourceManager.GetString("SettingsWindowEditorSettingsLabelLanguage", resourceCulture);
+            }
+        }
+        
         public static string AutoStartEntryControlLabelTarget {
             get {
                 return ResourceManager.GetString("AutoStartEntryControlLabelTarget", resourceCulture);

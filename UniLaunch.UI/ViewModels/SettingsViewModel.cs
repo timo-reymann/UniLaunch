@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using ReactiveUI;
 using UniLaunch.Core.Autostart;
@@ -14,6 +15,13 @@ public partial class SettingsViewModel
     public bool HasChangesForConnectivityCheckConfig { get; private set; }
 
     private TimeSpan? _connectivityCheckConfigurationTimeout;
+
+    public List<string> AvailableLanguages =>
+        new()
+        {
+            "de",
+            "en",
+        };
 
     public TimeSpan? ConnectivityCheckConfigurationTimeout
     {
@@ -42,7 +50,7 @@ public partial class SettingsViewModel
             {
                 return;
             }
-            
+
             FromConfig().Endpoint = value;
             HasChangesForConnectivityCheckConfig = true;
             this.RaiseAndSetIfChanged(ref _connectivityCheckConfigurationEndpoint, value);
