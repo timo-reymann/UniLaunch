@@ -96,7 +96,7 @@
                             <system:Boolean>True</system:Boolean>
                         </MenuItem.CommandParameter>
                     </MenuItem>
-                    <MenuItem Header="Close"
+                    <MenuItem Header="{x:Static assets:Resources.AppMenuExit}"
                               i:MenuItem.Icon="fa-static fa-xmark"
                               Command="{Binding Close}" />
                 </MenuItem>

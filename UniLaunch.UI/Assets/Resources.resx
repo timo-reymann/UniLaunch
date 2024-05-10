@@ -34,6 +34,9 @@
     <data name="AppMenuSaveToFile" xml:space="preserve">
         <value>Save to ...</value>
     </data>
+    <data name="AppMenuExit" xml:space="preserve">
+        <value>Close</value>
+    </data>
     <data name="AppMenuUnsavedChangesToolTip" xml:space="preserve">
         <value>You have unsaved changes</value>
     </data>
@@ -46,6 +49,7 @@
     <data name="NavTabsTitleEntries">
         <value>Entries</value>
     </data>
+    
 
     <!-- About -->
     <data name="AboutWindowTitle" xml:space="preserve">
