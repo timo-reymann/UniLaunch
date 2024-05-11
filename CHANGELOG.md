@@ -1,3 +1,10 @@
+## [1.3.0](https://github.com/timo-reymann/UniLaunch/compare/1.2.0...1.3.0) (2024-05-11)
+
+
+### Features
+
+* Add localization support ([#13](https://github.com/timo-reymann/UniLaunch/issues/13)) ([9855207](https://github.com/timo-reymann/UniLaunch/commit/985520799a72edb5ea95e94036d08cb824c8c17f))
+
 ## [1.2.0](https://github.com/timo-reymann/UniLaunch/compare/1.1.0...1.2.0) (2024-04-19)
 
 
