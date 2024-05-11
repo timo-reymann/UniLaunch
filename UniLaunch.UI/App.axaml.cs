@@ -1,6 +1,7 @@
 using System;
 using System.Globalization;
 using System.Threading;
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
@@ -73,7 +74,7 @@ public class App : Application
         };
     }
 
-    private async void CheckForUpdates()
+    private async Task CheckForUpdates()
     {
         var updateAvailableCheck = await new AvailableUpdateChecker().CheckAvailableUpdate();
         if (!updateAvailableCheck.Item1)
