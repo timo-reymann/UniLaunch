@@ -115,6 +115,15 @@
     <data name="SettingsWindowEditorSettingsLabelLanguage">
         <value>Language (restart app when changing)</value>
     </data>
+    <data name="SettingsWindowEditorSettingsLabelCheckForUpdatesOnStartup" xml:space="preserve">
+        <value>Check for updates on open</value>
+    </data>
+    <data name="SettingsWindowEditorSettingsLabelYes" xml:space="preserve">
+        <value>Yes</value>
+    </data>
+    <data name="SettingsWindowEditorSettingsLabelNo" xml:space="preserve">
+        <value>No</value>
+    </data>
 
     <!-- AutoStartEntryControl -->
     <data name="AutoStartEntryControlLabelTarget">
@@ -196,4 +205,16 @@
     <data name="AppFileTargetControlLabelAppFile" xml:space="preserve">
         <value>Path to .app file</value>
     </data>
+
+    <!-- Dialogs -->
+    <data name="DialogUpdateAvailableTitle" xml:space="preserve">
+        <value>Update available</value>
+    </data>
+    <data name="DialogUpdateAvailableDescription" xml:space="preserve">
+        <value>Version {0} is available to download</value>
+    </data>
+    <data name="DialogUpdateAvailableAction" xml:space="preserve">
+        <value>Download from GitHub</value>
+    </data>
+    
 </root>

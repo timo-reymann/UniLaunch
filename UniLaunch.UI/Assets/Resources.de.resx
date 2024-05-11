@@ -108,6 +108,15 @@
     <data name="SettingsWindowEditorSettingsLabelLanguage">
         <value>Sprache (beim Ändern App neustarten)</value>
     </data>
+    <data name="SettingsWindowEditorSettingsLabelCheckForUpdatesOnStartup" xml:space="preserve">
+        <value>Beim Starten nach Updates suchen</value>
+    </data>
+    <data name="SettingsWindowEditorSettingsLabelYes" xml:space="preserve">
+        <value>Ja</value>
+    </data>
+    <data name="SettingsWindowEditorSettingsLabelNo" xml:space="preserve">
+        <value>Nein</value>
+    </data>
 
     <!-- AutoStartEntryControl -->
     <data name="AutoStartEntryControlLabelTarget">
@@ -189,4 +198,16 @@
     <data name="AppFileTargetControlLabelAppFile" xml:space="preserve">
         <value>Pfad zur .app Datei</value>
     </data>
+
+    <!-- Dialogs -->
+    <data name="DialogUpdateAvailableTitle" xml:space="preserve">
+        <value>Aktualisierung verfügbar</value>
+    </data>
+    <data name="DialogUpdateAvailableDescription" xml:space="preserve">
+        <value>Version {0} steht zum Download bereit</value>
+    </data>
+    <data name="DialogUpdateAvailableAction" xml:space="preserve">
+        <value>Bei GitHub herunterladen</value>
+    </data>
+
 </root>

@@ -314,5 +314,41 @@ namespace UniLaunch.UI.Assets {
                 return ResourceManager.GetString("AppFileTargetControlLabelAppFile", resourceCulture);
             }
         }
+        
+        public static string DialogUpdateAvailableTitle {
+            get {
+                return ResourceManager.GetString("DialogUpdateAvailableTitle", resourceCulture);
+            }
+        }
+        
+        public static string DialogUpdateAvailableDescription {
+            get {
+                return ResourceManager.GetString("DialogUpdateAvailableDescription", resourceCulture);
+            }
+        }
+        
+        public static string DialogUpdateAvailableAction {
+            get {
+                return ResourceManager.GetString("DialogUpdateAvailableAction", resourceCulture);
+            }
+        }
+        
+        public static string SettingsWindowEditorSettingsLabelCheckForUpdatesOnStartup {
+            get {
+                return ResourceManager.GetString("SettingsWindowEditorSettingsLabelCheckForUpdatesOnStartup", resourceCulture);
+            }
+        }
+        
+        public static string SettingsWindowEditorSettingsLabelYes {
+            get {
+                return ResourceManager.GetString("SettingsWindowEditorSettingsLabelYes", resourceCulture);
+            }
+        }
+        
+        public static string SettingsWindowEditorSettingsLabelNo {
+            get {
+                return ResourceManager.GetString("SettingsWindowEditorSettingsLabelNo", resourceCulture);
+            }
+        }
     }
 }
