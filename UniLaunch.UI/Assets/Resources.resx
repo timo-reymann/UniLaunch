@@ -116,7 +116,7 @@
         <value>Language (restart app when changing)</value>
     </data>
     <data name="SettingsWindowEditorSettingsLabelCheckForUpdatesOnStartup" xml:space="preserve">
-        <value>Check for updates on open</value>
+        <value>Check for updates on start</value>
     </data>
     <data name="SettingsWindowEditorSettingsLabelYes" xml:space="preserve">
         <value>Yes</value>
