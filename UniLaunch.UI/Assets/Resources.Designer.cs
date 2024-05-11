@@ -129,6 +129,18 @@ namespace UniLaunch.UI.Assets {
             }
         }
         
+        public static string LocaleNameDE {
+            get {
+                return ResourceManager.GetString("LocaleNameDE", resourceCulture);
+            }
+        }
+        
+        public static string LocaleNameEN {
+            get {
+                return ResourceManager.GetString("LocaleNameEN", resourceCulture);
+            }
+        }
+        
         public static string SettingsWindowTitle {
             get {
                 return ResourceManager.GetString("SettingsWindowTitle", resourceCulture);
@@ -186,6 +198,24 @@ namespace UniLaunch.UI.Assets {
         public static string SettingsWindowEditorSettingsLabelLanguage {
             get {
                 return ResourceManager.GetString("SettingsWindowEditorSettingsLabelLanguage", resourceCulture);
+            }
+        }
+        
+        public static string SettingsWindowEditorSettingsLabelCheckForUpdatesOnStartup {
+            get {
+                return ResourceManager.GetString("SettingsWindowEditorSettingsLabelCheckForUpdatesOnStartup", resourceCulture);
+            }
+        }
+        
+        public static string SettingsWindowEditorSettingsLabelYes {
+            get {
+                return ResourceManager.GetString("SettingsWindowEditorSettingsLabelYes", resourceCulture);
+            }
+        }
+        
+        public static string SettingsWindowEditorSettingsLabelNo {
+            get {
+                return ResourceManager.GetString("SettingsWindowEditorSettingsLabelNo", resourceCulture);
             }
         }
         
@@ -330,24 +360,6 @@ namespace UniLaunch.UI.Assets {
         public static string DialogUpdateAvailableAction {
             get {
                 return ResourceManager.GetString("DialogUpdateAvailableAction", resourceCulture);
-            }
-        }
-        
-        public static string SettingsWindowEditorSettingsLabelCheckForUpdatesOnStartup {
-            get {
-                return ResourceManager.GetString("SettingsWindowEditorSettingsLabelCheckForUpdatesOnStartup", resourceCulture);
-            }
-        }
-        
-        public static string SettingsWindowEditorSettingsLabelYes {
-            get {
-                return ResourceManager.GetString("SettingsWindowEditorSettingsLabelYes", resourceCulture);
-            }
-        }
-        
-        public static string SettingsWindowEditorSettingsLabelNo {
-            get {
-                return ResourceManager.GetString("SettingsWindowEditorSettingsLabelNo", resourceCulture);
             }
         }
     }
