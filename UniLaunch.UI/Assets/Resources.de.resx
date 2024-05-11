@@ -106,7 +106,7 @@
         <value>Hell</value>
     </data>
     <data name="SettingsWindowEditorSettingsLabelLanguage">
-        <value>Sprache (beim Ändern muss die App neugestartet werden)</value>
+        <value>Sprache (beim Ändern App neustarten)</value>
     </data>
 
     <!-- AutoStartEntryControl -->
