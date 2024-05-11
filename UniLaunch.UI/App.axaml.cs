@@ -7,6 +7,7 @@ using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
 using Microsoft.Extensions.DependencyInjection;
 using UniLaunch.Core.Storage;
+using UniLaunch.Core.UpdateCheck;
 using UniLaunch.UI.Services;
 using UniLaunch.UI.ViewModels;
 using UniLaunch.UI.Views;
@@ -23,7 +24,7 @@ public class App : Application
     public override void OnFrameworkInitializationCompleted()
     {
         var editorConfigurationService = new EditorConfigurationService();
-        
+
         AdjustEditorUIBasedOnSettings(editorConfigurationService);
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
@@ -32,11 +33,17 @@ public class App : Application
             {
                 DataContext = new MainWindowViewModel()
             };
+
             Services = new ServiceCollection()
                 .AddSingleton<IFilesService>(_ => new FilesService(desktop.MainWindow))
                 .AddSingleton<IWindowService>(_ => new WindowService(desktop.MainWindow))
                 .AddSingleton<IEditorConfigurationService>(_ => editorConfigurationService)
                 .BuildServiceProvider();
+        }
+
+        if (editorConfigurationService.Current.CheckForUpdatesOnLaunch)
+        {
+            CheckForUpdates();
         }
 
         base.OnFrameworkInitializationCompleted();
@@ -64,6 +71,25 @@ public class App : Application
             "Dark" => ThemeVariant.Dark,
             _ => ThemeVariant.Default
         };
+    }
+
+    private async void CheckForUpdates()
+    {
+        var updateAvailableCheck = await new AvailableUpdateChecker().CheckAvailableUpdate();
+        if (!updateAvailableCheck.Item1)
+        {
+            return;
+        }
+
+        await Services!
+            .GetService<IWindowService>()!
+            .ShowWindowAsDialog(new UpdateNotificationWindow
+            {
+                DataContext = new UpdateNotificationWindowViewModel
+                {
+                    AvailableUpdate = updateAvailableCheck.Item2!,
+                }
+            });
     }
 
     public new static App? Current => Application.Current as App;
