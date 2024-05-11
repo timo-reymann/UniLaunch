@@ -14,7 +14,7 @@ public class GitHubReleaseApiClient
     public GitHubReleaseApiClient()
     {
         _httpClient = new HttpClient();
-        _httpClient.DefaultRequestHeaders.Add("User-Agent", "UniLaunch");
+        _httpClient.DefaultRequestHeaders.Add("User-Agent", "timo-reymann/UniLaunch");
         _httpClient.Timeout = TimeSpan.FromSeconds(2);
     }
 
