@@ -129,6 +129,18 @@ namespace UniLaunch.UI.Assets {
             }
         }
         
+        public static string LocaleNameDE {
+            get {
+                return ResourceManager.GetString("LocaleNameDE", resourceCulture);
+            }
+        }
+        
+        public static string LocaleNameEN {
+            get {
+                return ResourceManager.GetString("LocaleNameEN", resourceCulture);
+            }
+        }
+        
         public static string SettingsWindowTitle {
             get {
                 return ResourceManager.GetString("SettingsWindowTitle", resourceCulture);
@@ -186,6 +198,24 @@ namespace UniLaunch.UI.Assets {
         public static string SettingsWindowEditorSettingsLabelLanguage {
             get {
                 return ResourceManager.GetString("SettingsWindowEditorSettingsLabelLanguage", resourceCulture);
+            }
+        }
+        
+        public static string SettingsWindowEditorSettingsLabelCheckForUpdatesOnStartup {
+            get {
+                return ResourceManager.GetString("SettingsWindowEditorSettingsLabelCheckForUpdatesOnStartup", resourceCulture);
+            }
+        }
+        
+        public static string SettingsWindowEditorSettingsLabelYes {
+            get {
+                return ResourceManager.GetString("SettingsWindowEditorSettingsLabelYes", resourceCulture);
+            }
+        }
+        
+        public static string SettingsWindowEditorSettingsLabelNo {
+            get {
+                return ResourceManager.GetString("SettingsWindowEditorSettingsLabelNo", resourceCulture);
             }
         }
         
@@ -312,6 +342,66 @@ namespace UniLaunch.UI.Assets {
         public static string AppFileTargetControlLabelAppFile {
             get {
                 return ResourceManager.GetString("AppFileTargetControlLabelAppFile", resourceCulture);
+            }
+        }
+        
+        public static string DialogUpdateAvailableTitle {
+            get {
+                return ResourceManager.GetString("DialogUpdateAvailableTitle", resourceCulture);
+            }
+        }
+        
+        public static string DialogUpdateAvailableDescription {
+            get {
+                return ResourceManager.GetString("DialogUpdateAvailableDescription", resourceCulture);
+            }
+        }
+        
+        public static string DialogUpdateAvailableAction {
+            get {
+                return ResourceManager.GetString("DialogUpdateAvailableAction", resourceCulture);
+            }
+        }
+        
+        public static string ErrorDialogFailedToSaveFileTitle {
+            get {
+                return ResourceManager.GetString("ErrorDialogFailedToSaveFileTitle", resourceCulture);
+            }
+        }
+        
+        public static string ErrorDialogFailedToParseFileTitle {
+            get {
+                return ResourceManager.GetString("ErrorDialogFailedToParseFileTitle", resourceCulture);
+            }
+        }
+        
+        public static string ErrorDialogUnsupportedFileFormat {
+            get {
+                return ResourceManager.GetString("ErrorDialogUnsupportedFileFormat", resourceCulture);
+            }
+        }
+        
+        public static string ErrorDialogNoFileExtensionMessage {
+            get {
+                return ResourceManager.GetString("ErrorDialogNoFileExtensionMessage", resourceCulture);
+            }
+        }
+        
+        public static string ErrorDialogParseExceptionMessage {
+            get {
+                return ResourceManager.GetString("ErrorDialogParseExceptionMessage", resourceCulture);
+            }
+        }
+        
+        public static string ErrorDialogInvalidFileTypeMessage {
+            get {
+                return ResourceManager.GetString("ErrorDialogInvalidFileTypeMessage", resourceCulture);
+            }
+        }
+        
+        public static string ErrorDialogCouldNotPersistConfigurationMessage {
+            get {
+                return ResourceManager.GetString("ErrorDialogCouldNotPersistConfigurationMessage", resourceCulture);
             }
         }
     }

@@ -7,10 +7,10 @@
         xmlns:assets="clr-namespace:UniLaunch.UI.Assets"
         mc:Ignorable="d"
         d:DesignWidth="500"
-        d:DesignHeight="550"
-        Height="300"
+        d:DesignHeight="630"
+        Height="630"
         Width="400"
-        SizeToContent="WidthAndHeight"
+        SizeToContent="Width"
         Closing="OnClose"
         CanResize="False"
         x:Class="UniLaunch.UI.Views.SettingsWindow"
@@ -36,6 +36,7 @@
             <TextBlock Grid.Row="1"
                        VerticalAlignment="Bottom"
                        FontWeight="Bold"
+                       Padding="0 0 0 2"
                        Text="{x:Static assets:Resources.SettingsWindowConnectivityCheckLabelEndpoint}" />
             <TextBox Grid.Row="2"
                      Text="{Binding ConnectivityCheckConfigurationEndpoint}" />
@@ -45,8 +46,8 @@
                        Text="{x:Static assets:Resources.SettingsWindowConnectivityCheckLabelTimeout}" />
             <Grid Grid.Row="4"
                   RowDefinitions="50"
-                  ColumnDefinitions="300, 50">
-                <Slider Width="280"
+                  ColumnDefinitions="344, 50">
+                <Slider Width="314"
                         HorizontalAlignment="Left"
                         Minimum="1"
                         TickFrequency="1"
@@ -63,7 +64,7 @@
             </Grid>
         </Grid>
         <Grid HorizontalAlignment="Left"
-              RowDefinitions="60, 20, Auto, 30, 40"
+              RowDefinitions="60, 20, Auto, 30, 30, 30, 20"
               ColumnDefinitions="400">
             <TextBlock Grid.Row="0"
                        FontSize="40"
@@ -86,6 +87,7 @@
                              Content="{x:Static assets:Resources.SettingsWindowEditorSettingsLabelThemeVariantLight}" />
             </StackPanel>
             <TextBlock Grid.Row="3"
+                       Padding="0 0 0 2"
                        VerticalAlignment="Bottom"
                        FontWeight="Bold"
                        Text="{x:Static assets:Resources.SettingsWindowEditorSettingsLabelLanguage}" />
@@ -99,6 +101,20 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
+            <TextBlock Grid.Row="5"
+                       VerticalAlignment="Bottom"
+                       FontWeight="Bold"
+                       Text="{x:Static assets:Resources.SettingsWindowEditorSettingsLabelCheckForUpdatesOnStartup}" />
+            <StackPanel Grid.Row="6"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center">
+                <RadioButton GroupName="CheckForUpdatesOnStart"
+                             IsChecked="{Binding CheckForUpdatesOnLaunchProperty}"
+                             Content="{x:Static assets:Resources.SettingsWindowEditorSettingsLabelYes}" />
+                <RadioButton GroupName="CheckForUpdatesOnStart"
+                             IsChecked="{Binding !CheckForUpdatesOnLaunchProperty}"
+                             Content="{x:Static assets:Resources.SettingsWindowEditorSettingsLabelNo}" />
+            </StackPanel>
         </Grid>
     </StackPanel>
 </Window>
