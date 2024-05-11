@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:UniLaunch.UI.ViewModels"
         xmlns:converter="clr-namespace:UniLaunch.UI.Converter"
+        xmlns:assets="clr-namespace:UniLaunch.UI.Assets"
         mc:Ignorable="d"
         d:DesignWidth="500"
         d:DesignHeight="550"
@@ -11,13 +12,15 @@
         Width="400"
         SizeToContent="WidthAndHeight"
         Closing="OnClose"
+        CanResize="False"
         x:Class="UniLaunch.UI.Views.SettingsWindow"
         x:DataType="vm:SettingsViewModel"
         Icon="avares://UniLaunch.UI/Assets/window-icon.ico"
-        Title="Settings">
+        Title="{x:Static assets:Resources.SettingsWindowTitle}">
     <Window.Resources>
         <converter:TimeSpanConverter x:Key="TimeSpanConverter"></converter:TimeSpanConverter>
         <converter:StringEqualityConverter x:Key="StringEqualityConverter" />
+        <converter:LocaleDisplayConverter x:Key="LocaleDisplayConverter" />
     </Window.Resources>
     <Design.DataContext>
         <vm:SettingsViewModel />
@@ -26,22 +29,20 @@
         <Grid HorizontalAlignment="Left"
               Margin="0 0 0 30"
               RowDefinitions="60, 20, Auto, 30, Auto"
-              ColumnDefinitions="Auto">
-            <TextBlock Grid.Row="0" FontSize="40">
-                Connectivity Check
-            </TextBlock>
+              ColumnDefinitions="400">
+            <TextBlock Grid.Row="0"
+                       FontSize="40"
+                       Text="{x:Static assets:Resources.SettingsWindowConnectivityCheckTitle}" />
             <TextBlock Grid.Row="1"
                        VerticalAlignment="Bottom"
-                       FontWeight="Bold">
-                Endpoint
-            </TextBlock>
+                       FontWeight="Bold"
+                       Text="{x:Static assets:Resources.SettingsWindowConnectivityCheckLabelEndpoint}" />
             <TextBox Grid.Row="2"
-                     Text="{Binding ConnectivityCheckConfigurationEndpoint}"/>
+                     Text="{Binding ConnectivityCheckConfigurationEndpoint}" />
             <TextBlock Grid.Row="3"
                        VerticalAlignment="Bottom"
-                       FontWeight="Bold">
-                Timeout
-            </TextBlock>
+                       FontWeight="Bold"
+                       Text="{x:Static assets:Resources.SettingsWindowConnectivityCheckLabelTimeout}" />
             <Grid Grid.Row="4"
                   RowDefinitions="50"
                   ColumnDefinitions="300, 50">
@@ -62,29 +63,42 @@
             </Grid>
         </Grid>
         <Grid HorizontalAlignment="Left"
-              RowDefinitions="60, 20, Auto"
-              ColumnDefinitions="Auto">
-            <TextBlock Grid.Row="0" FontSize="40">
-                Editor Settings
-            </TextBlock>
+              RowDefinitions="60, 20, Auto, 30, 40"
+              ColumnDefinitions="400">
+            <TextBlock Grid.Row="0"
+                       FontSize="40"
+                       Text="{x:Static assets:Resources.SettingsWindowEditorSettingsTitle}" />
             <TextBlock Grid.Row="1"
                        VerticalAlignment="Bottom"
-                       FontWeight="Bold">
-                Theme Variant
-            </TextBlock>
+                       FontWeight="Bold"
+                       Text="{x:Static assets:Resources.SettingsWindowEditorSettingsLabelThemeVariant}" />
             <StackPanel Grid.Row="2"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Center">
                 <RadioButton GroupName="ThemeVariant"
                              IsChecked="{Binding ThemeVariantProperty, Converter={StaticResource StringEqualityConverter},ConverterParameter=Default}"
-                             Content="Same as system" />
+                             Content="{x:Static assets:Resources.SettingsWindowEditorSettingsLabelThemeVariantSystem}" />
                 <RadioButton GroupName="ThemeVariant"
                              IsChecked="{Binding ThemeVariantProperty, Converter={StaticResource StringEqualityConverter},ConverterParameter=Dark}"
-                             Content="Dark" />
+                             Content="{x:Static assets:Resources.SettingsWindowEditorSettingsLabelThemeVariantDark}" />
                 <RadioButton GroupName="ThemeVariant"
                              IsChecked="{Binding ThemeVariantProperty, Converter={StaticResource StringEqualityConverter},ConverterParameter=Light}"
-                             Content="Light" />
+                             Content="{x:Static assets:Resources.SettingsWindowEditorSettingsLabelThemeVariantLight}" />
             </StackPanel>
+            <TextBlock Grid.Row="3"
+                       VerticalAlignment="Bottom"
+                       FontWeight="Bold"
+                       Text="{x:Static assets:Resources.SettingsWindowEditorSettingsLabelLanguage}" />
+            <ComboBox Grid.Row="4"
+                      HorizontalAlignment="Stretch"
+                      SelectedItem="{Binding LanguageProperty,Mode=TwoWay}"
+                      ItemsSource="{Binding AvailableLanguages}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Converter={StaticResource LocaleDisplayConverter}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </Grid>
     </StackPanel>
 </Window>

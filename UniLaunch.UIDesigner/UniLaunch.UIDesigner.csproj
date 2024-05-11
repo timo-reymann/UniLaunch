@@ -6,6 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>UniLaunch.UIEditor</RootNamespace>
+        <NeutralLanguage>en</NeutralLanguage>
     </PropertyGroup>
     
     <ItemGroup>

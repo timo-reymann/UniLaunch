@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:UniLaunch.UI.ViewModels.Rules"
+             xmlns:assets="clr-namespace:UniLaunch.UI.Assets"
              mc:Ignorable="d"
              d:DesignWidth="200" 
              d:DesignHeight="25"
@@ -10,5 +11,5 @@
              x:Class="UniLaunch.UI.Controls.Rules.AlwaysRuleControl">
     <TextBlock HorizontalAlignment="Center" 
                VerticalAlignment="Center" 
-               Text="Always" />
+               Text="{x:Static assets:Resources.AlwaysRuleControlDisplayName}" />
 </UserControl>

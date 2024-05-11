@@ -6,6 +6,7 @@ using ReactiveUI;
 using UniLaunch.Core.Rules;
 using UniLaunch.UI.CodeGeneration;
 using UniLaunch.UI.Controls.Rules;
+using static UniLaunch.UI.Assets.Resources;
 
 namespace UniLaunch.UI.ViewModels.Rules;
 
@@ -14,13 +15,13 @@ public partial class WeekdayRuleViewModel
 {
     public WeekdayOption[] Options =>
     [
-        new WeekdayOption { Name = "Mon", Value = DayOfWeek.Monday },
-        new WeekdayOption { Name = "Tue", Value = DayOfWeek.Tuesday },
-        new WeekdayOption { Name = "Wed", Value = DayOfWeek.Wednesday },
-        new WeekdayOption { Name = "Thu", Value = DayOfWeek.Thursday },
-        new WeekdayOption { Name = "Fri", Value = DayOfWeek.Friday },
-        new WeekdayOption { Name = "Sat", Value = DayOfWeek.Saturday },
-        new WeekdayOption { Name = "Sun", Value = DayOfWeek.Sunday },
+        new WeekdayOption { Name = WeekdayRuleControlLabelMonday, Value = DayOfWeek.Monday },
+        new WeekdayOption { Name = WeekdayRuleControlLabelTuesday, Value = DayOfWeek.Tuesday },
+        new WeekdayOption { Name = WeekdayRuleControlLabelWednesday, Value = DayOfWeek.Wednesday },
+        new WeekdayOption { Name = WeekdayRuleControlLabelThursday, Value = DayOfWeek.Thursday },
+        new WeekdayOption { Name = WeekdayRuleControlLabelFriday, Value = DayOfWeek.Friday },
+        new WeekdayOption { Name = WeekdayRuleControlLabelSaturday, Value = DayOfWeek.Saturday },
+        new WeekdayOption { Name = WeekdayRuleControlLabelSunday, Value = DayOfWeek.Sunday },
     ];
 
     public ObservableCollection<DayOfWeek> DaysOfWeekToRunListProperty

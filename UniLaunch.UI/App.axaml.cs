@@ -1,4 +1,6 @@
 using System;
+using System.Globalization;
+using System.Threading;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
@@ -20,29 +22,30 @@ public class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
+        var editorConfigurationService = new EditorConfigurationService();
+        
+        AdjustEditorUIBasedOnSettings(editorConfigurationService);
+
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            var mainWindowViewModel = new MainWindowViewModel();
             desktop.MainWindow = new MainWindow
             {
-                DataContext = mainWindowViewModel
+                DataContext = new MainWindowViewModel()
             };
-
             Services = new ServiceCollection()
                 .AddSingleton<IFilesService>(_ => new FilesService(desktop.MainWindow))
                 .AddSingleton<IWindowService>(_ => new WindowService(desktop.MainWindow))
-                .AddSingleton<IEditorConfigurationService>(_ => new EditorConfigurationService())
+                .AddSingleton<IEditorConfigurationService>(_ => editorConfigurationService)
                 .BuildServiceProvider();
-
-            AdjustEditorUIBasedOnSettings();
         }
 
         base.OnFrameworkInitializationCompleted();
     }
 
-    internal void AdjustEditorUIBasedOnSettings()
+    internal void AdjustEditorUIBasedOnSettings(IEditorConfigurationService? editorConfigService = null)
     {
-        var editorConfigService = this.GetService<IEditorConfigurationService>()!;
+        editorConfigService ??= this.GetService<IEditorConfigurationService>()!;
+
         try
         {
             editorConfigService.LoadFromDisk();
@@ -51,6 +54,9 @@ public class App : Application
         {
             Console.WriteLine($"Warning: Could not load user config: {exc.Message}");
         }
+
+        Assets.Resources.Culture = new CultureInfo(editorConfigService.Current.Language);
+        Thread.CurrentThread.CurrentUICulture = Assets.Resources.Culture;
 
         RequestedThemeVariant = editorConfigService.Current.ThemeVariant switch
         {

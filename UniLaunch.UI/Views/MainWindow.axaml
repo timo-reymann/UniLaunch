@@ -7,6 +7,7 @@
         xmlns:controls="clr-namespace:UniLaunch.UI.Controls"
         xmlns:converter="clr-namespace:UniLaunch.UI.Converter"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
+        xmlns:assets="clr-namespace:UniLaunch.UI.Assets"
         MinWidth="800"
         Width="800"
         MinHeight="375"
@@ -70,7 +71,7 @@
                     </Style>
                 </Menu.Styles>
                 <MenuItem ToolTip.ShowDelay="100"
-                          ToolTip.Tip="You have unsaved changes">
+                          ToolTip.Tip="{x:Static assets:Resources.AppMenuUnsavedChangesToolTip}">
                     <MenuItem.Header>
                         <Panel>
                             <i:Icon IsVisible="{Binding HasUnsavedChanges}"
@@ -82,20 +83,20 @@
                             </i:Icon>
                         </Panel>
                     </MenuItem.Header>
-                    <MenuItem Header="Open ..."
+                    <MenuItem Header="{x:Static assets:Resources.AppMenuOpenFile}"
                               i:MenuItem.Icon="fa-static fa-folder-open"
                               Command="{Binding OpenFile}" />
-                    <MenuItem Header="Save"
+                    <MenuItem Header="{x:Static assets:Resources.AppMenuSaveFile}"
                               Command="{Binding SaveFile}"
                               i:MenuItem.Icon="fa-static fa-save" />
-                    <MenuItem Header="Save to ..."
+                    <MenuItem Header="{x:Static assets:Resources.AppMenuSaveToFile}"
                               Command="{Binding SaveFile}"
                               i:MenuItem.Icon="fa-static fa-file-export">
                         <MenuItem.CommandParameter>
                             <system:Boolean>True</system:Boolean>
                         </MenuItem.CommandParameter>
                     </MenuItem>
-                    <MenuItem Header="Close"
+                    <MenuItem Header="{x:Static assets:Resources.AppMenuExit}"
                               i:MenuItem.Icon="fa-static fa-xmark"
                               Command="{Binding Close}" />
                 </MenuItem>
@@ -113,8 +114,7 @@
         </Grid>
         <StackPanel Grid.Row="2"
                     Background="{DynamicResource MenuBar.Tab.Background}">
-            <TabStrip Grid.Row="1"
-                      Margin="5 0 0 0"
+            <TabStrip Margin="5 0 0 0"
                       SelectedIndex="{Binding SelectedTab}"
                       HorizontalAlignment="Center">
                 <TabStrip.Styles>
@@ -122,11 +122,11 @@
                         <Setter Property="Padding" Value="10 0 5 0" />
                     </Style>
                 </TabStrip.Styles>
-                <controls:TabItemWithIcon Title="Targets"
+                <controls:TabItemWithIcon Title="{x:Static assets:Resources.NavTabsTitleTargets}"
                                           Icon="fa-solid fa-bullseye" />
-                <controls:TabItemWithIcon Title="Rulesets"
+                <controls:TabItemWithIcon Title="{x:Static assets:Resources.NavTabsTitleRulesets}"
                                           Icon="fa-solid fa-check-double" />
-                <controls:TabItemWithIcon Title="Entries"
+                <controls:TabItemWithIcon Title="{x:Static assets:Resources.NavTabsTitleEntries}"
                                           Icon="fa-static fa-play" />
             </TabStrip>
         </StackPanel>

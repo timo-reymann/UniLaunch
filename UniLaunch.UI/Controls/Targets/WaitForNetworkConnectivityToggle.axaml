@@ -1,6 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:controls="using:UniLaunch.UI.Controls.Targets">
+        xmlns:controls="using:UniLaunch.UI.Controls.Targets"
+        xmlns:assets="clr-namespace:UniLaunch.UI.Assets">
     <Design.PreviewWith>
         <controls:WaitForNetworkConnectivityToggle />
     </Design.PreviewWith>
@@ -9,9 +10,8 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <CheckBox IsChecked="{TemplateBinding State,Mode=TwoWay}"
-                          Margin="0">
-                    Wait for network connectivity
-                </CheckBox>
+                          Margin="0"
+                          Content="{x:Static assets:Resources.WaitForNetworkConnectivityToggleControlLabelWaitForNetwork}" />
             </ControlTemplate>
         </Setter>
     </Style>

@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:UniLaunch.MacOS.ViewModel"
              xmlns:controls="using:UniLaunch.UI.Controls"
-             xmlns:targets-controls="clr-namespace:UniLaunch.UI.Controls.Targets;assembly=UniLaunch.UI"
+             xmlns:targets-Controls="clr-namespace:UniLaunch.UI.Controls.Targets;assembly=UniLaunch.UI"
+             xmlns:assets="clr-namespace:UniLaunch.UI.Assets;assembly=UniLaunch.UI"
              mc:Ignorable="d" 
              d:DesignWidth="800" 
              d:DesignHeight="450"
@@ -14,12 +15,14 @@
         <vm:AppFileTargetViewModel />
     </Design.DataContext>
     <StackPanel>
-        <Label>Name</Label>
+        <Label Content="{x:Static assets:Resources.AppFileTargetControlLabelName}" />
         <TextBox Text="{Binding NameProperty,Mode=TwoWay}" />
-        <Label>Path to .app file</Label>
+        
+        <Label Content="{x:Static assets:Resources.AppFileTargetControlLabelName}" />
         <controls:TextInputWithFilePicker FilePickerOpenOptions="{Binding FilePickerOpenOptions}"
                                           Path="{Binding PathProperty,Mode=TwoWay}" />
-        <Label>Dependencies</Label>
-        <targets-controls:WaitForNetworkConnectivityToggle State="{Binding WaitForNetworkConnectivityProperty,Mode=TwoWay}" />
+        
+        <Label Content="{x:Static assets:Resources.GenericTargetControlLabelDependencies}" />
+        <targets-Controls:WaitForNetworkConnectivityToggle State="{Binding WaitForNetworkConnectivityProperty,Mode=TwoWay}" />
     </StackPanel>
 </UserControl>

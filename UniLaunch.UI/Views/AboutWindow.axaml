@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:UniLaunch.UI.ViewModels"
+        xmlns:assets="clr-namespace:UniLaunch.UI.Assets"
         mc:Ignorable="d"
         Width="600"
         Height="430"
@@ -13,7 +14,7 @@
         x:DataType="vm:AboutWindowViewModel"
         x:Class="UniLaunch.UI.Views.AboutWindow"
         Icon="avares://UniLaunch.UI/Assets/window-icon.ico"
-        Title="About UniLaunch">
+        Title="{x:Static assets:Resources.AboutWindowTitle}">
     <Window.Styles>
         <Style Selector="Button.Link">
             <Setter Property="BorderThickness" Value="0" />
@@ -48,17 +49,16 @@
                        FontSize="40">
                 UniLaunch
             </TextBlock>
-            <TextBlock Grid.Row="2" 
+            <TextBlock Grid.Row="2"
                        Grid.Column="0"
-                       Grid.ColumnSpan="2">
-                Advanced universal autostart tool for use on Linux, MacOS and Windows.
-            </TextBlock>
+                       Grid.ColumnSpan="2"
+                       Text="{x:Static assets:Resources.AboutWindowDescription}" />
             <TextBlock FontWeight="Bold"
                        HorizontalAlignment="Left"
                        Grid.Row="3"
-                       Grid.Column="0">
-                Version
-            </TextBlock>
+                       Grid.Column="0"
+                       Text="{x:Static assets:Resources.AboutWindowLabelVersion}" />
+      
             <TextBlock HorizontalAlignment="Left"
                        Grid.Row="3"
                        Grid.Column="1"
@@ -66,9 +66,8 @@
             <TextBlock FontWeight="Bold"
                        HorizontalAlignment="Left"
                        Grid.Row="4"
-                       Grid.Column="0">
-                Created by
-            </TextBlock>
+                       Grid.Column="0"
+                       Text="{x:Static assets:Resources.AboutWindowLabelCreatedBy}" />
             <Button Classes="Link"
                     Command="{Binding OpenLink}"
                     CommandParameter="https://timo-reymann.de"
@@ -96,9 +95,8 @@
             <TextBlock FontWeight="Bold"
                        HorizontalAlignment="Left"
                        Grid.Row="6"
-                       Grid.Column="0">
-                Licensed under
-            </TextBlock>
+                       Grid.Column="0"
+                       Text="{x:Static assets:Resources.AboutWindowLabelLicense}" />
             <Button Classes="Link"
                     Command="{Binding OpenLink}"
                     CommandParameter="https://github.com/timo-reymann/UniLaunch/blob/main/LICENSE"

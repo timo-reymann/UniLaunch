@@ -12,6 +12,7 @@ using UniLaunch.Core.Autostart;
 using UniLaunch.Core.Rules;
 using UniLaunch.Core.Storage;
 using UniLaunch.Core.Targets;
+using UniLaunch.UI.Assets;
 using UniLaunch.UI.CodeGeneration;
 using UniLaunch.UI.Services;
 using UniLaunch.UI.Util;
@@ -55,7 +56,7 @@ public partial class MainWindowViewModel
             case SelectedTabIndex.RuleSets:
                 var ruleSet = new RuleSet
                 {
-                    Name = $"New rule set ({Items.Count})"
+                    Name = string.Format(Resources.PlaceholderNewRuleSet, Items.Count)
                 };
                 Engine.Configuration!.RuleSets.Add(ruleSet);
                 AddItemAndSelect(ruleSet);
