@@ -4,8 +4,8 @@ namespace UniLaunch.Core.UpdateCheck;
 
 public class AvailableUpdateChecker
 {
-    private GitHubReleaseApiClient _gitHubReleaseApiClient = new();
-    private AppInfoProvider _appInfoProvider = new();
+    private readonly GitHubReleaseApiClient _gitHubReleaseApiClient = new();
+    private readonly AppInfoProvider _appInfoProvider = new();
 
     public async Task<Tuple<bool, AvailableUpdate?>> CheckAvailableUpdate()
     {
