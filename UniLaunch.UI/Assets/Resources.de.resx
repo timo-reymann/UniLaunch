@@ -210,4 +210,26 @@
         <value>Bei GitHub herunterladen</value>
     </data>
 
+    <!-- Error Dialogs -->
+    <data name="ErrorDialogFailedToSaveFileTitle" xml:space="preserve">
+        <value>Fehler beim Speichern der Datei</value>
+    </data>
+    <data name="ErrorDialogFailedToParseFileTitle" xml:space="preserve">
+        <value>Fehler beim Laden der Datei</value>
+    </data>
+    <data name="ErrorDialogUnsupportedFileFormat" xml:space="preserve">
+        <value>{0} konnte nicht geladen werden: The file format is not supported.</value>
+    </data>
+    <data name="ErrorDialogNoFileExtensionMessage" xml:space="preserve">
+        <value>{ß} konnte nicht geladen werden: Dateien ohne Dateierweiterung sind nicht erlaubt.</value>
+    </data>
+    <data name="ErrorDialogParseExceptionMessage" xml:space="preserve">
+        <value>{0} konnte nicht geladen werden: {1}</value>
+    </data>
+    <data name="ErrorDialogInvalidFileTypeMessage"  xml:space="preserve">
+        <value>{0} konnte nicht gespeichert werden: Nicht unterstützter Dateityp</value>
+    </data>
+    <data name="ErrorDialogCouldNotPersistConfigurationMessage" xml:space="preserve">
+        <value>Konfiguration konnte nicht gespeichert werden: {0}</value>
+    </data>
 </root>

@@ -217,4 +217,26 @@
         <value>Download from GitHub</value>
     </data>
     
+    <!-- Error Dialogs -->
+    <data name="ErrorDialogFailedToSaveFileTitle" xml:space="preserve">
+        <value>Failed to save file</value>
+    </data>
+    <data name="ErrorDialogFailedToParseFileTitle" xml:space="preserve">
+        <value>Failed to parse file</value>
+    </data>
+    <data name="ErrorDialogUnsupportedFileFormat" xml:space="preserve">
+        <value>{0} could not be parsed: The file format is not supported.</value>
+    </data>
+    <data name="ErrorDialogNoFileExtensionMessage" xml:space="preserve">
+        <value>{ß} could not be parsed: Files without extension in the file path are not supported by the editor.</value>
+    </data>
+    <data name="ErrorDialogParseExceptionMessage" xml:space="preserve">
+        <value>{0} could not be parsed: {1}</value>
+    </data>
+    <data name="ErrorDialogInvalidFileTypeMessage"  xml:space="preserve">
+        <value>{0} could not be used for saving: Invalid file type</value>
+    </data>
+    <data name="ErrorDialogCouldNotPersistConfigurationMessage" xml:space="preserve">
+        <value>Could not persist configuration: {0}</value>
+    </data>
 </root>

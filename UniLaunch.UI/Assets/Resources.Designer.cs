@@ -362,5 +362,47 @@ namespace UniLaunch.UI.Assets {
                 return ResourceManager.GetString("DialogUpdateAvailableAction", resourceCulture);
             }
         }
+        
+        public static string ErrorDialogFailedToSaveFileTitle {
+            get {
+                return ResourceManager.GetString("ErrorDialogFailedToSaveFileTitle", resourceCulture);
+            }
+        }
+        
+        public static string ErrorDialogFailedToParseFileTitle {
+            get {
+                return ResourceManager.GetString("ErrorDialogFailedToParseFileTitle", resourceCulture);
+            }
+        }
+        
+        public static string ErrorDialogUnsupportedFileFormat {
+            get {
+                return ResourceManager.GetString("ErrorDialogUnsupportedFileFormat", resourceCulture);
+            }
+        }
+        
+        public static string ErrorDialogNoFileExtensionMessage {
+            get {
+                return ResourceManager.GetString("ErrorDialogNoFileExtensionMessage", resourceCulture);
+            }
+        }
+        
+        public static string ErrorDialogParseExceptionMessage {
+            get {
+                return ResourceManager.GetString("ErrorDialogParseExceptionMessage", resourceCulture);
+            }
+        }
+        
+        public static string ErrorDialogInvalidFileTypeMessage {
+            get {
+                return ResourceManager.GetString("ErrorDialogInvalidFileTypeMessage", resourceCulture);
+            }
+        }
+        
+        public static string ErrorDialogCouldNotPersistConfigurationMessage {
+            get {
+                return ResourceManager.GetString("ErrorDialogCouldNotPersistConfigurationMessage", resourceCulture);
+            }
+        }
     }
 }

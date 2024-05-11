@@ -162,8 +162,8 @@ public partial class MainWindowViewModel
         if (fileExtension.Length == 0)
         {
             await MessageBoxUtil.ShowErrorDialog(
-                "Failed to parse file",
-                $"{file.Name} could not be parsed: Files without extension in the file path are not supported by the editor."
+                Resources.ErrorDialogFailedToParseFileTitle,
+                string.Format(Resources.ErrorDialogNoFileExtensionMessage, file.Name)
             );
             return;
         }
@@ -172,8 +172,8 @@ public partial class MainWindowViewModel
         if (storageProvider == null || fileExtension.Length == 0)
         {
             await MessageBoxUtil.ShowErrorDialog(
-                "Failed to parse file",
-                $"{file!.Name} could not be parsed: The file format is not supported."
+                Resources.ErrorDialogFailedToParseFileTitle,
+                string.Format(Resources.ErrorDialogUnsupportedFileFormat, file.Name)
             );
             return;
         }
@@ -187,8 +187,8 @@ public partial class MainWindowViewModel
         catch (Exception e)
         {
             await MessageBoxUtil.ShowErrorDialog(
-                "Failed to parse file",
-                $"{file!.Name} could not be parsed: {e.Message}"
+                Resources.ErrorDialogFailedToParseFileTitle,
+                string.Format(Resources.ErrorDialogParseExceptionMessage, file.Name, e.Message)
             );
         }
 
@@ -266,8 +266,8 @@ public partial class MainWindowViewModel
             if (fileExtension.Length == 0 || !possibleExtensions.Contains(fileExtension[1..]))
             {
                 await MessageBoxUtil.ShowErrorDialog(
-                    "Failed to save file",
-                    $"{file.Name} could not be used for saving: Invalid file type"
+                    Resources.ErrorDialogFailedToSaveFileTitle,
+                    string.Format(Resources.ErrorDialogInvalidFileTypeMessage,file.Name)
                 );
                 return;
             }
@@ -284,8 +284,8 @@ public partial class MainWindowViewModel
         catch (Exception e)
         {
             await MessageBoxUtil.ShowErrorDialog(
-                "Failed to save file",
-                $"Could not persist configuration: {e.Message}"
+                Resources.ErrorDialogFailedToSaveFileTitle,
+                string.Format(Resources.ErrorDialogCouldNotPersistConfigurationMessage, e.Message)
             );
             return;
         }
