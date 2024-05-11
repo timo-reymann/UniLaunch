@@ -1,3 +1,10 @@
+## [1.4.0](https://github.com/timo-reymann/UniLaunch/compare/1.3.0...1.4.0) (2024-05-11)
+
+
+### Features
+
+* Add update notification for editor ([#14](https://github.com/timo-reymann/UniLaunch/issues/14)) ([5337375](https://github.com/timo-reymann/UniLaunch/commit/5337375e0861090191e0f4e3ca4f61860da79676))
+
 ## [1.3.0](https://github.com/timo-reymann/UniLaunch/compare/1.2.0...1.3.0) (2024-05-11)
 
 
