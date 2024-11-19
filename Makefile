@@ -56,6 +56,7 @@ patch-version: ## Patch the version for UniLaunch
 
 extract_version_command = $(shell awk -F'[<>]' '/<Version>/{print $$3}' Platform.targets)
 VERSION := $(extract_version_command)
+DOTNET_VERSION = "net9.0"
 # --- END GENERAL ---
 
 # --- BEGIN MacOS ---
@@ -96,7 +97,7 @@ macos-build-binary: require_osx ## Build the binaries for all supported architec
 
 _macos-build: _create_dist
 	dotnet publish UniLaunch.MacOS/UniLaunch.MacOS.csproj -r $(RID) -c Release
-	cp UniLaunch.MacOS/bin/Release/net8.0/$(RID)/publish/UniLaunch.MacOS ./dist/UniLaunch-$(RID)
+	cp UniLaunch.MacOS/bin/Release/$(DOTNET_VERSION)/$(RID)/publish/UniLaunch.MacOS ./dist/UniLaunch-$(RID)
 
 _macos-build-app:
 	@$(eval TMP := $(shell mktemp -d))
@@ -128,7 +129,7 @@ _macos-build-app:
 	@cp $(MACOS_APP_FILE_ICON) dist/$(MACOS_APP_FILE_NAME)/Contents/Resources
 	@echo "Copy executable to .app file and set its icon using MacOS file system metadata ..." && \
 	mkdir -p dist/$(MACOS_APP_FILE_NAME)/Contents && \
-	cp UniLaunch.MacOS/bin/Release/net8.0/$(RID)/publish/UniLaunch.MacOS dist/$(MACOS_APP_FILE_NAME)/Contents/MacOS/$(MACOS_APP_FILE_EXECUTABLE) && \
+	cp UniLaunch.MacOS/bin/Release/$(DOTNET_VERSION)/$(RID)/publish/UniLaunch.MacOS dist/$(MACOS_APP_FILE_NAME)/Contents/MacOS/$(MACOS_APP_FILE_EXECUTABLE) && \
 	DeRez -only icns $(MACOS_APP_FILE_ICON) > $(TMP)/tmpicns.rsrc  && \
     Rez -append $(TMP)/tmpicns.rsrc -o dist/$(MACOS_APP_FILE_NAME)/Contents/MacOS/$(MACOS_APP_FILE_EXECUTABLE) && \
     SetFile -a C dist/$(MACOS_APP_FILE_NAME)/Contents/MacOS/$(MACOS_APP_FILE_EXECUTABLE) && \
@@ -175,7 +176,7 @@ linux-build-deb: linux-build-binary ## Build deb file for all supported platform
 
 _linux-build: _create_dist
 	dotnet publish UniLaunch.Linux/UniLaunch.Linux.csproj -r $(RID) -c Release
-	cp UniLaunch.Linux/bin/Release/net8.0/$(RID)/publish/UniLaunch.Linux ./dist/UniLaunch-$(RID)
+	cp UniLaunch.Linux/bin/Release/$(DOTNET_VERSION)/$(RID)/publish/UniLaunch.Linux ./dist/UniLaunch-$(RID)
 
 _linux-deb: require_docker
 	@echo "Set up directory structure ..."
@@ -259,5 +260,5 @@ windows-build-installer: require_windows ## Build the Windows installer for x64
 
 _windows-build: _create_dist
 	dotnet publish UniLaunch.Windows/UniLaunch.Windows.csproj -r $(RID) -c Release
-	cp UniLaunch.Windows/bin/Release/net8.0/$(RID)/publish/UniLaunch.Windows.exe dist/UniLaunch-$(RID).exe
+	cp UniLaunch.Windows/bin/Release/$(DOTNET_VERSION)/$(RID)/publish/UniLaunch.Windows.exe dist/UniLaunch-$(RID).exe
 # -- END Windows ---
