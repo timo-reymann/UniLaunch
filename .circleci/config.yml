@@ -32,7 +32,7 @@ commands:
         default: sh
       channel:
         type: string
-        default: 8.0.1xx
+        default: 9.0.1xx
     steps:
       - when:
           condition:
