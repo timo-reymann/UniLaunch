@@ -6,7 +6,7 @@
     </PropertyGroup>
     
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <OutputType>WinExe</OutputType>
         <ApplicationIcon>../Resources/UniLaunch.ico</ApplicationIcon>
         <ApplicationManifest>app.manifest</ApplicationManifest>
