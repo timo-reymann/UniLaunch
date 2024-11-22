@@ -77,10 +77,13 @@ commands:
 executors:
   macos:
     macos:
-      xcode: "14.2.0"
+      xcode: "15.4.0"
+    resource_class: macos.m1.medium.gen1
   linux:
     machine:
       image: ubuntu-2004:current
+      resource_class: large
+      docker_layer_caching: true
 
 jobs:
   unit-test:
