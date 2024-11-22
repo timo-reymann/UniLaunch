@@ -42,7 +42,7 @@ _create_dist:
 	@mkdir dist/ || true
 
 test: ## Run all tests for the project
-	dotnet test
+	dotnet test $(DOTNET_BUILD_OPTS)
 
 generate-checksums: require_proper_dev_env ## Generate checksums for all files in dist folder
 	find dist -type f -exec shasum -a 256 {} \; > dist/checksums.sha256.txt;
@@ -57,7 +57,7 @@ patch-version: ## Patch the version for UniLaunch
 extract_version_command = $(shell awk -F'[<>]' '/<Version>/{print $$3}' Platform.targets)
 VERSION := $(extract_version_command)
 DOTNET_VERSION = "net9.0"
-DOTNET_BUILD_OPTS = "-v:quiet"
+DOTNET_BUILD_OPTS = -v minimal
 # --- END GENERAL ---
 
 # --- BEGIN MacOS ---
