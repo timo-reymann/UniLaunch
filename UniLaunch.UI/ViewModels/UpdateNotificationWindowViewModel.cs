@@ -7,7 +7,7 @@ namespace UniLaunch.UI.ViewModels;
 
 public class UpdateNotificationWindowViewModel : ViewModelBase
 {
-    public AvailableUpdate AvailableUpdate { get; set; }
+    public AvailableUpdate AvailableUpdate { get; set; } = null!;
     public ICommand OpenLink { get; }
     
     public UpdateNotificationWindowViewModel()

@@ -28,7 +28,7 @@ public class TimeOnlyConverter : IYamlTypeConverter
         throw new YamlException($"Invalid TimeOnly format: {scalar.Value}. Expected format: {Format}");
     }
 
-    public void WriteYaml(IEmitter emitter, object value, Type type)
+    public void WriteYaml(IEmitter emitter, object? value, Type type)
     {
         if (value is TimeOnly time)
         {
@@ -36,7 +36,7 @@ public class TimeOnlyConverter : IYamlTypeConverter
         }
         else
         {
-            throw new ArgumentException($"Expected value of type TimeOnly, but got {value.GetType().Name}");
+            throw new ArgumentException($"Expected value of type TimeOnly, but got {value?.GetType().Name}");
         }
     }
 }

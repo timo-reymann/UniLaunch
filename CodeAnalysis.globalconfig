@@ -1,3 +1,5 @@
 is_global = true
 
-dotnet_diagnostics.CS0169.severity = none
+dotnet_diagnostic.CS0169.severity = none
+
+dotnet_diagnostic.CS8669.severity = none

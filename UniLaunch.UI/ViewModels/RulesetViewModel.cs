@@ -17,8 +17,8 @@ public partial class RulesetViewModel
 {
     private ObservableCollection<BaseEntityViewModel>? _rules;
     public ImmutableHashSet<Type> EnabledRuleTypes => UniLaunchEngine.Instance.EnabledRuleTypes;
-    public ICommand AddRule { get; private set; }
-    public ICommand DeleteRule { get; private set; }
+    public ICommand AddRule { get; private set; } = null!;
+    public ICommand DeleteRule { get; private set; } = null!;
 
     public ObservableCollection<BaseEntityViewModel> RulesListProperty
     {

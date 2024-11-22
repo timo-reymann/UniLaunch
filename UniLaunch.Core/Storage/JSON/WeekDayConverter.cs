@@ -11,6 +11,12 @@ public class WeekDayConverter : JsonConverter
 
     public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
     {
+        if (value == null)
+        {
+            writer.WriteNull();
+            return;
+        }
+        
         writer.WriteValue(((DayOfWeek)value).ToString("G"));
     }
 

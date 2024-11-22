@@ -67,7 +67,7 @@ public partial class MainWindowViewModel : ViewModelBase
     private void AddItemAndSelect(INameable model)
     {
         var viewModel = model.ToViewModel();
-        Items.Add(viewModel);
+        Items.Add(viewModel!);
         SelectedItem = viewModel;
         HasUnsavedChanges = true;
     }

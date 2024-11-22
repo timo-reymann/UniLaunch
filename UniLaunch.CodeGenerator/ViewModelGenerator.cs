@@ -55,12 +55,14 @@ public class ViewModelGenerator : ISourceGenerator
         var propertiesToCreateForImpl = modelType!.GetMembers()
             .OfType<IPropertySymbol>()
             .Where(symbol => symbol.SetMethod != null && symbol.Name != "Name");
-        var propertiesToGenerateForParent = modelType.BaseType.GetMembers()
+        var propertiesToGenerateForParent = modelType.BaseType?.GetMembers()
             .OfType<IPropertySymbol>()
             .Where(symbol => symbol.SetMethod != null && symbol.Name != "Name");
 
-        var allProperties = propertiesToCreateForImpl
-            .Concat(propertiesToGenerateForParent);
+        var allProperties = propertiesToGenerateForParent != null
+            ? propertiesToCreateForImpl
+                .Concat(propertiesToGenerateForParent)
+            : propertiesToCreateForImpl;
         var properties = allProperties
             .Select(GenerateProperty);
         var className = classSymbol.Name;
@@ -97,7 +99,7 @@ public class ViewModelGenerator : ISourceGenerator
                      {
                          public partial class {{className}} : BaseEntityViewModel
                          {
-                             private {{modelType}} _model = null;
+                             private {{modelType}} _model = null!;
                      
                              {{propertyDefinitions}}
                              

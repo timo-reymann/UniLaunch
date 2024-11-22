@@ -17,12 +17,22 @@ public class ListMemberShipConverter : IMultiValueConverter
     
     static bool ContainsItem(object list, object item)
     {
+        if (list is Avalonia.UnsetValueType)
+        {
+            return false;
+        }
+        
         IEnumerable enumerable = (IEnumerable)list;
         return enumerable.Cast<object>().Any(element => object.Equals(element, item));
     }
 
     public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
     {
-        return ContainsItem(values[0],values[1]);
+        if (values.Count < 2 || values[0] is null || values[1] is null)
+        {
+            return false;
+        }
+        
+        return ContainsItem(values[0]!, values[1]!);
     }
 }

@@ -7,7 +7,7 @@ namespace UniLaunch.Core.Targets;
 [PropertyBasedSerialization("targetType")]
 public abstract class Target : INameable
 {
-    public string Name { get; set; }
+    public string Name { get; set; } = null!;
 
     public bool WaitForNetworkConnectivity { get; set; } = false;
     

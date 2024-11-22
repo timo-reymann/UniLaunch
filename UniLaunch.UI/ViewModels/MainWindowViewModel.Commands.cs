@@ -82,15 +82,15 @@ public partial class MainWindowViewModel
         switch (IndexOfSelectedTab)
         {
             case SelectedTabIndex.Targets:
-                Items.AddRange(config.Targets.ToViewModel());
+                Items!.AddRange(config.Targets.ToViewModel());
                 break;
 
             case SelectedTabIndex.RuleSets:
-                Items.AddRange(config.RuleSets.ToViewModel());
+                Items!.AddRange(config.RuleSets.ToViewModel());
                 break;
 
             case SelectedTabIndex.Entries:
-                Items.AddRange(config.Entries.ToViewModel());
+                Items!.AddRange(config.Entries.ToViewModel());
                 break;
 
             default:
@@ -108,7 +108,7 @@ public partial class MainWindowViewModel
 
     private async void _ShowAbout()
     {
-        App.Current!
+        await App.Current!
             .GetService<IWindowService>()!
             .ShowWindowAsDialog(new AboutWindow
             {

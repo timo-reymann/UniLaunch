@@ -12,11 +12,13 @@ public class AutoStartEntry : INameable
         RuleSetName = ruleSetName;
         TargetName = targetName;
     }
-    
-    public AutoStartEntry() {}
 
-    public string RuleSetName { get; set; }
-    public string TargetName { get; set; }
+    public AutoStartEntry()
+    {
+    }
+
+    public string RuleSetName { get; set; } = null!;
+    public string TargetName { get; set; } = null!;
 
     
     [JsonIgnore]

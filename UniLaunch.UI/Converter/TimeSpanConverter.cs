@@ -6,12 +6,12 @@ namespace UniLaunch.UI.Converter;
 
 public class TimeSpanConverter : IValueConverter
 {
-    private bool isStringTargetType(Type targetType) => targetType == typeof(string);
+    private bool IsStringTargetType(Type targetType) => targetType == typeof(string);
 
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         var timeSpan = (value as TimeSpan?);
-        if (isStringTargetType(targetType))
+        if (IsStringTargetType(targetType))
         {
             return timeSpan != null ? timeSpan?.TotalSeconds.ToString() : "";
         }
@@ -26,14 +26,19 @@ public class TimeSpanConverter : IValueConverter
             return null;
         }
         
-        if (isStringTargetType(value.GetType()))
+        if (IsStringTargetType(value.GetType()))
         {
-            var str = value as string;
-            if (str.Trim() == "")
+            if (value == null)
             {
                 return null;
             }
-            return TimeSpan.FromSeconds(Double.Parse(str));
+            
+            var str = value as string;
+            if (str!.Trim() == "")
+            {
+                return null;
+            }
+            return TimeSpan.FromSeconds(double.Parse(str));
         }
 
         var num = value as Double?;

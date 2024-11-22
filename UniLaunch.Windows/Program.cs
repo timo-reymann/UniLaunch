@@ -12,7 +12,7 @@ try
 {
     provider.Acquire();
 }
-catch (ExclusiveInstanceAcquireFailedException e)
+catch (ExclusiveInstanceAcquireFailedException)
 {
     return 4; // ERROR_TOO_MANY_OPEN_FILES
 }

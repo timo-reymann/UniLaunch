@@ -9,8 +9,6 @@ namespace UniLaunch.UI.ViewModels.Targets;
 [GenerateViewModel(typeof(ExecutableTarget), typeof(ExecutableTargetControl))]
 public partial class ExecutableTargetViewModel
 {
-    private string _argumentsList;
-
     public string ArgumentsListProperty
     {
         set

@@ -10,7 +10,7 @@ public class RuleSet : INameable
     /// <summary>
     /// Name of the rulset
     /// </summary>
-    public string Name { get; set; }
+    public string Name { get; set; } = null!;
 
     // Rules contained in the set
     public List<Rule> Rules { get; set; } = new();

@@ -9,7 +9,7 @@ public class AppFileTarget : Target
 {
     public override string TargetType => "appFile";
 
-    public string Path { get; set; }
+    public string Path { get; set; } = null!;
 
     public override async Task<TargetInvokeResult> Invoke()
     {

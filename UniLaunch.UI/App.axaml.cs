@@ -44,7 +44,9 @@ public class App : Application
 
         if (editorConfigurationService.Current.CheckForUpdatesOnLaunch)
         {
+#pragma warning disable CS4014
             CheckForUpdates();
+#pragma warning restore CS4014
         }
 
         base.OnFrameworkInitializationCompleted();

@@ -26,17 +26,28 @@ public class PropertyBasedConverter : JsonConverter
     public override bool CanConvert(Type objectType) => objectType == BaseType;
     public bool Accepts(Type type) => type == BaseType;
 
-    public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+    public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
     {
         throw new InvalidOperationException("Use default serialization.");
     }
 
-    public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+    public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
     {
         var jsonObject = JObject.Load(reader);
-        var value = jsonObject[PropertyName].Value<string>();
-        var rule = Activator.CreateInstance(TypeMapping[value]);
+        jsonObject.TryGetValue(PropertyName, out var propertyValue);
 
+        var value = propertyValue?.Value<string>();
+        if (value == null)
+        {
+            return null;
+        }
+        
+        var rule = Activator.CreateInstance(TypeMapping[value]);
+        if (rule == null)
+        {
+            return null;
+        }
+        
         serializer.Populate(jsonObject.CreateReader(), rule);
         return rule;
     }

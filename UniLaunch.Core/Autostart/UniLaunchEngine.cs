@@ -10,7 +10,7 @@ namespace UniLaunch.Core.Autostart;
 
 public class UniLaunchEngine
 {
-    public StorageProvider<UniLaunchConfiguration> DefaultStorageProvider { get; set; }
+    public StorageProvider<UniLaunchConfiguration> DefaultStorageProvider { get; set; } = null!;
     public UniLaunchConfiguration? Configuration { get; private set; } = new();
     public List<StorageProvider<UniLaunchConfiguration>> AvailableStoreProviders { get; private set; } = new();
 
@@ -20,7 +20,7 @@ public class UniLaunchEngine
     public static readonly UniLaunchEngine Instance = new();
 
     public string? ConfigFilePath { get; set; }
-    private FileLocator ConfigFileLocator { get; set; }
+    private FileLocator ConfigFileLocator { get; set; } = null!;
 
     private readonly HashSet<Type> _enabledTargetTypes = new();
     private readonly HashSet<Type> _enabledRuleTypes = new();
@@ -173,7 +173,7 @@ public class UniLaunchEngine
             return this;
         }
 
-        DefaultStorageProvider.Persist(ConfigFilePath, Configuration!);
+        DefaultStorageProvider.Persist(ConfigFilePath!, Configuration!);
         return this;
     }
 
@@ -218,7 +218,7 @@ public class UniLaunchEngine
 
     private async Task<IEnumerable<TargetInvokeResult>> WrapInNetworkWait(IEnumerable<Target> targets)
     {
-        var connectivityChecker = new NetworkConnectivityChecker(Configuration.ConnectivityCheck);
+        var connectivityChecker = new NetworkConnectivityChecker(Configuration!.ConnectivityCheck);
         try
         {
             await connectivityChecker.Check();

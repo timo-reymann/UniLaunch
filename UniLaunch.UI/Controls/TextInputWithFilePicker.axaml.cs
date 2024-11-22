@@ -23,12 +23,12 @@ public class TextInputWithFilePicker : TemplatedControl
         FilePickerOpenOptionsProperty =
             AvaloniaProperty.RegisterDirect<TextInputWithFilePicker, FilePickerOpenOptions>(
                 "FilePickerOpenOptions",
-                o => o.FilePickerOpenOptions,
+                o => o.FilePickerOpenOptions!,
                 (o, v) => o.FilePickerOpenOptions = v,
                 defaultBindingMode: BindingMode.TwoWay);
 
     private string _path = "";
-    private FilePickerOpenOptions _filePickerOpenOptions;
+    private FilePickerOpenOptions _filePickerOpenOptions = null!;
 
     public string Path
     {
@@ -36,10 +36,10 @@ public class TextInputWithFilePicker : TemplatedControl
         set => SetAndRaise(PathProperty, ref _path, value);
     }
 
-    public FilePickerOpenOptions FilePickerOpenOptions
+    public FilePickerOpenOptions? FilePickerOpenOptions
     {
         get => _filePickerOpenOptions;
-        set => SetAndRaise(FilePickerOpenOptionsProperty, ref _filePickerOpenOptions, value);
+        set => SetAndRaise(FilePickerOpenOptionsProperty!, ref _filePickerOpenOptions!, value);
     }
 
     private async void ClickHandler(object sender, RoutedEventArgs args)
@@ -63,6 +63,6 @@ public class TextInputWithFilePicker : TemplatedControl
     {
         base.OnApplyTemplate(e);
         var btn = e.NameScope.Find("OpenFileBtn") as Button;
-        btn!.Click += ClickHandler;
+        btn!.Click += ClickHandler!;
     }
 }

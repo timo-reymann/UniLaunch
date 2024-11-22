@@ -13,7 +13,7 @@ public class TabItemWithIcon : TemplatedControl
             (o, v) => o.Title = v,
             defaultBindingMode: BindingMode.OneWay);
     
-    private string _title;
+    private string _title = null!;
 
     public string Title
     {
@@ -28,7 +28,7 @@ public class TabItemWithIcon : TemplatedControl
             (o, v) => o.Icon = v,
             defaultBindingMode: BindingMode.OneWay);
     
-    private string _icon;
+    private string _icon = null!;
 
     public string Icon
     {

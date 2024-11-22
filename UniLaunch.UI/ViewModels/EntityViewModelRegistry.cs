@@ -37,7 +37,7 @@ public class EntityViewModelRegistry
         
         foreach (var model in models)
         {
-            collection.Add(Of(model));
+            collection.Add(Of(model)!);
         }
 
         return collection;

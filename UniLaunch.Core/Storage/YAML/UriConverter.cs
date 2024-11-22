@@ -31,7 +31,7 @@ public class UriConverter : IYamlTypeConverter
         }
         else
         {
-            throw new ArgumentException($"Expected value of type Uri, but got {value.GetType().Name}");
+            throw new ArgumentException($"Expected value of type Uri, but got {value?.GetType().Name}");
         }
     }
 }

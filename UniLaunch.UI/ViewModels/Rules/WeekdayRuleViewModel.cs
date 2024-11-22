@@ -65,6 +65,6 @@ public partial class WeekdayRuleViewModel
 
 public class WeekdayOption
 {
-    public string Name { get; init; }
+    public string Name { get; init; } = null!;
     public DayOfWeek Value { get; init; }
 }

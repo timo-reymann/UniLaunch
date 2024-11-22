@@ -19,5 +19,5 @@ public sealed class GenerateViewModelAttribute(Type modelType, Type? controlType
     /// <summary>
     /// Type of the control
     /// </summary>
-    public Type ControlType { get; set; } = controlType;
+    public Type? ControlType { get; set; } = controlType;
 }
