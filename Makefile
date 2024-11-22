@@ -57,6 +57,7 @@ patch-version: ## Patch the version for UniLaunch
 extract_version_command = $(shell awk -F'[<>]' '/<Version>/{print $$3}' Platform.targets)
 VERSION := $(extract_version_command)
 DOTNET_VERSION = "net9.0"
+DOTNET_BUILD_OPTS = "-v:quiet"
 # --- END GENERAL ---
 
 # --- BEGIN MacOS ---
@@ -96,7 +97,7 @@ macos-build-binary: require_osx ## Build the binaries for all supported architec
 	$(MAKE) _macos-build RID=osx-arm64 DOCKER_ARCH=linux/arm64/v8
 
 _macos-build: _create_dist
-	dotnet publish UniLaunch.MacOS/UniLaunch.MacOS.csproj -r $(RID) -c Release
+	dotnet publish UniLaunch.MacOS/UniLaunch.MacOS.csproj -r $(RID) -c Release $(DOTNET_BUILD_OPTS)
 	cp UniLaunch.MacOS/bin/Release/$(DOTNET_VERSION)/$(RID)/publish/UniLaunch.MacOS ./dist/UniLaunch-$(RID)
 
 _macos-build-app:
@@ -175,7 +176,7 @@ linux-build-deb: linux-build-binary ## Build deb file for all supported platform
 	make _linux-deb ARCH=x64 DEB_ARCH=amd64 DOCKER_ARCH=amd64
 
 _linux-build: _create_dist
-	dotnet publish UniLaunch.Linux/UniLaunch.Linux.csproj -r $(RID) -c Release
+	dotnet publish UniLaunch.Linux/UniLaunch.Linux.csproj -r $(RID) -c Release $(DOTNET_BUILD_OPTS)
 	cp UniLaunch.Linux/bin/Release/$(DOTNET_VERSION)/$(RID)/publish/UniLaunch.Linux ./dist/UniLaunch-$(RID)
 
 _linux-deb: require_docker
@@ -259,6 +260,6 @@ windows-build-installer: require_windows ## Build the Windows installer for x64
 	@cp $(TMP)/dist/UniLaunch-Setup.exe dist/
 
 _windows-build: _create_dist
-	dotnet publish UniLaunch.Windows/UniLaunch.Windows.csproj -r $(RID) -c Release
+	dotnet publish UniLaunch.Windows/UniLaunch.Windows.csproj -r $(RID) -c Release $(DOTNET_BUILD_OPTS) $(DOTNET_BUILD_OPTS)
 	cp UniLaunch.Windows/bin/Release/$(DOTNET_VERSION)/$(RID)/publish/UniLaunch.Windows.exe dist/UniLaunch-$(RID).exe
 # -- END Windows ---
