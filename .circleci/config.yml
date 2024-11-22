@@ -47,6 +47,9 @@ commands:
                   echo 'export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools' >> $BASH_ENV
                   chmod +x ./dotnetInstall.sh
                   ./dotnetInstall.sh -Channel <<parameters.channel>>
+                  echo 'export DOTNET_NOLOGO="true"' >> "$BASH_ENV"
+                  echo 'export DOTNET_RUNNING_IN_CONTAINER="true"' >> "$BASH_ENV"
+                  echo 'export NUGET_XMLDOC_MODE="skip"' >> "$BASH_ENV"
       - when:
           condition:
             and:
@@ -93,6 +96,10 @@ jobs:
     executor:
       name: win/default
       size: large
+    environment:
+      DOTNET_NOLOGO: "true"
+      DOTNET_RUNNING_IN_CONTAINER: "true"
+      NUGET_XMLDOC_MODE: "skip"
     steps:
       - checkout_and_attach
       - install_dotnet:
