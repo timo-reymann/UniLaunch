@@ -57,7 +57,7 @@ patch-version: ## Patch the version for UniLaunch
 extract_version_command = $(shell awk -F'[<>]' '/<Version>/{print $$3}' Platform.targets)
 VERSION := $(extract_version_command)
 DOTNET_VERSION = "net9.0"
-DOTNET_BUILD_OPTS = -v minimal --nologo
+DOTNET_BUILD_OPTS = -v minimal --nologo -nodeReuse:False -graphBuild:True --property:BuildInParallel=true -maxCpuCount:4
 # --- END GENERAL ---
 
 # --- BEGIN MacOS ---
