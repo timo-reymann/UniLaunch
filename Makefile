@@ -260,6 +260,6 @@ windows-build-installer: require_windows ## Build the Windows installer for x64
 	@cp $(TMP)/dist/UniLaunch-Setup.exe dist/
 
 _windows-build: _create_dist
-	dotnet publish UniLaunch.Windows/UniLaunch.Windows.csproj -r $(RID) -c Release $(DOTNET_BUILD_OPTS) $(DOTNET_BUILD_OPTS)
+	dotnet publish UniLaunch.Windows/UniLaunch.Windows.csproj -r $(RID) -c Release $(DOTNET_BUILD_OPTS)
 	cp UniLaunch.Windows/bin/Release/$(DOTNET_VERSION)/$(RID)/publish/UniLaunch.Windows.exe dist/UniLaunch-$(RID).exe
 # -- END Windows ---
