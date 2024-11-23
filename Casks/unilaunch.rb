@@ -1,7 +1,7 @@
 cask "unilaunch" do 
-  version "1.4.0" 
-  url "https://github.com/timo-reymann/UniLaunch/releases/download/1.4.0/UniLaunchInstaller-Silicon.dmg" 
-  sha256 "3b81c2e0b0a758a4c980797660349a4d461b9272c412428037afe2d3e9883443" 
+  version "1.5.0" 
+  url "https://github.com/timo-reymann/UniLaunch/releases/download/1.5.0/UniLaunchInstaller-Silicon.dmg" 
+  sha256 "8c88994cdb25a48413ce596d9d5adbdb37e3c3d8892d8d1d65d10e5fa7fbaae4" 
   name "UniLaunch" 
   homepage "https://github.com/timo-reymann/UniLaunch" 
   app "UniLaunch.app" 
