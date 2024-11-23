@@ -1,3 +1,10 @@
+## [1.5.0](https://github.com/timo-reymann/UniLaunch/compare/1.4.0...1.5.0) (2024-11-23)
+
+
+### Features
+
+* Various updates & performance improvements ([4dc5115](https://github.com/timo-reymann/UniLaunch/commit/4dc5115f0003b4412a14b17d1a807f2afdf11046))
+
 ## [1.4.0](https://github.com/timo-reymann/UniLaunch/compare/1.3.0...1.4.0) (2024-05-11)
 
 
