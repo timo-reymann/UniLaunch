@@ -16,8 +16,8 @@ public class TimeOnlyConverter : IYamlTypeConverter
     {
         return type == typeof(TimeOnly);
     }
-
-    public object ReadYaml(IParser parser, Type type)
+    
+    public object? ReadYaml(IParser parser, Type type, ObjectDeserializer rootDeserializer)
     {
         var scalar = parser.Consume<Scalar>();
         if (TimeOnly.TryParseExact(scalar.Value, Format, out var time))
@@ -27,8 +27,8 @@ public class TimeOnlyConverter : IYamlTypeConverter
 
         throw new YamlException($"Invalid TimeOnly format: {scalar.Value}. Expected format: {Format}");
     }
-
-    public void WriteYaml(IEmitter emitter, object? value, Type type)
+    
+    public void WriteYaml(IEmitter emitter, object? value, Type type, ObjectSerializer serializer)
     {
         if (value is TimeOnly time)
         {
