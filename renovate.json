@@ -13,6 +13,7 @@
       "groupName": "Projektanker.Icons.Avalonia",
       "groupSlug": "avalonia-icons",
       "matchPackageNames": [
+        "projektanker.icons.avalonia",
         "projektanker.icons.avalonia.*"
       ]
     }
