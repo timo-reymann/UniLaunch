@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/timo-reymann/UniLaunch/compare/1.5.0...1.5.1) (2025-08-06)
+
+
+### Bug Fixes
+
+* **deps:** update avalonia monorepo to 11.3.3 ([#78](https://github.com/timo-reymann/UniLaunch/issues/78)) ([9dbd8bf](https://github.com/timo-reymann/UniLaunch/commit/9dbd8bf9a8b309881a75e62b7f9767e42caa3807))
+
 ## [1.5.0](https://github.com/timo-reymann/UniLaunch/compare/1.4.0...1.5.0) (2024-11-23)
 
 
