@@ -1,4 +1,4 @@
-FROM debian:12
+FROM debian:13
 ARG deb_arch
 WORKDIR /build/dist
 RUN dpkg-deb --help
