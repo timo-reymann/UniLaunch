@@ -77,8 +77,8 @@ commands:
 executors:
   macos:
     macos:
-      xcode: "26.1.0"
-    resource_class: m4pro.medium
+      xcode: "16.4.0"
+    resource_class: macos.m1.medium.gen1
   linux:
     machine:
       image: ubuntu-2004:current
