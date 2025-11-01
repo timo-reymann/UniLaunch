@@ -77,7 +77,7 @@ commands:
 executors:
   macos:
     macos:
-      xcode: "15.4.0"
+      xcode: "16.4.0"
     resource_class: macos.m1.medium.gen1
   linux:
     machine:
@@ -110,7 +110,7 @@ jobs:
       - run:
           name: Install build dependencies
           command: |
-            choco install -y -v make curl innosetup
+            choco install -y make curl innosetup
       - run:
           name: Build Windows artifacts
           command: make windows-build
