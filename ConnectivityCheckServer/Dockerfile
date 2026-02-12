@@ -1,4 +1,4 @@
-FROM golang:1.25 as build
+FROM golang:1.26 as build
 WORKDIR /build
 COPY main.go ./
 RUN CGO_ENABLED=0 go build -ldflags "-s -w" -o connectivity-check main.go
