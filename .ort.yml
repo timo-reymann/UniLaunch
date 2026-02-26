@@ -1,0 +1,5 @@
+resolutions:
+  issues:
+    - message: ".*version conflict.*Microsoft.CodeAnalysis.Common.*"
+      reason: "BUILD_TOOL_ISSUE"
+      comment: "Known nuget-inspector issue with Microsoft.CodeAnalysis transitive dependency version ranges."
