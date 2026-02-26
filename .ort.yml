@@ -6,6 +6,9 @@ excludes:
     - pattern: "UniLaunch.Linux.Tests/**"
       reason: "TEST_OF"
       comment: "Test project for UniLaunch.Linux."
+    - pattern: "UniLaunch.CodeGenerator/**"
+      reason: "BUILD_TOOL_OF"
+      comment: "Source generator build tool, not a runtime dependency."
 resolutions:
   issues:
     - message: ".*version conflict.*Microsoft.CodeAnalysis.Common.*"
