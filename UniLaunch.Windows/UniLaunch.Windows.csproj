@@ -15,7 +15,7 @@
     <ItemGroup>
         <ProjectReference Include="..\UniLaunch.Core\UniLaunch.Core.csproj"/>
         <ProjectReference Include="..\UniLaunch.UI\UniLaunch.UI.csproj" />
-        <PackageReference Include="NSubsys">
+        <PackageReference Include="NSubsys" Version="1.0.0">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>

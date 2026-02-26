@@ -15,17 +15,17 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia"/>
-        <PackageReference Include="Avalonia.Desktop"/>
-        <PackageReference Include="Avalonia.Themes.Fluent"/>
-        <PackageReference Include="Avalonia.Fonts.Inter"/>
-        <PackageReference Include="Avalonia.Diagnostics" Condition="'$(Configuration)' == 'Debug'"/>
-        <PackageReference Include="Avalonia.ReactiveUI"/>
-        <PackageReference Include="Avalonia.Native"/>
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection"/>
-        <PackageReference Include="MessageBox.Avalonia"/>
-        <PackageReference Include="Projektanker.Icons.Avalonia"/>
-        <PackageReference Include="Projektanker.Icons.Avalonia.FontAwesome"/>
+        <PackageReference Include="Avalonia" Version="11.3.12"/>
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.12"/>
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.12"/>
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.12"/>
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.12" Condition="'$(Configuration)' == 'Debug'"/>
+        <PackageReference Include="Avalonia.ReactiveUI" Version="11.3.9"/>
+        <PackageReference Include="Avalonia.Native" Version="11.3.12"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0"/>
+        <PackageReference Include="MessageBox.Avalonia" Version="3.3.1.1"/>
+        <PackageReference Include="Projektanker.Icons.Avalonia" Version="9.6.2"/>
+        <PackageReference Include="Projektanker.Icons.Avalonia.FontAwesome" Version="9.6.2"/>
     </ItemGroup>
 
     <ItemGroup>
