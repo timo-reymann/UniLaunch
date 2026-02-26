@@ -26,8 +26,6 @@
         <PackageReference Include="MessageBox.Avalonia"/>
         <PackageReference Include="Projektanker.Icons.Avalonia"/>
         <PackageReference Include="Projektanker.Icons.Avalonia.FontAwesome"/>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp"/>
-        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers"/>
     </ItemGroup>
 
     <ItemGroup>
