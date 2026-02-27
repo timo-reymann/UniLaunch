@@ -1,3 +1,21 @@
+## [1.6.0](https://github.com/timo-reymann/UniLaunch/compare/1.5.2...1.6.0) (2026-02-27)
+
+### Features
+
+* Add license details to info dialog ([a9328b3](https://github.com/timo-reymann/UniLaunch/commit/a9328b3d8a6c24b975af76b80e098f71d0dbdcf7))
+
+### Bug Fixes
+
+* **ci:** add license curation for Avalonia.Angle.Windows.Natives ([84552e9](https://github.com/timo-reymann/UniLaunch/commit/84552e922d856b7e0d1ce673d773e7e8b5fe3ee8))
+* **ci:** add PrivateAssets to CodeAnalysis.Common in CodeGenerator ([965731c](https://github.com/timo-reymann/UniLaunch/commit/965731c8a11f78b0ef5453f2b14ba57d82496ccd))
+* **ci:** add scanner issue resolutions for NuGet provenance failures ([521502c](https://github.com/timo-reymann/UniLaunch/commit/521502cb2d73534c122f1509e2e36d416cbb7968))
+* **ci:** exclude CodeGenerator from ORT analysis ([d7ea6e9](https://github.com/timo-reymann/UniLaunch/commit/d7ea6e95e6085277ed89dc04302e8e567b32b4cf))
+* **ci:** exclude test projects from ORT analysis ([297ecfc](https://github.com/timo-reymann/UniLaunch/commit/297ecfc2e4aa1d458b80484446b52fbd531d6176))
+* **ci:** fix ORT scanner resolution patterns to match actual messages ([4086ea6](https://github.com/timo-reymann/UniLaunch/commit/4086ea6502fb64126ce61a1e249c186d238adf6a))
+* **ci:** move package versions from CPM to project files ([ea1bfea](https://github.com/timo-reymann/UniLaunch/commit/ea1bfeafa24d767f41c502db95e96d8d6ca16da3))
+* **ci:** remove redundant CodeAnalysis packages from UI project ([249a745](https://github.com/timo-reymann/UniLaunch/commit/249a745cb1992aeebbe31d11fdfb2bddad145026))
+* **ci:** resolve ORT nuget-inspector version conflict ([79cf972](https://github.com/timo-reymann/UniLaunch/commit/79cf972630fc4ddcefb534fc7af822ba1e730304))
+
 ## [1.5.2](https://github.com/timo-reymann/UniLaunch/compare/1.5.1...1.5.2) (2025-09-04)
 
 
