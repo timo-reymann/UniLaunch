@@ -128,7 +128,13 @@ namespace UniLaunch.UI.Assets {
                 return ResourceManager.GetString("AboutWindowLabelLicense", resourceCulture);
             }
         }
-        
+
+        public static string AboutWindowLabelThirdPartyLicenses {
+            get {
+                return ResourceManager.GetString("AboutWindowLabelThirdPartyLicenses", resourceCulture);
+            }
+        }
+
         public static string LocaleNameDE {
             get {
                 return ResourceManager.GetString("LocaleNameDE", resourceCulture);

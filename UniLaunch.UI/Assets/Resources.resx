@@ -74,6 +74,9 @@
     <data name="AboutWindowLabelLicense" xml:space="preserve">
         <value>Licensed under</value>
     </data>
+    <data name="AboutWindowLabelThirdPartyLicenses" xml:space="preserve">
+        <value>License Information &amp; Third Party Software</value>
+    </data>
 
     <!-- Locale names -->
     <data name="LocaleNameDE">

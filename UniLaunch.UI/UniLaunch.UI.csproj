@@ -15,6 +15,13 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Content Include="..\NOTICE">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <Link>NOTICE.txt</Link>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Avalonia" Version="11.3.12"/>
         <PackageReference Include="Avalonia.Desktop" Version="11.3.12"/>
         <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.12"/>

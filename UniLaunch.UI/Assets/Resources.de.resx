@@ -76,6 +76,9 @@
     <data name="AboutWindowLabelLicense" xml:space="preserve">
         <value>Lizenziert unter</value>
     </data>
+    <data name="AboutWindowLabelThirdPartyLicenses" xml:space="preserve">
+        <value>Lizenzinformationen &amp; Drittanbieter-Software</value>
+    </data>
 
     <!-- Settings -->
     <data name="SettingsWindowTitle">
