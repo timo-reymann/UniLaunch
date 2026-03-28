@@ -1,3 +1,9 @@
+## [1.6.1](https://github.com/timo-reymann/UniLaunch/compare/1.6.0...1.6.1) (2026-03-28)
+
+### Bug Fixes
+
+* **connectivity-check:** Optimize container layers ([3797f80](https://github.com/timo-reymann/UniLaunch/commit/3797f80f7f235214e5be9baa231b125d22034465))
+
 ## [1.6.0](https://github.com/timo-reymann/UniLaunch/compare/1.5.2...1.6.0) (2026-02-27)
 
 ### Features
