@@ -4,7 +4,7 @@ WORKDIR /build
 COPY main.go ./
 RUN go build -ldflags "-s -w" -o connectivity-check main.go
 
-FROM scratch
+FROM timoreymann/ubuntu-runtime:26.04
 LABEL org.opencontainers.image.title="connecitvity-check" \
       org.opencontainers.image.description="Connectivity checker that is used by UniLaunch to verify internet connection works." \
       org.opencontainers.image.ref.name="main" \
@@ -15,9 +15,6 @@ LABEL org.opencontainers.image.title="connecitvity-check" \
       org.opencontainers.image.documentation="https://github.com/timo-reymann/UniLaunch" \
       org.opencontainers.image.source="https://github.com/timo-reymann/UniLaunch.git"
 
-COPY --from=gcr.io/distroless/static-debian12:nonroot / /
-
-USER nonroot
 COPY --from=build /build/connectivity-check /bin/connectivity-check
 
 ENTRYPOINT ["/bin/connectivity-check"]
