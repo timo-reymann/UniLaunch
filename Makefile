@@ -81,7 +81,7 @@ macos-generate-cask: ## Generate cask ruby file
 connectivity-check-build-image: ## Build docker image for connectivity checker
 	@cd ConnectivityCheckServer/ && \
  	docker buildx build --tag timoreymann/connectivity-check:latest \
-		--platform linux/amd64,linux/arm/v7,linux/arm64 \
+		--platform linux/amd64,linux/arm64 \
 		--push .
 
 macos-build-app: require_osx macos-build-binary ## Build MacOS app file from static file
