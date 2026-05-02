@@ -1,3 +1,9 @@
+## [1.7.0](https://github.com/timo-reymann/UniLaunch/compare/1.6.1...1.7.0) (2026-05-02)
+
+### Features
+
+* **connectivity-check:** Use custom runtime image ([d6c6258](https://github.com/timo-reymann/UniLaunch/commit/d6c6258c3e0a2458c4d5f651a1becbfb57427050))
+
 ## [1.6.1](https://github.com/timo-reymann/UniLaunch/compare/1.6.0...1.6.1) (2026-03-28)
 
 ### Bug Fixes
