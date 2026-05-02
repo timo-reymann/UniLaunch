@@ -1,3 +1,9 @@
+## [1.7.1](https://github.com/timo-reymann/UniLaunch/compare/1.7.0...1.7.1) (2026-05-02)
+
+### Bug Fixes
+
+* Remove armv7 support for connectivity check ([29ddbe2](https://github.com/timo-reymann/UniLaunch/commit/29ddbe2aa3089fc52fe35021e031b18eac934220))
+
 ## [1.7.0](https://github.com/timo-reymann/UniLaunch/compare/1.6.1...1.7.0) (2026-05-02)
 
 ### Features
