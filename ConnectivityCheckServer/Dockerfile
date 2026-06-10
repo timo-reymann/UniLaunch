@@ -4,7 +4,7 @@ WORKDIR /build
 COPY main.go ./
 RUN go build -ldflags "-s -w" -o connectivity-check main.go
 
-FROM timoreymann/ubuntu-runtime:26.04
+FROM timoreymann/ubuntu-runtime:26.13
 LABEL org.opencontainers.image.title="connecitvity-check" \
       org.opencontainers.image.description="Connectivity checker that is used by UniLaunch to verify internet connection works." \
       org.opencontainers.image.ref.name="main" \
