@@ -8,7 +8,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\UniLaunch.Core\UniLaunch.Core.csproj"/>
-        <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="5.0.3"/>
+        <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2"/>
         <ProjectReference Include="..\UniLaunch.UI\UniLaunch.UI.csproj" />
     </ItemGroup>
 
