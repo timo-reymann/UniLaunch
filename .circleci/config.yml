@@ -19,7 +19,7 @@ orbs:
   github-utils: trustedshops-public/github-utils@1.2.0
   github-cli: circleci/github-cli@2.7.2
   semantic-release: trustedshops-public/semantic-release@6.1.0
-  docker: circleci/docker@4.0.0
+  docker: circleci/docker@4.0.1
 
 commands:
   install_dotnet:
