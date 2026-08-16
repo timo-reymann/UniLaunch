@@ -1,7 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "local>timo-reymann/renovate-config"
+    "local>timo-reymann/renovate-config",
+    "local>timo-reymann/renovate-config//presets/ecosystems/nuget",
+    "local>timo-reymann/renovate-config//presets/groups/nuget-avalonia-ui",
+    "local>timo-reymann/renovate-config//presets/groups/nuget-roslyn"
   ],
   "enabledManagers": [
     "dockerfile",
