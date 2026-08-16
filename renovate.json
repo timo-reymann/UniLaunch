@@ -6,7 +6,8 @@
   "enabledManagers": [
     "dockerfile",
     "circleci",
-    "nuget"
+    "nuget",
+    "github-actions"
   ],
   "packageRules": [
     {
