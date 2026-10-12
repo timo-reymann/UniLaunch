@@ -48,6 +48,18 @@ if (!CommandLineUtil.IsAutoStart())
     return 0;
 }
 
+// If running as autostart but there's no config file or no targets,
+// fall back to showing the editor UI instead of exiting silently
+// This ensures the app always shows a window when started without arguments
+if (engine.Configuration == null || !engine.Configuration.Entries.Any())
+{
+    EntityViewModelRegistry.Instance
+        .Register<AppFileTarget, AppFileTargetViewModel>();
+    CommandLineUtil.PrintAppInfo();
+    EditorUi.Run(Environment.GetCommandLineArgs());
+    return 0;
+}
+
 foreach (var result in await engine.WaitForAllTargetsToLaunch())
 {
     result.Print();
