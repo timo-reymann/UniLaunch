@@ -15,6 +15,11 @@ public class UniLaunchEngine
     public List<StorageProvider<UniLaunchConfiguration>> AvailableStoreProviders { get; private set; } = new();
 
     /// <summary>
+    /// Whether the last config file load attempt failed due to a StorageException
+    /// </summary>
+    public bool ConfigLoadFailed { get; private set; } = false;
+
+    /// <summary>
     /// Global shared instance of the engine
     /// </summary>
     public static readonly UniLaunchEngine Instance = new();
@@ -117,6 +122,7 @@ public class UniLaunchEngine
     public UniLaunchEngine LocateAndParseConfigFile(bool ignoreErrors = true)
     {
         ConfigFilePath = LocateConfigFile();
+        ConfigLoadFailed = false;
         if (ignoreErrors)
         {
             try
@@ -125,6 +131,7 @@ public class UniLaunchEngine
             }
             catch (StorageException)
             {
+                ConfigLoadFailed = ConfigFilePath != null;
             }
         }
         else
