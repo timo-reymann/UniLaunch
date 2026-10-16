@@ -1,98 +1,73 @@
-# UniLaunch design
+# UniLaunch visual design
 
-## Product purpose
+This document describes the visual language and UI tokens used by the editor. For runtime
+behavior, project boundaries, and platform architecture, see [ARCHITECTURE.md](ARCHITECTURE.md).
 
-UniLaunch is a cross-platform desktop editor and autostart runner. It lets people define
-applications to start at login, with reusable rules that decide when each application should
-launch. The editor manages that configuration; the platform-specific executable evaluates it
-when the operating system starts UniLaunch in autostart mode.
+## Visual direction
 
-## User-facing model
+UniLaunch uses a friendly, colorful desktop-editor style: a recognizable illustrated logo,
+rounded custom header, icon-led navigation, and clear form controls. The Fluent theme provides
+the standard control shapes and states; the project theme dictionaries apply UniLaunch's own
+palette and surface treatments.
 
-Configuration is organized around four concepts:
+Keep light and dark themes as parallel expressions of the same palette and hierarchy. Use the
+purple header family for app identity, neutral surfaces for editing areas, and reserve the
+warm unsaved-change color for that state.
 
-- **Target** — an application or executable to launch.
-- **Rule** — a condition, such as `always`, a time range, or selected weekdays.
-- **Ruleset** — a named group of rules. All rules in a ruleset must match.
-- **Entry** — associates one target with one ruleset.
+## Color tokens
 
-The configuration schema and file locations are documented in the
-[README configuration section](README.md#configuration). YAML is the default format; JSON is
-also supported.
+The live values are defined in `UniLaunch.UI/Styles/LightThemeAdjustments.axaml` and
+`DarkThemeAdjustments.axaml`.
 
-## Application experience
+| Token | Light | Dark | Use |
+| --- | --- | --- | --- |
+| `MenuBar.Background` | `#AEA5DE` | `#27213C` | Main window header surface |
+| `MenuBar.Background.Accent` | `#8F89B9` | `#3A2F5B` | Secondary header/menu accent |
+| `MenuBar.Tab.Background` | `#AEA5DE` → `#A6A0D3` → `#9F97C8` | `#27213C` → `#302943` → `#392F52` | Vertical tab-strip gradient; values are top, midpoint, bottom |
+| `MenuBar.PrimaryMenuItem.Foreground` | `#000000` | `#E2E2E2` | Header menu icons/text |
+| `SidePanel.Background` | `#14000000` | `#14FFFFFF` | Subtle translucent overlay on the item list |
+| `FileIcon.Unsaved.Color` | `#FFCC00` | `#EC942C` | Unsaved configuration indicator |
+| `RuleSet.RuleForeground` | `#81000000` | `#8AFFFFFF` | Secondary ruleset text |
 
-### Editor window
+The leading alpha in the side-panel and ruleset values is intentional. When adjusting a token,
+check it against both the surface it overlays and its counterpart in the other theme.
 
-The shared Avalonia editor has three primary tabs: **Targets**, **Rulesets**, and **Entries**.
-The file menu supports opening and saving configuration files. The header also provides
-Settings and About actions. The default main-window size is 800×600.
+## Typography
 
-Settings cover the connectivity-check endpoint and timeout, system/light/dark theme selection,
-English or German UI language, and update checks on launch. The Settings window opens at
-680×650 and can be resized. User interface preferences are stored separately from the
-autostart configuration.
+- **Interface text:** Inter, supplied by Avalonia's `WithInterFont()` setup.
+- **Brand wordmark:** bundled Lilita One display face, registered as the `Syne` font resource
+  in `UniLaunch.UI/App.axaml` for the existing header binding.
+- **Header wordmark:** 37 UI units; **tab labels:** 18; **menu items:** 14.
 
-The UI uses Avalonia Fluent styling, shared dark and light theme adjustments, and bundled
-branding and fonts. UI strings belong in `UniLaunch.UI/Assets/Resources.resx` and its German
-translation `Resources.de.resx`; `Resources.Designer.cs` exposes those resources to the UI.
+Use the existing font resources and sizing hierarchy rather than adding one-off typefaces or
+large control-specific overrides.
 
-### Tray behavior
+## Layout and components
 
-The editor creates a tray icon at startup. Its menu provides **Open UniLaunch**, a disabled
-version item, and **Exit**. Clicking the icon or Open shows and activates the editor window.
-Closing the main window exits the application; it does not hide the editor into the tray.
+- **Main window:** opens at 800×600 UI units, with an 800×375 minimum. The custom header
+  contains the logo/wordmark and file, Settings, and About actions. The tab strip is directly
+  below it; the working area pairs a left-hand item list with a right-hand editor.
+- **Navigation:** Targets, Rulesets, and Entries use the shared centered tab strip and icon-led
+  tab controls.
+- **Settings window:** opens at 680×650, with a 680×600 minimum, and is resizable. Settings
+  content uses the same compact label/form hierarchy as the editor.
+- **Theme:** keep dark and light adjustments in their respective theme dictionaries. Shared
+  control structure and component styling belong in the shared UI project.
 
-When a valid autostart run launches its targets, UniLaunch displays the same tray icon for
-30 seconds as a visible confirmation, then exits. This confirmation is best-effort; Linux runs
-without `DISPLAY` or `WAYLAND_DISPLAY` skip it. Linux desktop tray visibility also depends on a
-StatusNotifier/AppIndicator host.
+## Interaction and state
 
-### Autostart execution
+- The top header's file, Settings, and About actions use icons; menu text uses the standard
+  menu size.
+- The selected item is shown in the details pane. The file icon changes color when the current
+  configuration has unsaved edits.
+- The header drag area moves the window only while the primary pointer button is held. Pointer
+  capture is used so release outside the header still ends a drag.
+- A tray menu offers Open, a read-only version item, and Exit. Normal window close exits rather
+  than hiding the editor into the tray.
 
-The platform executable acquires a single-instance guard, registers the target and rule types
-available on that platform, loads configuration, and checks for `--autostart`:
+## Localization and assets
 
-- **Normal launch:** ensure the platform's autostart registration exists, then open the editor.
-- **Autostart launch with usable entries:** evaluate entries against the current local date/time,
-  launch matching targets, print launch results, show the brief tray confirmation, then exit.
-- **Autostart launch without usable entries or with a configuration load failure:** open the
-  editor rather than silently doing nothing.
-
-Targets that do not require connectivity launch without waiting. Network-dependent targets wait
-for the configured connectivity check. Eligible targets are launched concurrently; UniLaunch
-does not supervise the launched applications after starting them.
-
-Run `UniLaunch --autostart` (or the platform executable with that argument) to exercise the
-autostart path manually.
-
-## Code structure
-
-| Project | Responsibility |
-| --- | --- |
-| `UniLaunch.Core` | Configuration model and storage, rules, target abstractions, launch engine, connectivity checks, update-check logic, and shared utilities. It does not depend on Avalonia. |
-| `UniLaunch.UI` | Shared Avalonia application, editor windows, views/view-models, UI services, resources, themes, and tray behavior. |
-| `UniLaunch.Linux` | Linux entry point, XDG configuration/autostart integration, and executable target registration. |
-| `UniLaunch.MacOS` | macOS entry point, LaunchAgent integration, executable and `.app` targets. |
-| `UniLaunch.Windows` | Windows entry point, registry autostart integration, executable targets, and installer configuration. |
-| `UniLaunch.CodeGenerator` | Source generator used by the UI's view-model code. |
-| `UniLaunch.UIDesigner` | Host application for the standalone Avalonia visual designer. |
-| `UniLaunch.Core.Tests`, `UniLaunch.Linux.Tests` | Core behavior and Linux-specific tests. |
-
-Each platform project owns its process entry point and platform registration. Shared behavior
-belongs in Core or UI as appropriate; platform-specific APIs and target types belong in their
-platform project. The macOS `.app` target uses `/usr/bin/open`; the executable target starts
-standalone binaries and redirects their standard streams so launched programs are not tied to
-UniLaunch's console.
-
-## Design constraints
-
-- Keep autostart execution useful without opening an editor window when a valid configuration
-  exists.
-- Keep the shared engine independent of UI and operating-system APIs.
-- Treat serialized type names such as `targetType`, `ruleName`, `executable`, `appFile`,
-  `always`, `time`, and `week-day` as configuration compatibility points.
-- Register only the target and rule types supported by a platform; unsupported types must not
-  be assumed to work cross-platform.
-- Preserve user configuration when changing the editor or launch engine; editor preferences
-  are stored independently.
+UI copy is localized in `UniLaunch.UI/Assets/Resources.resx` (English) and
+`Resources.de.resx` (German); resource properties are exposed through `Resources.Designer.cs`.
+Keep labels concise enough for both languages. The logo, window/tray icon, and bundled font
+assets live under `UniLaunch.UI/Assets/` and `Resources/`.
