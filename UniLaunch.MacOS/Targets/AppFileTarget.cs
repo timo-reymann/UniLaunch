@@ -22,7 +22,13 @@ public class AppFileTarget : Target
                 FileName = "/usr/bin/open",
                 Arguments = $"{Path}"
             });
-            process!.Start();
+            if (process == null)
+            {
+                return Error(new Error[]
+                {
+                    new("OpenFailed", "Failed to start /usr/bin/open")
+                });
+            }
 
             await process.WaitForExitAsync(new CancellationTokenSource(TimeSpan.FromSeconds(3)).Token);
             if (process.ExitCode != 0)

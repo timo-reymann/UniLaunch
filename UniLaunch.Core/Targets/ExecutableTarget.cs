@@ -24,7 +24,10 @@ public class ExecutableTarget : Target
             {
                 Arguments = Strings.Join(Arguments ?? Array.Empty<string>(), " "),
                 UseShellExecute = false,
-                FileName = Executable ?? throw new TargetInvocationFailedException("Executable not set")
+                FileName = Executable ?? throw new TargetInvocationFailedException("Executable not set"),
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                RedirectStandardInput = true
             });
             if (process == null)
             {
@@ -33,6 +36,12 @@ public class ExecutableTarget : Target
                     new("ProcessSpawnFailed")
                 }));
             }
+
+            // Detach the child from our stdio so it does not keep the parent
+            // process (or a launching terminal) attached to it.
+            _ = process.StandardOutput.BaseStream.CopyToAsync(Stream.Null);
+            _ = process.StandardError.BaseStream.CopyToAsync(Stream.Null);
+            process.StandardInput.Close();
         }
         catch (Exception e)
         {
