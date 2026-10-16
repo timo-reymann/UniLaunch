@@ -3,7 +3,8 @@
     <LinearGradientBrush x:Key="MenuBar.Tab.Background" StartPoint="100%,0%" EndPoint="100%,100%">
         <LinearGradientBrush.GradientStops>
             <GradientStop Offset="0" Color="#27213C"/>
-            <GradientStop Offset="1"  Color="#3A2F5B"/>
+            <GradientStop Offset="0.5" Color="#302943"/>
+            <GradientStop Offset="1" Color="#392F52"/>
         </LinearGradientBrush.GradientStops>
     </LinearGradientBrush>
     <SolidColorBrush x:Key="MenuBar.Background" Color="#27213C"/>

@@ -6,13 +6,14 @@
         xmlns:converter="clr-namespace:UniLaunch.UI.Converter"
         xmlns:assets="clr-namespace:UniLaunch.UI.Assets"
         mc:Ignorable="d"
-        d:DesignWidth="500"
-        d:DesignHeight="630"
-        Height="630"
-        Width="400"
-        SizeToContent="Width"
+        d:DesignWidth="680"
+        d:DesignHeight="650"
+        Height="650"
+        Width="680"
+        MinWidth="680"
+        MinHeight="600"
         Closing="OnClose"
-        CanResize="False"
+        CanResize="True"
         x:Class="UniLaunch.UI.Views.SettingsWindow"
         x:DataType="vm:SettingsViewModel"
         Icon="avares://UniLaunch.UI/Assets/window-icon.ico"
@@ -29,7 +30,7 @@
         <Grid HorizontalAlignment="Left"
               Margin="0 0 0 30"
               RowDefinitions="60, 20, Auto, 30, Auto"
-              ColumnDefinitions="400">
+              ColumnDefinitions="620">
             <TextBlock Grid.Row="0"
                        FontSize="40"
                        Text="{x:Static assets:Resources.SettingsWindowConnectivityCheckTitle}" />
@@ -46,8 +47,8 @@
                        Text="{x:Static assets:Resources.SettingsWindowConnectivityCheckLabelTimeout}" />
             <Grid Grid.Row="4"
                   RowDefinitions="50"
-                  ColumnDefinitions="344, 50">
-                <Slider Width="314"
+                  ColumnDefinitions="564, 50">
+                <Slider Width="534"
                         HorizontalAlignment="Left"
                         Minimum="1"
                         TickFrequency="1"
@@ -65,7 +66,7 @@
         </Grid>
         <Grid HorizontalAlignment="Left"
               RowDefinitions="60, 20, Auto, 30, 30, 30, 20"
-              ColumnDefinitions="400">
+              ColumnDefinitions="620">
             <TextBlock Grid.Row="0"
                        FontSize="40"
                        Text="{x:Static assets:Resources.SettingsWindowEditorSettingsTitle}" />
