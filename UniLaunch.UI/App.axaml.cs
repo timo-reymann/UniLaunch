@@ -21,6 +21,7 @@ namespace UniLaunch.UI;
 public class App : Application
 {
     private DispatcherTimer? _confirmationTimer;
+    private IEditorConfigurationService _editorConfigurationService = null!;
 
     /// <summary>
     /// Gets or sets the duration the tray icon is shown in autostart confirmation mode,
@@ -30,14 +31,14 @@ public class App : Application
 
     public override void Initialize()
     {
+        _editorConfigurationService = new EditorConfigurationService();
+        AdjustEditorUIBasedOnSettings(_editorConfigurationService);
         AvaloniaXamlLoader.Load(this);
     }
 
     public override void OnFrameworkInitializationCompleted()
     {
-        var editorConfigurationService = new EditorConfigurationService();
-
-        AdjustEditorUIBasedOnSettings(editorConfigurationService);
+        var editorConfigurationService = _editorConfigurationService;
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
