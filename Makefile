@@ -170,7 +170,7 @@ linux-build-binary: ## Build the binaries for all supported architectures on lin
 	$(MAKE) _linux-build RID=linux-arm64 DOCKER_ARCH=arm64
 
 linux-build-appimage: ## Build app image for all supported platforms inside docker
-	$(MAKE) _linux-build-appimage ARCH=x64 DOCKER_ARCH=amd64 LINUXDEPLOY_ARCH=x86_64
+	$(MAKE) _linux-build-appimage ARCH=x64 DOCKER_ARCH=amd64 LINUXDEPLOY_ARCH=x86_64 RUNTIME_ARCH=x86_64
 
 linux-build-deb: linux-build-binary ## Build deb file for all supported platforms on Linux
 	make _linux-deb ARCH=x64 DEB_ARCH=amd64 DOCKER_ARCH=amd64
@@ -227,7 +227,7 @@ Exec=unilaunch\n\
 X-AppImage-Version=$(VERSION)\n\
 	" > $(TMP)/UniLaunch.desktop
 	echo "Create builder image and build app image using dockerized setup"
-	docker build  -f Dockerfile.AppImageBuilder.Linux $(TMP) --build-arg linuxdeploy_arch=$(LINUXDEPLOY_ARCH) --platform linux/$(DOCKER_ARCH) -t unilaunch/appimage-builder/linux:$(DOCKER_ARCH)
+	docker build  -f Dockerfile.AppImageBuilder.Linux $(TMP) --build-arg linuxdeploy_arch=$(LINUXDEPLOY_ARCH) --build-arg runtime_arch=$(RUNTIME_ARCH) --platform linux/$(DOCKER_ARCH) -t unilaunch/appimage-builder/linux:$(DOCKER_ARCH)
 	docker run --rm  --platform linux/$(DOCKER_ARCH) -v $(PWD)/dist:/build/dist -it unilaunch/appimage-builder/linux:$(DOCKER_ARCH) \
 	  --appimage-extract-and-run \
 	  --appdir=../AppDir \
