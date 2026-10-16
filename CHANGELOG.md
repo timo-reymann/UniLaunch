@@ -1,3 +1,9 @@
+## [1.7.4](https://github.com/timo-reymann/UniLaunch/compare/1.7.3...1.7.4) (2026-10-16)
+
+### Bug Fixes
+
+* **build:** use current statically linked AppImage runtime ([#170](https://github.com/timo-reymann/UniLaunch/issues/170)) ([44be6c2](https://github.com/timo-reymann/UniLaunch/commit/44be6c22216ddded12419c5f7300e2f34532adf3)), closes [AppImage/appimage.github.io#5206](https://github.com/AppImage/appimage.github.io/issues/5206)
+
 ## [1.7.3](https://github.com/timo-reymann/UniLaunch/compare/1.7.2...1.7.3) (2026-10-16)
 
 ### Bug Fixes
