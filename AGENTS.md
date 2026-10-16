@@ -1,8 +1,9 @@
 # Agent guide
 
-Start with [DESIGN.md](DESIGN.md) for the current product behavior, architecture, platform
-boundaries, and UI conventions. Use [README.md](README.md) for user-facing configuration,
-installation, and usage details, and [CONTRIBUTING.md](CONTRIBUTING.md) for contribution policy.
+Start with [DESIGN.md](DESIGN.md) for UI design tokens, layout, typography, and interaction
+conventions. Use [ARCHITECTURE.md](ARCHITECTURE.md) for product behavior, architecture, and
+platform boundaries. [README.md](README.md) covers user-facing configuration, installation, and
+usage; [CONTRIBUTING.md](CONTRIBUTING.md) covers contribution policy.
 
 ## Repository map
 
@@ -25,8 +26,9 @@ installation, and usage details, and [CONTRIBUTING.md](CONTRIBUTING.md) for cont
   `Resources.de.resx`, and update `Resources.Designer.cs` when adding resources.
 - Test platform-specific changes on the relevant platform when possible. Platform projects have
   distinct entry points and registration behavior even though they share Core and UI.
-- Keep documentation aligned with current behavior. Update `DESIGN.md` for architecture or
-  interaction changes and `README.md` for user-facing configuration or usage changes.
+- Keep documentation aligned with current behavior. Update `DESIGN.md` for UI tokens or
+  interaction changes, `ARCHITECTURE.md` for architecture/runtime changes, and `README.md` for
+  user-facing configuration or usage changes.
 
 ## Build and test
 
