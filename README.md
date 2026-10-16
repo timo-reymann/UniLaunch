@@ -402,7 +402,7 @@ To get started please read the [Contribution Guidelines](./CONTRIBUTING.md).
 
 #### General
 
-- [.NET Core SDK 9.x](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+- [.NET SDK 10.x](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
 - [make](https://www.gnu.org/software/make/)
 
 #### Linux
