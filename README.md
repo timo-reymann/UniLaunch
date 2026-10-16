@@ -417,6 +417,18 @@ To get started please read the [Contribution Guidelines](./CONTRIBUTING.md).
 
 - [create-dmg](https://github.com/create-dmg/create-dmg)
 
+### Dependencies
+
+Each project has a lock file, `packages.lock.json`. The code generator project has no lock file, because restore gives it a runtime set that varies. CI runs restore in locked mode. A build in CI fails when a lock file does not match the project dependencies.
+
+Run the next command after a change to a dependency:
+
+```sh
+make restore-update
+```
+
+Commit the changed lock files together with the change.
+
 ### Test
 
 ````sh
