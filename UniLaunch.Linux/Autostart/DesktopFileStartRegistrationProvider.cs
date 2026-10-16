@@ -26,6 +26,9 @@ public class DesktopFileStartRegistrationProvider : AutoStartRegistrationProvide
     {
         try
         {
+            Directory.CreateDirectory(Path.GetDirectoryName(DesktopFilePath)!);
+            Directory.CreateDirectory(Path.GetDirectoryName(IconPath)!);
+
             using var desktopFileWriter = new DesktopFileWriter(DesktopFilePath);
             desktopFileWriter.Write("Name", "UniLaunch");
             desktopFileWriter.Write("Type", "Application");
