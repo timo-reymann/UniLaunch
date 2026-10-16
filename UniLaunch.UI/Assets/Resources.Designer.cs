@@ -81,6 +81,18 @@ namespace UniLaunch.UI.Assets {
             }
         }
         
+        public static string TrayMenuOpen {
+            get {
+                return ResourceManager.GetString("TrayMenuOpen", resourceCulture);
+            }
+        }
+
+        public static string TrayMenuExit {
+            get {
+                return ResourceManager.GetString("TrayMenuExit", resourceCulture);
+            }
+        }
+
         public static string NavTabsTitleTargets {
             get {
                 return ResourceManager.GetString("NavTabsTitleTargets", resourceCulture);

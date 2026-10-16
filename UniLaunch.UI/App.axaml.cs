@@ -1,11 +1,14 @@
 using System;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
+using Avalonia.Threading;
 using Microsoft.Extensions.DependencyInjection;
 using UniLaunch.Core.Storage;
 using UniLaunch.Core.UpdateCheck;
@@ -17,6 +20,14 @@ namespace UniLaunch.UI;
 
 public class App : Application
 {
+    private DispatcherTimer? _confirmationTimer;
+
+    /// <summary>
+    /// Gets or sets the duration the tray icon is shown in autostart confirmation mode,
+    /// or null when running the regular editor UI.
+    /// </summary>
+    public static TimeSpan? ConfirmationDuration { get; set; }
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -40,13 +51,28 @@ public class App : Application
                 .AddSingleton<IWindowService>(_ => new WindowService(desktop.MainWindow))
                 .AddSingleton<IEditorConfigurationService>(_ => editorConfigurationService)
                 .BuildServiceProvider();
-        }
 
-        if (editorConfigurationService.Current.CheckForUpdatesOnLaunch)
-        {
+            if (TrayIcon.GetIcons(this)?.FirstOrDefault() is { } trayIcon)
+            {
+                trayIcon.ToolTipText = $"UniLaunch v{AppVersion.Current}";
+            }
+
+            if (ConfirmationDuration is { } duration)
+            {
+                desktop.ShutdownMode = ShutdownMode.OnExplicitShutdown;
+                _confirmationTimer = new DispatcherTimer
+                {
+                    Interval = duration
+                };
+                _confirmationTimer.Tick += (_, _) => OnConfirmationElapsed(desktop);
+                _confirmationTimer.Start();
+            }
+            else if (editorConfigurationService.Current.CheckForUpdatesOnLaunch)
+            {
 #pragma warning disable CS4014
-            CheckForUpdates();
+                CheckForUpdates();
 #pragma warning restore CS4014
+            }
         }
 
         base.OnFrameworkInitializationCompleted();
@@ -93,6 +119,48 @@ public class App : Application
                     AvailableUpdate = updateAvailableCheck.Item2!,
                 }
             });
+    }
+
+    private void OnConfirmationElapsed(IClassicDesktopStyleApplicationLifetime desktop)
+    {
+        _confirmationTimer?.Stop();
+        _confirmationTimer = null;
+        desktop.Shutdown();
+    }
+
+    private void OnTrayClicked(object? sender, EventArgs e) => ShowMainWindow();
+
+    private void OnOpen(object? sender, EventArgs e) => ShowMainWindow();
+
+    private void OnExit(object? sender, EventArgs e)
+    {
+        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        {
+            desktop.Shutdown();
+        }
+    }
+
+    private void ShowMainWindow()
+    {
+        _confirmationTimer?.Stop();
+        _confirmationTimer = null;
+
+        if (ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop ||
+            desktop.MainWindow is not { } window)
+        {
+            return;
+        }
+
+        // Restore close-is-exit behavior when coming from autostart confirmation mode.
+        desktop.ShutdownMode = ShutdownMode.OnLastWindowClose;
+
+        window.Show();
+        if (window.WindowState == WindowState.Minimized)
+        {
+            window.WindowState = WindowState.Normal;
+        }
+
+        window.Activate();
     }
 
     public new static App? Current => Application.Current as App;

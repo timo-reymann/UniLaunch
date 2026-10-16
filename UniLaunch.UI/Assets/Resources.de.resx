@@ -50,6 +50,12 @@
     <data name="AppMenuExit" xml:space="preserve">
         <value>Beenden</value>
     </data>
+    <data name="TrayMenuOpen" xml:space="preserve">
+        <value>UniLaunch öffnen</value>
+    </data>
+    <data name="TrayMenuExit" xml:space="preserve">
+        <value>Beenden</value>
+    </data>
     <data name="NavTabsTitleTargets">
         <value>Ziele</value>
     </data>
