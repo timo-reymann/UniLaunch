@@ -42,17 +42,6 @@ public class App : Application
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new MainWindow
-            {
-                DataContext = new MainWindowViewModel()
-            };
-
-            Services = new ServiceCollection()
-                .AddSingleton<IFilesService>(_ => new FilesService(desktop.MainWindow))
-                .AddSingleton<IWindowService>(_ => new WindowService(desktop.MainWindow))
-                .AddSingleton<IEditorConfigurationService>(_ => editorConfigurationService)
-                .BuildServiceProvider();
-
             if (TrayIcon.GetIcons(this)?.FirstOrDefault() is { } trayIcon)
             {
                 trayIcon.ToolTipText = $"UniLaunch v{AppVersion.Current}";
@@ -68,15 +57,39 @@ public class App : Application
                 _confirmationTimer.Tick += (_, _) => OnConfirmationElapsed(desktop);
                 _confirmationTimer.Start();
             }
-            else if (editorConfigurationService.Current.CheckForUpdatesOnLaunch)
+            else
             {
+                CreateMainWindow(desktop);
+                if (editorConfigurationService.Current.CheckForUpdatesOnLaunch)
+                {
 #pragma warning disable CS4014
-                CheckForUpdates();
+                    CheckForUpdates();
 #pragma warning restore CS4014
+                }
             }
         }
 
         base.OnFrameworkInitializationCompleted();
+    }
+
+    private void CreateMainWindow(IClassicDesktopStyleApplicationLifetime desktop)
+    {
+        if (desktop.MainWindow is not null)
+        {
+            return;
+        }
+
+        var window = new MainWindow
+        {
+            DataContext = new MainWindowViewModel()
+        };
+        desktop.MainWindow = window;
+
+        Services = new ServiceCollection()
+            .AddSingleton<IFilesService>(_ => new FilesService(window))
+            .AddSingleton<IWindowService>(_ => new WindowService(window))
+            .AddSingleton<IEditorConfigurationService>(_ => _editorConfigurationService)
+            .BuildServiceProvider();
     }
 
     internal void AdjustEditorUIBasedOnSettings(IEditorConfigurationService? editorConfigService = null)
@@ -135,6 +148,9 @@ public class App : Application
 
     private void OnExit(object? sender, EventArgs e)
     {
+        _confirmationTimer?.Stop();
+        _confirmationTimer = null;
+
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             desktop.Shutdown();
@@ -146,8 +162,13 @@ public class App : Application
         _confirmationTimer?.Stop();
         _confirmationTimer = null;
 
-        if (ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop ||
-            desktop.MainWindow is not { } window)
+        if (ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop)
+        {
+            return;
+        }
+
+        CreateMainWindow(desktop);
+        if (desktop.MainWindow is not { } window)
         {
             return;
         }
