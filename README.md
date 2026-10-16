@@ -23,11 +23,11 @@ UniLaunch
 - Reusable rule sets
 - dotfile-compatible configuration file location
 
-### UI Sneak Peak
+### UI Sneak Peek
 
-No matter which side you are on. Dark or light, I got you covered:
+The previews use demo data and cycle through Targets, Rulesets, and Entries in both themes:
 
-| ![](.github/images/dark_screens.gif) | ![](.github/images/light_screens.gif) |
+| ![UniLaunch editor in dark theme with demo targets, rulesets, and entries](.github/images/dark_screens.gif) | ![UniLaunch editor in light theme with demo targets, rulesets, and entries](.github/images/light_screens.gif) |
 |:------------------------------------:|:-------------------------------------:|
 |               **Dark**               |               **Light**               |
 
