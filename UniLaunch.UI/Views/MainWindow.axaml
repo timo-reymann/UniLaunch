@@ -11,7 +11,7 @@
         MinWidth="800"
         Width="800"
         MinHeight="375"
-        Height="450"
+        Height="600"
         mc:Ignorable="d"
         d:DesignWidth="600"
         d:DesignHeight="300"
@@ -40,13 +40,15 @@
                    PointerMoved="InputElement_OnPointerMoved"
                    PointerPressed="InputElement_OnPointerPressed"
                    PointerReleased="InputElement_OnPointerReleased"
+                   PointerCaptureLost="InputElement_OnPointerCaptureLost"
                    Fill="{DynamicResource MenuBar.Background}" />
 
         <Grid Grid.Row="1"
-              PointerMoved="InputElement_OnPointerMoved"
-              PointerPressed="InputElement_OnPointerPressed"
-              PointerReleased="InputElement_OnPointerReleased"
-              Background="{DynamicResource MenuBar.Background}">
+               PointerMoved="InputElement_OnPointerMoved"
+               PointerPressed="InputElement_OnPointerPressed"
+               PointerReleased="InputElement_OnPointerReleased"
+               PointerCaptureLost="InputElement_OnPointerCaptureLost"
+               Background="{DynamicResource MenuBar.Background}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="*" />
@@ -65,11 +67,6 @@
             <Menu Grid.Column="1" VerticalAlignment="Center"
                   HorizontalAlignment="Right"
                   Margin="0 0 20 0">
-                <Menu.Styles>
-                    <Style Selector="Menu>MenuItem">
-                        <Setter Property="FontSize" Value="20" />
-                    </Style>
-                </Menu.Styles>
                 <MenuItem ToolTip.ShowDelay="100"
                           ToolTip.Tip="{x:Static assets:Resources.AppMenuUnsavedChangesToolTip}">
                     <MenuItem.Header>

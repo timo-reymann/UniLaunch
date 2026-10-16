@@ -41,9 +41,19 @@ public partial class MainWindow : Window
             return;
         }
 
+        if (!e.GetCurrentPoint(this).Properties.IsLeftButtonPressed)
+        {
+            return;
+        }
+
         if (WindowState is WindowState.Maximized or WindowState.FullScreen)
         {
             return;
+        }
+
+        if (sender is IInputElement inputElement)
+        {
+            e.Pointer.Capture(inputElement);
         }
 
         _mouseDownForWindowMoving = true;
@@ -51,6 +61,12 @@ public partial class MainWindow : Window
     }
 
     private void InputElement_OnPointerReleased(object? sender, PointerReleasedEventArgs e)
+    {
+        _mouseDownForWindowMoving = false;
+        e.Pointer.Capture(null);
+    }
+
+    private void InputElement_OnPointerCaptureLost(object? sender, PointerCaptureLostEventArgs e)
     {
         _mouseDownForWindowMoving = false;
     }
