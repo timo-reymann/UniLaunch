@@ -1,3 +1,9 @@
+## [1.7.3](https://github.com/timo-reymann/UniLaunch/compare/1.7.2...1.7.3) (2026-10-16)
+
+### Bug Fixes
+
+* **linux:** create autostart and icon directories before registering ([c5c947f](https://github.com/timo-reymann/UniLaunch/commit/c5c947f12e6648309ea3be35176f82207c36e477))
+
 ## [1.7.1](https://github.com/timo-reymann/UniLaunch/compare/1.7.0...1.7.1) (2026-05-02)
 
 ### Bug Fixes
