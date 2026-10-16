@@ -37,11 +37,11 @@ var engine = UniLaunchEngine.Instance
     ))
     .LocateAndParseConfigFile();
 
+EntityViewModelRegistry.Instance
+    .Register<AppFileTarget, AppFileTargetViewModel>();
+
 if (!CommandLineUtil.IsAutoStart())
 {
-    EntityViewModelRegistry.Instance
-        .Register<AppFileTarget, AppFileTargetViewModel>();
-
     CommandLineUtil.RegisterAutoStart(new SharedListFileAutoStartRegistrationProvider());
     CommandLineUtil.PrintAppInfo();
     EditorUi.Run(Environment.GetCommandLineArgs());
@@ -54,8 +54,6 @@ if (!CommandLineUtil.IsAutoStart())
 // Only fallback on missing config (not load failure) to avoid showing empty UI on corrupt file
 if (engine.Configuration == null || engine.ConfigLoadFailed || !engine.Configuration.Entries.Any())
 {
-    EntityViewModelRegistry.Instance
-        .Register<AppFileTarget, AppFileTargetViewModel>();
     CommandLineUtil.PrintAppInfo();
     EditorUi.Run(Environment.GetCommandLineArgs());
     return 0;
