@@ -41,6 +41,8 @@ dotnet test UniLaunch.sln
 make test
 ```
 
+The repository commits a `packages.lock.json` file for each project except the code generator. CI restore runs in locked mode and fails on a stale lock file. Run `make restore-update` after a change to a dependency. Commit the changed lock files. Verify restore with `make restore`.
+
 Platform release builds are orchestrated by the Makefile: `make macos-build`,
 `make linux-build`, or `make windows-build`. They may require platform-specific tools; see the
 development requirements in `README.md`.

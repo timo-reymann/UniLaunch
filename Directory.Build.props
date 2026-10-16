@@ -1,0 +1,11 @@
+<Project>
+  <PropertyGroup>
+    <!-- Commit the packages.lock.json of every project. CI restore runs in locked mode. -->
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <!-- Use all publish runtimes here, so the lock file stays stable across RID specific publishes. -->
+    <!-- The code generator loads as an analyzer. RID specific output paths break the analyzer load. -->
+    <RuntimeIdentifiers Condition="'$(MSBuildProjectName)' != 'UniLaunch.CodeGenerator'">linux-x64;linux-arm64;osx-x64;osx-arm64;win-x64;win-arm64</RuntimeIdentifiers>
+    <!-- CI fails the build when a lock file does not match the project dependencies. -->
+    <RestoreLockedMode Condition="'$(CI)' == 'true'">true</RestoreLockedMode>
+  </PropertyGroup>
+</Project>

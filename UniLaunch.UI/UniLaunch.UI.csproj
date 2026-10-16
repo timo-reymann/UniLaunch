@@ -26,7 +26,9 @@
         <PackageReference Include="Avalonia.Desktop" Version="11.3.22"/>
         <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.22"/>
         <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.22"/>
-        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.22" Condition="'$(Configuration)' == 'Debug'"/>
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.22"/>
+        <!-- Keep the package out of release output. The exclude keeps the restore graph equal for all configurations. -->
+        <PackageReference Update="Avalonia.Diagnostics" ExcludeAssets="all" PrivateAssets="all" Condition="'$(Configuration)' != 'Debug'"/>
         <PackageReference Include="Avalonia.ReactiveUI" Version="11.3.9"/>
         <PackageReference Include="Avalonia.Native" Version="11.3.22"/>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0"/>

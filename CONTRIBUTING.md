@@ -44,6 +44,14 @@ To make your life easier there is also a handy template available so feel free t
 
 > ATTENTION: If you DONT provide steps to reproduce the ticket will be closed WITHOUT FURTHER NOTICE!
 
+## Dependencies and lock files
+
+Each project has a lock file, `packages.lock.json`, except the code generator project. CI runs restore in locked mode, so CI fails when a lock file is stale.
+
+1. Change the package references in a project file.
+2. Run `make restore-update`.
+3. Commit the changed lock files together with the other changes.
+
 ## License
 By contributing, you agree that your contributions will be licensed under its Apache License 2.0.
 
