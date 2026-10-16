@@ -1,3 +1,18 @@
+## [1.8.0](https://github.com/timo-reymann/UniLaunch/compare/1.7.4...1.8.0) (2026-10-16)
+
+### Features
+
+* add system tray and startup confirmation ([e2681e2](https://github.com/timo-reymann/UniLaunch/commit/e2681e2e6c42bcc38d8bb7344dc93c3fa5964355))
+
+### Bug Fixes
+
+* detach launched processes from parent stdio ([208be04](https://github.com/timo-reymann/UniLaunch/commit/208be04814f2f374b09bab3dc02d2940459a19c8))
+* keep detached target stdio independent ([18e466a](https://github.com/timo-reymann/UniLaunch/commit/18e466ae311210f5e2488a51d185efd5e4e29535))
+* **macos:** register app file view model in all modes ([993f44a](https://github.com/timo-reymann/UniLaunch/commit/993f44a69ba880cf9436a5f99cc430a486d2d3e7))
+* **ui:** apply saved language before loading tray labels ([d8cec27](https://github.com/timo-reymann/UniLaunch/commit/d8cec27f420c677a7d38fca578dfa3a59256a038))
+* **ui:** defer editor creation until tray open ([29b0db8](https://github.com/timo-reymann/UniLaunch/commit/29b0db847f61559a4d5dcbf3063537cbdb38ae99))
+* **ui:** refine layout and window dragging ([f9d4e6f](https://github.com/timo-reymann/UniLaunch/commit/f9d4e6fdab0da775ef9d0b49b1813f60523259e5))
+
 ## [1.7.4](https://github.com/timo-reymann/UniLaunch/compare/1.7.3...1.7.4) (2026-10-16)
 
 ### Bug Fixes
