@@ -2,11 +2,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="UniLaunch.UI.App"
              xmlns:local="using:UniLaunch.UI"
+             xmlns:assets="clr-namespace:UniLaunch.UI.Assets"
              RequestedThemeVariant="Default">
 
     <Application.DataTemplates>
         <local:ViewLocator />
     </Application.DataTemplates>
+
+    <TrayIcon.Icons>
+        <TrayIcons>
+            <TrayIcon Icon="avares://UniLaunch.UI/Assets/window-icon.ico"
+                      ToolTipText="UniLaunch"
+                      Clicked="OnTrayClicked">
+                <TrayIcon.Menu>
+                    <NativeMenu>
+                        <NativeMenuItem Header="{x:Static assets:Resources.TrayMenuOpen}"
+                                        Click="OnOpen" />
+                        <NativeMenuItemSeparator />
+                        <NativeMenuItem Header="{x:Static local:AppVersion.MenuHeader}"
+                                        IsEnabled="False" />
+                        <NativeMenuItemSeparator />
+                        <NativeMenuItem Header="{x:Static assets:Resources.TrayMenuExit}"
+                                        Click="OnExit" />
+                    </NativeMenu>
+                </TrayIcon.Menu>
+            </TrayIcon>
+        </TrayIcons>
+    </TrayIcon.Icons>
 
     <Application.Styles>
         <StyleInclude Source="avares://UniLaunch.UI/Controls/TabItemWithIcon.axaml" />

@@ -47,6 +47,12 @@
     <data name="AppMenuUnsavedChangesToolTip" xml:space="preserve">
         <value>You have unsaved changes</value>
     </data>
+    <data name="TrayMenuOpen" xml:space="preserve">
+        <value>Open UniLaunch</value>
+    </data>
+    <data name="TrayMenuExit" xml:space="preserve">
+        <value>Exit</value>
+    </data>
     <data name="NavTabsTitleTargets">
         <value>Targets</value>
     </data>

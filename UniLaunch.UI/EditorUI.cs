@@ -19,6 +19,25 @@ public static class EditorUi
     public static void Run(string[] args) => BuildAvaloniaApp()
         .StartWithClassicDesktopLifetime(args);
 
+    /// <summary>
+    /// Shows only the tray icon for the given duration (autostart confirmation), then exits.
+    /// No-op when no graphical session is available.
+    /// </summary>
+    [STAThread]
+    public static void RunTrayConfirmation(TimeSpan duration)
+    {
+        if (OperatingSystem.IsLinux() &&
+            Environment.GetEnvironmentVariable("DISPLAY") is null &&
+            Environment.GetEnvironmentVariable("WAYLAND_DISPLAY") is null)
+        {
+            return;
+        }
+
+        App.ConfirmationDuration = duration;
+        BuildAvaloniaApp()
+            .StartWithClassicDesktopLifetime(Array.Empty<string>());
+    }
+
     // Avalonia configuration, don't remove; also used by visual designer.
     public static AppBuilder BuildAvaloniaApp()
     {

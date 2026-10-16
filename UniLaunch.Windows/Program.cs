@@ -51,9 +51,20 @@ if (engine.Configuration == null || engine.ConfigLoadFailed || !engine.Configura
     return 0;
 }
 
-foreach (var result in await engine.WaitForAllTargetsToLaunch())
+// Run synchronously so the tray confirmation UI starts on the main thread
+// (Avalonia/AppKit cannot run on a threadpool continuation after await).
+foreach (var result in engine.WaitForAllTargetsToLaunch().GetAwaiter().GetResult())
 {
     result.Print();
+}
+
+try
+{
+    EditorUi.RunTrayConfirmation(TimeSpan.FromSeconds(30));
+}
+catch (Exception)
+{
+    // Tray confirmation is best-effort and must never fail autostart.
 }
 
 return 0;
