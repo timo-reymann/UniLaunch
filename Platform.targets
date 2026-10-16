@@ -7,6 +7,11 @@
         <NeutralLanguage>en</NeutralLanguage>
     </PropertyGroup>
 
+    <!-- Pin the IL Link analyzer here, so the restore graph does not depend on the SDK version. -->
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="10.0.13" PrivateAssets="all"/>
+    </ItemGroup>
+
     <!-- Runtime & Publish Configuration -->
     <PropertyGroup>
         <ImplicitUsings>enable</ImplicitUsings>
