@@ -1,5 +1,6 @@
 FROM ubuntu:26.04
 ARG linuxdeploy_arch
+ARG runtime_arch=x86_64
 WORKDIR /build
 RUN apt-get update \
     && apt-get upgrade -y && \
@@ -13,6 +14,12 @@ RUN apt-get update \
 RUN curl -LsS https://github.com/linuxdeploy/linuxdeploy/releases/download/1-alpha-20240109-1/linuxdeploy-${linuxdeploy_arch}.AppImage -o linuxdeploy \
     && chmod +x linuxdeploy && \
     mkdir AppDir dist/
+# Use the current, statically linked AppImage runtime instead of the old
+# dynamically linked one bundled with linuxdeploy's appimagetool, so the
+# AppImage does not need the host's C library and libfuse2 to mount itself.
+RUN curl -LsS https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-${runtime_arch} -o runtime \
+    && chmod +x runtime
+ENV LDAI_RUNTIME_FILE=/build/runtime
 COPY . ./AppDir
 RUN ln -s ./.DirIcon ./AppDir/UniLaunch.png
 
