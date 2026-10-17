@@ -11,7 +11,7 @@ excludes:
       comment: "Source generator build tool, not a runtime dependency."
 curations:
   packages:
-    - id: "NuGet::Avalonia.Angle.Windows.Natives"
+    - id: "NuGet:Avalonia.Angle:Windows.Natives"
       curations:
         comment: "License URL on nuget.org cannot be parsed as SPDX; the package is BSD-3-Clause licensed."
         concluded_license: "BSD-3-Clause"
