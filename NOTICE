@@ -2461,30 +2461,36 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 
 Package: DynamicData:8.4.1
 
-The following copyrights and licenses were found in the source code of this package:
+This package contains the file LICENSE with the following contents:
+
+The MIT License (MIT)
+
+Copyright (c) Roland Pheasant 2011-2022
+
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+The following copyright holder information relates to the license(s) above:
 
 Copyright (c) 2011-2022 Roland Pheasant
 Copyright (c) 2011-2023 Roland Pheasant. All rights reserved.
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 ----
 
 Package: HarfBuzzSharp:8.3.1.1
@@ -2514,34 +2520,152 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Package: ReactiveUI:20.1.1
 
-The following copyrights and licenses were found in the source code of this package:
+This package contains the file LICENSE with the following contents:
+
+The MIT License (MIT)
+
+Copyright (c) .NET Foundation and Contributors
+
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+The following copyright holder information relates to the license(s) above:
 
 Copyright (c) NET Foundation and Contributors
 Copyright (c) NET Foundation and Contributors https://reactiveui.net https://i.imgur.com/7WDbqSy.png Authors .NET Foundation and Contributors
 Copyright (c) 2021-2024 NET Foundation and Contributors. All rights reserved.
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 ----
 
 Package: SkiaSharp:2.88.9
+
+This package contains the file LICENSE.md with the following contents:
+
+Copyright (c) 2015-2016 Xamarin, Inc.  
+Copyright (c) 2017-2018 Microsoft Corporation.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+The following copyright holder information relates to the license(s) above:
+
+Copyright : "www.pumpkinbeth.com "
+Copyright : www.pumpkinbeth.com
+Copyright 2000 Adobe Systems Incorporated
+Copyright 2000 Adobe Systems, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
+Copyright (c) 2007-2010 Baptiste Lepilleur
+Copyright (c) 2014 Ben Wagner Bold
+Copyright (c) 2014 Ben Wagner Embedding
+Copyright (c) 2010-2014 Benjamin Peterson
+Copyright 1996 Chih-Hao Tsai
+Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
+Copyright (c) 2010-2013 Diego Perini, MIT
+Copyright (c) 2001-2006 Expat maintainers.
+Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
+Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
+(c) JS Foundation and other contributors
+Copyright JS Foundation and other contributors
+Copyright (c) 2013, 2017 Jörn Zaefferer
+(c) Matthew Leibowitz
+(c) Microsoft Corporation
+Copyright (c) 2017-2018 Microsoft Corporation
+(c) Microsoft Corporation. All rights reserved.
+Copyright (c) Microsoft Corporation. All rights reserved.
+Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
+Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
+Copyright 2011-2019 The Bootstrap Authors
+Copyright 2011-2019 Twitter, Inc.
+Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
+copyright 2014 Waybury. https://useiconic.com/open
+Copyright (c) 2015-2016 Xamarin, Inc.
+Copyright (c) 2007-2010 by Baptiste Lepilleur
+copyright 2003, 2007 © & , Ralph Hancock & John Hudson
+Copyright 2014 © by Jan Kovarik. All rights reserved.
+Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
+© 2017 The Monotype Corporation
+© 2018 Microsoft Corporation
+
+This package contains the file LICENSE.txt with the following contents:
+
+Copyright (c) 2015-2016 Xamarin, Inc.
+Copyright (c) 2017-2018 Microsoft Corporation.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The following copyright holder information relates to the license(s) above:
+
+Copyright : "www.pumpkinbeth.com "
+Copyright : www.pumpkinbeth.com
+Copyright 2000 Adobe Systems Incorporated
+Copyright 2000 Adobe Systems, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
+Copyright (c) 2007-2010 Baptiste Lepilleur
+Copyright (c) 2014 Ben Wagner Bold
+Copyright (c) 2014 Ben Wagner Embedding
+Copyright (c) 2010-2014 Benjamin Peterson
+Copyright 1996 Chih-Hao Tsai
+Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
+Copyright (c) 2010-2013 Diego Perini, MIT
+Copyright (c) 2001-2006 Expat maintainers.
+Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
+Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
+(c) JS Foundation and other contributors
+Copyright JS Foundation and other contributors
+Copyright (c) 2013, 2017 Jörn Zaefferer
+(c) Matthew Leibowitz
+(c) Microsoft Corporation
+Copyright (c) 2017-2018 Microsoft Corporation
+(c) Microsoft Corporation. All rights reserved.
+Copyright (c) Microsoft Corporation. All rights reserved.
+Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
+Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
+Copyright 2011-2019 The Bootstrap Authors
+Copyright 2011-2019 Twitter, Inc.
+Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
+copyright 2014 Waybury. https://useiconic.com/open
+Copyright (c) 2015-2016 Xamarin, Inc.
+Copyright (c) 2007-2010 by Baptiste Lepilleur
+copyright 2003, 2007 © & , Ralph Hancock & John Hudson
+Copyright 2014 © by Jan Kovarik. All rights reserved.
+Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
+© 2017 The Monotype Corporation
+© 2018 Microsoft Corporation
 
 The following copyrights and licenses were found in the source code of this package:
 
@@ -8184,65 +8308,6 @@ registered in some jurisdictions. All other trademarks and registered
 trademarks mentioned herein are the property of their respective owners.
   --
 
-Copyright : "www.pumpkinbeth.com "
-Copyright : www.pumpkinbeth.com
-Copyright 2000 Adobe Systems Incorporated
-Copyright 2000 Adobe Systems, Inc.
-Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
-Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
-Copyright (c) 2007-2010 Baptiste Lepilleur
-Copyright (c) 2014 Ben Wagner Bold
-Copyright (c) 2014 Ben Wagner Embedding
-Copyright (c) 2010-2014 Benjamin Peterson
-Copyright 1996 Chih-Hao Tsai
-Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
-Copyright (c) 2010-2013 Diego Perini, MIT
-Copyright (c) 2001-2006 Expat maintainers.
-Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
-Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
-(c) JS Foundation and other contributors
-Copyright JS Foundation and other contributors
-Copyright (c) 2013, 2017 Jörn Zaefferer
-(c) Matthew Leibowitz
-(c) Microsoft Corporation
-Copyright (c) 2017-2018 Microsoft Corporation
-(c) Microsoft Corporation. All rights reserved.
-Copyright (c) Microsoft Corporation. All rights reserved.
-Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
-Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
-Copyright 2011-2019 The Bootstrap Authors
-Copyright 2011-2019 Twitter, Inc.
-Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
-copyright 2014 Waybury. https://useiconic.com/open
-Copyright (c) 2015-2016 Xamarin, Inc.
-Copyright (c) 2007-2010 by Baptiste Lepilleur
-copyright 2003, 2007 © & , Ralph Hancock & John Hudson
-Copyright 2014 © by Jan Kovarik. All rights reserved.
-Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
-© 2017 The Monotype Corporation
-© 2018 Microsoft Corporation
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-  --
-
 Copyright (c) 2014-2016 The Khronos Group Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -8654,88 +8719,127 @@ the following restrictions:
 
 Package: Splat:15.1.1
 
-The following copyrights and licenses were found in the source code of this package:
+This package contains the file LICENSE with the following contents:
+
+The MIT License (MIT)
+
+Copyright (c) .NET Foundation and Contributors
+
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+The following copyright holder information relates to the license(s) above:
 
 (c) 2002 Dennis Hayes
 Copyright (c) 2021 NET Foundation
 Copyright (c) NET Foundation and Contributors
 Copyright (c) 2021, 2024 NET Foundation and Contributors. All rights reserved.
 Copyright (c) 2004, 2006-2007 Novell, Inc (http://www.novell.com)
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 ----
 
 Package: YamlDotNet:18.1.0
 
-The following copyrights and licenses were found in the source code of this package:
+This package contains the file LICENSE-libyaml with the following contents:
+
+Copyright (c) 2006 Kirill Simonov
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+The following copyright holder information relates to the license(s) above:
 
 Copyright (c) 2008-2019 Antoine Aubry and contributors
 Copyright (c) 2006 Kirill Simonov
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
+This package contains the file LICENSE.txt with the following contents:
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+Copyright (c) 2008, 2009, 2010, 2011, 2012, 2013, 2014 Antoine Aubry and contributors
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
 
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+The following copyright holder information relates to the license(s) above:
+
+Copyright (c) 2008-2019 Antoine Aubry and contributors
+Copyright (c) 2006 Kirill Simonov
 ----
 
 Package: Avalonia:BuildServices:11.3.2
 
-The following copyrights and licenses were found in the source code of this package:
+This package contains the file LICENSE with the following contents:
+
+MIT License
 
 Copyright (c) 2025 AvaloniaUI OU
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
+The following copyright holder information relates to the license(s) above:
+
+Copyright (c) 2025 AvaloniaUI OU
 ----
 
 Package: Avalonia:Desktop:11.3.22
@@ -36758,29 +36862,33 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 
 Package: DialogHost:Avalonia:0.8.1
 
-The following copyrights and licenses were found in the source code of this package:
+This package contains the file LICENSE with the following contents:
+
+MIT License
 
 Copyright (c) 2021 SKProCH
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
+The following copyright holder information relates to the license(s) above:
+
+Copyright (c) 2021 SKProCH
 ----
 
 Package: HarfBuzzSharp.NativeAssets:Linux:8.3.1.1
@@ -36885,29 +36993,33 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Package: MessageBox:Avalonia:3.3.1.1
 
-The following copyrights and licenses were found in the source code of this package:
+This package contains the file LICENSE with the following contents:
+
+MIT License
 
 Copyright (c) 2019 CreateLab
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
+The following copyright holder information relates to the license(s) above:
+
+Copyright (c) 2019 CreateLab
 ----
 
 Package: MicroCom:Runtime:0.11.0
@@ -36987,6 +37099,36 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Package: Newtonsoft:Json:13.0.4
 
+This package contains the file LICENSE.md with the following contents:
+
+The MIT License (MIT)
+
+Copyright (c) 2007 James Newton-King
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The following copyright holder information relates to the license(s) above:
+
+Copyright (c) 2012 James Kovacs
+(c) 2010-2015 James Kovacs, Damian Hickey
+Copyright (c) 2007-2008, 2022 James Newton-King
+<Copyright>Copyright © James Newton-King 2008</Copyright> <Summary>Json.NET is a popular high-performance JSON framework for .NET</Summary>
+
 The following copyrights and licenses were found in the source code of this package:
 
 Copyright (c) 2007-2009 Atif Aziz, Joseph Albahari. All rights reserved.
@@ -37041,35 +37183,37 @@ James Newton-King acknowledges that, except as explicitly described in this Agre
 you provide is on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED,
 INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES OR CONDITIONS OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS
 FOR A PARTICULAR PURPOSE.
-  --
-
-Copyright (c) 2012 James Kovacs
-(c) 2010-2015 James Kovacs, Damian Hickey
-Copyright (c) 2007-2008, 2022 James Newton-King
-<Copyright>Copyright © James Newton-King 2008</Copyright> <Summary>Json.NET is a popular high-performance JSON framework for .NET</Summary>
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 ----
 
 Package: Projektanker.Icons:Avalonia:9.6.2
+
+This package contains the file LICENSE with the following contents:
+
+MIT License
+
+Copyright (c) 2020 Projektanker
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+The following copyright holder information relates to the license(s) above:
+
+Copyright (c) 2020 Projektanker
 
 The following copyrights and licenses were found in the source code of this package:
 
@@ -37914,34 +38058,39 @@ express Statement of Purpose.
  d. Affirmer understands and acknowledges that Creative Commons is not a
     party to this document and has no duty or obligation with respect to
     this CC0 or use of the Work.
-
-  --
-
-Copyright (c) 2020 Projektanker
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ----
 
 Package: Projektanker.Icons:Avalonia.FontAwesome:9.6.2
 
+This package contains the file LICENSE with the following contents:
+
+MIT License
+
+Copyright (c) 2020 Projektanker
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+The following copyright holder information relates to the license(s) above:
+
+Copyright (c) 2020 Projektanker
+
 The following copyrights and licenses were found in the source code of this package:
 
 Creative Commons Legal Code
@@ -38786,32 +38935,121 @@ express Statement of Purpose.
     party to this document and has no duty or obligation with respect to
     this CC0 or use of the Work.
 
-  --
-
-Copyright (c) 2020 Projektanker
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 ----
 
 Package: SkiaSharp.NativeAssets:Linux:2.88.9
+
+This package contains the file LICENSE.md with the following contents:
+
+Copyright (c) 2015-2016 Xamarin, Inc.  
+Copyright (c) 2017-2018 Microsoft Corporation.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+The following copyright holder information relates to the license(s) above:
+
+Copyright : "www.pumpkinbeth.com "
+Copyright : www.pumpkinbeth.com
+Copyright 2000 Adobe Systems Incorporated
+Copyright 2000 Adobe Systems, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
+Copyright (c) 2007-2010 Baptiste Lepilleur
+Copyright (c) 2014 Ben Wagner Bold
+Copyright (c) 2014 Ben Wagner Embedding
+Copyright (c) 2010-2014 Benjamin Peterson
+Copyright 1996 Chih-Hao Tsai
+Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
+Copyright (c) 2010-2013 Diego Perini, MIT
+Copyright (c) 2001-2006 Expat maintainers.
+Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
+Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
+(c) JS Foundation and other contributors
+Copyright JS Foundation and other contributors
+Copyright (c) 2013, 2017 Jörn Zaefferer
+(c) Matthew Leibowitz
+(c) Microsoft Corporation
+Copyright (c) 2017-2018 Microsoft Corporation
+(c) Microsoft Corporation. All rights reserved.
+Copyright (c) Microsoft Corporation. All rights reserved.
+Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
+Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
+Copyright 2011-2019 The Bootstrap Authors
+Copyright 2011-2019 Twitter, Inc.
+Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
+copyright 2014 Waybury. https://useiconic.com/open
+Copyright (c) 2015-2016 Xamarin, Inc.
+Copyright (c) 2007-2010 by Baptiste Lepilleur
+copyright 2003, 2007 © & , Ralph Hancock & John Hudson
+Copyright 2014 © by Jan Kovarik. All rights reserved.
+Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
+© 2017 The Monotype Corporation
+© 2018 Microsoft Corporation
+
+This package contains the file LICENSE.txt with the following contents:
+
+Copyright (c) 2015-2016 Xamarin, Inc.
+Copyright (c) 2017-2018 Microsoft Corporation.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The following copyright holder information relates to the license(s) above:
+
+Copyright : "www.pumpkinbeth.com "
+Copyright : www.pumpkinbeth.com
+Copyright 2000 Adobe Systems Incorporated
+Copyright 2000 Adobe Systems, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
+Copyright (c) 2007-2010 Baptiste Lepilleur
+Copyright (c) 2014 Ben Wagner Bold
+Copyright (c) 2014 Ben Wagner Embedding
+Copyright (c) 2010-2014 Benjamin Peterson
+Copyright 1996 Chih-Hao Tsai
+Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
+Copyright (c) 2010-2013 Diego Perini, MIT
+Copyright (c) 2001-2006 Expat maintainers.
+Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
+Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
+(c) JS Foundation and other contributors
+Copyright JS Foundation and other contributors
+Copyright (c) 2013, 2017 Jörn Zaefferer
+(c) Matthew Leibowitz
+(c) Microsoft Corporation
+Copyright (c) 2017-2018 Microsoft Corporation
+(c) Microsoft Corporation. All rights reserved.
+Copyright (c) Microsoft Corporation. All rights reserved.
+Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
+Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
+Copyright 2011-2019 The Bootstrap Authors
+Copyright 2011-2019 Twitter, Inc.
+Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
+copyright 2014 Waybury. https://useiconic.com/open
+Copyright (c) 2015-2016 Xamarin, Inc.
+Copyright (c) 2007-2010 by Baptiste Lepilleur
+copyright 2003, 2007 © & , Ralph Hancock & John Hudson
+Copyright 2014 © by Jan Kovarik. All rights reserved.
+Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
+© 2017 The Monotype Corporation
+© 2018 Microsoft Corporation
 
 The following copyrights and licenses were found in the source code of this package:
 
@@ -44452,65 +44690,6 @@ authorization of the copyright holder.
 Unicode and the Unicode logo are trademarks of Unicode, Inc., and may be
 registered in some jurisdictions. All other trademarks and registered
 trademarks mentioned herein are the property of their respective owners.
-  --
-
-Copyright : "www.pumpkinbeth.com "
-Copyright : www.pumpkinbeth.com
-Copyright 2000 Adobe Systems Incorporated
-Copyright 2000 Adobe Systems, Inc.
-Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
-Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
-Copyright (c) 2007-2010 Baptiste Lepilleur
-Copyright (c) 2014 Ben Wagner Bold
-Copyright (c) 2014 Ben Wagner Embedding
-Copyright (c) 2010-2014 Benjamin Peterson
-Copyright 1996 Chih-Hao Tsai
-Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
-Copyright (c) 2010-2013 Diego Perini, MIT
-Copyright (c) 2001-2006 Expat maintainers.
-Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
-Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
-(c) JS Foundation and other contributors
-Copyright JS Foundation and other contributors
-Copyright (c) 2013, 2017 Jörn Zaefferer
-(c) Matthew Leibowitz
-(c) Microsoft Corporation
-Copyright (c) 2017-2018 Microsoft Corporation
-(c) Microsoft Corporation. All rights reserved.
-Copyright (c) Microsoft Corporation. All rights reserved.
-Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
-Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
-Copyright 2011-2019 The Bootstrap Authors
-Copyright 2011-2019 Twitter, Inc.
-Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
-copyright 2014 Waybury. https://useiconic.com/open
-Copyright (c) 2015-2016 Xamarin, Inc.
-Copyright (c) 2007-2010 by Baptiste Lepilleur
-copyright 2003, 2007 © & , Ralph Hancock & John Hudson
-Copyright 2014 © by Jan Kovarik. All rights reserved.
-Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
-© 2017 The Monotype Corporation
-© 2018 Microsoft Corporation
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
   --
 
 Copyright (c) 2014-2016 The Khronos Group Inc.
@@ -44924,6 +45103,118 @@ the following restrictions:
 
 Package: SkiaSharp.NativeAssets:WebAssembly:2.88.9
 
+This package contains the file LICENSE.md with the following contents:
+
+Copyright (c) 2015-2016 Xamarin, Inc.  
+Copyright (c) 2017-2018 Microsoft Corporation.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+The following copyright holder information relates to the license(s) above:
+
+Copyright : "www.pumpkinbeth.com "
+Copyright : www.pumpkinbeth.com
+Copyright 2000 Adobe Systems Incorporated
+Copyright 2000 Adobe Systems, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
+Copyright (c) 2007-2010 Baptiste Lepilleur
+Copyright (c) 2014 Ben Wagner Bold
+Copyright (c) 2014 Ben Wagner Embedding
+Copyright (c) 2010-2014 Benjamin Peterson
+Copyright 1996 Chih-Hao Tsai
+Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
+Copyright (c) 2010-2013 Diego Perini, MIT
+Copyright (c) 2001-2006 Expat maintainers.
+Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
+Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
+(c) JS Foundation and other contributors
+Copyright JS Foundation and other contributors
+Copyright (c) 2013, 2017 Jörn Zaefferer
+(c) Matthew Leibowitz
+(c) Microsoft Corporation
+Copyright (c) 2017-2018 Microsoft Corporation
+(c) Microsoft Corporation. All rights reserved.
+Copyright (c) Microsoft Corporation. All rights reserved.
+Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
+Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
+Copyright 2011-2019 The Bootstrap Authors
+Copyright 2011-2019 Twitter, Inc.
+Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
+copyright 2014 Waybury. https://useiconic.com/open
+Copyright (c) 2015-2016 Xamarin, Inc.
+Copyright (c) 2007-2010 by Baptiste Lepilleur
+copyright 2003, 2007 © & , Ralph Hancock & John Hudson
+Copyright 2014 © by Jan Kovarik. All rights reserved.
+Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
+© 2017 The Monotype Corporation
+© 2018 Microsoft Corporation
+
+This package contains the file LICENSE.txt with the following contents:
+
+Copyright (c) 2015-2016 Xamarin, Inc.
+Copyright (c) 2017-2018 Microsoft Corporation.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The following copyright holder information relates to the license(s) above:
+
+Copyright : "www.pumpkinbeth.com "
+Copyright : www.pumpkinbeth.com
+Copyright 2000 Adobe Systems Incorporated
+Copyright 2000 Adobe Systems, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
+Copyright (c) 2007-2010 Baptiste Lepilleur
+Copyright (c) 2014 Ben Wagner Bold
+Copyright (c) 2014 Ben Wagner Embedding
+Copyright (c) 2010-2014 Benjamin Peterson
+Copyright 1996 Chih-Hao Tsai
+Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
+Copyright (c) 2010-2013 Diego Perini, MIT
+Copyright (c) 2001-2006 Expat maintainers.
+Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
+Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
+(c) JS Foundation and other contributors
+Copyright JS Foundation and other contributors
+Copyright (c) 2013, 2017 Jörn Zaefferer
+(c) Matthew Leibowitz
+(c) Microsoft Corporation
+Copyright (c) 2017-2018 Microsoft Corporation
+(c) Microsoft Corporation. All rights reserved.
+Copyright (c) Microsoft Corporation. All rights reserved.
+Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
+Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
+Copyright 2011-2019 The Bootstrap Authors
+Copyright 2011-2019 Twitter, Inc.
+Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
+copyright 2014 Waybury. https://useiconic.com/open
+Copyright (c) 2015-2016 Xamarin, Inc.
+Copyright (c) 2007-2010 by Baptiste Lepilleur
+copyright 2003, 2007 © & , Ralph Hancock & John Hudson
+Copyright 2014 © by Jan Kovarik. All rights reserved.
+Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
+© 2017 The Monotype Corporation
+© 2018 Microsoft Corporation
+
 The following copyrights and licenses were found in the source code of this package:
 
 copyright 2014 Google
@@ -50563,65 +50854,6 @@ authorization of the copyright holder.
 Unicode and the Unicode logo are trademarks of Unicode, Inc., and may be
 registered in some jurisdictions. All other trademarks and registered
 trademarks mentioned herein are the property of their respective owners.
-  --
-
-Copyright : "www.pumpkinbeth.com "
-Copyright : www.pumpkinbeth.com
-Copyright 2000 Adobe Systems Incorporated
-Copyright 2000 Adobe Systems, Inc.
-Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
-Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
-Copyright (c) 2007-2010 Baptiste Lepilleur
-Copyright (c) 2014 Ben Wagner Bold
-Copyright (c) 2014 Ben Wagner Embedding
-Copyright (c) 2010-2014 Benjamin Peterson
-Copyright 1996 Chih-Hao Tsai
-Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
-Copyright (c) 2010-2013 Diego Perini, MIT
-Copyright (c) 2001-2006 Expat maintainers.
-Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
-Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
-(c) JS Foundation and other contributors
-Copyright JS Foundation and other contributors
-Copyright (c) 2013, 2017 Jörn Zaefferer
-(c) Matthew Leibowitz
-(c) Microsoft Corporation
-Copyright (c) 2017-2018 Microsoft Corporation
-(c) Microsoft Corporation. All rights reserved.
-Copyright (c) Microsoft Corporation. All rights reserved.
-Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
-Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
-Copyright 2011-2019 The Bootstrap Authors
-Copyright 2011-2019 Twitter, Inc.
-Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
-copyright 2014 Waybury. https://useiconic.com/open
-Copyright (c) 2015-2016 Xamarin, Inc.
-Copyright (c) 2007-2010 by Baptiste Lepilleur
-copyright 2003, 2007 © & , Ralph Hancock & John Hudson
-Copyright 2014 © by Jan Kovarik. All rights reserved.
-Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
-© 2017 The Monotype Corporation
-© 2018 Microsoft Corporation
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
   --
 
 Copyright (c) 2014-2016 The Khronos Group Inc.
@@ -51035,6 +51267,118 @@ the following restrictions:
 
 Package: SkiaSharp.NativeAssets:Win32:2.88.9
 
+This package contains the file LICENSE.md with the following contents:
+
+Copyright (c) 2015-2016 Xamarin, Inc.  
+Copyright (c) 2017-2018 Microsoft Corporation.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+The following copyright holder information relates to the license(s) above:
+
+Copyright : "www.pumpkinbeth.com "
+Copyright : www.pumpkinbeth.com
+Copyright 2000 Adobe Systems Incorporated
+Copyright 2000 Adobe Systems, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
+Copyright (c) 2007-2010 Baptiste Lepilleur
+Copyright (c) 2014 Ben Wagner Bold
+Copyright (c) 2014 Ben Wagner Embedding
+Copyright (c) 2010-2014 Benjamin Peterson
+Copyright 1996 Chih-Hao Tsai
+Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
+Copyright (c) 2010-2013 Diego Perini, MIT
+Copyright (c) 2001-2006 Expat maintainers.
+Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
+Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
+(c) JS Foundation and other contributors
+Copyright JS Foundation and other contributors
+Copyright (c) 2013, 2017 Jörn Zaefferer
+(c) Matthew Leibowitz
+(c) Microsoft Corporation
+Copyright (c) 2017-2018 Microsoft Corporation
+(c) Microsoft Corporation. All rights reserved.
+Copyright (c) Microsoft Corporation. All rights reserved.
+Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
+Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
+Copyright 2011-2019 The Bootstrap Authors
+Copyright 2011-2019 Twitter, Inc.
+Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
+copyright 2014 Waybury. https://useiconic.com/open
+Copyright (c) 2015-2016 Xamarin, Inc.
+Copyright (c) 2007-2010 by Baptiste Lepilleur
+copyright 2003, 2007 © & , Ralph Hancock & John Hudson
+Copyright 2014 © by Jan Kovarik. All rights reserved.
+Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
+© 2017 The Monotype Corporation
+© 2018 Microsoft Corporation
+
+This package contains the file LICENSE.txt with the following contents:
+
+Copyright (c) 2015-2016 Xamarin, Inc.
+Copyright (c) 2017-2018 Microsoft Corporation.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The following copyright holder information relates to the license(s) above:
+
+Copyright : "www.pumpkinbeth.com "
+Copyright : www.pumpkinbeth.com
+Copyright 2000 Adobe Systems Incorporated
+Copyright 2000 Adobe Systems, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
+Copyright (c) 2007-2010 Baptiste Lepilleur
+Copyright (c) 2014 Ben Wagner Bold
+Copyright (c) 2014 Ben Wagner Embedding
+Copyright (c) 2010-2014 Benjamin Peterson
+Copyright 1996 Chih-Hao Tsai
+Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
+Copyright (c) 2010-2013 Diego Perini, MIT
+Copyright (c) 2001-2006 Expat maintainers.
+Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
+Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
+(c) JS Foundation and other contributors
+Copyright JS Foundation and other contributors
+Copyright (c) 2013, 2017 Jörn Zaefferer
+(c) Matthew Leibowitz
+(c) Microsoft Corporation
+Copyright (c) 2017-2018 Microsoft Corporation
+(c) Microsoft Corporation. All rights reserved.
+Copyright (c) Microsoft Corporation. All rights reserved.
+Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
+Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
+Copyright 2011-2019 The Bootstrap Authors
+Copyright 2011-2019 Twitter, Inc.
+Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
+copyright 2014 Waybury. https://useiconic.com/open
+Copyright (c) 2015-2016 Xamarin, Inc.
+Copyright (c) 2007-2010 by Baptiste Lepilleur
+copyright 2003, 2007 © & , Ralph Hancock & John Hudson
+Copyright 2014 © by Jan Kovarik. All rights reserved.
+Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
+© 2017 The Monotype Corporation
+© 2018 Microsoft Corporation
+
 The following copyrights and licenses were found in the source code of this package:
 
 copyright 2014 Google
@@ -56674,65 +57018,6 @@ authorization of the copyright holder.
 Unicode and the Unicode logo are trademarks of Unicode, Inc., and may be
 registered in some jurisdictions. All other trademarks and registered
 trademarks mentioned herein are the property of their respective owners.
-  --
-
-Copyright : "www.pumpkinbeth.com "
-Copyright : www.pumpkinbeth.com
-Copyright 2000 Adobe Systems Incorporated
-Copyright 2000 Adobe Systems, Inc.
-Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
-Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
-Copyright (c) 2007-2010 Baptiste Lepilleur
-Copyright (c) 2014 Ben Wagner Bold
-Copyright (c) 2014 Ben Wagner Embedding
-Copyright (c) 2010-2014 Benjamin Peterson
-Copyright 1996 Chih-Hao Tsai
-Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
-Copyright (c) 2010-2013 Diego Perini, MIT
-Copyright (c) 2001-2006 Expat maintainers.
-Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
-Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
-(c) JS Foundation and other contributors
-Copyright JS Foundation and other contributors
-Copyright (c) 2013, 2017 Jörn Zaefferer
-(c) Matthew Leibowitz
-(c) Microsoft Corporation
-Copyright (c) 2017-2018 Microsoft Corporation
-(c) Microsoft Corporation. All rights reserved.
-Copyright (c) Microsoft Corporation. All rights reserved.
-Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
-Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
-Copyright 2011-2019 The Bootstrap Authors
-Copyright 2011-2019 Twitter, Inc.
-Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
-copyright 2014 Waybury. https://useiconic.com/open
-Copyright (c) 2015-2016 Xamarin, Inc.
-Copyright (c) 2007-2010 by Baptiste Lepilleur
-copyright 2003, 2007 © & , Ralph Hancock & John Hudson
-Copyright 2014 © by Jan Kovarik. All rights reserved.
-Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
-© 2017 The Monotype Corporation
-© 2018 Microsoft Corporation
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
   --
 
 Copyright (c) 2014-2016 The Khronos Group Inc.
@@ -57146,6 +57431,118 @@ the following restrictions:
 
 Package: SkiaSharp.NativeAssets:macOS:2.88.9
 
+This package contains the file LICENSE.md with the following contents:
+
+Copyright (c) 2015-2016 Xamarin, Inc.  
+Copyright (c) 2017-2018 Microsoft Corporation.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+The following copyright holder information relates to the license(s) above:
+
+Copyright : "www.pumpkinbeth.com "
+Copyright : www.pumpkinbeth.com
+Copyright 2000 Adobe Systems Incorporated
+Copyright 2000 Adobe Systems, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
+Copyright (c) 2007-2010 Baptiste Lepilleur
+Copyright (c) 2014 Ben Wagner Bold
+Copyright (c) 2014 Ben Wagner Embedding
+Copyright (c) 2010-2014 Benjamin Peterson
+Copyright 1996 Chih-Hao Tsai
+Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
+Copyright (c) 2010-2013 Diego Perini, MIT
+Copyright (c) 2001-2006 Expat maintainers.
+Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
+Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
+(c) JS Foundation and other contributors
+Copyright JS Foundation and other contributors
+Copyright (c) 2013, 2017 Jörn Zaefferer
+(c) Matthew Leibowitz
+(c) Microsoft Corporation
+Copyright (c) 2017-2018 Microsoft Corporation
+(c) Microsoft Corporation. All rights reserved.
+Copyright (c) Microsoft Corporation. All rights reserved.
+Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
+Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
+Copyright 2011-2019 The Bootstrap Authors
+Copyright 2011-2019 Twitter, Inc.
+Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
+copyright 2014 Waybury. https://useiconic.com/open
+Copyright (c) 2015-2016 Xamarin, Inc.
+Copyright (c) 2007-2010 by Baptiste Lepilleur
+copyright 2003, 2007 © & , Ralph Hancock & John Hudson
+Copyright 2014 © by Jan Kovarik. All rights reserved.
+Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
+© 2017 The Monotype Corporation
+© 2018 Microsoft Corporation
+
+This package contains the file LICENSE.txt with the following contents:
+
+Copyright (c) 2015-2016 Xamarin, Inc.
+Copyright (c) 2017-2018 Microsoft Corporation.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The following copyright holder information relates to the license(s) above:
+
+Copyright : "www.pumpkinbeth.com "
+Copyright : www.pumpkinbeth.com
+Copyright 2000 Adobe Systems Incorporated
+Copyright 2000 Adobe Systems, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
+Copyright (c) 2007-2010 Baptiste Lepilleur
+Copyright (c) 2014 Ben Wagner Bold
+Copyright (c) 2014 Ben Wagner Embedding
+Copyright (c) 2010-2014 Benjamin Peterson
+Copyright 1996 Chih-Hao Tsai
+Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
+Copyright (c) 2010-2013 Diego Perini, MIT
+Copyright (c) 2001-2006 Expat maintainers.
+Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
+Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
+(c) JS Foundation and other contributors
+Copyright JS Foundation and other contributors
+Copyright (c) 2013, 2017 Jörn Zaefferer
+(c) Matthew Leibowitz
+(c) Microsoft Corporation
+Copyright (c) 2017-2018 Microsoft Corporation
+(c) Microsoft Corporation. All rights reserved.
+Copyright (c) Microsoft Corporation. All rights reserved.
+Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
+Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
+Copyright 2011-2019 The Bootstrap Authors
+Copyright 2011-2019 Twitter, Inc.
+Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
+copyright 2014 Waybury. https://useiconic.com/open
+Copyright (c) 2015-2016 Xamarin, Inc.
+Copyright (c) 2007-2010 by Baptiste Lepilleur
+copyright 2003, 2007 © & , Ralph Hancock & John Hudson
+Copyright 2014 © by Jan Kovarik. All rights reserved.
+Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
+© 2017 The Monotype Corporation
+© 2018 Microsoft Corporation
+
 The following copyrights and licenses were found in the source code of this package:
 
 copyright 2014 Google
@@ -62787,65 +63184,6 @@ registered in some jurisdictions. All other trademarks and registered
 trademarks mentioned herein are the property of their respective owners.
   --
 
-Copyright : "www.pumpkinbeth.com "
-Copyright : www.pumpkinbeth.com
-Copyright 2000 Adobe Systems Incorporated
-Copyright 2000 Adobe Systems, Inc.
-Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
-Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
-Copyright (c) 2007-2010 Baptiste Lepilleur
-Copyright (c) 2014 Ben Wagner Bold
-Copyright (c) 2014 Ben Wagner Embedding
-Copyright (c) 2010-2014 Benjamin Peterson
-Copyright 1996 Chih-Hao Tsai
-Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
-Copyright (c) 2010-2013 Diego Perini, MIT
-Copyright (c) 2001-2006 Expat maintainers.
-Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
-Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
-(c) JS Foundation and other contributors
-Copyright JS Foundation and other contributors
-Copyright (c) 2013, 2017 Jörn Zaefferer
-(c) Matthew Leibowitz
-(c) Microsoft Corporation
-Copyright (c) 2017-2018 Microsoft Corporation
-(c) Microsoft Corporation. All rights reserved.
-Copyright (c) Microsoft Corporation. All rights reserved.
-Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
-Copyright (c) 1998-2000 Thai Open Source Software Center Ltd and Clark Cooper
-Copyright 2011-2019 The Bootstrap Authors
-Copyright 2011-2019 Twitter, Inc.
-Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
-copyright 2014 Waybury. https://useiconic.com/open
-Copyright (c) 2015-2016 Xamarin, Inc.
-Copyright (c) 2007-2010 by Baptiste Lepilleur
-copyright 2003, 2007 © & , Ralph Hancock & John Hudson
-Copyright 2014 © by Jan Kovarik. All rights reserved.
-Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
-© 2017 The Monotype Corporation
-© 2018 Microsoft Corporation
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-  --
-
 Copyright (c) 2014-2016 The Khronos Group Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -63257,6 +63595,42 @@ the following restrictions:
 
 Package: System:Reactive:6.0.1
 
+This package contains the file LICENSE with the following contents:
+
+The MIT License (MIT)
+
+Copyright (c) .NET Foundation and Contributors
+
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+The following copyright holder information relates to the license(s) above:
+
+Copyright (c) 2012 MSIT
+Copyright (c) 2011, 2013 Microsoft
+Copyright (c) Microsoft Open Technologies, Inc.
+Copyright 2013 Microsoft. NuGet
+Copyright (c) NET Foundation and Contributors
+(c) Resuming event handler
+© Microsoft Corporation. All rights reserved.
+
 The following copyrights and licenses were found in the source code of this package:
 
 (c) Microsoft Corporation. All rights reserved.
@@ -63489,35 +63863,6 @@ EFFET JURIDIQUE. Le présent contrat décrit certains droits juridiques. Vous
 pourriez avoir d'autres droits prévus par les lois de votre pays. Le présent
 contrat ne modifie pas les droits que vous confèrent les lois de votre pays si
 celles-ci ne le permettent pas.
-  --
-
-Copyright (c) 2012 MSIT
-Copyright (c) 2011, 2013 Microsoft
-Copyright (c) Microsoft Open Technologies, Inc.
-Copyright 2013 Microsoft. NuGet
-Copyright (c) NET Foundation and Contributors
-(c) Resuming event handler
-© Microsoft Corporation. All rights reserved.
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 ----
 
 Package: System.ComponentModel:Annotations:5.0.0
