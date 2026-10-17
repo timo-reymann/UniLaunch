@@ -174,12 +174,12 @@ Copyright (c) 2010 stefan.demharter@gmx.net
 Copyright (c) 2017 vFunction, Inc.
 Copyright 2016 ©
 Copyright 2015-2017 © `` `Lucas Meijer`
+@"CopyrightMessage=Copyright (C) 2005, The MSBuild Team"); WHEN [c].[Region] IS NULL THEN N'ZZ' ELSE [c].[Region] ORDER BY [c].[Country] OFFSET @p ROWS
+ORDER BY [c].[Country] OFFSET @p ROWS
 <Copyright>$(CopyrightNetFoundation)</Copyright> <PackageThirdPartyNoticesFile>$(MSBuildThisFileDirectory)THIRD-PARTY-NOTICES.TXT</PackageThirdPartyNoticesFile> <PackageReleaseNotes>https://go.microsoft.com/fwlink/?LinkID=799421</PackageReleaseNotes>
 <!ENTITY CopyrightText "Copyright (c) &PubName; All Rights..">
-<rights type="text">Copyright &amp;copy; 2005</rights>
-ORDER BY [c].[Country] OFFSET @p ROWS
+<rights type="text">Copyright &amp;copy; 2005</rights> ORDER BY [c].[Country] OFFSET @p ROWS
 SELECT TOP(@p) [c].[CustomerID], [c].[CompanyName], [c].[Region], COALESCE([c].[Region], N'ZZ') AS [c]
-@"CopyrightMessage=Copyright (C) 2005, The MSBuild Team");
 WHEN [c].[Region] IS NULL THEN N'ZZ' ELSE [c].[Region] ORDER BY [c].[Country] OFFSET @p ROWS
 
 Permission to use, copy, modify, and/or distribute this software for any
@@ -548,6 +548,13 @@ Copyright : John Smith
 Copyright (c) 2017 : Marc Stevens Cryptology Group
 Copyright (c) 2013, 2015 <> Permission
 Copyright 2012 = "Copyright ", Language = "fr-FR", Tags = "Test Unit",
+(c) @14 SELECT
+(c) @17
+(c) @26 ORDER
+(c) @27 End Sub ORDER
+(c) @27 ORDER
+(c) @29
+(c) @38 ORDER
 Copyright @Model["year"] @Model["website"]
 Copyright (c) 2012 Adam Ralph (adam@adamralph.com)
 (c) Address (c)
@@ -557,6 +564,7 @@ Copyright (c) Ahmed Garhy Capstone.NET
 Copyright (c) 2011 Alex MacCaw (info@eribium.org)
 Copyright (c) 2012 Alex Sancho, http://alexsancho.name
 Copyright (c) 2018 Alexander Chermyanin
+Copyright (c) 2013 Alexey Kadyrov GROUP
 Copyright (c) 2013-2017 Alfred Klomp
 Copyright (c) All contributors
 Copyright (c) All contributors. All rights reserved.
@@ -587,24 +595,40 @@ Copyright 2006 Broadcom
 Copyright (c) 2019 Brock York
 Copyright (C) 2019 Brock York <twunknown AT gmail.com>
 Copyright (c) 2014 CERN and Aalto University
-(c) CROSS JOIN ORDER
+(c) CROSS JOIN Orders AS o ORDER
 (c) 2019 Calvin Buckley
 Copyright 2004-2021 Castle Project - http://www.castleproject.org
 (c) 2004-2022 Castle Project - http://www.castleproject.org
 Copyright (c) 2004-2022 Castle Project - http://www.castleproject.org
+(c) City
+(c) City @GetCity ORDER
+(c) City @StaticFieldValue ORDER
 (c) City @cities1 WHERE
+(c) City @get_Item ORDER
 (c) City @predicateTuple_Item2 WHERE
 (c) City AS c1 LEFT JOIN GROUP
+(c) City IN @cities1
+(c) City INNER
+(c) City INNER JOIN Child AS
+(c) City N ORDER
+(c) City N'México D.F.
 (c) City N'Seattle WHERE
 (c) City OFFSET
+(c) City OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY AS c1 ON c0 CustomerID c1 CustomerID
+(c) City OFFSET @p ROWS SET
+(c) City OFFSET @p0
 (c) City ORDER
+(c) City ORDER BY COUNT DESC
+(c) City Update A @27
 (c) City WHEN
 Copyright 2013 Cloudant
 Copyright (c) 2008 CodeSourcery
+(c) 2380 Compressed Space Transport WHERE
 Copyright (c) 2014 Contributed by Milian Wolff <address@hidden>
+(c) Country DESC ORDER
 (c) Country GROUP
+(c) Country ORDER
 Copyright (c) 2019 CreateLab
-(c) DESC LEFT JOIN Customers AS
 Copyright (c) 2020 Dan Shechter
 Copyright 2018 Daniel Lemire
 (c) Copyright 2003 Daniel Morgan
@@ -630,8 +654,8 @@ Copyright (c) 2017 Gary Evans
 (c) 2008 Gert Driesen
 Copyright (c) 2008 Gert Driesen
 copyright 2014 Google
-Copyright 2009, 2011 Google Inc.
 Copyright (c) 2007-2009, 2011, 2015 Google Inc.
+Copyright 2009, 2011 Google Inc.
 Copyright 2001, 2010-2018, 2022 Google Inc. All Rights Reserved.
 Copyright 2015, 2019-2020 Google LLC
 Copyright (c) 2010-2019 Google LLC. http://angular.io/license
@@ -643,19 +667,30 @@ Copyright (c) 2001-2005 Hewlett-Packard Development Company, L.P.
 Copyright 2015 Hyrtwol
 Copyright (c) 2006-2007, 2017 IBM
 (c) Id1
-(c) Id1 DESC, c0 Id1 c0 Id2 c1 Id1 ORDER
+(c) Id1 DESC ORDER
+(c) Id1 DESC, c0 Id1 c0 Id2
 (c) Id1 ORDER
+(c) Id1 ORDER BY c0
+(c) Id1 c0 Id1
 (c) Id1 c0 Id1 c0 Id2 c1 Id1 ORDER
-(c) Id1 c0 Id2 c0 Id1 c1 Name DESC, c1 Id1 ORDER
-(c) Id1 c8 Id2 c8 Id1 ORDER
+(c) Id1 c0 Id2
+(c) Id1 c2 Id2
+(c) Id1 c2 Id2 WHERE
+(c) Id1 c8 Id2
+(c) Id1 c8 Id2 c8 Id1 Delete
+(c) Id1 c8 Id2 c8 Id1 GROUP
+(c) Id1 c8 Id2 c8 Id1 c11 Id2 DESC ORDER
 (c) Id2
-(c) Id2 CAST(LEN( c124 Name ) AS int), c124 Id1 c124 Id2 ORDER
 (c) Id2 ORDER
-(c) Id2 c0 Id2 c0 Id1 c1 Name DESC, c1 Id1 ORDER
-(c) Id2 c124 Id1 c124 Id2 c149 Id1 c149 Id2 ORDER
-(c) Id2 c4 Name DESC ORDER
-(c) Id2 c62 Id1 c62 Id2 ORDER
-(c) Id2 c62 Id1 c62 Id2 c75 Id1 c75 Id2 ORDER
+(c) Id2 Update a @31
+(c) Id2 c0 Id2
+(c) Id2 c124 Id1
+(c) Id2 c124 Id1 c124 Id2
+(c) Id2 c2 Id2 ORDER BY c0
+(c) Id2 c4 Name DESC ELSE
+(c) Id2 c62 Id1
+(c) Id2 c62 Id1 c62 Id2 SELECT TOP(@p)
+(c) Id2 s1 Id1
 Copyright (c) 2015 Imagination Technologies Limited
 Copyright (c) 2000 Intel Corporation. All rights reserved.
 (c) 2004 Ivan Hamilton
@@ -664,6 +699,7 @@ Copyright (c) 2007 Ivan N. Zlatev <contact@i-nz.net>
 Copyright (c) 2012 James Kovacs
 (c) 2010-2015 James Kovacs, Damian Hickey
 Copyright (c) 2007-2008, 2022 James Newton-King
+(c) 2008 James Newton-King Json.NET is a popular high-performance JSON framework for .NET ORDER
 (c) 2006 Jb Evain
 Copyright (c) 2006 Jb Evain (jbevain@gmail.com)
 Copyright (c) 2011 Jeffrey Stedfast
@@ -676,6 +712,11 @@ Copyright (c) 2010-2011 Konstantin Belousov <kib@FreeBSD.org>
 Copyright 2019 LLVM Project
 Copyright 2011 Linaro Limited
 Copyright (c) 2011-2013 Linaro Limited
+(c) Location @place WHEN
+(c) Location @place WHERE
+(c) Location @place0 OR
+(c) Location GROUP
+(c) Location IN @cities1
 Copyright (c) 2021 Loongson Technology Corporation Limited
 Copyright (c) 1999 Lucent Technologies
 Copyright (c) 2012 MSIT
@@ -726,7 +767,7 @@ Copyright (c) 2008 My Company
 Copyright 2016 MyCompany
 Copyright (c) 2016 MyOrgnaization
 Copyright (c) 2015-2016, 2021 NET Foundation
-Copyright (c) NET Foundation &xUnit.net Console
+Copyright (c) NET Foundation &xUnit.net
 Copyright (c) NET Foundation .xUnit.net Runner Reporters
 Copyright (c) NET Foundation 0xUnit.net
 Copyright (c) NET Foundation 1xUnit.net Runner Utility
@@ -736,7 +777,6 @@ Copyright (c) 2018 NET Foundation and Contributors
 Copyright (c) 2021-2024 NET Foundation and Contributors All Rights Reserved
 Copyright (c) NET Foundation and Contributors https://reactiveui.net https://i.imgur.com/7WDbqSy.png
 Copyright (c) NET Foundation and Contributors. xUnit.net Testing Framework +xUnit.net
-Copyright (c) NET Foundation xUnit.net
 Copyright (c) NET Foundation xUnit.net Assertion Library Apache
 Copyright (c) NET Foundation xUnit.net Runner Utility
 Copyright (c) NET Foundation xUnit.net Runner Utility Apache
@@ -747,6 +787,7 @@ Copyright 2021 NVIDIA Corporation
 (c) Name (c) Location (c) Nation
 Copyright (c) Nate McMaster
 Copyright (c) 2014 Nathan Rajlich <nathan@tootallnate.net>
+(c) Nation @place OR
 Copyright (c) 2018 Nemanja Mijailovic
 Copyright 2014 NewtonIdeas.com
 Copyright 2004-2014 Newtonideas
@@ -773,7 +814,10 @@ Copyright (c) Novell, Inc, Xamarin Inc and Contributors. www.mono-project.com
 Copyright (c) 2010 Novell, Inc. (http://novell.com/)
 (c) 2004-2006, 2008 Novell, Inc. (http://www.novell.com)
 Copyright 2009-2011 Novell, Inc. Rodrigo Kumpera
-(c) ORDER BY g Nickname AS s ON CAST(LEN( g Nickname ) AS int) s
+(c) ON o0 Key
+Copyright (c) 2005 ORDER
+(c) ORDER BY g Nickname ORDER BY c0
+(c) OUTER APPLY WHERE
 Copyright (c) 2014-2015 Omar Cornut and ImGui contributors
 Copyright (c) 2013-2014 Omar Khudeira (HYPERLINK http://omar.io http://omar.io)
 Copyright (c) 2013-2017 Omar Khudeira (http://omar.io)
@@ -782,7 +826,9 @@ Copyright (c) OpenTelemetry Authors Source: https://github.com/open-telemetry/op
 Copyright (c) Outercurve Foundation
 (c) 2014 Outercurve Foundation
 Copyright 2015-2016 Outercurve Foundation
+(c) ParentId @p0 WHERE
 (c) 2003 Patrick Kalkman
+(c) PostalCode
 Portions Copyright (c) 2003-2007 PostgreSQL Global Development Group
 Copyright (c) 2050 ProductVersion
 (c) Punit Todi
@@ -790,6 +836,7 @@ Copyright 2020, 2022-2023 QNX Blackberry Limited.
 Copyright (c) RSA Data Security, Inc.
 Copyright (c) 2001 Radek Doulik
 Copyright (c) 2009 Red Hat
+(c) Region
 (c) Region WHERE
 Copyright (c) 2005-2020 Rich Felker, et al.
 Copyright (c) 2016 Richard Morris
@@ -838,6 +885,7 @@ Copyright (c) 1997-2022 University of Cambridge All rights reserved.
 (c) 2011 Virgile Bello
 Copyright (c) 2012 Vladimir Keleshev, <vladimir@keleshev.com>
 Copyright (c) 1998-2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+(c) WHERE 0 1 WHERE
 copyright 2014 Waybury. https://useiconic.com/open
 Copyright (c) 2019-2020 West Wind Technologies
 Copyright 2002 Wild West Software
@@ -880,7 +928,7 @@ Copyright (c) 2009-2010, 2013-2016 by the Brotli Authors
 copyrighted by the Free Software Foundation
 Copyright (c) 2009-2014 by the contributors listed in CREDITS.TXT
 Copyright 2011 c Microsoft
-copyrighted 2021 copyrights Copyright (c)
+copyrighted 2021 copyrights
 Copyright (c) 2021 csFastFloat authors
 (c) 2015 d-fens GmbH
 Copyright (c) daaain/Handlebars project
@@ -888,6 +936,7 @@ Copyright (c) 2010 dasz.at OG 1.0.* UnmanagedCode
 Copyright (c) 2015 emilast
 Copyright 2016 example.com
 Copyright 2015-2016 gRPC authors.
+(c) 2013 https://www.mycoolproject.com/license.txt d:Copyright
 Copyright (c) 2014 matarillo
 Copyright (c) 2015 present MagicStack Inc. http://magic.io
 Copyright (c) 2015-2016, 2020 present Microsoft Corporation
@@ -911,7 +960,7 @@ Copyright 2020 the Dart project
 Copyright 2012 the V8 project
 Copyright 2012 the V8 project authors
 Copyright 2015 the original author or authors
-Copyright (c) 2017 vFunction, Inc.
+Copyright (c) 2017 vFunction, Inc
 Copyright x00a9 Outercurve. All rights reserved.
 Copyright 2013-2014, 2016, 2050 ©
 copyright 2003, 2007 © & , Ralph Hancock & John Hudson
@@ -944,160 +993,155 @@ Copyright 2014 © by Azure Compiler Facile team (Guru, Gowri, Jasneet, Shivani, 
 Copyright 2014 © by Jan Kovarik. All rights reserved.
 Copyright 2014-2016 © d-fens GmbH
 © 2023 Timo Reymann
-Font data copyright Google 2014 Roboto2 Regular Google: Roboto Regular: 2008
 Font data copyright Google 2014 Roboto Regular
-<d:Copyright>Copyright ©2013 Alexey Kadyrov</d:Copyright>
-© 2011 Microsoft Corporation
-© Microsoft Corporation 2010
-OpenTelemetry Authors Copyright 2019 The gRPC Authors
-<d:Copyright>Copyright � Microsoft Corporation</d:Copyright>
-<copyright>Copyright © 2013</copyright> <licenseUrl>https://www.mycoolproject.com/license.txt</licenseUrl>
-<d:Copyright>Copyright 2004-2012 NewtonIdeas, v2 2013-2014 Vitalii Fedorchenko</d:Copyright> <d:Created m:type="Edm.DateTime">2014-05-10T10:07:04.373Z</d:Created> <d:Copyright>Copyright ©2013 Alexey Kadyrov</d:Copyright>
-GROUP BY [c].[Name], [c].[Location] ORDER BY [c].[Location]
-GROUP BY [c].[City] ) AS [c1] LEFT JOIN [Customers] AS [c0] ON [c1].[City] = [c0].[City] ORDER BY [c1].[City], [c0].[CustomerID] INNER JOIN [Customers] AS [c] ON [o0].[Key] = [c].[CustomerID]
-ORDER BY [c].[City] OFFSET @p ROWS
-ORDER BY [c].[Id1], [c].[Id2], [c124].[Id1], [c124].[Id2]
-[<assembly: AssemblyCopyright("Copyright \u00A9 Compressed Space Transport 2380")>]
-WHERE [c].[City] = @StaticFieldValue WHERE [c].[City] = @predicateTuple_Item2
-FROM [Customers] AS [c] CROSS JOIN [Orders] AS [o]
-ORDER BY [c].[Id2], [c].[Id1], [c2].[Id2] ORDER BY [c].[Id1], [c].[Id2], [c4].[Name] DESC
-ELSE [c].[Region] ORDER BY [c0].[c] OFFSET @p0 ROWS
-FROM [Customers] AS [c] WHERE [c].[CustomerID] LIKE N'W%'
-WHERE [c].[City] = N'México D.F.' AND [c].[CustomerID] IN (@ids1, @ids2, @ids3)
-ORDER BY [c0].[c] DESC, [c0].[CustomerID] ORDER BY [c].[City], [c].[CustomerID], [o].[OrderID]
-ORDER BY [c].[Name], [c].[Id1], [c].[Id2], [c62].[Id1], [c62].[Id2], [c75].[Id2] DESC, [c75].[Id1] DESC ORDER BY [c].[Id1], [c].[Id2]
-ORDER BY [c].[Id1], [c].[Id2], [s1].[Id1], [s1].[Id2], [s1].[Id10], [s1].[Id20], [s1].[Id100], [s1].[Id200], [s1].[Id11], [s1].[Id21], [s1].[Id12], [s1].[Id22], [s1].[Id101], [s1].[Id201], [s1].[Id110], [s1].[Id210], [s4].[Id1], [s4].[Id2], [s4].[Id10], [s4].[Id20], [s4].[Id100], [s4].[Id200], [s4].[Id11], [s4].[Id21], [s4].[Id12], [s4].[Id22], [s4].[Id101], [s4].[Id201], [s4].[Id110] ORDER BY [c].[Id2], [c].[Id1], [c0].[Id1], [c0].[Id2], [c1].[Id1]
-ORDER BY [c].[Id2], [c].[Id1], [c0].[Id1], [c0].[Id2], [c1].[Id1]
-© Yoshifumi Kawai. All rights reserved.
-WHERE [c].[City] = @city_InstanceFieldValue WHERE [c].[City] = @city
-) AS [s] ON CAST(LEN([g].[Nickname]) AS int) = [s].[c] ORDER BY [g].[Nickname] OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY ) AS [s0] LEFT JOIN [Weapons] AS [w] ON [s0].[FullName] = [w].[OwnerFullName]
-FROM [Customers] AS [c] LEFT JOIN (
-"Update [A]@8 -> [C]@10"); "Update [A]@24 -> [C]@26");
-ORDER BY [c].[Id1], [c].[Id2], [c2].[Id2] ORDER BY [c].[Id2], [c].[Id1], [c4].[Name] DESC
-ORDER BY [c].[Id1], [c].[Id2], [c124].[Id1], [c124].[Id2] ORDER BY [c].[Id2], [c].[Id1], [c8].[Id2], [c8].[Id1]
-GROUP BY [c].[City] ORDER BY COUNT(*) DESC, [c].[City]
-Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
-WHERE [c].[City] = @city_Nested_InstanceFieldValue WHERE [c].[City] = @get_Item
-ORDER BY [c].[Id2], [c].[Id1] DESC, [c0].[Id1], [c0].[Id2], [c1].[Id1]
-ORDER BY [c].[Name], [c].[Id1], [c].[Id2], [c62].[Id1], [c62].[Id2]
-ORDER BY [c].[City], [c].[CustomerID], [o].[OrderID]
-ORDER BY [c].[Country], [c].[City] SELECT TOP(@p) [c].[City]
-ORDER BY [c].[City] OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY ) AS [c1] ON [c0].[CustomerID] = [c1].[CustomerID] ORDER BY [c].[City] OFFSET @p ROWS
-SET [c].[SugarGrams] = @p GROUP BY [c].[Name], [c].[Location] ORDER BY [c].[Location]
-FROM [Customers] AS [c] ORDER BY [c].[ContactTitle], [c].[CustomerID]
+Font data copyright Google 2014 Roboto2 Regular Google: Roboto Regular: 2008
+ORDER BY [c].[Id2], [c].[Id1] DESC ORDER BY [c].[Id1], [c].[Id2], [c62].[Id1], [c62].[Id2]
 ORDER BY [c].[City], [c].[Region]
-WHERE [c].[City] = @city_Nested_InstancePropertyValue "Delete [c]@27") End Sub
-ORDER BY [c].[Id2], [c].[Id1], [c4].[Name] DESC
-WHERE [c].[City] = @city WHERE [c].[City] = @GetCity
-ORDER BY [c].[Id1], [c].[Id2], [c62].[Id1], [c62].[Id2], [c87].[Id1], [c87].[Id2] ORDER BY [c].[Id2], [c].[Id1] DESC
-ORDER BY [c].[City], [c].[CustomerID] DESC
-ORDER BY [c].[Id2], [c].[Id1], [c2].[Id2]
-WHERE [c].[City] = @get_Item WHERE [c].[City] = @StaticFieldValue
-ORDER BY [c].[City] OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY ) AS [c0] INNER JOIN ( SELECT TOP(@p1) [o].[OrderID], [o].[CustomerID] GROUP BY [c].[Country]
-ORDER BY [c].[PostalCode], [c].[CustomerID]
+WHERE [c].[Nation] = @place OR [c].[Location] = @place0 OR [c].[Location] = @place
 WHERE [c].[City] = @InstanceFieldValue WHERE [c].[City] = @city_InstancePropertyValue
-© Microsoft 2015
-ORDER BY [c].[CustomerID] + COALESCE([c].[City], N'')
-ORDER BY [c].[Id2], [c].[Id1], [c4].[Name] DESC ORDER BY [c].[Id2], [c].[Id1]
-ORDER BY [c0].[c] OFFSET @p0 ROWS
-ORDER BY [c].[City] ) AS [c1] ON [c0].[CustomerID] = [c1].[CustomerID]
-© Microsoft 2012
-WHERE [c].[ParentAlternateId] = @p AND [c].[ParentId] = @p0 "Move [c]@17 -> @27")
-<copyright>Copyright 2020</copyright> <tags>Tag1 Tag2</tags>
-[c].[City] = @p UPDATE TOP(@p) [c] SET [c].[ContactName] = @p0
-ORDER BY [c].[Id1], [c].[Id2], [c62].[Id1], [c62].[Id2]
-"Update [a]@24 -> [c]@38") "Delete [c]@27")
-ORDER BY [c].[City] OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY ) AS [c0] ORDER BY [c0].[City] OFFSET @p ROWS FETCH NEXT @p ROWS ONLY ) AS [c2] ON [c1].[CustomerID] = [c2].[CustomerID] ORDER BY [c].[City] OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY ) AS [c1] ON [c0].[CustomerID] = [c1].[CustomerID]
-﻿// Copyright(c) Microsoft Corporation.All rights reserved.
 "Delete [c]@27") "Update [a]@31 -> [b]@31", "Update [c]@134 -> [a]@134",
-GROUP BY [c].[City] ) AS [c1] LEFT JOIN [Customers] AS [c0] ON [c1].[City] = [c0].[City] ORDER BY [c1].[City] GROUP BY [c].[City] ORDER BY COUNT(*) DESC, [c].[City]
-"Update [A]@27 -> [C]@30") "Move [c]@27 -> @17",
-FROM [Customers] AS [c] ORDER BY [c].[ContactName] DESC, [c].[CustomerID]
-FROM [CustomerGroup] AS [c] LEFT JOIN [Customer] AS [c0] ON [c].[OptionalCustomerId] = [c0].[Id]
-ORDER BY [c].[City] OFFSET @p0 ROWS FETCH NEXT @p1 ROWS ONLY ) AS [c0] ON [o0].[CustomerID] = [c0].[CustomerID] GROUP BY [c0].[CustomerID] ORDER BY [c].[City], [c].[Region]
-FROM [Customers] AS [c] WHERE [c].[CustomerID] = N'ALFKI'
-WHERE [c].[Location] IN (@cities1, @cities2, @cities3) WHERE [c].[Nation] = @place OR [c].[Location] = @place0 OR [c].[Location] = @place
-WHERE [c].[City] = N'México D.F.' AND [c].[CustomerID] NOT IN (@ids1, @ids2, @ids3)
-SELECT TOP(1) [c].[Country] ORDER BY COALESCE([c].[Region], N'ZZ')
-ORDER BY [c].[Id1], [c].[Id2]
-FROM [Customers] AS [c] OUTER APPLY (
 WHERE [c].[City] IN (@cities1, @cities2) WHERE [c].[City] = N'México D.F.' AND [c].[CustomerID] NOT IN (@ids1, @ids2, @ids3)
-FROM [Customers] AS [c] ORDER BY [c].[ContactTitle]
-LEFT JOIN [Customers] AS [c] ON [o].[CustomerID] = [c].[CustomerID]
+"Delete [c]@27") End Sub "Update [a In b]@15 -> [a In c]@15", "Update [c]@29 -> [c + 1]@29")
+ORDER BY [c].[Id1], [c].[Id2]
+WHERE [c].[City] = @city_InstancePropertyValue WHERE [c].[City] = @StaticPropertyValue "Move [c]@17 -> @27")
+ORDER BY [c].[City], [c].[CustomerID]
+SELECT DISTINCT [j0].[c] AS [c], [j0].[Id], [j0].[c] AS [c0] GROUP BY [c].[City]
+WHERE [c].[City] = @city_Nested_InstanceFieldValue WHERE [c].[City] = @get_Item
+ORDER BY [c].[Id2], [c].[Id1] DESC
+ORDER BY [c].[City], [o].[OrderID] ) AS [o0] WHERE [c].[City] = @GetCity
+ORDER BY [c].[Id1], [c].[Id2], [c2].[Id2] ORDER BY [c].[Id2], [c].[Id1], [c4].[Name] DESC
+WHERE [c].[City] = N'México D.F.' AND [c].[CustomerID] NOT IN (@ids1, @ids2, @ids3)
+ORDER BY [c].[City] OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY ) AS [c1] ON [c0].[CustomerID] = [c1].[CustomerID] ORDER BY [c].[City] OFFSET @p ROWS
+ORDER BY [c].[Id2], [c].[Id1], [s].[Id2], [s].[Id1], [s].[Id20] DESC
+WHERE [c].[City] = @StaticPropertyValue WHERE [c].[City] = @city_Nested_InstanceFieldValue
+ORDER BY [c].[Name], [c].[Id1], [c].[Id2] ORDER BY [c].[Id1], [c].[Id2], [c2].[Id2]
+FROM [Customers] AS [c] ORDER BY [c].[ContactTitle], [c].[CustomerID]
+© Microsoft 2011 WHERE SELECT TOP(@p)
+SET [c].[SugarGrams] = @p GROUP BY [c].[Name], [c].[Location] ORDER BY [c].[Location]
+ORDER BY [c].[Id1], [c].[Id2], [c4].[Name] DESC
+ORDER BY [c].[Id2], [c].[Id1], [c8].[Id2], [c8].[Id1], [c11].[Id2] DESC
+ORDER BY [c].[Id2], [c].[Id1], [c4].[Name] DESC ORDER BY [c].[Id2], [c].[Id1]
+WHERE [c].[City] = @city WHERE [c].[City] = @GetCity
+ORDER BY [c].[PostalCode], [c].[CustomerID]
+ORDER BY [c].[City] OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY ) AS [c0] ORDER BY [c0].[City] OFFSET @p ROWS FETCH NEXT @p ROWS ONLY ) AS [c2] ON [c1].[CustomerID] = [c2].[CustomerID] ORDER BY [c].[City] OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY ) AS [c1] ON [c0].[CustomerID] = [c1].[CustomerID]
+ORDER BY [c].[Id2], [c].[Id1], [c8].[Id2], [c8].[Id1]
+WHERE [c].[City] = @city_Nested_InstancePropertyValue "Delete [c]@27") End Sub
+ORDER BY [c].[Name], [c].[Id1], [c].[Id2], [c62].[Id1], [c62].[Id2]
+) AS [g1] ON CAST(LEN([g].[Nickname]) AS int) = [g1].[c] ORDER BY [g].[Nickname] [InlineData("(c)", "\u00A9")]
+FROM [Customers] AS [c] ORDER BY [c].[ContactName] DESC, [c].[CustomerID]
 FROM [Customers] AS [c] WHERE [c].[CustomerID] IN (
-<Copyright>Copyright © James Newton-King 2008</Copyright> <Summary>Json.NET is a popular high-performance JSON framework for .NET</Summary>
-ORDER BY [c].[Id2], [c].[Id1], [s].[Id2], [s].[Id1], [s].[Id20] DESC ) AS [s] ON CAST(LEN([g].[Nickname]) AS int) = [s].[c] ORDER BY [g].[Nickname]
-ORDER BY [c0].[c] DESC, [c0].[CustomerID], [s].[OrderID], [s].[OrderID0] ORDER BY [c].[PostalCode], [c].[CustomerID]
+﻿// Copyright(c) Microsoft Corporation.All rights reserved.
+LEFT JOIN [Customers] AS [c] ON [o].[CustomerID] = [c].[CustomerID]
+ORDER BY [c].[Id1], [c].[Id2], [c2].[Id2] <!ENTITY CopyrightText "Copyright (c) &PubName; All Rights..">
+FROM [Customers] AS [c] WHERE [c].[CustomerID] = @customer
+WHEN [c].[City] IN (@cities1, @cities2) THEN 1 WHEN [c].[City] IN (@cities1, @cities2) THEN 1.0E0
+ORDER BY [c].[Name], [c].[Id1], [c].[Id2], [c62].[Id1], [c62].[Id2] ORDER BY [c].[City], [c].[CustomerID], [o].[OrderID]
+[c].[City] = @p UPDATE TOP(@p) [c] SET [c].[ContactName] = @p0
+FROM [Customers] AS [c] INNER JOIN (
+FROM [Customers] AS [c] WHERE [c].[CustomerID] = (
+WHEN [c].[City] IN (@cities1, @cities2) THEN 1.0E0 WHERE [c].[City] = N'México D.F.' AND [c].[CustomerID] IN (@ids1, @ids2, @ids3)
+"defaultValue": "(c) Contoso", "replaces":"(copyright)" }, Gets the Copyright Table
+ORDER BY [c].[CustomerID], [c].[Country] ELSE [c].[Region]
+ORDER BY [c].[Name], [c].[Id1], [c].[Id2], [c62].[Id1], [c62].[Id2], [c87].[Id1], [c87].[Id2] ORDER BY [c].[Id1], [c].[Id2], [c124].[Id1], [c124].[Id2]
+@"SELECT [c].[CustomerID] + [c].[City] AS [Property]
+"Update [A]@11 -> [C]@14") SELECT DISTINCT [j0].[c] AS [c], [j0].[Id], [j0].[c] AS [c0] GROUP BY [c].[City]
+© Microsoft 2012 WHERE
+ORDER BY [c].[Id1], [c].[Id2], [c62].[Id1], [c62].[Id2] "Update [a]@24 -> [c]@38") "Delete [c]@27")
+WHERE [c].[City] = @city_InstancePropertyValue WHERE [c].[City] = @StaticPropertyValue
 "Move [c]@27 -> @17",
 FROM [Customers] AS [c] ORDER BY [c].[CustomerID] DESC
-© 2018 Microsoft Corporation
-@"SELECT [c].[CustomerID] + [c].[City] AS [Property]
-© Microsoft 2013
-WHERE [c].[City] = @StaticPropertyValue WHERE [c].[City] = @city_Nested_InstanceFieldValue
-FROM [Customers] AS [c] INNER JOIN (
-© 2017 The Monotype Corporation
-ORDER BY [c].[Id2], [c].[Id1], [c8].[Id2], [c8].[Id1], [c11].[Id2] DESC ORDER BY [c].[Id2], [c].[Id1], [c2].[Id2]
-"Insert [c]@201", "Delete [Sub F2(b As Integer) : End Sub]@163", "Update [a]@24 -> [c]@38")
-ORDER BY [c].[Name], [c].[Id1], [c].[Id2]
-"Update [A]@11 -> [C]@14")
-SELECT DISTINCT [j0].[c] AS [c], [j0].[Id], [j0].[c] AS [c0] GROUP BY [c].[City]
-INNER JOIN [Child] AS [c] ON [p0].[Id] = [c].[ParentId] ORDER BY [p0].[Id]
-INNER JOIN [Customers] AS [c] ON [o0].[Key] = [c].[CustomerID]
-) AS [g1] ON CAST(LEN([g].[Nickname]) AS int) = [g1].[c] ORDER BY [g].[Nickname] OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY ) AS [s] LEFT JOIN [Weapons] AS [w] ON [s].[FullName] = [w].[OwnerFullName]
-ORDER BY [c].[Name], [c].[Id1], [c].[Id2], [c62].[Id1], [c62].[Id2], [c87].[Id1], [c87].[Id2] ORDER BY [c].[Id1], [c].[Id2], [c124].[Id1], [c124].[Id2]
-<Copyright>$(CopyrightNetFoundation)</Copyright> <PackageThirdPartyNoticesFile>$(MSBuildThisFileDirectory)THIRD-PARTY-NOTICES.TXT</PackageThirdPartyNoticesFile> <PackageReleaseNotes>https://go.microsoft.com/fwlink/?LinkID=799421</PackageReleaseNotes>
+WHERE [c].[ParentAlternateId] = @p AND [c].[ParentId] = @p0 "Move [c]@17 -> @27")
+ORDER BY [c].[Id2], [c].[Id1], [c4].[Name] DESC
 <copyright>Copyright Microsoft 2018</copyright> <tags>MicroBuild</tags> <AL AlgorithmId="$(Satellite_AlgorithmId)"
-FROM [Customers] AS [c] WHERE 0 = 1
-WHERE [c].[Nation] = @place OR [c].[Location] = @place0 OR [c].[Location] = @place
-WHEN [c].[City] IN (@cities1, @cities2) THEN 1 WHEN [c].[City] IN (@cities1, @cities2) THEN 1.0E0
-FROM [Customer] AS [c] CROSS JOIN [Customer] AS [c0]
-fv.LegalCopyright |> Assert.areEqual "Copyright \u00A9 Compressed Space Transport 2380"
-FROM [Customer] AS [c] CROSS JOIN [Customer] AS [c0] ORDER BY [c].[Id], [c0].[Id]
-ORDER BY [c].[City], [c].[CustomerID]
-SELECT TOP(@p) [c].[City] ORDER BY COALESCE([c].[Region], N'ZZ'), [c].[CustomerID]
-ORDER BY [c].[City], [o].[OrderID] ) AS [o0]
-WHERE [c].[City] = @GetCity
-ORDER BY [c].[Id2], [c].[Id1] DESC
-<Copyright>© Microsoft Corporation. All rights reserved.</Copyright> <PackageDescription>CSS parser. Only intended for internal use within ASP.NET Core.</PackageDescription>
-WHEN [c].[City] IN (@cities1, @cities2) THEN 1.0E0 WHERE [c].[City] = N'México D.F.' AND [c].[CustomerID] IN (@ids1, @ids2, @ids3)
-© Microsoft 2010
-ORDER BY [c].[CustomerID] DESC, [c].[Country] DESC
-ORDER BY [c].[CustomerID], [c].[Country] ELSE [c].[Region]
-<Copyright>© Microsoft</Copyright> <Product>Razor Test</Product>
-UPDATE TOP(@p) [c] SET [c].[ContactName] = @p0
-) AS [g1] ON CAST(LEN([g].[Nickname]) AS int) = [g1].[c] ORDER BY [g].[Nickname] [InlineData("(c)", "\u00A9")]
-ORDER BY [c].[Name], [c].[Id1], [c].[Id2] ORDER BY [c].[Id1], [c].[Id2], [c2].[Id2]
-ORDER BY [c0].[c] DESC, [c0].[CustomerID], [o0].[OrderID]
-WHERE [c].[City] = @city_InstancePropertyValue WHERE [c].[City] = @StaticPropertyValue
-"Move [c]@17 -> @27")
-WHERE [c].[City] = N'London' ORDER BY [c].[CustomerID], [s].[OrderID], [s].[OrderID00]
-WHERE [c].[Location] = @value WHERE [c].[Location] IN (@cities1, @cities2, @cities3)
-"defaultValue": "(c) Contoso", "replaces":"(copyright)" }, Gets the Copyright Table
-ORDER BY [c].[Id1], [c].[Id2], [c2].[Id2]
-<!ENTITY CopyrightText "Copyright (c) &PubName; All Rights..">
-ORDER BY [c].[Id2], [c].[Id1], [c8].[Id2], [c8].[Id1], [c11].[Id2] DESC
-FROM [Customers] AS [c] WHERE [c].[CustomerID] = N'FISSA'
-ORDER BY [c].[Id1], [c].[Id2], [c4].[Name] DESC
-FROM [Customers] AS [c] CROSS APPLY (
-© Microsoft 2011 WHERE
-SELECT TOP(@p) [c].[CustomerID] + N' ' + COALESCE([c].[City], N'') AS [Aggregate] SELECT TOP(@p) [c].[CustomerID], [c].[City]
-ORDER BY [c].[Id1], [c].[Id2], [c124].[Id1], [c124].[Id2], [c137].[Id1], [c137].[Id2] ORDER BY [c].[Id2], [c].[Id1], [c8].[Id2], [c8].[Id1], [c11].[Id2] DESC
-ORDER BY [c].[Id2], [c].[Id1] DESC ORDER BY [c].[Id1], [c].[Id2], [c62].[Id1], [c62].[Id2]
-SELECT TOP(@p) [c].[CustomerID], [c].[City] ORDER BY [c].[Name], [c].[Id1], [c].[Id2]
-"Update [a]@31 -> [b]@31", "Update [c]@134 -> [a]@134",
-ORDER BY [c].[Id2], [c].[Id1]
-FROM [Customers] AS [c] WHERE [c].[CustomerID] = (
-FROM [Customers] AS [c] WHERE [c].[CustomerID] = @customer
 WHERE [c].[ParentId] = @p WHERE [c].[ParentAlternateId] = @p AND [c].[ParentId] = @p0
-WHERE [c].[City] = @p WHERE [c].[City] = @city_Nested_InstancePropertyValue
-<rights type="text">Copyright &amp;copy; 2005</rights>
-ORDER BY [c].[Id2], [c].[Id1], [s].[Id2], [s].[Id1], [s].[Id20] DESC
-FROM [Customer] AS [c] ORDER BY [c].[Id]
-ORDER BY [c].[Id2], [c].[Id1], [c8].[Id2], [c8].[Id1]
-"Delete [c]@27") End Sub "Update [a In b]@15 -> [a In c]@15", "Update [c]@29 -> [c + 1]@29")
-"Update [a In b]@15 -> [a In c]@15", "Update [c]@29 -> [c + 1]@29")
+"Update [A]@27 -> [C]@30") "Move [c]@27 -> @17",
+SELECT TOP(1) [c].[Country] ORDER BY COALESCE([c].[Region], N'ZZ') ORDER BY [c].[Id1], [c].[Id2]
 WHERE [c].[City] = N'London' ORDER BY [c].[CustomerID], [o0].[OrderID]
-$requiredCopyright = "$([char]0x00A9) Microsoft Corporation. All rights reserved.";#"© Microsoft Corporation. All rights reserved.";
+fv.LegalCopyright |> Assert.areEqual "Copyright \u00A9 Compressed Space Transport 2380"
+© Microsoft 2010 ORDER
+ORDER BY [c0].[c] DESC, [c0].[CustomerID], [s].[OrderID], [s].[OrderID0] ORDER BY [c].[PostalCode], [c].[CustomerID]
+ORDER BY [c].[Id1], [c].[Id2], [c124].[Id1], [c124].[Id2], [c137].[Id1], [c137].[Id2] ORDER BY [c].[Id2], [c].[Id1], [c8].[Id2], [c8].[Id1], [c11].[Id2] DESC
+FROM [Customers] AS [c] WHERE [c].[CustomerID] = N'ALFKI'
+ORDER BY [c].[Id1], [c].[Id2], [c2].[Id2]
+ORDER BY [c].[City] ) AS [c1] ON [c0].[CustomerID] = [c1].[CustomerID]
+UPDATE TOP(@p) [c] SET [c].[ContactName] = @p0
+WHERE [c].[City] = @get_Item WHERE [c].[City] = @StaticFieldValue
+) AS [g1] ON CAST(LEN([g].[Nickname]) AS int) = [g1].[c] ORDER BY [g].[Nickname] OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY ) AS [s] LEFT JOIN [Weapons] AS [w] ON [s].[FullName] = [w].[OwnerFullName]
+INNER JOIN [Customers] AS [c] ON [o0].[Key] = [c].[CustomerID]
+ORDER BY [c].[Id2], [c].[Id1]
+FROM [Customers] AS [c] CROSS APPLY (
+FROM [Customer] AS [c] ORDER BY [c].[Id]
+FROM [CustomerGroup] AS [c] LEFT JOIN [Customer] AS [c0] ON [c].[OptionalCustomerId] = [c0].[Id]
+ORDER BY [c].[City], [c].[CustomerID], [o].[OrderID]
+Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved. WHERE [c].[City] = @city_Nested_InstanceFieldValue WHERE [c].[City] = @get_Item
+FROM [Customer] AS [c] CROSS JOIN [Customer] AS [c0] ORDER BY [c].[Id], [c0].[Id]
+ORDER BY [c].[Name], [c].[Id1], [c].[Id2]
+SELECT TOP(1) [c].[Country] ORDER BY COALESCE([c].[Region], N'ZZ')
+WHERE [c].[City] = N'London' ORDER BY [c].[CustomerID], [s].[OrderID], [s].[OrderID00]
+© 2017 The Monotype Corporation ORDER
+"Insert [c]@201", "Delete [Sub F2(b As Integer) : End Sub]@163", "Update [a]@24 -> [c]@38")
+SELECT TOP(@p) [c].[CustomerID] + N' ' + COALESCE([c].[City], N'') AS [Aggregate] SELECT TOP(@p) [c].[CustomerID], [c].[City]
+© Microsoft 2013 WHERE
+GROUP BY [c].[City] ORDER BY COUNT(*) DESC, [c].[City]
+INNER JOIN [Child] AS [c] ON [p0].[Id] = [c].[ParentId] ORDER BY [p0].[Id]
+GROUP BY [c].[City] ) AS [c1] LEFT JOIN [Customers] AS [c0] ON [c1].[City] = [c0].[City] ORDER BY [c1].[City] GROUP BY [c].[City] ORDER BY COUNT(*) DESC, [c].[City]
+SELECT TOP(@p) [c].[City] ORDER BY COALESCE([c].[Region], N'ZZ'), [c].[CustomerID]
+ORDER BY [c].[City] OFFSET @p ROWS FETCH NEXT @p0 ROWS ONLY ) AS [c0] INNER JOIN ( SELECT TOP(@p1) [o].[OrderID], [o].[CustomerID] GROUP BY [c].[Country]
+ORDER BY [c].[Name], [c].[Id1], [c].[Id2] "Update [A]@11 -> [C]@14")
+WHERE [c].[City] = @GetCity ORDER BY [c].[Id2], [c].[Id1] DESC
+ORDER BY [c].[Id2], [c].[Id1] DESC, [c0].[Id1], [c0].[Id2], [c1].[Id1]
+ORDER BY [c].[Id2], [c].[Id1] DESC, [c0].[Id1], [c0].[Id2], [c1].[Id1] ORDER BY [c].[Name], [c].[Id1], [c].[Id2], [c62].[Id1], [c62].[Id2]
+ORDER BY [c].[Id2], [c].[Id1], [s].[Id2], [s].[Id1], [s].[Id20] DESC ) AS [s] ON CAST(LEN([g].[Nickname]) AS int) = [s].[c] ORDER BY [g].[Nickname]
+ORDER BY [c].[Id2], [c].[Id1], [c8].[Id2], [c8].[Id1], [c11].[Id2] DESC ORDER BY [c].[Id2], [c].[Id1], [c2].[Id2]
+ORDER BY [c].[Id1], [c].[Id2], [c62].[Id1], [c62].[Id2]
+ORDER BY [c].[City] OFFSET @p0 ROWS FETCH NEXT @p1 ROWS ONLY ) AS [c0] ON [o0].[CustomerID] = [c0].[CustomerID] GROUP BY [c0].[CustomerID] ORDER BY [c].[City], [c].[Region]
+ORDER BY [c].[Country], [c].[City] SELECT TOP(@p) [c].[City]
+SELECT TOP(@p) [c].[CustomerID], [c].[City] ORDER BY [c].[Name], [c].[Id1], [c].[Id2]
+INNER JOIN [Child] AS [c] ON [p0].[Id] = [c].[ParentId] ORDER BY [p0].[Id] INNER JOIN [Customers] AS [c] ON [o0].[Key] = [c].[CustomerID]
+FROM [Customers] AS [c] WHERE [c].[CustomerID] = N'FISSA'
+"Update [a]@24 -> [c]@38") "Delete [c]@27")
+ORDER BY [c].[Id2], [c].[Id1], [c4].[Name] DESC WHERE [c].[City] = @city WHERE [c].[City] = @GetCity
+© 2018 Microsoft Corporation @"SELECT [c].[CustomerID] + [c].[City] AS [Property]
+"Update [a In b]@15 -> [a In c]@15", "Update [c]@29 -> [c + 1]@29")
+ORDER BY [c0].[c] OFFSET @p0 ROWS ORDER BY [c].[City] ) AS [c1] ON [c0].[CustomerID] = [c1].[CustomerID]
+"Update [a]@31 -> [b]@31", "Update [c]@134 -> [a]@134",
+FROM [Customers] AS [c] ORDER BY [c].[ContactTitle]
+<Copyright>© Microsoft</Copyright> <Product>Razor Test</Product>
+<copyright>Copyright 2020</copyright> <tags>Tag1 Tag2</tags>
+"Move [c]@17 -> @27")
+ORDER BY [c0].[c] DESC, [c0].[CustomerID], [o0].[OrderID] WHERE [c].[City] = @city_InstancePropertyValue WHERE [c].[City] = @StaticPropertyValue
+ORDER BY [c].[Id1], [c].[Id2], [c62].[Id1], [c62].[Id2], [c87].[Id1], [c87].[Id2] ORDER BY [c].[Id2], [c].[Id1] DESC
+WHERE [c].[Location] IN (@cities1, @cities2, @cities3) WHERE [c].[Nation] = @place OR [c].[Location] = @place0 OR [c].[Location] = @place
+ORDER BY [c].[City], [c].[CustomerID] DESC
+WHERE [c].[Location] = @value WHERE [c].[Location] IN (@cities1, @cities2, @cities3)
+ORDER BY [c].[Id2], [c].[Id1], [c2].[Id2]
+WHERE [c].[City] = @p WHERE [c].[City] = @city_Nested_InstancePropertyValue
+© Microsoft 2015 ORDER
+FROM [Customers] AS [c] WHERE [c].[CustomerID] LIKE N'W%'
+Portions created by the Initial Developer are Copyright (c) 1998 the Initial Developer. All Rights Reserved.
+© Microsoft Corporation 2010 OpenTelemetry Authors
+© 2017 The Monotype Corporation
+OpenTelemetry Authors Copyright 2019 The gRPC Authors <d:Copyright>Copyright � Microsoft Corporation</d:Copyright>
+GROUP BY [c].[City] ) AS [c1] LEFT JOIN [Customers] AS [c0] ON [c1].[City] = [c0].[City] ORDER BY [c1].[City], [c0].[CustomerID] INNER JOIN [Customers] AS [c] ON [o0].[Key] = [c].[CustomerID]
+© 2018 Microsoft Corporation
+<d:Copyright>Copyright 2004-2012 NewtonIdeas, v2 2013-2014 Vitalii Fedorchenko</d:Copyright> <d:Created m:type="Edm.DateTime">2014-05-10T10:07:04.373Z</d:Created> <d:Copyright>Copyright ©2013 Alexey Kadyrov</d:Copyright>
+ORDER BY [c].[Id1], [c].[Id2], [c124].[Id1], [c124].[Id2]
+© Yoshifumi Kawai. All rights reserved.
+ORDER BY [c0].[c] DESC, [c0].[CustomerID] ORDER BY [c].[City], [c].[CustomerID], [o].[OrderID]
+<Copyright>Copyright © James Newton-King 2008</Copyright> <Summary>Json.NET is a popular high-performance JSON framework for .NET</Summary>
+WHERE [c].[City] = N'México D.F.' AND [c].[CustomerID] IN (@ids1, @ids2, @ids3)
+ORDER BY [c].[Name], [c].[Id1], [c].[Id2], [c62].[Id1], [c62].[Id2], [c75].[Id2] DESC, [c75].[Id1] DESC ORDER BY [c].[Id1], [c].[Id2]
+<d:Copyright>Copyright ©2013 Alexey Kadyrov</d:Copyright>
+ORDER BY [c].[City] OFFSET @p ROWS ORDER BY [c].[Id1], [c].[Id2], [c124].[Id1], [c124].[Id2]
+ELSE [c].[Region] ORDER BY [c0].[c] OFFSET @p0 ROWS
+ORDER BY [c].[Id2], [c].[Id1], [c2].[Id2] ORDER BY [c].[Id1], [c].[Id2], [c4].[Name] DESC
+WHERE [c].[City] = @city_InstanceFieldValue WHERE [c].[City] = @city
+© 2011 Microsoft Corporation
+GROUP BY [c].[Name], [c].[Location] ORDER BY [c].[Location]
+© 2023 Timo Reymann Font
+WHERE [c].[City] = @StaticFieldValue WHERE [c].[City] = @predicateTuple_Item2
+ORDER BY [c].[Id1], [c].[Id2], [s1].[Id1], [s1].[Id2], [s1].[Id10], [s1].[Id20], [s1].[Id100], [s1].[Id200], [s1].[Id11], [s1].[Id21], [s1].[Id12], [s1].[Id22], [s1].[Id101], [s1].[Id201], [s1].[Id110], [s1].[Id210], [s4].[Id1], [s4].[Id2], [s4].[Id10], [s4].[Id20], [s4].[Id100], [s4].[Id200], [s4].[Id11], [s4].[Id21], [s4].[Id12], [s4].[Id22], [s4].[Id101], [s4].[Id201], [s4].[Id110] ORDER BY [c].[Id2], [c].[Id1], [c0].[Id1], [c0].[Id2], [c1].[Id1]
+ORDER BY [c].[Id2], [c].[Id1], [c0].[Id1], [c0].[Id2], [c1].[Id1]
 
                                  Apache License
                            Version 2.0, January 2004
@@ -7485,11 +7529,16 @@ this file might be covered by the GNU General Public License.
 
   --
 
+Copyright 2009 Canonical Ltd.
 Copyright (c) 2007 Francois Gouget
+Copyright (c) 1991 Free Software Foundation, Inc.
 Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
 Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+Copyright (c) 2018 Igalia S.L.
 Copyright (c) NET Foundation and Contributors
 Copyright (c) OtherCorp. All rights reserved.
+Copyright (c) 2015, 2017-2019 Red Hat, Inc.
+copyrighted by the Free Software Foundation
 GPL-v3 and LGPL-v3: Copyright (C) [Samba team](https://www.samba.org/samba/team/).
 
                     GNU GENERAL PUBLIC LICENSE
@@ -9628,6 +9677,7 @@ Software without prior written authorization of the copyright holder.
 
   --
 
+Copyright (c) 1991-1998 Thomas G. Lane.
 copyright (c) 1991-1998 Thomas G. Lane.
 copyright by M.I.T.
 copyright by the Free Software Foundation
@@ -10263,6 +10313,7 @@ That's all there is to it!
 
   --
 
+Copyright 2009 Canonical Ltd.
 Copyright (c) 2007 Francois Gouget
 Copyright (c) 1991 Free Software Foundation, Inc.
 Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
@@ -12365,10 +12416,14 @@ That's all there is to it!
 
 Copyright 2009 Canonical Ltd.
 Copyright (c) 2007 Francois Gouget
+Copyright (c) 1991 Free Software Foundation, Inc.
 Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
 Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+Copyright (c) 2018 Igalia S.L.
 Copyright (c) NET Foundation and Contributors
 Copyright (c) OtherCorp. All rights reserved.
+Copyright (c) 2015, 2017-2019 Red Hat, Inc.
+copyrighted by the Free Software Foundation
 GPL-v3 and LGPL-v3: Copyright (C) [Samba team](https://www.samba.org/samba/team/).
 
                    GNU LESSER GENERAL PUBLIC LICENSE
@@ -14507,10 +14562,10 @@ Copyright 1991-2024 © Unicode, Inc. All rights reserved.
 © 2016 Unicode®, Inc.
 © 2018 Unicode®, Inc.
 © 2023 Unicode®, Inc.
-© 2020 Unicode®, Inc.
-© 2024 Unicode®, Inc.
 © 2022 Unicode®, Inc.
 © 2019 Unicode®, Inc.
+© 2020 Unicode®, Inc.
+© 2024 Unicode®, Inc.
 
 UNICODE, INC. LICENSE AGREEMENT - DATA FILES AND SOFTWARE
 
@@ -14589,9 +14644,17 @@ internal or external distribution as long as this notice remains
 attached.
   --
 
+Copyright (c) 2016 12Sided Technology, LLC.
 Copyright (c) 2012 7digital Media, Ltd (http://www.7digital.com)
 Copyright : "www.pumpkinbeth.com "
 Copyright : www.pumpkinbeth.com
+Copyright (C) 2017 ARM Holdings Inc. Authors: Adenilson Cavalcanti <adenilson.cavalcanti@arm.com>
+Copyright (c) 2017 ARM Holdings Inc. Authors: Adenilson Cavalcanti <adenilson.cavalcanti@arm.com>
+Copyright (c) 2022 Adam Stylinski
+Copyright Adam Stylinski <kungfujesus06@gmail.com>
+Copyright (c) 2021 Adam Stylinski <kungfujesus06@gmail.com>
+Copyright (C) 2022 Adam Stylinski Authors: Brian Bockelman <bockelman@gmail.com>
+Copyright (c) 2022 Adam Stylinski Authors: Brian Bockelman <bockelman@gmail.com>
 Copyright 2000 Adobe Systems Incorporated
 Copyright 2000 Adobe Systems, Inc.
 Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
@@ -14624,6 +14687,7 @@ Copyright (C) 2019 Brock York <twunknown AT gmail.com>
 Copyright (c) 2014 CERN and Aalto University
 (c) 2019 Calvin Buckley
 Copyright (c) 2015 Calvin Metcalf
+Copyright (c) 2023 Cameron Cawley
 Copyright (c) 2014-2016 CatenaLogic
 Copyright 1996 Chih-Hao Tsai
 Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
@@ -14651,6 +14715,7 @@ Copyright 2018 Daniel Lemire
 Copyright (c) 2008 Daniel Morgan
 Copyright (c) 2014 Darin
 Copyright (c) 2014 Darin Morrison
+Copyright (c) 2000-2001 David Calisle, Oliver Becker, Rick Jelliffe and Academia Sinica Computing Center, Taiwan
 Copyright (c) 2019 David Fowler
 Copyright (c) 2007 David Mosberger-Tang
 Copyright (c) 2015 David Owens
@@ -14704,20 +14769,25 @@ Copyright 2010, 2013-2018, 2022 Google Inc. All Rights Reserved.
 Copyright (c) 2010-2019 Google LLC. http://angular.io/license
 Copyright 2016 HP Inc.
 Copyright (c) HTML5 Boilerplate
+Copyright (c) 2017, 2019, 2024 Hans Kristian Rosbach
 Copyright (c) 2001-2005, 2022 Hewlett-Packard Co
 Copyright (c) 1998-1999, 2002-2003, 2005 Hewlett-Packard Co David Mosberger-Tang <davidm@hpl.hp.com>
 Copyright (c) 1998 Hewlett-Packard Company
 Copyright (c) 2001-2005 Hewlett-Packard Development Company, L.P.
 Copyright (c) 2006-2007, 2017 IBM
-(c) Id2 s1 Id1 s1 Id2 s1 Id20 DESC, s1 Id10 DESC, s1 Id100 s1 Id200 s1 Id11 s1 Id21 s1 Id12 s1 Id22 s1 Id101 s1 Id201
+Copyright (c) 2019-2021 IBM Corporation
+(c) Id2 s1 Id1 s1 Id2 s1 Id20 DESC, s1 Id10 DESC, s1 Id100 s1 Id200 s1 Id11 s1 Id21 s1 Id12 s1 Id22
 (c) 2017 Identity.ExternalClaims
 (c) 2016 IdentitySample
 Copyright (c) 2015 Imagination Technologies Limited
 Copyright Imports System
 Copyright Imports System Imports
 Copyright Init Default
-Copyright (c) 2004-2006 Intel Corporation
-Copyright (c) 2000 Intel Corporation. All rights reserved.
+Copyright (c) 2004-2006, 2013 Intel Corporation
+Copyright (C) 2017 Intel Corporation Authors: Arjan van de Ven <arjan@linux.intel.com>
+Copyright (c) 2017 Intel Corporation Authors: Arjan van de Ven <arjan@linux.intel.com>
+Copyright (c) 2013 Intel Corporation Jim Kukunas
+Copyright (c) 2000, 2013 Intel Corporation. All rights reserved.
 Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
 (c) International Organization
 Portions (c) International Organization
@@ -14806,9 +14876,9 @@ Copyright 2010-2013, 2015-2016, 2018-2020, 2022 Microsoft
 Copyright (c) 2011-2020 Microsoft Corp
 Copyright (c) 1996-1998 Microsoft Corp. All rights reserved.
 Copyright (c) 1997 Microsoft Corp.1 Microsoft Corporation1!0 Microsoft Root
-Copyright (c) 2002-2012, 2017-2018 Microsoft Corporation
 (c) 1996-2009 Microsoft Corporation
 Copyright 1999-2005, 2019, 2021-2023 Microsoft Corporation
+Copyright (c) 2002-2012, 2017-2018 Microsoft Corporation
 Copyright (c) 2017-2018 Microsoft Corporation (http://www.microsoft.com)
 Copyright (c) 2005 Microsoft Corporation . Tutti
 (c) 2005 Microsoft Corporation . Tüm
@@ -14987,7 +15057,8 @@ Copyright 2008-2013 © Kristian Høgsberg
 Copyright 2019 © Nikita Tsukanov
 Copyright 2013 © Rafael Antognolli
 Copyright 2015 © Red Hat Inc. Binding
-Id110 s1 Id210 (c) 2017
+Copyright 2015 © Red Hat Inc. Binding Id110
+Id101 s1 Id201 (c) 2017
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -16653,6 +16724,7 @@ The User-Visible Attribution Notice below, when provided, must appear in each us
   --
 
 Copyright Disclaimers
+Copyright Disclaimers Copyright Status
 Copyright Status for SAX
 
 Copyright Status for SAX
@@ -16966,6 +17038,9 @@ X Window System is a trademark of X Consortium, Inc.
   --
 
 Copyright (c) 2016 12Sided Technology, LLC.
+Copyright (c) 2012 7digital Media, Ltd (http://www.7digital.com)
+Copyright : "www.pumpkinbeth.com "
+Copyright : www.pumpkinbeth.com
 Copyright (C) 2017 ARM Holdings Inc. Authors: Adenilson Cavalcanti <adenilson.cavalcanti@arm.com>
 Copyright (c) 2017 ARM Holdings Inc. Authors: Adenilson Cavalcanti <adenilson.cavalcanti@arm.com>
 Copyright (c) 2022 Adam Stylinski
@@ -16973,11 +17048,42 @@ Copyright Adam Stylinski <kungfujesus06@gmail.com>
 Copyright (c) 2021 Adam Stylinski <kungfujesus06@gmail.com>
 Copyright (C) 2022 Adam Stylinski Authors: Brian Bockelman <bockelman@gmail.com>
 Copyright (c) 2022 Adam Stylinski Authors: Brian Bockelman <bockelman@gmail.com>
+Copyright 2000 Adobe Systems Incorporated
+Copyright 2000 Adobe Systems, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc.
+Copyright (c) 2017-2020 Advanced Micro Devices, Inc. All rights reserved.
+Copyright 2010 Alan McGovern <alan.mcgovern@gmail.com>
+(c) 2003 Aleksey Sanin (aleksey@aleksey.com)
+Copyright (c) 2018 Alex Parker Code imported from https://github.com/zanders3/json
+Copyright (c) 2018 Alexander Chermyanin
+Copyright 2006 Alp Toker <alp@atoker.com>
+(c) Ameya Gargesh
+(c) 2007-2008 Andreas Faerber
+Copyright 2007-2008 Andreas Faerber
+Copyright (c) 2007-2008 Andreas Faerber
+(c) 2004 Andreas Nahr
+Copyright (c) Andrew Arnott
+Copyright (c) Andrew Arnott. All rights reserved.
+Copyright (c) 2008-2014 Antoine Aubry and contributors
+Copyright (c) 2022 Avalonia. All rights reserved.
+Copyright (c) 2025 AvaloniaUI OU
+Copyright (c) AvaloniaUI OÜ All Rights Reserved
+Copyright (c) 2004 BEA Systems
+Copyright (c) 2007-2010 Baptiste Lepilleur
+Copyright (c) 2014 Ben Wagner Bold
+Copyright (c) 2014 Ben Wagner Embedding
+Copyright (c) 2010-2014 Benjamin Peterson
+(c) 2006 Broadcom
+Copyright 2006 Broadcom
+Copyright (c) 2019 Brock York
+Copyright (C) 2019 Brock York <twunknown AT gmail.com>
 Copyright (c) 2014 CERN and Aalto University
 (c) 2019 Calvin Buckley
 Copyright (c) 2015 Calvin Metcalf
 Copyright (c) 2023 Cameron Cawley
 Copyright (c) 2014-2016 CatenaLogic
+Copyright 1996 Chih-Hao Tsai
+Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of Illinois c-tsai4@uiuc.edu http://casper.beckman.uiuc.edu/~c-tsai4
 Copyright (c) 2015 Christian Klutz
 Copyright (c) 2012-2013 Christopher Jeffrey (MIT License) https://github.com/chjj/term.js
 Copyright (c) 2011-2018 Christopher Jeffrey (https://github.com/chjj/)
@@ -16994,6 +17100,7 @@ Portions (c) 1990 Compugraphic Corporation. Typeface
 Copyright (c) 2014 Contributed by Milian Wolff <address@hidden>
 Copyright (c) 2016 Copyright (c) Microsoft.
 (c) Country (c)
+Copyright (c) 2019 CreateLab
 (c) Cure53 and other contributors
 Copyright (c) 2020 Dan Shechter
 Copyright 2018 Daniel Lemire
@@ -17028,6 +17135,7 @@ Copyright (c) 2017 Esteban Castro Borsani
 Copyright (c) 2001-2006 Expat maintainers.
 Copyright 2010-2016 FUJIWARA, Yusuke
 Copyright (c) 2011 Fabrice Bellard
+Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
 Copyright (c) 2009 Federico Di Gregorio.
 Copyright (c) 2016 Federico Zivolo and contributors
 Copyright (c) Feross Aboukhadijeh
@@ -17061,7 +17169,7 @@ Copyright (c) 1998 Hewlett-Packard Company
 Copyright (c) 2001-2005 Hewlett-Packard Development Company, L.P.
 Copyright (c) 2006-2007, 2017 IBM
 Copyright (c) 2019-2021 IBM Corporation
-(c) Id2 s1 Id1 s1 Id2 s1 Id20 DESC, s1 Id10 DESC, s1 Id100 s1 Id200 s1 Id11 s1 Id21 s1 Id12 s1 Id22 s1 Id101 s1 Id201
+(c) Id2 s1 Id1 s1 Id2 s1 Id20 DESC, s1 Id10 DESC, s1 Id100 s1 Id200 s1 Id11 s1 Id21 s1 Id12 s1 Id22
 (c) 2017 Identity.ExternalClaims
 (c) 2016 IdentitySample
 Copyright (c) 2015 Imagination Technologies Limited
@@ -17073,6 +17181,7 @@ Copyright (C) 2017 Intel Corporation Authors: Arjan van de Ven <arjan@linux.inte
 Copyright (c) 2017 Intel Corporation Authors: Arjan van de Ven <arjan@linux.intel.com>
 Copyright (c) 2013 Intel Corporation Jim Kukunas
 Copyright (c) 2000, 2013 Intel Corporation. All rights reserved.
+Copyright (c) 2014 International Business Machines Corporation and others. All Rights Reserved.
 (c) International Organization
 Portions (c) International Organization
 Copyright (c) Isaac Z. Schlueter and Contributors
@@ -17080,6 +17189,7 @@ Copyright (c) Isaac Z. Schlueter and Contributors https://github.com/npm/node-se
 (c) 2004 Ivan Hamilton
 Copyright (c) 2006, 2008 Ivan N. Zlatev
 Copyright (c) 2007 Ivan N. Zlatev <contact@i-nz.net>
+(c) JS Foundation and other contributors
 Copyright JS Foundation and other contributors
 Copyright 2010 James Halliday
 Copyright (c) 2012 James Kovacs
@@ -17099,8 +17209,8 @@ Copyright (c) 2010 Jean-Philippe Barrette-LaPierre, <jpb@rrette.com>
 Copyright (c) 1995-2024 Jean-loup Gailly
 (c) 1995-2024 Jean-loup Gailly & Mark Adler
 Copyright (c) 1995-2024 Jean-loup Gailly and Mark Adler
-(c) 1995-2024 Jean-loup Gailly and Mark Adler
 Copyright 1995-2024 Jean-loup Gailly and Mark Adler
+(c) 1995-2024 Jean-loup Gailly and Mark Adler
 copyright (c) 1995-2024 Jean-loup Gailly and Mark Adler
 Copyright (c) 1995-2013 Jean-loup Gailly and Mark Adler http://www.zlib.net/zlib_license.html
 Copyright (c) 1995-2024 Jean-loup Gailly, Mark Adler
@@ -17108,6 +17218,7 @@ Copyright (c) 2019 Jeff Hykin
 Copyright (c) 2011 Jeffrey Stedfast
 Copyright (c) 2009-2014 Jeremy Ashkenas
 Copyright (c) 2014 Jesse Weed
+Copyright (c) Joel Mueller
 Copyright (c) 2004 John Gruber http://daringfireball.net
 Portions copyright (c) 2014-2021 Konstantin Nosov Fast-zlib
 Copyright (C) 2016 Marian Beermann (support for initial value) Authors: Wajdi Feghali <wajdi.k.feghali@intel.com>
@@ -17127,8 +17238,8 @@ Copyright (c) 1997-2015 Sam Lantinga <slouken@libsdl.org>
 Copyright (c) 2023 SiFive, Inc. All rights reserved.
 Copyright Wangyang Guo (wangyang.guo@intel.com)
 Copyright (c) 2016 Yang Zhang
-Copyright (c) 2025 Yin Tong <yintong.ustc@bytedance.com>, ByteDance
-Id110 s1 Id210 (c) 2017
+Copyright (c) 2025 Yin Tong <yintong.ustc@bytedance.com>, ByteDance Id110
+Id101 s1 Id201 (c) 2017
 
 This software is provided 'as-is', without any express or implied warranty. In no
 event will the authors be held liable for any damages arising from the use of this
