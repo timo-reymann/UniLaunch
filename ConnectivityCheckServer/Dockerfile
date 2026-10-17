@@ -8,7 +8,7 @@ FROM timoreymann/ubuntu-runtime:26.04
 LABEL org.opencontainers.image.title="connecitvity-check" \
       org.opencontainers.image.description="Connectivity checker that is used by UniLaunch to verify internet connection works." \
       org.opencontainers.image.ref.name="main" \
-      org.opencontainers.image.licenses='GNU GPL v3' \
+      org.opencontainers.image.licenses='Apache-2.0' \
       org.opencontainers.image.vendor="Timo Reymann <mail@timo-reymann.de>" \
       org.opencontainers.image.authors="Timo Reymann <mail@timo-reymann.de>" \
       org.opencontainers.image.url="https://github.com/timo-reymann/UniLaunch" \
