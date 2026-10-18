@@ -1,3 +1,11 @@
+## [1.8.1](https://github.com/timo-reymann/UniLaunch/compare/1.8.0...1.8.1) (2026-10-18)
+
+### Bug Fixes
+
+* **connectivity-check:** Correct license label in Dockerfile ([0318ae3](https://github.com/timo-reymann/UniLaunch/commit/0318ae3dc4f283dc26d8105583cbcc7f879da4b6))
+* **macos:** show UniLaunch instead of Avalonia Application ([6601ee0](https://github.com/timo-reymann/UniLaunch/commit/6601ee0db035d54f3613717ebb32fbc1c8ea8d53))
+* **ort:** Correct Avalonia.Angle.Windows.Natives curation id ([d9230ab](https://github.com/timo-reymann/UniLaunch/commit/d9230ab24e42e0b014f191cc39d9083854065155))
+
 ## [1.8.0](https://github.com/timo-reymann/UniLaunch/compare/1.7.4...1.8.0) (2026-10-16)
 
 ### Features
