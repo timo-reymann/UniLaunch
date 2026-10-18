@@ -119,6 +119,10 @@ _macos-build-app:
 		<dict>\n\
 			<key>CFBundleExecutable</key>\n\
 			<string>UniLaunch</string>\n\
+			<key>CFBundleName</key>\n\
+			<string>UniLaunch</string>\n\
+			<key>CFBundleDisplayName</key>\n\
+			<string>UniLaunch</string>\n\
 			<key>CFBundleIconFile</key>\n\
 			<string>$(shell basename $(MACOS_APP_FILE_ICON))</string>\n\
 			<key>CFBundleIdentifier</key>\n\
