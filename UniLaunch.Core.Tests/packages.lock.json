@@ -10,12 +10,12 @@
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
-        "requested": "[18.10.1, )",
-        "resolved": "18.10.1",
-        "contentHash": "SxCFvJE/2ltUQgCgv6+Ixagohw4sZc9hM7Wid2foaNM7paBscktoHLoRDz91fW8wbHG87Rg9Ku59/8PXumqUrA==",
+        "requested": "[18.11.1, )",
+        "resolved": "18.11.1",
+        "contentHash": "WhRZZb+oLAB2neaTa773vfPl+eIyfaMtDSZBHFJtWccty0OZbPXimIzDv1/dux5/Sr2/GqKEzOT8U4295g1GJg==",
         "dependencies": {
-          "Microsoft.CodeCoverage": "18.10.1",
-          "Microsoft.TestPlatform.TestHost": "18.10.1"
+          "Microsoft.CodeCoverage": "18.11.1",
+          "Microsoft.TestPlatform.TestHost": "18.11.1"
         }
       },
       "xunit": {
@@ -37,20 +37,20 @@
       },
       "Microsoft.CodeCoverage": {
         "type": "Transitive",
-        "resolved": "18.10.1",
-        "contentHash": "tV7tCyp/t+DuwQugLkCeUN7NBFFB4fEGRPr0gkMQ2nQgAvQQjmGlZZi1dsLzbyoe/A0mbnKybmkIh8qhT9p4Zw=="
+        "resolved": "18.11.1",
+        "contentHash": "E3VdeksrrkN0fp/Fjsfr3yraNGHbgxRx3k2pjVIohYiZcCcrXQ/Dz6YX7KcZpx8NCf4G8yqnGA5OnMalds/qjg=="
       },
       "Microsoft.TestPlatform.ObjectModel": {
         "type": "Transitive",
-        "resolved": "18.10.1",
-        "contentHash": "o+PuLDRVp1iwiVAPBADZItXgm9Ck23XtPhE4kZtZVi0uYnMiiz1Dx9Cjh75kJ+ijfqnORL3VOTOaQVKi0f/ixg=="
+        "resolved": "18.11.1",
+        "contentHash": "CWP0wn6kt1LYKTPIlQZbklsZVZDurjszhX5+ijQaxFTJ4p6SNygniudtTcwIxPU1mDTHba7H3AwQ1AC40AA6bw=="
       },
       "Microsoft.TestPlatform.TestHost": {
         "type": "Transitive",
-        "resolved": "18.10.1",
-        "contentHash": "KYz2omqkoz9E2mWa4fdgT+Ycie1wi5968EmyJlusjlp87RxxtA2FvDm8tcBEYIDzLnkWGnsKjE4d13Z7/rxkQA==",
+        "resolved": "18.11.1",
+        "contentHash": "dVQMb8GArL+vWgTbYhOgsCA1gKI1l52jfdw9pvQiaet5IbzwioQDCzbGDVt9QeeHCrMnheW2FA+Sm92mxGr+3w==",
         "dependencies": {
-          "Microsoft.TestPlatform.ObjectModel": "18.10.1"
+          "Microsoft.TestPlatform.ObjectModel": "18.11.1"
         }
       },
       "Newtonsoft.Json": {
